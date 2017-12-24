@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <ActionSheet
+    showCancelButton="true"
+    placement="Top">
+      <InputBase placeholder="Scan Checkout Stn." change="scanCheckout"/>
+  </ActionSheet>
+</core:FragmentDefinition>

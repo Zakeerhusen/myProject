@@ -1,0 +1,53 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="OrderSummary" title="Order Summary" contentWidth="33rem">
+		<VBox id="VB1">
+			<!-- <FlexBox justifyContent="Left">
+				<Label text="Order Summary:" design="Bold" />
+			</FlexBox> -->
+			<HBox>
+				<Input type="Text" value="Order #" width="170px" editable="false" />
+				<Input type="Text" value="{SalesOrder}" width="100%"
+					editable="false" />
+			</HBox>
+			<HBox>
+				<Input type="Text" value="Tote #" width="170px" editable="false" />
+				<Input type="Text" value="{Ztote}" width="100%" editable="false" />
+			</HBox>
+			<HBox>
+				<Input type="Text" value="Total Items #" width="170px"
+					editable="false" />
+				<Input type="Text" value="{TotalItems}" width="100%"
+					editable="false" />
+			</HBox>
+			<HBox>
+				<Input type="Text" value="Items Confirmed #" width="170px"
+					editable="false" />
+				<Input type="Text" value="{ItemsConf}" width="100%" editable="false" />
+			</HBox>
+			<HBox>
+				<Input type="Text" value="Items Shorted #" width="170px"
+					editable="false" />
+				<Input type="Text" value="{ItemsShort}" width="100%"
+					editable="false" />
+			</HBox>
+			<HBox>
+				<Input type="Text" value="No. of Labels #" width="170px"
+					editable="false" />
+				<Input type="Text" value="{Nooflabels}" width="100%"
+					editable="false" />
+			</HBox>
+			<HBox>
+				<Input type="Text" value="Staging Area #" width="170px"
+					editable="false" />
+				<Input type="Text" value="{StagingAreas}"
+					editable="false" width="20rem"/>
+				
+			</HBox>
+			
+		</VBox>
+		<endButton>
+				<Button id = "Btn_OK" text="OK" press="onOk" />
+			</endButton>
+	</Dialog>
+</core:FragmentDefinition>

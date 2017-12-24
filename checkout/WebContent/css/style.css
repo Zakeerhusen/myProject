@@ -1,0 +1,349 @@
+#Sku_EA,#Sku_LB,#Desc_EA,#Desc_LB {
+	margin-left: 2rem;
+	font-size: medium;
+	font-weight: 700;
+}
+#EA_Box,#LB_Box{
+	margin-left: 0.5rem;
+	     margin-right: 0.75rem;
+}
+#EA_BtnBox,#LB_Btn_Box{
+	margin-left : 1rem; 
+}
+.EA_text{
+	width: 6rem;
+	margin-left: 0.5rem;
+	font-size: medium;
+	/* margin-bottom: 0.5rem; */
+}
+#LB_Button{
+	margin-left: 2rem;
+}
+#reqQty_EA,#reqQty_LB1{
+	margin-left: 2rem;
+	font-size: medium;
+	font-weight: 700;
+}
+#reqQty_LB2{
+	 margin-left: 0.5rem; 
+	font-size: medium;
+	font-weight: 700;
+}
+#inc {
+	margin-left: 137px;
+}
+#itemCount_EA,#itemCount_LB{
+	text-align: left;
+	margin-top: 0.5rem;
+	font-size: medium;
+	font-weight: 700;
+	padding: 0.5rem;
+}
+#oScanWt{
+	 margin-left: 2rem;
+}
+
+#HBox_Sku_LB,#HBox_Desc_LB,#HBox_ReqQty_LB,#HBox_OrderTxt_LB,#HBox_ScanWt_LB,
+#HBox_Sku_EA,#HBox_Desc_EA,#HBox_ReqQty_EA
+{
+    margin-top: 0.5rem;
+        width: 23rem;
+}
+.circleButton div.sapMBtnInner{
+	height: 100%;
+	width: 50%;
+	border-radius: 50%;
+}
+.imgCenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+#inc_dcnHBOX_EA{
+	display: flex;
+	margin-left: 8.4rem;
+	font-size: medium;
+	margin-bottom: auto;
+	    margin-top: 0.5rem;
+}
+#inc_dcnHBOX_LB {
+	display: flex;
+	margin-left: 5.5rem;
+	font-size: medium;
+	margin-bottom: auto;
+}
+#oderText{
+	    margin-top: 1rem;
+}
+
+.sapMImg.sapMNoImg {
+	visibility: visible;
+}
+#__vbox20 {
+	width: 20rem;
+}
+#oBtn1, #oBtn2, #oBtn3, #oBtn11, #oBtn22, #oBtn33,#oBtn4,#close_LB{
+	margin: 0.5rem;
+	width: 12rem;
+}
+.bold {
+	font-weight: bold;
+}
+.sapMImg.sapMNoImg {
+	visibility: visible;
+}
+.grade {
+	opacity: 0.4;
+	pointer-events: none;
+	background-color: rgba(118, 168, 168, 0);
+}
+.grade1{
+	pointer-events: none;
+}
+.sapMImg.sapMNoImg {
+	visibility: visible !important;
+	background-size: 100%;
+	background-image: url("../images/noImage.jpg");
+}
+.sapUiTableRowHidden .sapMImg.sapMNoImg {
+	visibility: hidden !important;
+	background-size: 100%;
+	background-image: none !important;
+}
+#Weight_Tol_Dialog-cont{
+	    background-color: orange;
+}
+#Header_bar-BarRight{
+	background-color: orange;
+}
+#flex_Exception{
+	margin-top: 6%;
+}
+#text_tol,#text_tol_Value{
+	    font-size: medium;
+    font-weight: 700;
+}
+#SplInst{
+	color: red;
+}
+#bagsLoc,#printBag-inner,#allDone,#oBtn43,#SplInstText,#SplInst{
+	font-size: medium;
+	font-weight: 700;
+}
+
+#Btn_OK{
+	width: 8rem;
+}
+#Btn_OK-inner,#OrderSummary-header-BarPH {
+	    background-color: yellowgreen;
+    font-size: medium;
+    font-weight: 700;
+}
+#OrderSummary-title{
+	    font-size: medium;
+    font-weight: 700;
+}
+
+
+#area0-inner,#area1-inner,#area2-inner{
+text-align: center;
+}
+/* -----------------------Checkout1---------------------------------------- */
+#__xmlview0--oCheckoutLbl {
+	border-style: solid;
+	font-size: medium;
+	padding: 1.4rem;
+	font-weight: 600;
+	font-family: sans-serif;
+}
+
+#__xmlview0--ImageBoxId {
+	margin-right: -2rem;
+}
+
+#__xmlview0--mainBoxId {
+	height: 41rem;
+}
+
+#__xmlview0--ScanBoxId {
+	margin: 7rem;
+	margin-right: 1rem;
+}
+
+#__xmlview0--loginId-inner {
+	width: 20rem;
+}
+
+#__xmlview0--headerImageId {
+	width: 7rem;
+}
+
+#__xmlview0--scanInnerBoxId {
+	margin-top: 7rem;
+	margin-left: 5rem;
+}
+
+#__xmlview0--loginId {
+	margin-left: 5rem;
+}
+
+#__xmlview0--keypadPanelId {
+	/* margin-top: 3.5rem; */
+	padding: 4rem;
+	padding-right: 0px;
+	width: 17rem;
+}
+
+#__xmlview0--keypadPanel2 {
+	margin-top: 4rem;
+	width: 6rem;
+	margin-left: 8.5rem;
+}
+
+#__xmlview0--btn_1-inner, #__xmlview0--btn_2-inner,
+	#__xmlview0--btn_3-inner, #__xmlview0--btn_4-inner,
+	#__xmlview0--btn_5-inner, #__xmlview0--btn_6-inner,
+	#__xmlview0--btn_7-inner, #__xmlview0--btn_8-inner,
+	#__xmlview0--btn_9-inner, #__xmlview0--btn_0-inner,
+	#__xmlview0--btn_dot-inner {
+	/* height: 4rem;
+	width: 5rem; */
+	width: 8.4rem;
+	height: 8rem;
+	padding-top: 40px;
+	font-size: 30px
+}
+
+#__xmlview0--btn_1, #__xmlview0--btn_2, #__xmlview0--btn_3,
+	#__xmlview0--btn_4, #__xmlview0--btn_5, #__xmlview0--btn_6,
+	#__xmlview0--btn_7, #__xmlview0--btn_8, #__xmlview0--btn_9,
+	#__xmlview0--btn_dot {
+	/* width: 5rem;
+	height: 4rem; */
+	width: 8rem;
+	height: 8rem;
+	margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+#__xmlview0--btn_0 {
+	/* width: 10rem; */
+	width: 16.2rem;
+}
+
+#__xmlview0--btn_entr, #__xmlview0--btn_clr {
+	height: 16.2rem;
+	margin-bottom: 0rem;
+	width: 8rem;
+}
+
+#__xmlview0--btn_entr-inner, #__xmlview0--btn_clr-inner {
+	height: 16.1rem;
+	padding-top: 80px;
+	font-size: 20px;
+}
+
+#__xmlview0--btn_0-inner {
+	width: 16.4rem;
+}
+/* #__xmlview0--KeypadBox1,#__xmlview0--KeypadBox2,#__xmlview0--KeypadBox3,#__xmlview0--KeypadBox4{
+	    width: 15rem;
+} */
+#__xmlview0--btn_7-content, #__xmlview0--btn_1-content,
+	#__xmlview0--btn_2-content, #__xmlview0--btn_3-content,
+	#__xmlview0--btn_4-content, #__xmlview0--btn_5-content,
+	#__xmlview0--btn_6-content, #__xmlview0--btn_8-content,
+	#__xmlview0--btn_9-content, #__xmlview0--btn_0-content {
+	padding: 0.4rem;
+	padding-right: 1rem;
+	font-size: 30px;
+}
+
+#__xmlview0--btn_entr-content, #__xmlview0--btn_clr-content {
+	padding-top: 2rem;
+}
+
+#__xmlview0--ScanTextId, #__xmlview0--sysTimeId, #__xmlview0--sysDayId {
+	font-size: medium;
+	font-family: sans-serif;
+	font-weight: 700;
+}
+
+#__xmlview0--ScanTextId {
+	font-size: 20px;
+	font-family: sans-serif;
+	font-weight: 700;
+}
+
+#__xmlview0--KeypadBoxId {
+	margin-left: 3rem;
+}
+
+#__xmlview0--KeypadVBox2 {
+	margin-left: -15px;
+}
+
+/* -----------------------Checkout2---------------------------------------- */
+#__xmlview1--logOut{
+	    margin-left: 2rem;
+    margin-top: 1rem;
+}
+#__xmlview1--headerImageId1 {
+	width: 6rem;
+}
+
+#__xmlview1--ImageBoxId1 {
+	width: 7rem;
+}
+#__xmlview1--currentToteId{
+	    width: 11rem;
+	        margin-top: 1rem;
+}
+#__xmlview1--CurrentToteTxt{
+		width: 7rem;
+	    margin-top: 1rem;
+}
+#__xmlview1--OrderTxt, #__xmlview1--orderNo1,
+	#__xmlview1--DeliveryDateTxt, #__xmlview1--deliveryDate,
+	#__xmlview1--DeliveryWindowTxt, #__xmlview1--deliveryWindow,
+	#__xmlview1--customerName, #__xmlview1--customerAddress,
+	#__xmlview1--TotalPicksTxt, #__xmlview1--totalPick,
+	#__xmlview1--RemaningPicksTxt, #__xmlview1--remainingPick,
+	#__xmlview1--fullNameId, #__xmlview1--DurationTxt,
+	#__xmlview1--DurTimeId, #__xmlview1--LogdInTxt,
+	#__xmlview1--loginTimeId, #__xmlview1--T_Image, #__xmlview1--T_Sku,
+	#__xmlview1--T_Desc, #__xmlview1--T_Qty, #__xmlview1--ScanIdTxt,
+	#__xmlview1--CurrentToteTxt, #__xmlview1--currentToteId,
+	#__xmlview1--RBG-0-label, #__xmlview1--RBG-1-label,
+	#__xmlview1--RBG-2-label, #__xmlview1--sysTimeId, #__xmlview1--sysDayId,
+	#__xmlview1--OrderCheckedoutId, #__xmlview1--OrderCheckedoutTxt,
+	#__xmlview1--OrderInProgressId, #__xmlview1--OrderInProgressTxt,
+	#__xmlview1--PendingOrdersId, #__xmlview1--PendingOrdersTxt,
+	#__xmlview1--QueuedOrdersId, #__xmlview1--QueuedOrdersTxt,
+	#__xmlview1--TotalOrderId, #__xmlview1--TotalOrderTxt,
+	#__xmlview1--oToggBtn-inner,#__xmlview1--custAddress,#__xmlview1--printBtn,#__xmlview1--printLbl {
+	font-size: medium;
+	font-family: sans-serif;
+	font-weight: 700;
+}
+
+/* #__xmlview1--panel1, #__xmlview1--panel2, #__xmlview1--mainBox {
+	height: 39rem;
+} */
+
+#__xmlview1--ScanIdTxt {
+	margin-left: 7rem;
+}
+
+#__xmlview1--img {
+	padding: 2rem;
+}
+
+.sapMTextArea>.sapMInputBaseReadonlyInner.sapMTextAreaInner {
+   border: 1px solid #5A90AB;
+   background-color: #A2C5D6;
+}
+
+.bottomBorderNone .sapMPanelContent{
+border-bottom:0px !important;	
+}

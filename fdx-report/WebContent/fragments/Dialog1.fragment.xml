@@ -1,0 +1,59 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Confirm Item" contentWidth="" contentHeight="33rem" class='dialogClass'>
+		<!-- <Text id="d1d1" text="Confirm Exception Item" width="400px"
+			textAlign="Center" class="HistoryBorder" /> -->
+		<f:SimpleForm id="form1" editable="true" class='modalContent tMargin2'>
+			<VBox id="confirm1">
+				<HBox id="d1Hb06">
+					<Text width="" text="User Name: " design="Bold" class='modalLblClass' />
+					<Input id="conf1UName" type="Text" width=""  class='modalFldClass'/>
+				</HBox>
+				<HBox id="d1Hb07">
+					<Text width="" text="Password: " design="Bold" class='modalLblClass'/>
+					<Input id="conf1Pass" type="Password" width="" class='modalFldClass' />
+				</HBox>
+				<HBox id="d1Hb01">
+					<Text width="" text="Description: " design="Bold" class='modalLblClass'/>
+					<Text width="" id="conDesc1" text="{Desc}" class='modalFldClass'/>
+				</HBox>
+				<HBox id="d1Hb02">
+					<Text width="" text="Order ID: " design="Bold" class='modalLblClass'/>
+					<Text id="conOrdId1" text="{Orderid}" class='modalFldClass'/>
+				</HBox>
+				<HBox id="d1Hb03">
+					<Text id="d1qty1" width="" text="Req Qty/Wt: " design="Bold" class='modalLblClass'/>
+					<Text id="conWt1" text="{ZzactWeight} ({Ltol}-{Htol}){Buom}" class='modalFldClass'/>
+				</HBox>
+				<HBox id="d1Hb04">
+					<Text id="d1qty" width="" text="Quantity: " design="Bold" class='modalLblClass'/>
+					<Button id="plusbtn1" icon="sap-icon://add" type="Accept"
+						visible="false" class="circleButton marginL20px" press="inValue" />
+					<Text id="conQty1" text="{Qty}" editable="false" class='marginL20px'/>
+					<Button id="minusbtn1" icon="sap-icon://less" type="Accept"
+						visible="false" class="circleButton marginL20px" press="deValue" />
+				</HBox>
+				<HBox id="d1Hb05">
+					<Text id="d1upc" width="" text="UPC/Weight: " design="Bold" class='modalLblClass'/>
+					<Input id="conWgt1" type="Text" editable="true" width="" class='modalFldClass'/>
+				</HBox>
+			</VBox>
+		</f:SimpleForm>
+		<!-- <FlexBox justifyContent="Center">
+			<HBox>
+				<Button id="confirmExc1" width="7rem" text="CONFIRM" class="addSpaceButton"
+					type="Accept" press="onConfirm" />
+				<Button id="cancelExc1" width="7rem" text="CANCEL" class="addSpaceButton"
+					press="closeDialog1" />
+			</HBox>
+		</FlexBox> -->
+		<beginButton>
+			<Button id="confirmExc1" width="" text="CONFIRM" class="btnClass"
+					type="Default" press="onConfirm" />
+		</beginButton>
+		<endButton>
+		<Button id="cancelExc1" width="" text="CANCEL" class="btnClass"
+					press="closeDialog1"  type="Default"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

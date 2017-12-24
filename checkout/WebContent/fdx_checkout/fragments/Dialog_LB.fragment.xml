@@ -1,0 +1,73 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="LB_dialog" contentWidth="50rem" contentHeight="18rem"
+		showHeader="false">
+		<customHeader>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://sys-cancel-2" press="close1" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<!-- <ColumnListItem> <cells> <Text text="SupplierName" /> </cells> <cells> -->
+		<HBox>
+			<Image src="{dModel>/MatImage}" width="10rem" height="10rem">
+			</Image>
+			<VBox id="LB_Box">
+				<HBox id="HBox_Sku_LB">
+					<Text text="SKU # " class="text" width='7rem' />
+					<Text id="Sku_LB" text="{dModel>/Sku}" />
+				</HBox>
+				<HBox id="HBox_Desc_LB">
+					<Text text="Description: " class="text" width='7rem' />
+					<Text id="Desc_LB" text="{dModel>/MatDesc}" />
+				</HBox>
+				<HBox id="HBox_ReqQty_LB">
+					<Text text="Rqd Qty/Wt.: " width='7rem' />
+					<Text id="reqQty_LB1" text="{dModel>/Weight} LB" />
+					<Text id="reqQty_LB2" class="text"
+						text="({dModel>/Ltol} - {dModel>/Htol})LB" />
+				</HBox>
+				<HBox id="HBox_OrderTxt_LB">
+					<VBox>
+						<Text id="oderText" text="Order Qty" class="text" width='7rem' />
+					</VBox>
+					<VBox>
+						<HBox id="LB_Button">
+							<FlexBox alignItems="Start" justifyContent="Center">
+								<Button type="Accept" icon="sap-icon://add" press="incValue"
+									class="circleButton" />
+							</FlexBox>
+							<FlexBox alignItems="Start" justifyContent="Center">
+								<Text text="{dModel>/Ordqty}" class="ordqty" id="itemCount_LB" />
+							</FlexBox>
+							<FlexBox alignItems="Start" justifyContent="Center">
+								<Button type="Accept" icon="sap-icon://less" press="decValue"
+									class="circleButton" />
+							</FlexBox>
+						</HBox>
+					</VBox>
+				</HBox>
+				<HBox id="HBox_ScanWt_LB">
+					<FlexBox alignItems="Start" justifyContent="Center">
+						<Text text="Scan Weight/Barcode" class="text" width='7rem' />
+					</FlexBox>
+					<FlexBox justifyContent="Center">
+						<Input id="oScanWt" />
+					</FlexBox>
+				</HBox>
+			</VBox>
+			<VBox id = "LB_Btn_Box">
+				<Button id="oBtn11" type="Emphasized" text="Short Item"
+					press="markItem" visible="false" />
+				<Button id="oBtn22" type="Accept" text="Accept Qty" press="accept" />
+				<Button id="oBtn33" type="Reject" text="Damage/Quality Issue"
+					press="markItem" enabled="false"/>
+					<Button id="close_LB" text="Cancel" press="close1" />
+			</VBox>
+		</HBox>
+		<!-- </cells> -->
+		<!-- </ColumnListItem> <columns> <Column width="12em"> <header> </header> 
+			</Column> <Column> <header> </header> </Column> </columns> -->
+	</Dialog>
+</core:FragmentDefinition>

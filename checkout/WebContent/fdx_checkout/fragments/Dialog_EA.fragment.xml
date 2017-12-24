@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="EA_dialog" showHeader="false" contentWidth="50rem" contentHeight="18rem">  <!-- contentWidth="50rem"  -->
+		<customHeader>
+			<Bar>
+				<contentRight>
+					<Button icon="sap-icon://sys-cancel-2" press="close" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+			<HBox>
+				<Image src="{dModel>/MatImage}" width="10rem" height="10rem">
+				</Image>
+				<VBox id="EA_Box">
+					<HBox id="HBox_Sku_EA">
+						<Text text="SKU #" class="EA_text" />
+						<Text id="Sku_EA" text="{dModel>/Sku}" />
+					</HBox>
+					<HBox id="HBox_Desc_EA">
+						<Text text="Description   : " class="EA_text" />
+						<Text id="Desc_EA" text="{dModel>/MatDesc}" />
+					</HBox>
+					<HBox id="HBox_ReqQty_EA">
+						<Text id="reqQtyId" text="Req. Qty/Wt.:" class="EA_text" />
+						<Text id="reqQty_EA" class="text" />
+					</HBox>
+					<HBox id="inc_dcnHBOX_EA"> 
+						<FlexBox alignItems="Start" justifyContent="Center">
+							<Button icon="sap-icon://add" press="incValue" type="Accept"
+								class="circleButton" />
+						</FlexBox>
+						<FlexBox alignItems="Start" justifyContent="Center">
+							<Text text="{dModel>/Ordqty}" class="ordqty" id="itemCount_EA" />
+						</FlexBox>
+						<FlexBox alignItems="Start" justifyContent="Center">
+							<Button icon="sap-icon://less" press="decValue" type="Accept"
+								class="circleButton" />
+						</FlexBox>
+					</HBox>
+				</VBox>
+				<VBox id="EA_BtnBox">
+					<Button id="oBtn1" type="Emphasized" text="Short Item"
+						press="markItem" visible="false" />
+					<Button id="oBtn2" type="Accept" text="Accept Qty" press="accept" />
+					<Button id="oBtn3" type="Reject" text="Damage/Quality Issue"
+						press="markItem" enabled="false"/>
+						<Button id="oBtn4" text="Cancel" press="close" />
+				</VBox>
+			</HBox>
+	</Dialog>
+</core:FragmentDefinition>

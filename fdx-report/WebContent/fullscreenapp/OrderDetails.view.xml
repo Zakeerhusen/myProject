@@ -1,0 +1,176 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="fullscreenapp.OrderDetails" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" showHeader="false">
+		<content>
+			<VBox class="carousalCont">
+				<VBox>
+					<HBox class="transparentBox">
+						<InputBase id="orderId" type="Text" placeholder="Enter Order Id / Web Id"
+							width="15rem"  />
+						<Button text="Go" class="textValue2" press="onOrderIdChange"
+							type="Default" />
+					</HBox>
+					<VBox id='idOrderDtlsContainer'>
+						<HBox>
+							<VBox width="50%" height="22rem" class="BoxClassMargin">
+								<Toolbar class="boxTitleBar">
+									<content>
+										<Text text="Basic Information" class="boxTitle" />
+									</content>
+								</Toolbar>
+								<VBox id="VB1" class="boxBlankCont">
+									<HBox>
+										<Text text="Customer ID:" class="textKey" />
+										<Label text="{Customer}" class="textValue" />
+									</HBox>
+									<HBox>
+										<Text text="Delivery Window:" class="textKey" />
+										<Label text="{Delwind}" class="textValue" />
+									</HBox>
+									<HBox>
+										<Text text="(Dispatch Time):" class="textKey" />
+										<Label text="{DispatchTime}" class="textValue textLowerCase" />
+									</HBox>
+									<HBox>
+										<Text text="Tote:" class="textKey" />
+										<Label text="{Tote}" class="textValue" />
+									</HBox>
+									<HBox>
+										<Text text="Status:" class="textKey" />
+										<Label text="{Status}" class="textValue" />
+									</HBox>
+									<HBox>
+										<Text text="Label(s) Printed:" class="textKey" />
+										<Label text="{Labelsprinted}" class="textValue" />
+									</HBox>
+									<HBox>
+										<Text text="Staging Area:" class="textKey" />
+										<Label text="{Statgingareas}" class="textValue" />
+									</HBox>
+									<HBox>
+										<Text text="Web Id:" class="textKey" />
+										<Label text="{Statgingareas}" class="textValue" />
+									</HBox>
+								</VBox>
+							</VBox>
+							<VBox width="50%" height="22rem" class="BoxClass">
+								<Toolbar class="boxTitleBar">
+									<content>
+										<Text text="Order Details" class="boxTitle" />
+									</content>
+								</Toolbar>
+								<VBox id="VB2" class="boxBlankCont">
+									<HBox>
+										<Text text="Setup Done:" class="textKey" />
+										<Label text="{Setupdone}" class="textValue" />
+										<Label text="{SetupdoneTime}" class="textValue2 textLowerCase" />
+									</HBox>
+									<HBox>
+										<Text text="Picking Start:" class="textKey" />
+										<Label text="{Pickingstart}" class="textValue" />
+										<Label text="{PickingstartTime}" class="textValue2 textLowerCase" />
+									</HBox>
+									<HBox>
+										<Text text="Picking Done:" class="textKey" />
+										<Label text="{Pickingdone}" class="textValue" />
+										<Label text="{PickingdoneTime}" class="textValue2 textLowerCase" />
+									</HBox>
+									<HBox class="lineBreak"></HBox>
+									<HBox>
+										<Text text="Offloaded:" class="textKey" />
+										<Label text="{Offloaded}" class="textValue" />
+										<Label text="{OffloadedTime}" class="textValue2 textLowerCase" />
+									</HBox>
+									<HBox>
+										<Text text="At Checkout:" class="textKey" />
+										<Label text="{Atcheckout}" class="textValue" />
+										<Label text="{AtcheckoutTime}" class="textValue2 textLowerCase" />
+									</HBox>
+									<HBox>
+										<Text text="Checkout:" class="textKey" />
+										<Label text="{Checkout}" class="textValue" />
+										<Label text="{CheckoutTime}" class="textValue2 textLowerCase" />
+									</HBox>
+									<HBox>
+										<Text text="Staged:" class="textKey" />
+										<Label text="{Atstaging}" class="textValue" />
+										<Label text="{AtstagingTime}" class="textValue2 textLowerCase" />
+									</HBox>
+								</VBox>
+							</VBox>
+						</HBox>
+						<HBox class="BoxClass">
+							<VBox>
+								<Toolbar class="boxToolBar">
+									<content>
+										<Text text="Item List" class="boxTitle" />
+									</content>
+								</Toolbar>
+								<Toolbar class="boxToolBar">
+									<content>
+										<Button id="orderDetSortBtn" tooltip="Table Sort"
+											icon="sap-icon://drop-down-list" press="onOrderDetSort" />
+										<ToolbarSpacer></ToolbarSpacer>
+										<SearchField width="250px" class="searchFieldClass"
+											liveChange="searchOrdDetails" />
+									</content>
+								</Toolbar>
+								<Table id="idOrderDetailsTable" items="{ path : '/results'}"
+									class="ssdTable">
+									<columns>
+										<Column width='5.4%'>
+											<Text text="Order Id" class="textBold" />
+										</Column>
+										<Column width='5.4%'>
+											<Text text="SKU" class="textBold" />
+										</Column>
+										<Column width='16.4%'>
+											<Text text="Description" class="textBold" />
+										</Column>
+										<Column width='6.4%'>
+											<Text text="Bin" class="textBold" />
+										</Column>
+										<Column width='3.4%' hAlign="Center">
+											<Text text="Open" class="textBold" />
+										</Column>
+										<Column width='5%' hAlign="Center">
+											<Text text="Pending" class="textBold" />
+										</Column>
+										<Column width='5%' hAlign="Center">
+											<Text text="Complete" class="textBold" />
+										</Column>
+										<Column width='3.4%' hAlign="Center">
+											<Text text="Short" class="textBold" />
+										</Column>
+										<Column width='3.4%' hAlign="Center">
+											<Text text="Total" class="textBold" />
+										</Column>
+										<Column width='6.4%'>
+											<Text text="User" class="textBold" />
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem>
+											<cells>
+												<Text text="{Vbeln}"></Text>
+												<Text text="{Matnr}"></Text>
+												<Text text="{Maktx}"></Text>
+												<Text text="{Vlpla}"></Text>
+												<Text text="{Openpicks}"></Text>
+												<Text text="{Pendpicks}"></Text>
+												<Text text="{Comppicks}"></Text>
+												<Text text="{Shortpicks}"></Text>
+												<Text text="{Totalpicks}"></Text>
+												<Text text="{User}"></Text>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</VBox>
+						</HBox>
+					</VBox>
+				</VBox>
+			</VBox>
+		</content>
+	</Page>
+</core:View>

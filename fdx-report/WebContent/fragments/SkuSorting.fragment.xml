@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="skuSort">
+		<sortItems>
+			<ViewSettingsItem text="SKU" key="Matnr" selected="true" />
+			<ViewSettingsItem text="Description" key="Maktx"
+				selected="false" />
+			<ViewSettingsItem text="Location" key="Vlpla"
+				selected="false" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

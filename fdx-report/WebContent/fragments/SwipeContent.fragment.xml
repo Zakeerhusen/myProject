@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uxap="sap.uxap" xmlns:core="sap.ui.core">
+	<HBox>
+		<Button text='CONFIRM' class="fullHeightButton" type="Accept"
+			press="onConfirmExceptionWithSwipe" />
+		<Button text="SHORT" class="fullHeightButton" type="Reject"
+			press="onShortExceptionWithSwipe" />
+	</HBox>
+</core:FragmentDefinition>
+	

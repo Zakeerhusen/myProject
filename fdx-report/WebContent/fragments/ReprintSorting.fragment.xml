@@ -1,0 +1,12 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog confirm="reprintSort">
+		<sortItems>
+			<ViewSettingsItem text="Order Id" key="Vbeln" selected="true" />
+			<ViewSettingsItem text="No Of Bags" key="Bagcount"
+			selected="false" />	
+			<ViewSettingsItem text="Printed Time" key="PrintTime"
+			selected="false" />	
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

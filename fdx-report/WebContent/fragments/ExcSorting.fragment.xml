@@ -1,0 +1,14 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="excSort">
+		<sortItems>
+			<ViewSettingsItem text="Description" key="Desc" selected="true" />
+			<ViewSettingsItem text="Quantity" key="Qty" selected="false" />
+			<ViewSettingsItem text="Exc Code" key="Excode" selected="false" />
+			<ViewSettingsItem text="Order Id" key="Orderid" selected="false" />
+			<ViewSettingsItem text="Order Location" key="Orderlocation" selected="false" />
+			<ViewSettingsItem text="Sku" key="Sku" selected="false" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

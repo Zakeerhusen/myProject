@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:core="sap.ui.core">
+  <ActionSheet
+    
+    showCancelButton="true"
+    placement="Top">
+    <buttons>
+      <Button text="Pending" icon="sap-icon://pending" press="markExceptionForItem"/>
+      <Button text="Quality" icon="sap-icon://quality-issue" press="markExceptionForItem"/>
+      <Button text="Damaged" icon="sap-icon://error" press="markExceptionForItem"/>
+      
+    </buttons>
+  </ActionSheet>
+</core:FragmentDefinition>

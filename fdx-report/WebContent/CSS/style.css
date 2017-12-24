@@ -1,0 +1,677 @@
+@import url('http://fonts.googleapis.com/css?family=Open+Sans');
+
+.headerHboxClass {
+	background: url('../Images/header_bg.png');
+	height: 65px;
+}
+
+.modalContent {
+	background: #fff !important;
+}
+
+.logoClass {
+	margin-top: 1rem;
+	padding-left: 7px;
+}
+
+.hdrBtnColor {
+	height: 3.5rem;
+	margin-right: 1rem;
+}
+
+.hdrBtnColor .sap-desktop {
+	color: #fff;
+}
+
+.hdrBtnColor .sapMBtnTransparent>.sapMBtnIcon {
+	color: #fff;
+}
+
+.SplitApp .sapMSplitContainerDetail {
+	background: #f2f2f2;
+	border-left: 0px;
+}
+
+.SplitApp .sapMSplitContainerMaster {
+	background: #f2f2f2;
+}
+
+.sapMSplitContainerMaster:after {
+	border: none;
+}
+
+.sapMSplitContainerMaster:before {
+	border: none;
+}
+
+.sapMLIB {
+	background: transparent !important;
+	border-bottom: 0px;
+}
+
+.sapMSLIImg, .sapMSLIImgFirst {
+	margin: 0.5rem 0.75rem 0.5rem 0rem;
+	height: 1.5rem;
+	width: 1.5rem;
+}
+
+.sapMSLITitleOnly {
+	font-size: 0.9rem;
+	color: #333333;
+}
+
+.BoxClassMargin {
+	background: #fff;
+	margin-bottom: 20px;
+	margin-right: 20px;
+	margin-left: 2px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+}
+
+.BoxClass {
+	background: #fff;
+	margin-bottom: 20px;
+	margin-right: 2px;
+	margin-left: 2px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+}
+
+.carousalCont {
+	/* 	overflow-y: scroll; */
+	padding-bottom: 66px;
+	margin-right: 10px;
+}
+
+.carouselClass {
+	padding-left: 0px;
+	margin-bottom: 40px;
+	padding-top: 5px;
+}
+
+.activeListItem {
+	background: #C3B6B6 !important;
+	border-radius: 3px !important;
+	font-weight: bold;
+	color: #000;
+}
+
+.masterListItemClass .sapMLIBCounter {
+	font-size: 0.875rem;
+	padding: 4px;
+	background: #ed8e3f;
+	text-align: center !important;
+	border-radius: 2px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+	color: #fff;
+}
+
+.listClass {
+	padding-left: 12px !important;
+	padding-right: 12px !important;
+}
+
+.ssdTable .sapMListTbl th {
+	background: #fff;
+	font-weight: bold !important;
+}
+
+.ssdTable {
+	width: 100% !important;
+	/*box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);*/
+	padding: 0 !important;
+	background: #fff;
+}
+
+.ssdTable .sapMListTbl .sapMText {
+	font-family: Open Sans !important;
+}
+
+.ssdTableItem {
+	border-bottom: .1em solid #f5f5f5;
+	padding: .8em;
+}
+
+.BoxClass .sapMBar {
+	background-color: transparent !important;
+}
+
+.BoxClassMargin .sapMBar {
+	background-color: transparent !important;
+}
+
+.boxTitleBar {
+	height: 3rem !important;
+	border-bottom: 0px !important;
+}
+
+.boxTitle {
+	font-family: Open Sans;
+	font-size: 1.3em;
+	font-weight: 300;
+	padding-left: 15px;
+	padding-top: 10px;
+	color: #000 !important;
+}
+
+.boxIcon {
+	width: 30px;
+	height: 30px;
+	margin-top: 7px;
+	margin-right: 15px !important;
+}
+
+.orderlistClass {
+	margin-top: 15px;
+	margin-left: 2px;
+}
+
+.greenBox {
+	width: 15px;
+	height: 15px;
+	background: green;
+}
+
+.orangeBox {
+	width: 15px;
+	height: 15px;
+	background: orange;
+}
+
+.redBox {
+	width: 15px;
+	height: 15px;
+	background: red;
+}
+
+.legendTable .sapMListTbl th {
+	background: #fff;
+	font-weight: bold !important;
+	border-bottom: 0px !important;
+}
+
+.legendTable {
+	width: 80% !important;
+	/*box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);*/
+	padding: 0 !important;
+	background: #fff;
+	margin-top: 2rem;
+	font-size: 8px !important;
+	margin-left: 10px;
+}
+
+.searchFieldClass {
+	padding-top: 5px;
+}
+
+.searchFieldClass .sapMSFF {
+	border-radius: 5px;
+	height: 2rem;
+}
+
+.searchFieldClass .sapMSFI {
+	height: 2rem;
+}
+
+.searchFieldClass .sapMSFB {
+	height: 2rem;
+	line-height: 2rem;
+}
+
+.addSpaceButton {
+	margin-left: 10px;
+	margin-right: 5px;
+}
+
+.addSpaceButton .sapMBtn {
+	height: 2rem !important;
+}
+
+.addSpaceButton .sapMBtnInner {
+	height: 2rem !important;
+	padding-top: 0px;
+}
+
+.addSpaceButton .sapMBtnContent {
+	line-height: 2rem !important;
+}
+/******************* Login Page CSS Begin ************************************/
+.loginBg {
+	background: url(../Images/login_bg.jpg) no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.atCenter {
+	width: 100%;
+	position: fixed;
+	top: 35%;
+}
+
+.logo {
+	margin-bottom: 2rem;
+}
+
+.loginTextBox {
+	/* height:2rem; */
+	border-radius: 5px;
+	opacity: 0.7;
+	padding-right: 1rem;
+}
+
+.loginTextBox .sapMInputBaseInner {
+	border: none !Important;
+	border-radius: 5px;
+	height: 3rem !important;
+	width: 20rem !important;
+}
+
+.bgTransparent {
+	background: transparent !important;
+}
+/******************* Login Page CSS End ************************************/
+.textBold {
+	font-weight: bold !important;
+}
+
+.fullHeightButton {
+	height: 100% !important;
+	padding: 0px !important;
+}
+
+.fullHeightButton .sapMBtnInner {
+	height: 4.4rem !important;
+	padding-top: 1rem;
+}
+
+.sapMListInsetBG>.sapMListSwp {
+	margin-right: -.45rem !important;
+}
+
+.fullHeightButton div.sapMBtnInner.sapMBtnAccept {
+	background-color: #5cb85c !important;
+	border-color: #5cb85c !important;
+}
+
+.fullHeightButton div.sapMBtnInner.sapMBtnReject {
+	background-color: #d9534f !important;
+	border-color: #d9534f !important;
+}
+
+th .sapMLIBSelectM>.sapMCb {
+	display: none !important;
+}
+
+.boxToolBar {
+	height: 4rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.greenButton div.sapMBtnInner.sapMBtnAccept {
+	background-color: #5cb85c !important;
+	border-color: #5cb85c !important;
+	margin-right: 10px;
+}
+
+.redButton div.sapMBtnInner.sapMBtnReject {
+	background-color: #d9534f !important;
+	border-color: #d9534f !important;
+}
+
+.printIcon {
+	padding-top: 2px;
+}
+
+.textLowerCase {
+	text-transform: lowercase;
+}
+
+.tMargin2 {
+	margin-top: 2rem;
+}
+/*dialog styles start here */
+.dialogClass {
+	font-family: Open Sans;
+	width: 800px;
+	border-radius: 8px;
+}
+
+.dialogClass .sapUiPopupWithPadding {
+	padding: 0px !important;
+}
+
+.dialogClass .sapMDialogScrollCont {
+	padding: 0px !important;
+}
+
+.dialogHeader {
+	background: #80b422;
+	padding: 2.2em;
+}
+
+.bigText {
+	font-family: Open Sans;
+	font-size: 1.5rem;
+	font-weight: 300;
+	margin-left: 1.2em;
+	margin-bottom: 0.3em;
+	color: #fff;
+}
+
+.medText {
+	font-family: Open Sans;
+	font-size: 1.0rem;
+	font-weight: 100;
+	margin-left: 1.7em;
+	color: #fff;
+}
+
+.roadmapCont {
+	margin-top: -23px;
+	width: 600px;
+	transform: translateX(15%);
+}
+
+.roadmapItem {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background: #A9D27F;
+}
+
+.roadmapItemActive {
+	width: 40px;
+	height: 40px;
+	border-radius: 20px;
+	background: #669215;
+}
+
+.roadmapItemIcon {
+	padding-top: 10px;
+	padding-left: 12px;
+}
+
+.dialogClass .sapMIBar-CTX {
+	background: #ab84b2 !important;
+}
+
+.dialogClass .sapMFooter-CTX {
+	background: #edecec !important;
+}
+/* .sapMDialog>header.sapMDialogTitle .sapMTitle{
+	color:#fff !important;
+} */
+.dialogClass .sapMIBar-CTX .sapMTitle {
+	color: #fff !important;
+}
+
+.connector {
+	width: 54px;
+	height: 4px;
+	background: #A2BB76;
+	margin-top: 19px;
+}
+
+.btnClass .sapMBtnInner {
+	color: #1e1e1e !important;
+}
+
+.modalLblClass {
+	width: 15rem;
+	padding-top: 0.9rem;
+	text-align: right !important;
+	font-family: Open sans;
+	margin-bottom: 0.9rem;
+}
+
+.modalFldClass {
+	margin-left: 20px;
+	width: 20rem !important;
+}
+
+.modalFldClass .sapMInputBaseInner {
+	border-radius: 3px !important;
+}
+
+/************* Order Details CSS Start ****************************/
+.textKey {
+	font-family: Open Sans;
+	min-width: 8rem;
+	padding-bottom: 0.9rem;
+	color: gray;
+}
+
+.boxBlankCont {
+	width: auto;
+	padding-left: 1.3rem;
+	padding-right: 1.3rem;
+	padding-top: 1rem;
+	padding-bottom: 1.3rem;
+}
+
+.textValue {
+	font-family: Open Sans;
+	color: #000;
+	padding-top: 1px !important;
+}
+
+.lineBreak {
+	width: auto;
+	height: 1px;
+	background: #dadada;
+	margin-top: 0.5rem;
+	margin-bottom: 1.5rem;
+}
+
+.textValue2 {
+	font-family: Open Sans;
+	color: #000;
+	padding-left: 0.1rem;
+	padding-top: 1px !important;
+}
+
+.transparentBox {
+	width: auto;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+
+.marginL20px {
+	margin-left: 20px;
+}
+
+.circleButton div.sapMBtnInner {
+	height: 100%;
+	width: 50%;
+	border-radius: 50%;
+}
+/************* Order Details CSS End ****************************/
+.sapMLnk {
+	text-decoration: underline !important;
+}
+
+.defaultButton div.sapMBtnInner.sapMBtnAccept {
+	margin-right: 10px;
+}
+/*********** User Management CSS Start ******************/
+.userTileCont {
+	margin-bottom: 1rem;
+	margin-left: 2px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+	border-radius: 4px;
+	background: #fff url('../Images/blankImg.png') no-repeat top center;
+	height: 23.5rem;
+	width: 250px;
+	cursor: pointer;
+}
+
+.userTileBigGap {
+	width: auto;
+	padding-top: 3px;
+	padding-right: 0px;
+	margin-bottom: 76px;
+}
+
+.userTileTitle {
+	font-family: Open Sans;
+	font-size: 1.2rem;
+	font-weight: 300;
+	color: #fff;
+	margin-bottom: 0.3rem;
+	padding-left: 1rem;
+	width: 93%;
+}
+
+.userTileRoleCont {
+	width: 4rem;
+	background: orange;
+	border-radius: 3px;
+	margin-left: 1rem;
+	padding: 2px;
+	margin-bottom: 0.7rem;
+}
+
+.userTileRoleText {
+	width: auto;
+	font-family: Open Sans;
+	font-size: 0.7rem;
+	font-weight: 300;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.userTileLastSeenBox {
+	width: auto;
+	background: #f6f7f8;
+	padding: 1rem;
+	margin-bottom: 0.4rem;
+}
+
+.userTileTextBox {
+	width: auto;
+	padding-left: 1rem;
+	padding-top: 0.7rem;
+	padding-bottom: 0.7rem;
+}
+
+.userTileLastSeenBoxText {
+	font-family: Open Sans;
+	font-size: 0.7rem;
+	font-weight: 300;
+	color: gray;
+	margin-left: 1rem;
+}
+
+.userTileTextBoxText {
+	font-family: Open Sans;
+	font-size: 0.8rem;
+	font-weight: 300;
+	color: #000;
+	margin-left: 1rem;
+	padding-top: 0px;
+}
+
+.userTileTextBoxText2 {
+	font-family: Open Sans;
+	font-size: 0.8rem;
+	font-weight: bold;
+	color: #000;
+	margin-left: 1rem;
+}
+
+.userTileButton {
+	cursor: pointer;
+	margin-right: 3px;
+}
+
+.userBoxTitle {
+	font-family: Open Sans;
+	font-size: 1.3em;
+	font-weight: 200;
+	padding-top: 10px;
+	color: #000 !important;
+}
+
+.sapMCustomTile {
+	overflow: visible !important;
+	height: 24rem !important;
+}
+
+.sapMCustomTileContent {
+	overflow: visible !important;
+	height: 24rem !important;
+}
+
+
+/*********** User Management CSS over ******************/
+/******* Overview css**** */
+.graphLabel {
+	font-family: Open Sans;
+	font-weight: bold !important;
+}
+
+.sapVizChart .v-pie .v-donut-title {
+	fill: #fff !important;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.pickingGraph {
+	font-family: Open Sans;
+	font-weight: bold !important;
+	position: relative;
+	top: -2.5rem;
+	right: -11rem;
+}
+
+.datePickerClass {
+	border-radius: 2px;
+	padding-top: 12px;
+}
+
+.datePickerClass .sapMInputBaseInner {
+	background-color: #884395;
+	color: #fff;
+	height: 2rem;
+	border-radius: 3px;
+	border: 1px solid #711F88;
+}
+
+.datePickerClass .sapMInputValHelpInner {
+	color: #fff;
+	padding-top: 4px;
+}
+
+.datePickerClass .sapMComboBoxBaseArrow {
+	background: transparent;
+	margin-top: 8px;
+	color: #fff;
+}
+
+.imageClass {
+	width: 40px;
+	border-radius: 20px;
+	margin-right: 20px;
+	margin-top: -7px;
+	margin-left: 25px;
+	cursor: pointer;
+}
+
+.switchClass {
+	margin-top: -8px;
+	margin-left: 15px;
+	cursor: pointer;
+}
+
+.timeTxtClass {
+	color: #fff;
+	margin-bottom: 13px;
+	font-style: italic;
+}
+/*********Over View Css  Over */
+
+
+tbody tr:nth-child(odd) {
+  background-color: rgba(204, 204, 204, 0.39) !important;
+}

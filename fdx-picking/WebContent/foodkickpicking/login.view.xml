@@ -1,0 +1,30 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  xmlns:l="sap.ui.layout"
+		controllerName="foodkickpicking.login" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page backgroundDesign= "Transparent" showFooter="true" class="backGround" showHeader="true">
+		<customHeader class='transparentHeaderClass'>
+			<Bar class='transparentHeaderClass'>
+				<contentRight>
+					<Button text='Logout' icon='sap-icon://log' type='Reject' press='logout'></Button>
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<content>
+		<l:Grid defaultSpan="L12 M12 S12">
+		<FlexBox alignItems = "Center" justifyContent = "Center" class="alignImage">
+		<Image
+          src="images/foodkick.png" width="18rem" length="18rem" class="alignImage"/>        
+         </FlexBox>
+		<FlexBox alignItems = "End" justifyContent = "Center" class="secondHalfCenter">
+		<InputBase placeholder = "Scan Employee ID" id="scanEmpId"/>
+		<Button icon="sap-icon://bar-code" id="barcode" type="Emphasized"/>
+		</FlexBox>
+		</l:Grid>
+		</content>
+		<l:VerticalLayout>	
+		<l:dependents>
+      <core:Fragment fragmentName="foodkickpicking.supportXmls.BusyDialog" type="XML">
+      </core:Fragment>
+    </l:dependents>
+  </l:VerticalLayout>
+	</Page>
+</core:View>

@@ -1,0 +1,39 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" 
+ 		 controllerName="foodkickpicking.requestOrder" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="backGround" showFooter="false">
+	<headerContent>
+	<Bar class="pageHeader">
+		<contentMiddle>
+	       <Image src="images/mainHeader.png" height="3rem" width="5rem" />
+      	</contentMiddle>
+      	<contentRight>
+       <OverflowToolbarButton icon="sap-icon://log" press="performLogout"/>
+       </contentRight>
+	</Bar>
+	</headerContent>
+		<content>
+		<FlexBox class="welcomeLabel">
+		<Label text="Welcome {Zfullname} !!" id="welcomeL" design="Bold" />
+		</FlexBox>
+		<VBox>
+	<l:Grid defaultSpan="L12 M12 S12">
+	  <FlexBox alignItems = "Center" justifyContent = "Center"  class='vh60Class'>
+	<FlexBox alignItems = "Center" justifyContent = "Center" class="requestOrderTile" width="14rem" height="10rem" >	
+		 <StandardTile
+	        id="reqOrderTile" 
+	        title="Request New Order"
+	        press ="navToScanTote"/>
+		</FlexBox>
+	</FlexBox>
+		</l:Grid>
+		</VBox>
+		
+		</content>
+  <l:VerticalLayout>	
+		<l:dependents>
+      <core:Fragment fragmentName="foodkickpicking.supportXmls.BusyDialog" type="XML">
+      </core:Fragment>
+    </l:dependents>
+  </l:VerticalLayout>
+	</Page>
+</core:View>

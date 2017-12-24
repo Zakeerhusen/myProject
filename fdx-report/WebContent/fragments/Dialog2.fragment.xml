@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Confirm Short Item Action" contentWidth="" contentHeight="30rem" class='dialogClass'>
+		<!-- <Text id="d2d2" text="Short Exception Item" width="400px"
+			textAlign="Center" class="HistoryBorder" /> -->
+		<f:SimpleForm id="form2" editable="true" class='modalContent tMargin2'>
+			<VBox>
+				<HBox id="dSr05">
+					<Text width="" text="User Name: "  class='modalLblClass'/>
+					<Input id="srtUName" type="Text" width=""  class='modalFldClass'/>
+				</HBox>
+				<HBox id="dSr06">
+					<Text width="" text="Password: "  class='modalLblClass'/>
+					<Input id="srtPass" type="Password" width=""  class='modalFldClass'/>
+				</HBox>
+				<HBox id="dSr01">
+					<Text width="" text="Description: "  class='modalLblClass'/>
+					<Text width="" id="srtDesc"  class='modalFldClass'/>
+				</HBox>
+				<HBox id="dSr02">
+					<Text width="" text="Order ID: "  class='modalLblClass'/>
+					<Text id="srOrdIdc"  class='modalFldClass'/>
+				</HBox>
+				<HBox id="dSr03">
+					<Text width="" text="Quantity: "  class='modalLblClass'/>
+					<Text id="srtQty"  class='modalFldClass'/>
+				</HBox>
+				<HBox id="dSr04">
+					<Text id="srtrea" text="Short Reason: "  class='modalLblClass'/>
+					<ComboBox id="store3" items="{/store}" selectionChange="onReasonChange1" class='modalFldClass'>
+						<core:Item text="{ReasonS}" />
+					</ComboBox>
+				</HBox>
+			</VBox>
+		</f:SimpleForm>
+		<!-- <HBox justifyContent="Center">
+			<Button id="shortExc" width="7rem" text="SHORT" class="addSpaceButton"
+				type="Reject" press="onShort" />
+			<Button id="canExc" width="7rem" text="CANCEL" class="addSpaceButton"
+				press="closeDialog2" />
+		</HBox> -->
+		<beginButton>
+		<Button id="shortExc" width="" text="SHORT" class="btnClass"
+				type="Default" press="onShort" />
+		</beginButton>
+		<endButton>
+		<Button id="canExc" width="" text="CANCEL" class="btnClass" type="Default"
+				press="closeDialog2" />
+				</endButton>
+	</Dialog>
+</core:FragmentDefinition>

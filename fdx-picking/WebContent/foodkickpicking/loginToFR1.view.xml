@@ -1,0 +1,19 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" 
+		controllerName="foodkickpicking.loginToFR1" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Login to FRP System"  backgroundDesign= "Transparent" showFooter="true" class="backGround" >
+		<content>
+		<VBox alignItems = "Center" justifyContent = "Center" class="logonFR1">
+			<Label text="User Name :" design="Bold"/>
+			<Input placeholder="Enter User Name" id="userName"/>
+			<Label text="Password :" design="Bold"/>
+			<Input placeholder="Enter Password" type="Password" id="password"/>
+		</VBox>
+		</content>
+		<l:VerticalLayout>	
+		<l:dependents>
+      <core:Fragment fragmentName="foodkickpicking.supportXmls.BusyDialog" type="XML">
+      </core:Fragment>
+    </l:dependents>
+  		</l:VerticalLayout>
+	</Page>
+</core:View>

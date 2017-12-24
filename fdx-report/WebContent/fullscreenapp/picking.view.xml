@@ -1,0 +1,253 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="fullscreenapp.picking" xmlns:viz="sap.viz"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" showHeader="false">
+		<content>
+			<VBox class="carousalCont">
+				<!-- <Carousel id="pickingCarousel" loop="true" showPageIndicator="false" 
+					class="carouselClass"> <pages> -->
+
+				<HBox width="100%">
+					<items>
+						<VBox width="50%" height="18rem" class="BoxClassMargin">
+							<items>
+								<Bar class="boxTitleBar">
+									<contentLeft>
+										<Text text="Picking Device Summary" class="boxTitle"></Text>
+									</contentLeft>
+									<contentRight>
+										<Button id="gridViewDevice" type="Transparent"
+											icon="Images/ic_action_view_as_grid.png" press="onPickingDeviceGridPress"></Button>
+										<Button id="listViewDevice" type="Transparent"
+											icon="Images/ic_action_view_as_list.png" visible="false"
+											press="onPickingDeviceListPress"></Button>
+									</contentRight>
+								</Bar>
+								<Table id="deviceTable" items="{path: '/'}" class="ssdTable"
+									visible="false">
+									<columns>
+										<Column width="4rem">
+											<Text text="Type" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="SetUp" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="Picking" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="Offload" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="Inactive" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="Total" class="textBold" />
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem id="deviceItem">
+											<cells>
+												<Text text="{Type}" class="textBold"></Text>
+												<Text text="{SetUp}"></Text>
+												<Text text="{Picking}"></Text>
+												<Text text="{Offload}"></Text>
+												<Text text="{Inactive}"></Text>
+												<Text text="{Total}"></Text>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+								<VBox alignItems="Center" justifyContent="Center">
+									<viz:ui5.Donut id="pickDevChart" width="28rem"
+										height="15rem">
+										<viz:legend>
+											<viz:ui5.types.legend.Common
+												visible="true"></viz:ui5.types.legend.Common>
+										</viz:legend>
+										<viz:dataset>
+											<viz:ui5.data.FlattenedDataset
+												data="{/}">
+												<viz:dimensions>
+													<viz:ui5.data.DimensionDefinition
+														axis="1" name="Status" value="{Status}">
+													</viz:ui5.data.DimensionDefinition>
+												</viz:dimensions>
+												<viz:measures>
+													<viz:ui5.data.MeasureDefinition
+														name='Picking' value='{Count}'>
+													</viz:ui5.data.MeasureDefinition>
+												</viz:measures>
+											</viz:ui5.data.FlattenedDataset>
+										</viz:dataset>
+									</viz:ui5.Donut>
+									<Text id="pickDevTotal" class="pickingGraph"></Text>
+								</VBox>
+							</items>
+						</VBox>
+						<VBox width="50%" height="18rem" class="BoxClass">
+							<items>
+								<Bar class="boxTitleBar">
+									<contentLeft>
+										<Text text="Checkout Station Summary" class="boxTitle"></Text>
+									</contentLeft>
+									<contentRight>
+										<Button id="gridViewCheckout" type="Transparent"
+											icon="Images/ic_action_view_as_grid.png" press="onCheckoutGridPress"></Button>
+										<Button id="listViewCheckout" type="Transparent"
+											icon="Images/ic_action_view_as_list.png" visible="false"
+											press="onCheckoutListPress"></Button>
+									</contentRight>
+								</Bar>
+								<Table id="checkoutTable" items="{path: '/'}" class="ssdTable"
+									visible="false">
+									<columns>
+										<Column width="4rem">
+											<Text text="Type" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="SetUp" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="Picking" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="Offload" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="Inactive" class="textBold" />
+										</Column>
+										<Column hAlign="Center">
+											<Text text="Total" class="textBold" />
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem id="checkoutItem">
+											<cells>
+												<Text text="{Type}" class="textBold"></Text>
+												<Text text="{SetUp}"></Text>
+												<Text text="{Picking}"></Text>
+												<Text text="{Offload}"></Text>
+												<Text text="{Inactive}"></Text>
+												<Text text="{Total}"></Text>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+								<VBox alignItems="Center" justifyContent="Center">
+									<viz:ui5.Donut id="checkDevChart" width="28rem"
+										height="15rem">
+										<viz:legend>
+											<viz:ui5.types.legend.Common
+												visible="true"></viz:ui5.types.legend.Common>
+										</viz:legend>
+										<viz:dataset>
+											<viz:ui5.data.FlattenedDataset
+												data="{/}">
+												<viz:dimensions>
+													<viz:ui5.data.DimensionDefinition
+														axis="1" name="Status" value="{Status}">
+													</viz:ui5.data.DimensionDefinition>
+												</viz:dimensions>
+												<viz:measures>
+													<viz:ui5.data.MeasureDefinition
+														name='Picking' value='{Count}'>
+													</viz:ui5.data.MeasureDefinition>
+												</viz:measures>
+											</viz:ui5.data.FlattenedDataset>
+										</viz:dataset>
+									</viz:ui5.Donut>
+									<Text id="checkoutTotal" class="pickingGraph"></Text>
+								</VBox>
+							</items>
+						</VBox>
+					</items>
+				</HBox>
+				<VBox class="BoxClass">
+					<Toolbar class="boxTitleBar">
+						<content>
+							<Text text="Cart Details List" class="boxTitle" />
+							<ToolbarSpacer></ToolbarSpacer>
+						</content>
+					</Toolbar>
+					<Toolbar class="boxToolBar">
+						<content>
+							<Button tooltip="Table Sort" icon="Images/sortIcon.png"
+								class="" press='onPickCheckSort' />
+							<Button text='Transfer Work' class="defaultButton" type="Default"
+								press="ontransferWork" />
+							<ToolbarSpacer></ToolbarSpacer>
+							<SearchField width="250px" class="searchFieldClass"
+								liveChange="search"></SearchField>
+						</content>
+					</Toolbar>
+					<Table id="deviceDetailsTable" selectionChange="onPickExMonSelect"
+						items="{/results}" inset="true" mode="SingleSelectMaster" class="ssdTable">
+						<columns>
+							<Column width ='8.4%'>
+								<Text text="Cart Id" class="textBold" />
+							</Column>
+							<Column width ='10.4%'>
+								<Text text="Cart Name" class="textBold" />
+							</Column>
+							<Column width ='8.4%'>
+								<Text text="Cart Type" class="textBold" />
+							</Column>
+							<Column width ='8.4%'>
+								<Text text="SO Id" class="textBold" />
+							</Column>
+							<Column>
+								<Text text="Status" class="textBold" />
+							</Column>
+							<Column width ='14.4%'>
+								<Text text="User" class="textBold" />
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Last loc." class="textBold" />
+							</Column>
+							<Column width ='8.4%'>
+								<Text text="Open" class="textBold" />
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Pending" class="textBold" />
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Complete" class="textBold" />
+							</Column>
+							<Column hAlign="Center">
+								<Text text="% Comp." class="textBold" />
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Dur." class="textBold" />
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Last Upd." class="textBold" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{CartId}"></Text>
+									<Text text="{CartName}"></Text>
+									<Text text="{CartType}"></Text>
+									<Link text="{Vbeln}" wrapping='true' press='onOrderListDblClk'/>
+									<Text text="{Status}"></Text>
+									<Text text="{Fullname}"></Text>
+									<Text text="{Lastloc}"></Text>
+									<Text text="{Open}"></Text>
+									<Text text="{Pend}"></Text>
+									<Text text="{Complete}"></Text>
+									<Text text="{Percomp}"></Text>
+									<Text text="{Duration}"></Text>
+									<Text text="{Minssince}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</VBox>
+
+				<!-- </pages> </Carousel> -->
+			</VBox>
+		</content>
+	</Page>
+</core:View>

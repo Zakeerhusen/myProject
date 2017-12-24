@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog showHeader="false" contentWidth="51rem">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Text id="bagsLoc" text="Bags and Locations" design="Bold" />
+				</contentMiddle>
+				<contentRight>
+					<Button icon="sap-icon://sys-cancel-2" press="onPrintCancel" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<VBox>
+			<FlexBox justifyContent="Start">
+				<Label id = "SplInstText" text="Special Instruction :" />
+				<Text id="SplInst" textAlign="Left" width="39rem" maxLines="2" />
+			</FlexBox>
+			<HBox>
+				<TextArea id="area0" value="Item Type" width="125px" editable="false" />
+				<TextArea id="area1" value="No of Bags" width="100px" editable="false" />
+				<TextArea id="area2" value="Staging Location" width="500px" editable="false" />
+			</HBox>
+			<HBox>
+				<TextArea value="Frozen Items" width="125px" editable="false" />
+				<TextArea id="froBag" maxLength="2" width="100px" liveChange="disableStageLoc" />
+				<TextArea id="froSta1" maxLength="3" value="" width="100px" editable="false" />
+				<TextArea id="froSta2" maxLength="3" value="" width="100px" editable="false" />
+				<TextArea id="froSta3" maxLength="3" value="" width="100px" editable="false" />
+				<TextArea id="froSta4" maxLength="3" value="" width="100px" editable="false" />
+				<TextArea id="froSta5" maxLength="3" value="" width="100px" editable="false" />
+			</HBox>
+			<HBox>
+				<TextArea value="Regular Items" width="125px" editable="false" />
+				<TextArea id="regBag" maxLength="2" width="100px" liveChange="disableStageLoc" />
+				<TextArea id="regSta1" maxLength="3" value="" width="100px" editable="false" />
+				<TextArea id="regSta2" maxLength="3" value="" width="100px" editable="false" />
+				<TextArea id="regSta3" maxLength="3" value="" width="100px" editable="false" />
+				<TextArea id="regSta4" maxLength="3" value="" width="100px" editable="false" />
+				<TextArea id="regSta5" maxLength="3" value="" width="100px" editable="false" />
+			</HBox>
+			<HBox>
+				<Text text="" />
+			</HBox>
+			<FlexBox justifyContent="Center" alignItems="Center">
+			<items>
+				<Button id="printBag" text="Print Bag" type="Emphasized"
+					press="onPrintBag" />
+				<Text text="" width="2rem" />
+				<Button id="allDone" text="All Done" type="Accept" press="onAllDone"
+					enabled="false" />
+				<Text text="" width="2rem" />
+				<Button id="oBtn43" text="Cancel" type="Reject" press="onPrintCancel" /></items>
+			</FlexBox>
+		</VBox>
+	</Dialog>
+</core:FragmentDefinition>

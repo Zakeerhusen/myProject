@@ -1,0 +1,100 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="fullscreenapp.ExceptionReport"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" showHeader="false">
+		<content>
+			<VBox class="carousalCont">
+				<!-- <Carousel id="exceptionsCarousel" loop="true" showPageIndicator="false"
+					class="carouselClass">
+					<pages> -->
+						<VBox class="BoxClass">
+							<Toolbar class="boxTitleBar">
+								<content>
+									<Text text="List of Exceptions" class="boxTitle" />
+								</content>
+							</Toolbar>
+							<!-- <HBox> <items> <SearchField placeholder='Search' /> <HBox id='idExceptionActions' 
+								visible='false'> <Button text='CONFIRM' class="addSpaceButton" type="Accept" 
+								press="onConfirmException" /> <Button text="SHORT" class="addButton" type="Reject" 
+								press="onShortException" /> </HBox> </items> </HBox> -->
+							<Toolbar id="deliveryTblToolbar" class="boxToolBar">
+								<content>
+									<Button id="excSortBtn" tooltip="Table Sort"
+									icon="sap-icon://drop-down-list" press="onExcSort"/>
+									<HBox id='idExceptionActions' visible='false'>
+										<Button text='CONFIRM' class="greenButton"  type="Accept" 
+											press="onConfirmException" />
+										<Button text="SHORT" class="redButton" type="Reject"
+											press="onShortException" />
+									</HBox>
+									<ToolbarSpacer></ToolbarSpacer>
+									<SearchField width="250px" class="searchFieldClass" liveChange="search"></SearchField>
+								</content>
+							</Toolbar>
+							<Table id="idProductsTable9" selectionChange="onExcRowSelect"
+								items="{path: 'jsonModel3>/ExceptionsSet'}" inset="true" mode="MultiSelect"
+								class="ssdTable" swipe='onSwipe'>
+								<swipeContent>
+									<HBox>
+										<Button text='CONFIRM' class="fullHeightButton" type="Accept"
+											press="onConfirmExceptionWithSwipe" />
+										<Button text="SHORT" class="fullHeightButton" type="Reject"
+											press="onShortExceptionWithSwipe" />
+									</HBox>
+								</swipeContent>
+								<columns>
+									<Column width='11.4%' class="ssdTableHeader">
+										<Text text="Dispatch Time" class="textBold" />
+									</Column>
+									<Column width='8%' class="ssdTableHeader">
+										<Text text="Open time" class="textBold" />
+									</Column>
+									<Column width='9%' class="ssdTableHeader">
+										<Text text="Ex Code" class="textBold" />
+									</Column>
+									<Column width='9.4%' class="ssdTableHeader">
+										<Text text="OrderId" class="textBold" />
+									</Column>
+									<Column width='8.4%' class="ssdTableHeader">
+										<Text text="Order Location" class="textBold" />
+									</Column>
+									<Column width='10.4%' class="ssdTableHeader">
+										<Text text="SKU" class="textBold" />
+									</Column>
+									<Column width='29.4%' class="ssdTableHeader">
+										<Text text="Desc" class="textBold" />
+									</Column>
+									<Column width='5.4%' class="ssdTableHeader">
+										<Text text="Qty" class="textBold" />
+									</Column>
+									<Column width='11.4%'>
+										<Text text="Org Location" class="textBold" />
+									</Column>
+									<Column width='9.4%' class="ssdTableHeader">
+										<Text text="ALT Loc" class="textBold" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{jsonModel3>DispatchTime}" class='textLowerCase'></Text>
+											<Text text="{jsonModel3>Opentime}"></Text>
+											<Text text="{jsonModel3>Excode}"></Text>
+											<Link id='exordId' text="{jsonModel3>Orderid}" wrapping='true' press='onOrderListDblClk'></Link>
+											<Text text="{jsonModel3>Orderlocation}"></Text>
+											<Link text="{jsonModel3>Sku}" wrapping='true' press='onSkuDblClk'></Link>
+											<Text text="{jsonModel3>Desc}"></Text>
+											<Text text="{jsonModel3>Qty}"></Text>
+											<Text text="{jsonModel3>Origlocation}"></Text>
+											<Text text="{jsonModel3>Altlocation}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</VBox>
+					<!-- </pages>
+				</Carousel> -->
+			</VBox>
+		</content>
+	</Page>
+</core:View>

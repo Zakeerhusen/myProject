@@ -1,0 +1,127 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" 
+		controllerName="foodkickpicking.displayOrder" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page class="backGround">
+	<headerContent>
+	<Bar class="pageHeader">
+	<contentMiddle>
+	       <Image src="images/mainHeader.png" height="3rem" width="5rem"/>
+	 </contentMiddle>   
+	 <contentRight>   
+	<Button icon="sap-icon://sys-cancel-2" type="Emphasized" visible="false" id="busyCloseBtn" press="closeBusyGrid"/>
+		<OverflowToolbarButton icon="sap-icon://log" press="logout" id="displayLogout"/>
+	</contentRight>
+	</Bar>
+	</headerContent>
+		
+		
+		<content>
+		<l:Grid defaultSpan="L12 M12 S12"  hSpacing="0" vSpacing="0" id="matGrid" class="topMarginForGrid">
+			
+			<VBox justifyContent="Center" alignItems="Center">
+			<FlexBox justifyContent="Center" alignItems="Center">
+			<Text text="{Pickloc}" class="pickLocation"/>
+			</FlexBox>
+			<HBox justifyContent="Center" alignItems="Center"  >
+			<FlexBox alignItems="Center" justifyContent="Center" width="11rem" height="11rem">
+			<Image id="matImage" src="{MatImage}" width="10rem" height="10rem" />
+			</FlexBox>
+			<VBox  alignItems="Center" justifyContent="Center"  class="detailsForm" width="7rem" height="11rem">
+			<FlexBox id="incDecOpPlus" visible="false" alignItems="Start" justifyContent="Center" width="3rem" height="4rem">
+			<Button id="inc" icon="sap-icon://add" class ="circleButton circleButtonIcon" type="Accept"  press="incValue"/>
+			</FlexBox>
+			<FlexBox alignItems="End" justifyContent="Center" width="3rem" height="2rem">
+			<Text text="{Picqty}" class="picQty" id="itemCount" />
+			</FlexBox>
+			<FlexBox  id="incDecOpMinus" visible="false" alignItems="Start" justifyContent="Center" width="3rem" height="4rem">
+			<Button id="dec"  icon="sap-icon://less" class ="circleButton circleButtonIcon" type="Accept" press="decValue"/>
+			</FlexBox>
+			</VBox>
+			</HBox>
+			<VBox>
+			<Panel>
+			<HBox alignItems="End" justifyContent="Center" >
+			<InputBase id="scanInput" />
+			<Button icon="sap-icon://bar-code" type="Emphasized"/>
+			</HBox>
+			</Panel>
+			</VBox>
+			
+			<HBox alignItems="Center" justifyContent="Center">
+			<FlexBox alignItems="Center" justifyContent="Center" width="15rem" height="7rem">
+			<Text text="{MatDesc}" class="matDescStyle"  />
+			</FlexBox>
+			<FlexBox alignItems="Center" justifyContent="Center" width="6rem" height="7rem" id="scaleImage">
+			<Image src="images/scale.png" width="6rem" height="7rem"/>
+			</FlexBox>
+			</HBox>
+			</VBox>
+			<!--<HBox alignItems="Center" justifyContent="Center">
+			<FlexBox alignItems="Center" justifyContent="Center"  height="2rem" width="6rem" class="detailsForm">
+			<Text text="Order No :" class="orderNumber"/>
+			</FlexBox>   
+			<FlexBox alignItems="Center" justifyContent="Center" height="2rem" width="7rem" class="detailsForm">
+			<Text text="{IOrder}"  class="orderNumber"/>
+			</FlexBox>   
+			</HBox>
+			-->
+			<HBox alignItems="Center" justifyContent="Center" id="tolValues" visible="false">
+			<FlexBox alignItems="Center" justifyContent="Center"  height="3rem" width="10rem" >
+			<Text text="Expected Weight :" id="tolLabel" class="tolValues"/>
+			</FlexBox>   
+			<FlexBox alignItems="Center" justifyContent="Center" height="3rem" width="12rem" >
+			<Text text="{Ltol} - {Htol} {Buom}" id="tolValue" class="tolValues"/>
+			</FlexBox>   
+			</HBox>
+			</l:Grid>
+			<FlexBox alignItems="Center" justifyContent="Center" id="exceptionBtn" visible="false">
+			<Button text="Mark Exception" type="Emphasized" press="markException" class="marExceptionButton"/>
+			</FlexBox>
+			<HBox alignItems="Center" justifyContent="Center" id="exceptionTypes" visible="false">
+			<FlexBox alignItems="Center" justifyContent="Center" width="32%">
+	  			 <Button text="Pending" icon="sap-icon://pending" type="Emphasized" class="exceptionType" press="markExceptionForItem"/>
+     		</FlexBox>
+     		<FlexBox alignItems="Center" justifyContent="Center" width="32%">	
+     			 <Button text="Quality" icon="sap-icon://quality-issue" type="Emphasized" class="exceptionType" press="markExceptionForItem"/>
+     		</FlexBox>
+     		<FlexBox alignItems="Center" justifyContent="Center" width="33%">	 
+     			 <Button text="Damaged" icon="sap-icon://error" type="Emphasized" class="exceptionType" press="markExceptionForItem"/>
+			</FlexBox>
+			</HBox>
+		</content>
+ <l:VerticalLayout>	
+		<l:dependents>
+      <core:Fragment fragmentName="foodkickpicking.supportXmls.BusyDialog" type="XML">
+      </core:Fragment>
+    </l:dependents>
+  </l:VerticalLayout>
+  <footer class="detailsFooter">
+      <OverflowToolbar id="detailsToolBar" >
+      <VBox>
+       	<HBox justifyContent="End">
+		<Text text="Tote Id :" />
+		<Text text="{Tote}"/>
+		</HBox>
+		<HBox>
+		<Text text="Order No:" />
+		<Text text="{IOrder}"/>
+		</HBox>
+	</VBox>
+		<ToolbarSpacer></ToolbarSpacer>
+		<HBox>
+		<Text text="Items :"/>
+		<Text text="{Items}" id="itemsField"/>
+		</HBox>
+		<ToolbarSpacer></ToolbarSpacer>
+		<VBox>
+		<HBox justifyContent="Start">
+		<Text text="PPH :"  design="Bold"/>
+		<Text text="{Pph}" id="pphValue" design="Bold"/>
+		</HBox>
+		<HBox>
+		<Text id= "uNameinDetailsPage" text="{Zfullname}"/>
+		</HBox>
+		</VBox>
+    	</OverflowToolbar>
+    </footer>
+	</Page>
+</core:View>

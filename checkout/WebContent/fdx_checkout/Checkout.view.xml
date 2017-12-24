@@ -1,0 +1,80 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="fdx_checkout.Checkout" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page justifyContent="left" showHeader="false">
+		<content>
+			<Panel>
+				<HBox>
+					<VBox id ="ImageBoxId" width="15%">
+						<items>
+							<Image id ="headerImageId" src="images/foodkick.jpg" />
+						</items>
+					</VBox>
+					<!-- <VBox width="30%">
+						<items>
+							<Text id="oCheckoutLbl" text="CHECKOUT" text-align="center" />
+						</items>
+					</VBox> -->
+				</HBox>
+			</Panel>
+			<Panel id = "MainPanelId" >
+				<HBox id ="mainBoxId" justifyContent= "Center">
+					<VBox id="ScanBoxId">
+						<FlexBox id= "scanInnerBoxId" justifyContent="Center">
+							<Text id="ScanTextId" text="Enter/Scan User ID" />
+						</FlexBox>
+						<FlexBox justifyContent="Center">
+							<Input type="Text" id="loginId" textAlign="Center"/>
+						</FlexBox>
+					</VBox>
+					<HBox id="KeypadBoxId">
+						<VBox id="keypadPanelId">
+							<HBox id="KeypadBox1">
+								<Button class="BtnCss" id="btn_7" text="7" 
+									press="press7" />
+								<Button class="BtnCss" id="btn_8" text="8"
+									press="press8" />
+								<Button class="BtnCss" id="btn_9" text="9"
+									press="press9" />
+							</HBox>
+							<HBox id="KeypadBox2">
+								<Button class="BtnCss" id="btn_4" text="4"
+									press="press4" />
+								<Button class="BtnCss" id="btn_5" text="5"
+									press="press5" />
+								<Button class="BtnCss" id="btn_6" text="6"
+									press="press6" />
+							</HBox>
+							<HBox id="KeypadBox3">
+								<Button class="BtnCss" id="btn_1" text="1"
+									press="press1" />
+								<Button class="BtnCss" id="btn_2" text="2" 
+									press="press2" />
+								<Button class="BtnCss" id="btn_3" text="3" 
+									press="press3" />
+							</HBox>
+							<HBox id="KeypadBox4">
+								<Button id="btn_0" text="0" press="press0" class="bold" />
+								<Button id="btn_dot" text="."  press="pressDot"
+									class="bold" />
+							</HBox>
+						</VBox>
+						<VBox id="keypadPanel2">
+							<VBox id="KeypadVBox2">
+								<Button id="btn_entr" text="ENTER"
+									press="pressEnter" />
+								<Button id="btn_clr" text="CLEAR"
+									press="pressClr" />
+							</VBox>
+						</VBox>
+					</HBox>
+				</HBox>
+			</Panel>
+			<Panel >
+				<VBox width="20%">
+					<Text id="sysTimeId" />
+					<Text id="sysDayId" />
+				</VBox>
+			</Panel>
+		</content>
+	</Page>
+</core:View>

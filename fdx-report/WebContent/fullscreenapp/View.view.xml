@@ -1,0 +1,137 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:viz="sap.viz" xmlns:layout="sap.ui.layout" xmlns="sap.m"
+	controllerName="fullscreenapp.View" xmlns:html="http://www.w3.org/1999/xhtml">
+	<HBox width="100%" class="headerHboxClass">
+		<items>
+			<HBox width="20%">
+				<items>
+					<Button icon="Images/slidingDrawer.png" type="Transparent"
+						class="hdrBtnColor" press="onMenuPress"></Button>
+					<Image src="Images/FoodKick_bodyLogo.png" height="20px"
+						class="logoClass"></Image>
+				</items>
+			</HBox>
+			<HBox width="55%">
+				<items>
+					<Button id="refreshPage" icon="Images/refresh.png" press="refreshPage"
+						type="Transparent" class="hdrBtnColor"></Button>
+
+					<DatePicker id="DP1" placeholder="Enter Date ..." width="10rem"
+						value="{path:'jsonModel2>/dateValue', type:'sap.ui.model.type.Date'}"
+						change="onDateChange" class="datePickerClass" />
+					<Input type="Text" value="" width="1rem" editable="false" />
+					<ComboBox id="store" items="{/}" width="12rem"
+						selectionChange="onStoreChange" selectedKey='{jsonModel2>/selectedStore}'
+						class="datePickerClass">
+						<core:Item text="{Werks}-{Name1}" key="{Werks}" />
+					</ComboBox>
+				</items>
+			</HBox>
+			<HBox width="25%" justifyContent="End" alignItems="Center">
+				<items>
+					<Text id='idLastUpdateTime' text="" class="timeTxtClass"></Text>
+					<Image id="switchOn" src="Images/switch_off.png" class="switchClass"
+						press='onAutoRefreshOff'></Image>
+					<Image id="switchOff" src="Images/switch_on.png" class="switchClass"
+						press='onAutoRefreshOn' visible="false"></Image>
+					<Image src="Images/Blank User.png" class="imageClass"></Image>
+				</items>
+			</HBox>
+		</items>
+	</HBox>
+	<!-- <ScrollContainer height="100%" horizontal="false" vertical="true" focusable="true"> -->
+	<SplitApp id="SplitApp" initialDetail="detail" initialMaster="master"
+		class="SplitApp">
+		<masterPages>
+			<Page id="master" showHeader="false" class="sapUiStdPage">
+				<content>
+					<List id="masterList" class="listClass">
+						<items>
+							<StandardListItem id="masterListItem" type="Active"
+								title="{title}" counter="{count}" icon="{icon}" press="onPressGoToDetail"
+								class="masterListItemClass" tooltip="{title}" />
+						</items>
+					</List>
+				</content>
+			</Page>
+		</masterPages>
+		<detailPages>
+			<!-- <Page id="detail" showHeader="false" class="sapUiStdPage"> <content> 
+				<VBox class="carousalCont"> <Carousel id="carousel" loop="true" showPageIndicator="false" 
+				class="carouselClass"> <pages> <VBox> <HBox width="100%"> <items> <VBox width="55%" 
+				height="23rem" class="BoxClassMargin"> <items> <Bar class="boxTitleBar"> 
+				<contentLeft> <Text text="Orders and Packs" class="boxTitle"></Text> </contentLeft> 
+				<contentRight> <Button id="gridView" type="Transparent" icon="Images/ic_action_view_as_grid.png" 
+				press="onGridPress"></Button> <Button id="listView" type="Transparent" icon="Images/ic_action_view_as_list.png" 
+				visible="false" press="onListPress"></Button> </contentRight> </Bar> <Table 
+				id="idProductsTable" items="{path: '/'}" class="ssdTable" visible="false"> 
+				<columns> <Column> <Text text="Type" class="textBold" /> </Column> <Column> 
+				<Text text="In-Progress" class="textBold" /> </Column> <Column> <Text text="Orders 
+				Placed" class="textBold" /> </Column> <Column> <Text text="Pending" class="textBold" 
+				/> </Column> <Column> <Text text="Total" class="textBold" /> </Column> </columns> 
+				<items> <ColumnListItem id="listItem"> <cells> <Text text="{Type}" class="textBold"></Text> 
+				<Text text="{Inprgord}"></Text> <Text text="{Placedord}"></Text> <Text text="{Pendingord}"></Text> 
+				<Text text="{Total}"></Text> </cells> </ColumnListItem> </items> </Table> 
+				<HBox> <viz:ui5.Donut id="orderChart" width="15rem" height="15rem"> <viz:plotArea> 
+				<viz:ui5.types.Pie colorPalette="[red, green]"></viz:ui5.types.Pie> </viz:plotArea> 
+				<viz:legend> <viz:ui5.types.legend.Common visible="false"></viz:ui5.types.legend.Common> 
+				</viz:legend> <viz:dataset> <viz:ui5.data.FlattenedDataset data="{/}"> <viz:dimensions> 
+				<viz:ui5.data.DimensionDefinition axis="1" name="Status" value="{Status}"> 
+				</viz:ui5.data.DimensionDefinition> </viz:dimensions> <viz:measures> <viz:ui5.data.MeasureDefinition 
+				name='Orders' value='{Count}'> </viz:ui5.data.MeasureDefinition> </viz:measures> 
+				</viz:ui5.data.FlattenedDataset> </viz:dataset> </viz:ui5.Donut> <viz:ui5.Donut 
+				id="packsChart" width="15rem" height="15rem"> <viz:legend> <viz:ui5.types.legend.Common 
+				visible="false"></viz:ui5.types.legend.Common> </viz:legend> <viz:dataset> 
+				<viz:ui5.data.FlattenedDataset data="{/}"> <viz:dimensions> <viz:ui5.data.DimensionDefinition 
+				axis="1" name="Usage Low to High" value="{Status}"> </viz:ui5.data.DimensionDefinition> 
+				</viz:dimensions> <viz:measures> <viz:ui5.data.MeasureDefinition name='Packs' 
+				value='{Count}'> </viz:ui5.data.MeasureDefinition> </viz:measures> </viz:ui5.data.FlattenedDataset> 
+				</viz:dataset> </viz:ui5.Donut> </HBox> <HBox> <Table id="legendTable" class="legendTable" 
+				showNoData="false"> <columns> <Column hAlign="Left" width="10px"> <HBox class="greenBox"></HBox> 
+				</Column> <Column hAlign="Left"> <Text text="In-Progress" /> </Column> <Column 
+				hAlign="Left" width="10px"> <HBox class="orangeBox"></HBox> </Column> <Column 
+				hAlign="Left"> <Text text="Pending" /> </Column> <Column hAlign="Left" width="10px"> 
+				<HBox class="redBox"></HBox> </Column> <Column hAlign="Left"> <Text text="Cancelled" 
+				/> </Column> </columns> </Table> </HBox> </items> </VBox> <VBox width="45%" 
+				height="23rem" class="BoxClassMargin"> <items> <Bar class="boxTitleBar"> 
+				<contentLeft> <Text text="Activity Snapshot" class="boxTitle"></Text> </contentLeft> 
+				<contentRight> <Button id="activityGridView" type="Transparent" class="boxIcon" 
+				icon="Images/ic_action_view_as_grid.png" press="onActivityGridPress"></Button> 
+				<Button id="activityListView" type="Transparent" class="boxIcon" icon="Images/ic_action_view_as_list.png" 
+				visible="false" press="onActivityListPress"></Button> </contentRight> </Bar> 
+				<Table id="activityTable" items="{path: '/'}" class="ssdTable"> <columns> 
+				<Column> <Text text="Category" class="textBold" /> </Column> <Column> <Text 
+				text="Quantity" class="textBold" /> </Column> <Column> <Text text="% Packs" 
+				class="textBold" /> </Column> </columns> <items> <ColumnListItem id="actlistItem"> 
+				<cells> <Text text="{Category}" class="textBold"></Text> <Text text="{Qty}"></Text> 
+				<Text text="{perPacks}"></Text> </cells> </ColumnListItem> </items> </Table> 
+				</items> </VBox> </items> </HBox> <VBox class="BoxClass"> <Bar class="boxTitleBar"> 
+				<contentLeft> <Text text="Deliver Window Status" class="boxTitle" /> </contentLeft> 
+				<contentRight> <SearchField width="200px" class="searchFldClass"></SearchField> 
+				</contentRight> </Bar> <Toolbar class="boxTitleBar"> <content> <Text text="Delivery 
+				Window Status" class="boxTitle" /> </content> </Toolbar> <Toolbar id="deliveryTblToolbar" 
+				class="toolbarClass"> <content> <ToolbarSpacer></ToolbarSpacer> <SearchField 
+				width="250px" class="searchFieldClass" liveChange="search"></SearchField> 
+				</content> </Toolbar> <Table id="idDeliveryWindowsTable" mode="SingleSelectMaster" 
+				selectionChange="onOverviewRowSelect" items="{path: 'jsonModel1>/StoreOverviewSet'}" 
+				class="ssdTable"> <columns> <Column id="col0"> <Title text='Delivery Window' 
+				level='H4' /> <Text text="Delivery Window" class="" /> </Column> <Column 
+				id="col1"> <Text text="Orders" class="" /> </Column> <Column id="col2"> <Text 
+				text="Released Orders" class="" /> </Column> <Column id="col3" demandPopin="true"> 
+				<Text text="PPO" class="" /> </Column> <Column id="col4"> <Text text="Pending 
+				Orders" class="" /> </Column> <Column id="col5"> <Text text="Queue" class="" 
+				/> </Column> <Column id="col6"> <Text text="Picking" class="" /> </Column> 
+				<Column class="ssdTableHeader"> <Text text="Checkout" class="" /> </Column> 
+				<Column class="ssdTableHeader"> <Text text="Staging In" class="" /> </Column> 
+				<Column class="ssdTableHeader"> <Text text="Dispatched" class="" /> </Column> 
+				</columns> <items> <ColumnListItem> <cells> <Text text="{jsonModel1>Delwindow}"></Text> 
+				<Text text="{jsonModel1>Ordcnt}"></Text> <Text text="{jsonModel1>Relords}"></Text> 
+				<Text text="{jsonModel1>Ppo}"></Text> <Text text="{jsonModel1>Penord}"></Text> 
+				<Text text="{jsonModel1>Queue}"></Text> <Text text="{jsonModel1>Picking}"></Text> 
+				<Text text="{jsonModel1>Checked}"></Text> <Text text="{jsonModel1>Stagged}"></Text> 
+				<Text text="{jsonModel1>Dispatched}"></Text> </cells> </ColumnListItem> </items> 
+				</Table> </VBox> </VBox> </pages> </Carousel> </VBox> </content> </Page> -->
+		</detailPages>
+	</SplitApp>
+	<!-- </ScrollContainer> -->
+</core:View>

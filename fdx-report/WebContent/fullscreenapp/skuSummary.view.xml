@@ -1,0 +1,165 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout" xmlns="sap.m" controllerName="fullscreenapp.skuSummary"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" showHeader="false">
+		<content>
+			<VBox class="carousalCont">
+				<!-- <Carousel id="exceptionsCarousel" loop="true" showPageIndicator="false" 
+					class="carouselClass"> <pages> -->
+				<VBox class="BoxClass">
+					<Toolbar class="boxTitleBar">
+						<content>
+							<Text text="SKU List" class="boxTitle" />
+						</content>
+					</Toolbar>
+					<Toolbar id="skuSummaryToolbar" class="boxToolBar">
+						<content>
+							<Button id="skuSortBtn" tooltip="Table Sort" type="Transparent"
+								icon="sap-icon://drop-down-list" press="onskuSort" />
+							<Button id="pendReportBtn" type="Emphasized" text="Pend Report"
+								press="onPendButton" />
+							<ToolbarSpacer></ToolbarSpacer>
+							<SearchField id="skuSrch" width="250px" class="searchFieldClass"
+								liveChange="search"></SearchField>
+						</content>
+					</Toolbar>
+					<Table class="ssdTable" showNoData="false">
+						<columns>
+							<Column width ='9.4%'>
+								<Text text="SKU" class="textBold"></Text>
+							</Column>
+							<Column width ='23.4%'>
+								<Text text="Description" class="textBold"></Text>
+							</Column>
+							<Column width ='9.4%'>
+								<Text text="Location" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Sale Quantity" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Open" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Picked" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Pend." class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Short" class="textBold"></Text>
+							</Column>
+							<Column width ='11.4%'>
+								<Text text="UPC" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Pending History" class="textBold"></Text>
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer vertical="true" height="12rem">
+						<Table id="skuSummaryTbl" class="ssdTable" items="{jsonModel1>/results}">
+							<columns>
+								<Column minScreenWidth="" demandPopin="false" width ='9.4%'></Column>
+								<Column minScreenWidth="" demandPopin="false" width ='23.4%'></Column>
+								<Column minScreenWidth="" demandPopin="false" width ='9.4%'></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center" width ='12.4%'></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+							</columns>
+							<items>
+								<ColumnListItem id="skuSummaryTblItem" type="Active"
+									press="onValueSku">
+									<cells>
+										<Text text="{jsonModel1>Matnr}"></Text>
+										<Text text="{jsonModel1>Maktx}"></Text>
+										<Text text="{jsonModel1>Vlpla}"></Text>
+										<Text text="{jsonModel1>Saleqty}"></Text>
+										<Text text="{jsonModel1>Openpicks}"></Text>
+										<Text text="{jsonModel1>Comppicks}"></Text>
+										<Text text="{jsonModel1>Pendpicks}"></Text>
+										<Text text="{jsonModel1>Shortpicks}"></Text>
+										<Link text="{jsonModel1>Ean11}" wrapping="true" press="onUPCClick" />
+										<Text text="{jsonModel1>Pendhist}"></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</VBox>
+				<VBox class="BoxClass">
+					<Toolbar class="boxTitleBar">
+						<content>
+							<Text text="Inventory Snapshot" class="boxTitle" />
+						</content>
+					</Toolbar>
+					<Toolbar id="inventoryToolbar" class="boxToolBar">
+						<content>
+							<Button id="printBtn" tooltip="Print Inventory" text="Print Inventory"
+								press="onPrintInvent" type="Emphasized" enabled="false"/>
+							<ToolbarSpacer></ToolbarSpacer>
+							<SearchField id="inventorySrch" width="250px"
+								class="searchFieldClass" liveChange="search"></SearchField>
+						</content>
+					</Toolbar>
+					<Table id="inventoryTbl" class="ssdTable"
+						items="{oSkuInvJsonModel>/SkuSummarySet}">
+						<columns>
+							<Column>
+								<Text text="Source" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Type" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Store Bin" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="SC" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Total Stock" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Available Stock" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Bun" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="GR Date" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Storage Unit" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Pick Quantity" class="textBold"></Text>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem id="inventoryItem">
+								<cells>
+									<Text text="{oSkuInvJsonModel>Source}"></Text>
+									<Text text="{oSkuInvJsonModel>Lgtyp}"></Text>
+									<Text text="{oSkuInvJsonModel>Lgpla}"></Text>
+									<Text text="{oSkuInvJsonModel>Bestq}"></Text>
+									<Text text="{oSkuInvJsonModel>Totstk}"></Text>
+									<Text text="{oSkuInvJsonModel>Avlstk}"></Text>
+									<Text text="{oSkuInvJsonModel>Meins}"></Text>
+									<Text text="{oSkuInvJsonModel>Wdatu}"></Text>
+									<Text text="{oSkuInvJsonModel>Lenum}"></Text>
+									<Text text="{oSkuInvJsonModel>Pickqty}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</VBox>
+				<!-- </pages> </Carousel> -->
+			</VBox>
+		</content>
+	</Page>
+</core:View>

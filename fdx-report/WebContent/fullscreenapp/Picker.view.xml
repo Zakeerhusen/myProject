@@ -1,0 +1,51 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:layout="sap.ui.layout" xmlns="sap.m" xmlns:table="sap.ui.table"
+	controllerName="fullscreenapp.Picker" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" showHeader="false">
+		<content>
+			<VBox class="carousalCont">
+				<HBox class="transparentBox">
+					<ComboBox id="shift" placeholder="User Name / User Id"
+						width="15rem" items="{/}" selectionChange="onShiftChange">
+						<core:Item text="{Shift}-{Name}" />
+					</ComboBox>
+				</HBox>
+				<layout:Grid vSpacing="1" hSpacing="1" defaultSpan="L3 M6 S12"
+					content='{/}'>
+					<layout:content>
+						<VBox class="userTileCont">
+							<HBox class="userTileBigGap" justifyContent="End"
+								alignItems="End">
+								<Image src="Images/editIcon.png" width="30px"></Image>
+								<Image src="Images/deleteIcon.png" width="30px"></Image>
+							</HBox>
+							<Text text="Sarathi Dutta" class="userTileTitle"></Text>
+							<HBox class="userTileRoleCont" justifyContent="Center"
+								alignItems="Center">
+								<Text text="Admin" class="userTileRoleText"></Text>
+							</HBox>
+
+							<HBox class="userTileLastSeenBox">
+								<Image src="Images/loginIcon.png" width="30px"></Image>
+								<VBox>
+									<Text text="26 days" class="userTileTextBoxText2"></Text>
+									<Text text="since last login" class="userTileLastSeenBoxText"></Text>
+								</VBox>
+
+							</HBox>
+
+							<HBox class="userTileTextBox">
+								<Image src="Images/storeIcon.png" width="25px"></Image>
+								<Text text="Store A, Store B" class="userTileTextBoxText"></Text>
+							</HBox>
+							<HBox class="userTileTextBox">
+								<Image src="Images/barcodeIcon.png" width="25px"></Image>
+								<Text text="INC00115" class="userTileTextBoxText"></Text>
+							</HBox>
+						</VBox>
+					</layout:content> <!-- sap.ui.core.Control -->
+				</layout:Grid>
+			</VBox>
+		</content>
+	</Page>
+</core:View>

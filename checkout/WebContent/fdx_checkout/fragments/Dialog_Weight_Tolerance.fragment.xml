@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="Weight_Tol_Dialog" contentWidth="400px"
+		contentHeight="250px" showHeader="false">
+		<customHeader>
+			<Bar id="Header_bar">
+				<contentRight>
+					<Button icon="sap-icon://sys-cancel-2" press="close4" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<VBox>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<Text id="text_tol" text="Entered weight Incorrect should be " />
+			</FlexBox>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<Text id="text_tol_Value" text="between ({dModel>/Ltol} - {dModel>/Htol})LB" />
+			</FlexBox>
+
+			<FlexBox id = "flex_Exception" alignItems="Start" justifyContent="Center">
+				<Button id="ExceptionBtn" text="Mark Exception" press="markItem" />
+			</FlexBox>
+			<FlexBox alignItems="Start" justifyContent="Center">
+				<Button id="TryAgainId" text="Try Again" press="close4" />
+			</FlexBox>
+		</VBox>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="jquery/jquery-1.7.1.js"></script>
+    <script type="text/javascript" src="jquery/jquery-ui-position.js"></script>
+
+
+    <script id="sap-ui-bootstrap" type="text/javascript"
+            src="https://sapui5.netweaver.ondemand.com/resources/sap-ui-core.js" data-sap-ui-libs="sap.m"
+            data-sap-ui-theme="sap_bluecrystal"
+            data-sap-ui-preload=""
+            data-sap-ui-xx-bindingSyntax="complex" data-sap-ui-compatVersion="1.16"
+            data-sap-ui-resourceroots='{
+			"sap.ui.demo" : "./",
+			"foodkickpicking": "./foodkickpicking"}'>
+
+    </script>
+
+
+    <script type="text/javascript" src="util/util.js"></script>
+
+
+
+    <script type="text/javascript">
+			sap.ui.localResources("foodkickpicking");
+			var oShell = new sap.m.Shell("shellId", {
+		//		title : "Master Detil In UI5",
+				showLogout : false,
+				app : new sap.ui.core.ComponentContainer({
+					height : "100%",
+					name : "sap.ui.demo"
+				})
+			});
+
+			oShell.placeAt("content");
+		</script>
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body class="sapUiBody" role="application">
+<div id="content"></div>
+
+<script>
+		function getBarcode(barcode){
+		
+			//barcode = barcode+data;
+			//alert("entered getBarcode : "+barcode);
+		    if(currentView=="login"){
+		    var input = document.getElementById("__xmlview1--scanEmpId-inner");
+		    input.value=barcode;
+		  // alert("In login screen : barcode - "+barcode);
+		    }
+		    else if(currentView=="scanTote"){
+		    var input = document.getElementById("__xmlview3--scanToteInput-inner");
+		    input.value=barcode;
+		    }
+		    else if(currentView=="displayOrder"){
+		    var input = document.getElementById("__xmlview4--scanInput-inner");
+		  	 input.value=barcode;
+		    }
+		    else if(currentView=="exceptionReports"){
+		    var input = document.getElementById("__xmlview5--inputScanCheckout-inner");
+		    input.value=barcode;
+		    }
+		    else if(currentView=="exceptionReports2"){
+		    var input = document.getElementById("__xmlview6--scanPendingBC-inner");
+		     input.value=barcode;
+		    }
+		    else if(currentView=="scanCheckout"){
+		    var input = document.getElementById("__xmlview7--inputScanCheckout-inner");
+		     input.value=barcode;
+		     }
+		
+		}
+</script>
+
+</body>
+</html>

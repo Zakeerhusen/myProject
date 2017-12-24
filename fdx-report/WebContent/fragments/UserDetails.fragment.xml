@@ -1,0 +1,80 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Information of {/Firstname} {/Lastname}"
+		contentWidth="34rem" contentHeight="33rem">
+		<f:SimpleForm editable="true">
+			<VBox class="boxBlankCont">
+				<Toolbar class="boxTitleBar">
+					<content>
+						<Text text="Basic Info" class="userBoxTitle" />
+					</content>
+				</Toolbar>
+				<HBox class="lineBreak"></HBox>
+				<HBox AlignItems="Center">
+					<Text text="User Id" class="textKey" />
+					<Input id= "userId" type="Text" value="{/Zempid}" class="textValue"
+						editable="false" />
+				</HBox>
+				<HBox AlignItems="Center">
+					<Text text="User Barcode" class="textKey" />
+					<Input id= "userbarcode" type="Text" value="{/UserBarcode}" class="textValue"
+						editable="false" />
+				</HBox>
+				<HBox AlignItems="Center">
+					<Text text="Last Name" class="textKey" />
+					<Input id= "lastname" type="Text" value="{/Lastname}" class="textValue"
+						editable="true" />
+				</HBox>
+				<HBox AlignItems="Center">
+					<Text text="First Name" class="textKey" />
+					<Input id= "firstname" type="Text" value="{/Firstname}" class="textValue"
+						editable="true" />
+				</HBox>
+				<Toolbar class="boxTitleBar">
+					<content>
+						<Text text="Role Details" class="userBoxTitle" />
+					</content>
+				</Toolbar>
+				<HBox class="lineBreak"></HBox>
+				<HBox AlignItems="Center">
+					<Text text="Role" class="textKey" />
+					<ComboBox id="profileid" items="{oProfileIdModel>/}"
+						width="12rem" selectionChange="onProfileIdChange">
+						<core:Item
+							text="{oProfileIdModel>ZprofileId}-{oProfileIdModel>ProfileName}" key="{oProfileIdModel>ZprofileId}-{oProfileIdModel>ProfileName}"/>
+					</ComboBox>
+				</HBox>
+				<HBox AlignItems="Center">
+					<Text text="Store" class="textKey" />
+					<VBox id="vboxCheck" items='{storejsonModel>/}'>
+						<CheckBox id="check" selected=""
+							text="{storejsonModel>Werks}">
+						</CheckBox>
+					</VBox>
+				</HBox>
+				<Toolbar class="boxTitleBar">
+					<content>
+						<Text text="Login Details" class="userBoxTitle" />
+					</content>
+				</Toolbar>
+				<HBox class="lineBreak"></HBox>
+				<HBox AlignItems="Center">
+					<Text text="User Login" class="textKey" />
+					<Input id= "username" type="Text" value="{/Username}" class="textValue"
+						editable="true" />
+				</HBox>
+				<HBox alignItems="Center">
+					<Text text="User Password" class="textKey" />
+					<Input id= "password" type="Password" text="{/Password}" class="textValue"
+						editable="true" />
+				</HBox>
+			</VBox>
+		</f:SimpleForm>
+		<beginButton>
+			<Button id="updateButton" text="Done" press="onModify" />
+		</beginButton>
+		<endButton>
+			<Button text="Cancel" press="closeUserDetails" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

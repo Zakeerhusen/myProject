@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:layout="sap.ui.layout" xmlns:uxap="sap.uxap" xmlns:core="sap.ui.core">
+	<HBox>
+		<Button text='Modify' class="fullHeightButton" type="Accept"
+											press="onModifyWithSwipe" />
+										<Button text="Delete" class="fullHeightButton" type="Reject"
+											press="onDeleteWithSwipe" />
+	</HBox>
+</core:FragmentDefinition>
+	

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core">
+  <l:Grid
+    width="auto">
+    <l:content>
+      <f:SimpleForm id="orderForm"
+        maxContainerCols="2"
+        editable="false"
+        layout="ResponsiveGridLayout"
+        labelMinWidth="120">
+        <f:content>
+          <Label text="Order No" />
+          <Text text="XXXXXXXX" />
+          <Label text="Delivery Window" />
+          <Text text="5:30 - 7:30" />
+        </f:content>
+      </f:SimpleForm>
+    </l:content>
+  </l:Grid>
+</core:FragmentDefinition>

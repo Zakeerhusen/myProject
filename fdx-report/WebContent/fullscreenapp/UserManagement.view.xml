@@ -1,0 +1,145 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" controllerName="fullscreenapp.UserManagement"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page title="Title" showHeader="false">
+		<content>
+			<VBox class="carousalCont">
+			<VBox class="BoxClass">
+				<Bar class="boxTitleBar">
+					<contentLeft>
+						<Text text="List of existing users" class="boxTitle"></Text>
+					</contentLeft>
+					<contentRight>
+						<Button id="gridViewDevice" type="Transparent"
+							icon="Images/ic_action_view_as_grid.png" press="onUserManagementGridPress"></Button>
+						<Button id="listViewDevice" type="Transparent"
+							icon="Images/ic_action_view_as_list.png" visible="false"
+							press="onUserManagementListPress"></Button>
+					</contentRight>
+				</Bar>
+				<Toolbar id="deliveryTblToolba1r" class="boxToolBar">
+								<content>
+									<Button text="Create User" class="textValue2" press="onCreate"
+						type="Emphasized" />
+									<HBox id='idUserManagement' visible='false'>
+										<Button text='Modify' class="textValue2"  type="Accept" 
+											press="onModifyUsers" />
+										<Button text="Delete" class="textValue2" type="Reject"
+											press="onDelete" />
+									</HBox>
+									<ToolbarSpacer></ToolbarSpacer>
+									<SearchField width="250px" class="searchFieldClass" liveChange="search"></SearchField>
+								</content>
+							</Toolbar>
+				
+				<!-- <HBox class="transparentBox">
+					<InputBase type="Text" placeholder="User Name / User Id" width="15rem" 
+						change="onOrderIdChange" />
+					<SearchField width="250px" class="searchFieldClass"
+						liveChange="search"></SearchField>
+					<Button text="Go" class="textValue2" press="search" type="Default" 
+						/>
+					<Button text="Create User" class="textValue2" press="onCreate"
+						type="Default" />
+					<Button text="Delete User" class="textValue2" press="onDelete" 
+						type="Default" />
+				</HBox> -->
+				
+					<Table id="idUserManagementTable" class="ssdTable" inset="true"
+						items="{ path : 'userModel>/UserMangeSet'}" selectionChange="onUserClick"
+						mode="MultiSelect" swipe='onSwipe'>
+						
+						<swipeContent>
+									<HBox>
+										<Button text='Modify' class="fullHeightButton" type="Accept"
+											press="onModifyWithSwipe" />
+										<Button text="Delete" class="fullHeightButton" type="Reject"
+											press="onDeleteWithSwipe" />
+									</HBox>
+								</swipeContent>
+						<columns>
+							
+							<Column  width='100%' class="ssdTableHeader">
+								<Text text="User Id" class="textBold" />
+							</Column>
+							<Column  width='100%' class="ssdTableHeader">
+								<Text text="Name" class="textBold" />
+							</Column>
+							<!-- <Column  width='100%' class="ssdTableHeader">
+								<Text text="Last Name" class="textBold" />
+							</Column> -->
+							<Column  width='100%' class="ssdTableHeader">
+								<Text text="Stores" class="textBold" />
+							</Column>
+							
+							<Column hAlign="Center" width='100%' class="ssdTableHeader">
+								<Text text="Days Sice Last" class="textBold" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem>
+								<cells>
+									<Text text="{userModel>Zempid}"></Text>
+									<Text text="{userModel>Firstname} {userModel>Lastname}"></Text>
+									<!-- <Text text="{userModel>Lastname}"></Text> -->
+									<Text text="{userModel>Stores}"></Text>
+									<Text text="{userModel>Dayssince}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				
+				</VBox>
+				<HBox id="gridView" visible="false">
+					<layout:Grid id="userGrid" vSpacing="1" hSpacing="0"
+						defaultSpan="L3 M6 S12" content='{userModel>/UserMangeSet}'>
+						<layout:content>
+							<!-- <CustomTile press='onRead' class='customTile'> -->
+							<VBox id="userImage" class="userTileCont" press="onRead">
+								<HBox class="userTileBigGap" justifyContent="End"
+									alignItems="End">
+									<Image src="Images/editIcon.png" width="30px" class="userTileButton"
+										press="onEdit"></Image>
+									<Image src="Images/deleteIcon.png" width="30px" class="userTileButton"
+										press="onDelete"></Image>
+								</HBox>
+								<Label text="{userModel>Firstname} {userModel>Lastname}"
+									tooltip="{userModel>Firstname} {userModel>Lastname}" class="userTileTitle"></Label>
+								<HBox class="userTileRoleCont" justifyContent="Center"
+									alignItems="Center">
+									<Text text="{userModel>role}" class="userTileRoleText"></Text>
+								</HBox>
+
+								<HBox class="userTileLastSeenBox">
+									<Image src="Images/loginIcon.png" width="30px"></Image>
+									<VBox>
+										<Text text="{userModel>Dayssince} days" class="userTileTextBoxText2"></Text>
+										<Text text="since last login" class="userTileLastSeenBoxText"></Text>
+									</VBox>
+								</HBox>
+								<HBox class="userTileTextBox">
+									<Image src="Images/storeIcon.png" width="25px"></Image>
+									<VBox>
+										<Text text="Stores" class="userTileLastSeenBoxText"></Text>
+										<Text text="{userModel>Stores}" class="userTileTextBoxText"></Text>
+									</VBox>
+								</HBox>
+								<HBox class="userTileTextBox">
+									<Image src="Images/barcodeIcon.png" width="25px"></Image>
+									<VBox>
+										<Text text="Employee Id" class="userTileLastSeenBoxText"></Text>
+										<Text text="{userModel>Zempid}" class="userTileTextBoxText"></Text>
+									</VBox>
+
+								</HBox>
+							</VBox>
+							<!-- </CustomTile> -->
+						</layout:content> <!-- sap.ui.core.Control -->
+					</layout:Grid>
+				</HBox>
+
+			</VBox>
+		</content>
+
+	</Page>
+</core:View>

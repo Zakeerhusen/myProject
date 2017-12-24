@@ -1,0 +1,46 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:f="sap.ui.layout.form" xmlns:core="sap.ui.core">
+	<Dialog title="Confirm Item" contentWidth="" contentHeight="25rem"
+		class="dialogClass">
+		<!-- <Text id="d3d3" text="Confirm Exception Item" width="400px" textAlign="Center" 
+			class="HistoryBorder" /> -->
+		<f:SimpleForm id="form3" editable="true" class='modalContent tMargin2'>
+			<VBox id="confirm2" justifyContent='Center'>
+				<HBox id="d2Hb01">
+					<Text width="" text="Description: " design="Bold" class='modalLblClass' />
+					<Text width="" id="conDesc2" text="{Desc}" class='modalFldClass' />
+				</HBox>
+				<HBox id="d2Hb02">
+					<Text width="" text="Order ID: " design="Bold" class='modalLblClass' />
+					<Text id="conOrdId2" text="{Orderid}" class='modalFldClass' />
+				</HBox>
+				<HBox id="d2Hb03">
+					<Text id="d2qty" width="" text="Quantity: " design="Bold"
+						class='modalLblClass' />
+					<Button id="plusbtn2" icon="sap-icon://add" type="Accept"
+						visible="false" class="circleButton marginL20px" press="inValue" />
+					<Text id="conQty2" text="{Qty}" editable="false" class='marginL20px'/>
+					<Button id="minusbtn2" icon="sap-icon://less" type="Accept"
+						visible="false" class="circleButton marginL20px" press="deValue" />
+				</HBox>
+				<HBox id="d2Hb04">
+					<Text id="d2upc" width="" text="UPC/Weight: " design="Bold"
+						class='modalLblClass' />
+					<Input id="conWgt2" type="Text" editable="true" class='modalFldClass' />
+				</HBox>
+			</VBox>
+		</f:SimpleForm>
+		<!-- <FlexBox justifyContent="Center"> <HBox> <Button id="confirmExc2" 
+			width="7rem" text="CONFIRM" class="addSpaceButton" type="Accept" press="onConfirm" 
+			/> <Button id="cancelExc2" width="7rem" text="CANCEL" class="addSpaceButton" 
+			press="closeDialog4" /> </HBox> </FlexBox> -->
+		<beginButton>
+			<Button id="confirmExc2" width="" text="CONFIRM" class="btnClass"
+				type="Default" press="onConfirm" />
+		</beginButton>
+		<endButton>
+			<Button id="cancelExc2" width="" text="CANCEL" class="btnClass"
+				press="closeDialog4" type="Default" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

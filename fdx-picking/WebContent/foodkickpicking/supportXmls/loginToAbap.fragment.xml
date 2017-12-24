@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<core:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover
+		class="sapUiPopupWithPadding"
+		placement="Bottom" 
+		title="Logon to FR1 System" 
+		showCloseButton="false" >
+		<content>
+		<VBox alignItems = "Center" justifyContent = "Center">
+			<Label text="User Name :" design="Bold"/>
+			<Input placeholder="Enter User Name" id="userName"/>
+			<Label text="Password :" design="Bold"/>
+			<Input placeholder="Enter Password" type="Password" id="password"/>
+		</VBox>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

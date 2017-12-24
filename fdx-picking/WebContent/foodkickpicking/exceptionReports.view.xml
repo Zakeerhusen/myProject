@@ -1,0 +1,75 @@
+<core:View id = "exceptionReportsView" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout"  
+		controllerName="foodkickpicking.exceptionReports" xmlns:html="http://www.w3.org/1999/xhtml">
+		<Page class="backGround">
+	<headerContent>
+	<Bar class="pageHeader">
+	<contentMiddle>
+	       <Image src="images/mainHeader.png" height="3rem" width="5rem"/>
+	</contentMiddle>       
+	<contentRight>
+       <OverflowToolbarButton icon="sap-icon://log" press="logout"/>
+     </contentRight>  
+	</Bar>
+	</headerContent>
+		<content>
+	<l:Grid defaultSpan="L12 M12 S12"  vSpacing="0" hSpacing="0">	
+	<Table id="idExcepReports" fixedLayout="false" backgroundDesign="Transparent" inset="false" 
+	items="{/results}" class="table th" visibleRowCount="2" visibleRowCountMode="Auto" >
+    <headerToolbar>
+      <OverflowToolbar>
+          <ToolbarSpacer></ToolbarSpacer>
+        <Title text="Total Exceptions - {Items}" level="H2" id="totalQty" class="totalQtyLabel"/>
+        <ToolbarSpacer></ToolbarSpacer>
+      </OverflowToolbar>
+    </headerToolbar>
+    <columns >
+      <Column
+        width="15em" >
+        <Label text="Image" design="Bold"/>
+      </Column>
+      <Column
+        width="18em">
+        <Label text="Material Description" design="Bold"/>
+      </Column>
+      <Column
+        width="12em">
+        <Label text="Qty." design="Bold" />
+      </Column>
+      <!--<Column
+        width="12em">
+        <Label text="Status" design="Bold"/>
+      </Column>
+    --></columns>
+    <items>
+      <ColumnListItem id="columnList1" press="displayPendingItemDetail" type="Navigation">
+        <cells>
+          <Image src="{MatImage}" width="3rem" height="3rem"/>
+          <Text text="{MatDesc}"/>
+          <Text text="{Picqty}"/>
+        </cells>
+      </ColumnListItem>
+    </items>
+  </Table>
+  
+  
+  
+  </l:Grid>
+		</content>
+		<l:VerticalLayout>	
+		<l:dependents>
+      <core:Fragment fragmentName="foodkickpicking.supportXmls.BusyDialog" type="XML">
+      </core:Fragment>
+    </l:dependents>
+  </l:VerticalLayout>
+	<footer>
+      <Toolbar>
+        <ToolbarSpacer/>
+		<FlexBox alignItems="Center" justifyContent="Center">
+  		<InputBase placeholder="Scan Checkout Station" id="inputScanCheckout" />
+		<Button icon="sap-icon://bar-code" type="Emphasized"/>
+  		</FlexBox>
+        <ToolbarSpacer/>
+      </Toolbar>
+    </footer>
+	</Page>
+</core:View>

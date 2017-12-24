@@ -1,0 +1,26 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="Transfer Work" contentWidth="" class="dialogClass"
+		contentHeight="11rem">
+		<VBox alignItems="" class='modalContent tMargin2'>
+			<HBox>
+				<Text text='From Cart:' width='' class='modalLblClass' />
+				<Input id="twork" enabled='true' value='' class='modalFldClass' editable="false"/>
+			</HBox>
+			<HBox>
+				<Text text='To Cart:' width='' class=' modalLblClass' />
+				<ComboBox id="toCart" items="{/results}" width=""
+					class='modalFldClass'>
+					<core:Item text="{ImAsset}" key='{ImAsset}' />     <!-- {Reason}-{ReasonText} -->
+				</ComboBox>
+			</HBox>
+		</VBox>
+		<beginButton>
+			<Button text='OK' class='btnClass' type='Default' press='onTWOk' />
+		</beginButton>
+		<endButton>
+			<Button text='Cancel' class='btnClass' press='closeDialog3'
+				type='Default' />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

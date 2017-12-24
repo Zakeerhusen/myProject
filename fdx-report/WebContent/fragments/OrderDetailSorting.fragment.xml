@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="orderDetSort">
+		<sortItems>
+			<ViewSettingsItem text="Order Id" key="Vbeln" selected="true" />
+			<ViewSettingsItem text="SKU" key="Matnr" selected="true" />
+			<ViewSettingsItem text="Description" key="Maktx" selected="true" />
+			<ViewSettingsItem text="Bin" key="{Vlpla}" selected="true" /> 
+			 <ViewSettingsItem text="User" key="User" selected="true" />
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

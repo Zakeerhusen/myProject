@@ -1,0 +1,28 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id ="Dia" contentWidth="10rem" class="dialogClass">
+		<customHeader>
+			<Bar>
+				<contentMiddle>
+					<Label id="upcTitle" text="UPC List" design="Bold" class='modalLblClass'/>
+				</contentMiddle>
+				<contentRight>
+					<Button icon="sap-icon://sys-cancel-2" press="closeAllUPc" />
+				</contentRight>
+			</Bar>
+		</customHeader>
+		<Table id="upcTable" inset="true" items="{path : '/results'}">
+			<columns>
+				<Column width="100%" hAlign="Center">
+				</Column>
+			</columns>
+			<items>
+				<ColumnListItem>
+					<cells>
+						<Text text="{Ean11}"></Text>
+					</cells>
+				</ColumnListItem>
+			</items>
+		</Table>
+	</Dialog>
+</core:FragmentDefinition>

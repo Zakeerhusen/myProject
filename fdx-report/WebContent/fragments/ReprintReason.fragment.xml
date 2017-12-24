@@ -1,0 +1,32 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="Confirm Reprint" contentWidth="" class="dialogClass"
+		contentHeight="13rem">
+		<VBox alignItems="" class='modalContent tMargin2'>
+			<HBox>
+				<Text text='Order ID/Bag ID:' width='' class='modalLblClass' />
+				<Input enabled='true' id='bagId' value='{/OrderId}' class='modalFldClass' />
+			</HBox>
+			<HBox>
+				<Text text='Reason:' width='' class=' modalLblClass' />
+				<ComboBox id="reason" items="{/results}" width=""
+					selectedKey='{jsonModel10>/selectedReason}' class='modalFldClass'>
+					<core:Item text="{ReasonP}" key='{ReasonP}' />     <!-- {Reason}-{ReasonText} -->
+				</ComboBox>
+			</HBox>
+			<HBox>
+				<Text text='Printer:' width='' class=' modalLblClass' />
+				<ComboBox id="printer" items="{printJSonModel>/results}" width=""
+					class='modalFldClass'>
+					<core:Item text="{printJSonModel>Store}-{printJSonModel>Printer}" key='{printJSonModel>ReasonP}' />     <!-- {Reason}-{ReasonText} -->
+				</ComboBox>
+			</HBox>
+		</VBox>
+		<beginButton>
+			<Button text='Reprint' class='btnClass' type='Default' press='reprintOrder' />
+		</beginButton>
+		<endButton>
+			<Button text='Cancel' class='btnClass' press='onCancel' type='Default' />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

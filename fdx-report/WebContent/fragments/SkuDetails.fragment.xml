@@ -1,0 +1,158 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+	<Dialog title="SKU Summary of Sku: {/items/0/Matnr}"
+		contentWidth="80%" contentHeight="100%" class='dialogClass'>
+		<content>
+			<VBox class="carousalCont">
+				<VBox class="BoxClass">
+					<!-- <Toolbar class="boxTitleBar"> <content> <Text text="SKU List" class="boxTitle" 
+						/> </content> </Toolbar> -->
+					<Toolbar id="skuSummaryToolbar" class="boxToolBar">
+						<content>
+							<Text text="SKU List" class="boxTitle" />
+							<ToolbarSpacer></ToolbarSpacer>
+							<SearchField id="skuSrch" width="250px" class="searchFieldClass"
+								liveChange="searchSku"></SearchField>
+						</content>
+					</Toolbar>
+					<Table class="ssdTable" showNoData="false">
+						<columns>
+							<Column>
+								<Text text="SKU" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Description" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Location" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Sale Quantity" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Open" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Picked" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Pend." class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Short" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="UPC" class="textBold"></Text>
+							</Column>
+							<Column hAlign="Center">
+								<Text text="Pending History" class="textBold"></Text>
+							</Column>
+						</columns>
+					</Table>
+					<ScrollContainer vertical="true" height="12rem">
+						<Table id="skuSummaryTbl" class="ssdTable" items="{/items}">
+							<columns>
+								<Column minScreenWidth="" demandPopin="false"></Column>
+								<Column minScreenWidth="" demandPopin="false"></Column>
+								<Column minScreenWidth="" demandPopin="false"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+								<Column minScreenWidth="" demandPopin="false" hAlign="Center"></Column>
+							</columns>
+							<items>
+								<ColumnListItem id="skuSummaryTblItem" type="Active"
+									press="onValueSku">
+									<cells>
+										<Text text="{Matnr}"></Text>
+										<Text text="{Maktx}"></Text>
+										<Text text="{Vlpla}"></Text>
+										<Text text="{Saleqty}"></Text>
+										<Text text="{Openpicks}"></Text>
+										<Text text="{Comppicks}"></Text>
+										<Text text="{Pendpicks}"></Text>
+										<Text text="{Shortpicks}"></Text>
+										<Text text="{Ean11}" />
+										<Text text="{Pendhist}"></Text>
+									</cells>
+								</ColumnListItem>
+							</items>
+						</Table>
+					</ScrollContainer>
+				</VBox>
+				<VBox class="BoxClass">
+					<!-- <Toolbar class="boxTitleBar"> <content> <Text text="Inventory Snapshot" 
+						class="boxTitle" /> </content> </Toolbar> -->
+					<Toolbar id="inventoryToolbar" class="boxToolBar">
+						<content>
+							<Text text="Inventory Snapshot" class="boxTitle" />
+							<ToolbarSpacer></ToolbarSpacer>
+							<SearchField id="inventorySrch" width="250px"
+								class="searchFieldClass" liveChange="searchInvn"></SearchField>
+						</content>
+					</Toolbar>
+					<Table id="inventoryTbl" class="ssdTable" items="{/model}">
+						<columns>
+							<Column>
+								<Text text="Source" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Type" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Store Bin" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="SC" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Total Stock" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Available Stock" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Bun" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="GR Date" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Storage Unit" class="textBold"></Text>
+							</Column>
+							<Column>
+								<Text text="Pick Quantity" class="textBold"></Text>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem id="inventoryItem">
+								<cells>
+									<Text text="{Source}"></Text>
+									<Text text="{Lgtyp}"></Text>
+									<Text text="{Lgpla}"></Text>
+									<Text text="{Bestq}"></Text>
+									<Text text="{Totstk}"></Text>
+									<Text text="{Avlstk}"></Text>
+									<Text text="{Meins}"></Text>
+									<Text text="{Wdatu}"></Text>
+									<Text text="{Lenum}"></Text>
+									<Text text="{Pickqty}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</VBox>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text='To SKU Summary' type='Default' class='btnClass'
+				press='onNavSkuSummary'></Button>
+		</beginButton>
+		<endButton>
+			<Button text='Close' type='Default' class='btnClass' press='onCloseSkuDetails' />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

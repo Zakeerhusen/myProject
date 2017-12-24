@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<core:FragmentDefinition
+  xmlns="sap.m"
+  xmlns:l="sap.ui.layout"
+  xmlns:f="sap.ui.layout.form"
+  xmlns:core="sap.ui.core">
+  <l:Grid
+    defaultSpan="L4 M8 S8"
+    width="auto">
+    <l:content>
+      <f:SimpleForm id="productDetailsForm"
+        width="200px"
+        
+        editable="false"
+        layout="ResponsiveGridLayout"
+        labelSpanL="2"
+        labelSpanM="2"
+        emptySpanL="0"
+        emptySpanM="0"
+        columnsL="1"
+        columnsM="1">
+        <f:content>
+          <Label text="Order No"/>
+          <Text text="xxxxxxxxx" />
+          <Label text="Street/No." />
+          <Text text="{Street} {HouseNumber}" />
+          <Label text="ZIP Code/City" />
+          <Text text="{ZIPCode} {City}" />
+          <Label text="Country" />
+          <Text text="{Country}" />
+          
+        </f:content>
+      </f:SimpleForm>
+    </l:content>
+  </l:Grid>
+</core:FragmentDefinition>

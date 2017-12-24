@@ -1,0 +1,249 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns="sap.m" xmlns:table="sap.ui.table"
+	controllerName="fdx_checkout.Checkout2" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page height="60%" showHeader="false">
+		<content>
+			<!-- Header -->
+			<Panel id="oPanelHeader">
+				<content>
+					<HBox>
+						<HBox id="ImageBoxId1" width="10%">
+							<items>
+								<Image id="headerImageId1" src="images/foodkick.jpg" />
+							</items>
+						</HBox>
+						<VBox width="20%">
+							<items>
+								<Text id="customerName"></Text>
+								<Text id="custAddress"></Text>
+								<Text id="customerAddress"></Text>
+							</items>
+						</VBox>
+						<VBox width="25%">
+							<HBox>
+								<Text id="OrderTxt" text="Order" width="9rem"/>
+								<Text text=":" width="1rem"/>
+								<Text id="orderNo1"></Text>
+							</HBox>
+							<HBox>
+								<Text id="DeliveryDateTxt" text="Delivery Date"  width="9rem"/>
+								<Text text=":" width="1rem"/>
+								<Text id="deliveryDate"></Text>
+								
+							</HBox>
+							<HBox>
+								<Text id="DeliveryWindowTxt" text="Delivery Window"  width="9rem"/>
+								<Text text=":"  width="1rem"/>
+								<Text id="deliveryWindow"></Text>
+							</HBox>
+
+						</VBox>
+						
+						<VBox width="20%">
+							<items>
+								<HBox id="oHBox1" class="orderHeader">
+									<Text id="TotalPicksTxt" text="Total Picks " width="9rem"/>
+									<Text text=":" width="1rem"/>
+									<Text id="totalPick" text="{/TotPacks}"></Text>
+								</HBox>
+								<HBox>
+									<Text id="RemaningPicksTxt" text="Remaining Picks " width="9rem"/>
+									<Text text=":" width="1rem"/>
+									<Text id="remainingPick"></Text> 
+								</HBox>
+							</items>
+						</VBox>
+						<VBox width="20%">
+							<items>
+								<HBox>
+									<Text id="fullNameId" />
+								</HBox>
+								<HBox class="orderHeader">
+									<Text id="DurationTxt" text="Duration" width="9rem" />
+									<Text text=":" width="1rem"/>
+									<Text id="DurTimeId" />
+								</HBox>
+								<HBox class="orderHeader">
+									<Text id="LogdInTxt" text="Logged In Time  " width="9rem" />
+									<Text text=":" width="1rem"/>
+									<Text id="loginTimeId" />
+								</HBox>
+							</items>
+						</VBox >
+						<VBox width="5%">
+						<Button id = "logOut" icon="sap-icon://log" press="onLoggingOut" />
+						</VBox>
+					</HBox>
+				</content>
+			</Panel>
+
+			<!-- Body -->
+			<Panel id="oBodyPanel2" class="sapMPanelBGTranslucen bottomBorderNone">
+				<content>
+					<HBox id="mainBox">
+						<Panel id="panel1">
+							<content>
+								<table:Table id="idProductsTable" inset="false" 
+									rows="{/results}" SelectionMode="Single"
+									cellClick="rsc" navigationMode="Scrollbar" SelectionBehavior="RowOnly"
+									width="100%">
+									<table:columns>
+										<table:Column width="20%" resizable="false"
+											hAlign="Center">
+											<Text id="T_Image" text="Image" design="Bold" />
+											<table:template>
+												<FlexBox id="InnerBox" width="95%" justifyContent="Center"
+													alignItems="Center">
+													<Image id="image" src="{MatImage}" width="5rem"
+														height="5rem" alt="NO IMAGE FOUND"></Image>
+													<Image id="sideImage" src="images/Ice_cube.png" width="3rem"
+														height="3rem" visible="false"></Image>
+												</FlexBox>
+											</table:template>
+										</table:Column>
+										<table:Column width="20%" resizable="false"
+											hAlign="Center">
+											<Text id="T_Sku" text="SKU" design="Bold" />
+											<table:template>
+												<Text text="{Sku}" wrapping="true"
+													textAlign="sap.ui.core.TextAlign.Begin"></Text>
+											</table:template>
+										</table:Column>
+										<table:Column width="45%" resizable="false"
+											hAlign="Center">
+											<Text id="T_Desc" text="Description" design="Bold" />
+											<table:template>
+												<Text text="{MatDesc}"></Text>
+											</table:template>
+										</table:Column>
+										<table:Column width="15%" resizable="false" hAlign="Center">
+											<Text id="T_Qty" text="Qty/Wt" design="Bold" />
+											<table:template>
+												<Text id="qtyAndWt" />
+											</table:template>
+										</table:Column>
+									</table:columns>
+								</table:Table>
+								<Button id="oToggBtn" text="Pending" enabled="false"
+									width="33.33%" press="onPressPending" />
+								<Button id="printBtn" text="Print Bag Label(s)"  icon="sap-icon://print" width="33.33%"
+									enabled="false" press="onPressPrint" />
+									<Button id="printLbl" icon="sap-icon://print" text="Product Label(s)" width="33.34%"
+									enabled="false" press="onPressPrintLabel" />
+							</content>
+						</Panel>
+						<Panel id="panel2">
+							<content>
+								<FlexBox justifyContent="Center">
+								</FlexBox>
+								<Text id="ScanIdTxt" text="Enter/Scan Id" textAlign="Left" />
+								<Input type="Text" id="orderNo" textAlign="Center"  />
+								<HBox>
+									<Text id="CurrentToteTxt" text="Current Tote :" />
+									<Text id="currentToteId" />
+									<Button text="Clear" press="onClear" />
+								</HBox>
+
+								<RadioButtonGroup id="RBG" columns="5"
+									selectedIndex="0" select="onChangeRB">
+									<buttons>
+										<RadioButton id="RB1-1" text="SKU" />
+										<RadioButton id="RB1-2" text="Description" />
+										<RadioButton id="RB1-3" text="UPC" />
+									</buttons>
+								</RadioButtonGroup>
+								<Input type="Text" id="globaltextId" placeholder="Enter SKU"
+									textAlign="Center" liveChange="onTextFieldChange" change="skuImage"
+									showSuggestion="true" suggestionItems="{/results}">
+									<suggestionItems>
+										<core:Item text="{Matnr}" />
+									</suggestionItems>
+								</Input>
+								<Input type="Text" id="globaltextId1" placeholder="Enter Description"
+									visible="false" textAlign="Center" liveChange="onTextFieldChange"
+									change="descImage" showSuggestion="true"
+									suggestionItems="{/results}">
+									<suggestionItems>
+										<core:Item text="{Maktg}" />
+									</suggestionItems>
+								</Input>
+								<Input type="Text" id="globaltextId2" placeholder="Enter UPC"
+									visible="false" textAlign="Center" liveChange="onTextFieldChange"
+									change="upcImage" showSuggestion="true"
+									suggestionItems="{/results}">
+									<suggestionItems>
+										<core:Item text="{Ean11}" />
+									</suggestionItems>
+								</Input>
+								<!-- <Button text="Next" press="onNext" /> -->
+								<VBox id="imageVBox" width="15%" visible="false">
+									<items>
+										<Image id="img" src="{/ExMatUrl}" width="14.2rem" height="14.2rem"
+											alt="NO IMAGE FOUND"></Image>
+									</items>
+								</VBox>
+							</content>
+						</Panel>
+					</HBox>
+				</content>
+			</Panel>
+
+			<!-- Footer -->
+			<Panel id="oPanelFooter" class="sapMPanelBGTranslucent">
+				<content>
+					<HBox>
+						<VBox width="25%">
+							<Text id="sysTimeId" />
+							<Text id="sysDayId" class="orderHeader" />
+						</VBox>
+						<VBox width="20%">
+							<HBox>
+								<Text id="TotalOrderTxt" text="Total Orders " width="7rem"/>
+								<Text text=":" width="1rem"/>
+								<Text id="TotalOrderId" text="{cModel>/TotOrders}" />
+							</HBox>
+						</VBox>
+						<VBox width="20%">
+							<HBox>
+								<Text id="QueuedOrdersTxt" text="Queued Orders " width="8rem" />
+								<Text text=":" width="1rem"/>
+								<Text id="QueuedOrdersId" text="{cModel>/QueOrders}" />
+							</HBox>
+							<HBox>
+								<Text id="PendingOrdersTxt" text="Pending Orders " width="8rem"/>
+								<Text text=":" width="1rem"/>
+								<Text id="PendingOrdersId" text="{cModel>/PenOrders}" />
+							</HBox>
+						</VBox>
+						<VBox width="25%">
+							<HBox>
+								<Text id="OrderInProgressTxt" text="Orders In Progress " width="14rem" />
+								<Text text=":" width="1rem"/>
+								<Text id="OrderInProgressId" text="{cModel>/PrgOrders}" />
+							</HBox>
+							<HBox class="orderHeader">
+								<Text id="OrderCheckedoutTxt" text="Orders Checkedout/Picked " width="14rem"/>
+								<Text text=":" width="1rem"/>
+								<Text id="OrderCheckedoutId" text="{cModel>/ChkOrders}" />
+							</HBox>
+						</VBox>
+						<VBox width="10%">
+							<Image src="images/foodkick.jpg" width="100%" height="4.5rem">
+							</Image>
+						</VBox>
+					</HBox>
+				</content>
+			</Panel>
+		</content>
+		<l:VerticalLayout visible="false">
+			<l:dependents>
+				<core:Fragment fragmentName="fdx_checkout.fragments.Dialog_LB"
+					type="XML">
+				</core:Fragment>
+				<core:Fragment fragmentName="fdx_checkout.fragments.Dialog_EA"
+					type="XML">
+				</core:Fragment>
+			</l:dependents>
+		</l:VerticalLayout>
+	</Page>
+</core:View>

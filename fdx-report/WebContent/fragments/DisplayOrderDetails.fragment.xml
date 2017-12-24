@@ -1,0 +1,173 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core">
+	<Dialog title="Order Details of Order:{/model/Orderid}"
+		contentWidth="60%" contentHeight="100%" class='dialogClass'>
+		<content>
+			<VBox class="modalContent">
+				<VBox>
+					<HBox>
+						<VBox width="50%" height="22rem">
+							<Toolbar class="boxTitleBar">
+								<content>
+									<Text text="Basic Information" class="boxTitle" />
+								</content>
+							</Toolbar>
+							<VBox id="VB1" class="boxBlankCont">
+								<HBox>
+									<Text text="Customer ID:" class="textKey" />
+									<Label text="{/model/Customer}" class="textValue" />
+								</HBox>
+								<HBox>
+									<Text text="Delivery Window:" class="textKey" />
+									<Label text="{/model/Delwind}" class="textValue" />
+								</HBox>
+								<HBox>
+									<Text text="(Dispatch Time):" class="textKey" />
+									<Label text="{/model/DispatchTime}" class="textValue textLowerCase" />
+								</HBox>
+								<HBox>
+									<Text text="Tote:" class="textKey" />
+									<Label text="{/model/Tote}" class="textValue" />
+								</HBox>
+								<HBox>
+									<Text text="Status:" class="textKey" />
+									<Label text="{/model/Status}" class="textValue" />
+								</HBox>
+								<HBox>
+									<Text text="Label(s) Printed:" class="textKey" />
+									<Label text="{/model/Labelsprinted}" class="textValue" />
+								</HBox>
+								<HBox>
+									<Text text="Staging Area:" class="textKey" />
+									<Label text="{/model/Statgingareas}" class="textValue" />
+								</HBox>
+								<HBox>
+									<Text text="Web Id:" class="textKey" />
+									<Label text="{/model/Statgingareas}" class="textValue" />
+								</HBox>
+							</VBox>
+						</VBox>
+						<VBox width="50%" height="22rem">
+							<Toolbar class="boxTitleBar">
+								<content>
+									<Text text="Order Details" class="boxTitle" />
+								</content>
+							</Toolbar>
+							<VBox id="VB2" class="boxBlankCont">
+								<HBox>
+									<Text text="Setup Done:" class="textKey" />
+									<Label text="{/model/Setupdone}" class="textValue" />
+									<Label text="{/model/SetupdoneTime}" class="textValue2 textLowerCase" />
+								</HBox>
+								<HBox>
+									<Text text="Picking Start:" class="textKey" />
+									<Label text="{/model/Pickingstart}" class="textValue" />
+									<Label text="{/model/PickingstartTime}" class="textValue2 textLowerCase" />
+								</HBox>
+								<HBox>
+									<Text text="Picking Done:" class="textKey" />
+									<Label text="{/model/Pickingdone}" class="textValue" />
+									<Label text="{/model/PickingdoneTime}" class="textValue2 textLowerCase" />
+								</HBox>
+								<HBox class="lineBreak"></HBox>
+								<HBox>
+									<Text text="Offloaded:" class="textKey" />
+									<Label text="{/model/Offloaded}" class="textValue" />
+									<Label text="{/model/OffloadedTime}" class="textValue2 textLowerCase" />
+								</HBox>
+								<HBox>
+									<Text text="At Checkout:" class="textKey" />
+									<Label text="{/model/Atcheckout}" class="textValue" />
+									<Label text="{/model/AtcheckoutTime}" class="textValue2 textLowerCase" />
+								</HBox>
+								<HBox>
+									<Text text="Checkout:" class="textKey" />
+									<Label text="{/model/Checkout}" class="textValue" />
+									<Label text="{/model/CheckoutTime}" class="textValue2 textLowerCase" />
+								</HBox>
+								<HBox>
+									<Text text="Staged:" class="textKey" />
+									<Label text="{/model/Atstaging}" class="textValue" />
+									<Label text="{/model/AtstagingTime}" class="textValue2 textLowerCase" />
+								</HBox>
+							</VBox>
+						</VBox>
+					</HBox>
+					<HBox height="1rem"></HBox>
+					<HBox>
+						<VBox>
+							<Toolbar class="ssdDialog">
+								<content>
+									<HBox width="98%" justifyContent="SpaceBetween">
+										<Text text="Item List" class="boxTitle" />
+										<SearchField width="250px" class="searchFieldClass"
+											liveChange="searchOrdDetails" />
+									</HBox>
+								</content>
+							</Toolbar>
+							<Table id="idOrderDetailsTable" items="{ path : '/items/results'}"
+								class="ssdTable">
+								<columns>
+									<Column width='5.4%'>
+										<Text text="Order Id" class="textBold" />
+									</Column>
+									<Column width='5.4%'>
+										<Text text="SKU" class="textBold" />
+									</Column>
+									<Column width='16.4%'>
+										<Text text="Description" class="textBold" />
+									</Column>
+									<Column width='6.4%'>
+										<Text text="Bin" class="textBold" />
+									</Column>
+									<Column width='3.4%' hAlign="Center">
+										<Text text="Open" class="textBold" />
+									</Column>
+									<Column width='5%' hAlign="Center">
+										<Text text="Pending" class="textBold" />
+									</Column>
+									<Column width='5%' hAlign="Center">
+										<Text text="Complete" class="textBold" />
+									</Column>
+									<Column width='3.4%' hAlign="Center">
+										<Text text="Short" class="textBold" />
+									</Column>
+									<Column width='3.4%' hAlign="Center">
+										<Text text="Total" class="textBold" />
+									</Column>
+									<Column width='6.4%'>
+										<Text text="User" class="textBold" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{Vbeln}"></Text>
+											<Text text="{Matnr}"></Text>
+											<Text text="{Maktx}"></Text>
+											<Text text="{Vlpla}"></Text>
+											<Text text="{Openpicks}"></Text>
+											<Text text="{Pendpicks}"></Text>
+											<Text text="{Comppicks}"></Text>
+											<Text text="{Shortpicks}"></Text>
+											<Text text="{Totalpicks}"></Text>
+											<Text text="{User}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</VBox>
+					</HBox>
+				</VBox>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button text='To Order Details' type='Default' class='btnClass'
+				press='onNavToOrderDtls'></Button>
+		</beginButton>
+		<endButton>
+			<Button text='Close' type='Default' class='btnClass'
+				press='onCloseOrderDetails' />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
