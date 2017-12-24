@@ -1,0 +1,453 @@
+<mvc:View controllerName="kaust.ui.kitsvpnaccess.controller.VpnRequestForm"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:u="sap.ui.unified" xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page id="vpnPage">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Image src="images/kaust.jpg" densityAware="false"
+								height="40px"></Image>
+						</contentLeft>
+						<contentMiddle>
+							<Label text="{i18n>vpn_header}" textAlign="Left" design="Bold"
+								class="header"></Label>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<content>
+					<f:Form editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="3"
+								labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+								emptySpanXL="4" emptySpanL="4" emptySpanM="0" emptySpanS="0"
+								columnsXL="2" columnsL="2" columnsM="1" singleContainerFullSize="false"></f:ResponsiveGridLayout>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:fields>
+											<RadioButtonGroup id="vpnType" columns="3">
+												<buttons>
+													<RadioButton text="{i18n>vpn}"></RadioButton>
+													<RadioButton text="{i18n>non_vpn}"></RadioButton>
+												</buttons>
+											</RadioButtonGroup>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>req_type}"></Label>
+										</f:label>
+										<f:fields>
+											<Select id="newOrRenew" items="{/oRequestType}" change="onChange">
+												<core:Item key="{reqTypekey}" text="{reqTypeValue}" />
+												<layoutData>
+													<l:GridData span="L4 M6 S12" />
+												</layoutData>
+											</Select>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+
+					<!-- <f:SimpleForm layout="ResponsiveGridLayout"
+						labelSpanL="4" labelSpanM="3" labelSpanS="6" columnsL="3"
+						columnsM="3" emptySpanL="0" emptySpanM="0" maxContainerCols="2">
+						<f:toolbar>
+							<Toolbar>
+								<Text text='{i18n>HEADER_TEXT}' />
+								<ToolbarSpacer />
+							</Toolbar>
+						</f:toolbar>
+					</f:SimpleForm> -->
+					<l:Grid defaultSpan="L12">
+							<Toolbar >
+								<Text text="{i18n>HEADER_TEXT}" wrapping="true" level="H6" titleStyle="H6" />
+							</Toolbar>
+					</l:Grid>		
+					<!-- <f:Form editable="true"> <f:title> <core:Title text="{i18n>REQ_INFO}" 
+						/> </f:title> <f:layout> <f:ResponsiveGridLayout labelSpanXL="4" labelSpanL="4" 
+						labelSpanM="4" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0" 
+						emptySpanM="0" emptySpanS="0" columnsXL="2" columnsL="2" columnsM="1" singleContainerFullSize="false" 
+						/> </f:layout> <f:formContainers> <f:FormContainer> <f:formElements> <f:FormElement> 
+						<f:label> <Label text="{i18n>NAME}" required="true"></Label> </f:label> <f:fields> 
+						{oUserModel>/d/results/0/FirstName} <Input id="name" value="{parts:[{path:'oUserModel>/d/results/0/FirstName'},{path:'oUserModel>/d/results/0/MiddleName'},{path:'oUserModel>/d/results/0/LastName'}],formatter: 
+						'.getFulName' }" enabled="false"> <layoutData> <l:GridData span="L5 M6 S12" 
+						/> </layoutData> </Input> </f:fields> </f:FormElement> <f:FormElement> <f:label> 
+						<Label text="{i18n>EMAIL}" required="true"></Label> </f:label> <f:fields> 
+						<Input id="email" value="{oUserModel>/d/results/0/Email}" enabled="false"> 
+						<layoutData> <l:GridData span="L5 M6 S12" /> </layoutData> </Input> </f:fields> 
+						</f:FormElement> <f:FormElement> <f:label> <Label text="{i18n>KAUSTID}" required="true"></Label> 
+						</f:label> <f:fields> <Input id="kaustId" value="{oUserModel>/d/results/0/KaustID}" 
+						enabled="false"> <layoutData> <l:GridData span="L5 M6 S12" /> </layoutData> 
+						</Input> </f:fields> </f:FormElement> </f:formElements> </f:FormContainer> 
+						<f:FormContainer> <f:formElements> <f:FormElement> <f:label> <Label text="{i18n>OFFTEL}" 
+						required="true"></Label> </f:label> <f:fields> <Input id="telephone" value="{oUserModel>/d/results/0/Office}" 
+						enabled="false"> <layoutData> <l:GridData span="L5 M6 S12" /> </layoutData> 
+						</Input> </f:fields> </f:FormElement> <f:FormElement> <f:label> <Label text="{i18n>MOBNUM}"></Label> 
+						</f:label> <f:fields> <Input id="mobile" value="{oUserModel>/d/results/0/Mobile}" 
+						enabled="false"> <layoutData> <l:GridData span="L5 M6 S12" /> </layoutData> 
+						</Input> </f:fields> </f:FormElement> </f:formElements> </f:FormContainer> 
+						</f:formContainers> </f:Form> -->
+
+					<f:Form id="newType" editable="true">
+						<f:title>
+							<core:Title text="{i18n>EXT_INFO}" />
+						</f:title>
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4"
+								labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+								emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+								columnsXL="2" columnsL="2" columnsM="1" singleContainerFullSize="false" />
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>FNAME}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<Input id="eFname" maxLength="40" change="fnFirstLettertoUppercase">
+												<layoutData>
+													<l:GridData span="L5 M6 S12" />
+												</layoutData>
+											</Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>LNAME}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<Input id="eLname" maxLength="40" change="fnFirstLettertoUppercase">
+												<layoutData>
+													<l:GridData span="L5 M6 S12" />
+												</layoutData>
+											</Input>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>MNAME}"></Label>
+										</f:label>
+										<f:fields>
+											<Input id="eMname" maxLength="40" change="fnFirstLettertoUppercase">
+												<layoutData>
+													<l:GridData span="L5 M6 S12" />
+												</layoutData>
+											</Input>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>EMAIL}"  required="true"></Label>
+										</f:label>
+										<f:fields>
+											<Input id="eEmail" maxLength="200" change="trimValue">
+												<layoutData>
+													<l:GridData span="L5 M6 S12" />
+												</layoutData>
+											</Input>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+
+							<f:FormContainer id="UIDSection" visible="false">
+							<f:formElements>
+								<f:FormElement>
+									<f:label>
+										<Label text="Provisioned UserID" required="true"></Label>
+									</f:label>
+									<f:fields>
+										<Text id="suggestedUID" text="" class="boldClass">
+											<layoutData>
+												<l:GridData span="L5 M6 S12" />
+											</layoutData>
+										</Text>
+									</f:fields>
+								</f:FormElement>
+							</f:formElements>
+						</f:FormContainer>
+								
+						</f:formContainers>
+					</f:Form>
+
+					<f:Form id="renewType" editable="true" visible="false">
+						<f:title>
+							<core:Title text="{i18n>EXT_INFO}" />
+						</f:title>
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4"
+								labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+								emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+								columnsXL="2" columnsL="2" columnsM="1" singleContainerFullSize="false" />
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>AD_USER}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<Input id="adAccount" maxLength="30" placeholder="{i18n>VAL_USERID}"
+												change="validateUser">
+												<layoutData>
+													<l:GridData span="L5 M6 S12" />
+												</layoutData>
+											</Input>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>EXP_DATE}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<DatePicker id="expiryDate" change="validateExpDate">
+												<layoutData>
+													<l:GridData span="L5 M6 S12" />
+												</layoutData>
+											</DatePicker>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+
+					<f:Form editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="4"
+								labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+								emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+								columnsXL="2" columnsL="2" columnsM="1" singleContainerFullSize="false" />
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>HOST_LBL}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<TextArea id="hostIpId" placeholder="{i18n>HOST_IP}"
+												growing="true" rows="3">
+												<layoutData>
+													<l:GridData span="L8 M8 S8" />
+												</layoutData>
+											</TextArea>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+							<f:FormContainer id="passportSection">
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>PASSPORT}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<VBox>
+												<HBox>
+													<u:FileUploader id="docFileUpload"
+														placeholder="{i18n>SEL_FILE}" maximumFileSize="5"
+														uploadOnChange="false" change="handleUploadChange"
+														typeMissmatch="handleFileUploadOnError" fileSizeExceed="handleFileUploadOnError"
+														filenameLengthExceed="handleFileUploadOnError" />
+													<Button text="Upload" type="Emphasized" press="handleFileUploadLocal"
+														class="uploadBtn" />
+												</HBox>
+												<HBox>
+													<Link id="fileLink" text="{ofileModel>/fileName}"
+														wrapping="true" press="getFile" visible="false"></Link>
+													<core:Icon id="fileDelete" src="sap-icon://sys-cancel"
+														press="removeFile" class="helpIcon" visible="false"></core:Icon>
+												</HBox>
+											</VBox>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+
+							<f:FormContainer id="fileSection" visible="false">
+								<f:formElements>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>PASSPORT}"></Label>
+										</f:label>
+										<f:fields>
+											<Link id="fileUrl" text="Click to download"></Link>
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+					<Toolbar design="Transparent" height="3rem">
+						<Label text="{i18n>Justification}" class="sapMH4FontSize" required="true"/>
+						<ToolbarSpacer />
+					</Toolbar>
+
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout"
+						labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12"
+						adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4"
+						emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+						singleContainerFullSize="false">
+						<f:content>
+							<TextArea id="justification" value="{/d/Comments}"
+								width="75%" maxLength="250" placeholder="{i18n>FREE_TEXT}">    
+								<layoutData>
+									<l:GridData span="L12" moveForward="L2"></l:GridData>
+								</layoutData>
+							</TextArea>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm layout="ResponsiveGridLayout" id="idVpnCheckForm">
+					<f:content>
+						<HBox>
+						<CheckBox id="idVpnCheck" class="vpnChechBoxMarginTop">
+						</CheckBox>
+						<Text text="By submitting this request, I agree on sharing KAUST Accepted Use of Electronic resources with External collaborator I am sponsoring.">
+						</Text>
+						<layoutData>
+									<l:GridData span="L12" moveForward="L1"></l:GridData>
+								</layoutData>
+						</HBox>
+						<HBox>
+						<Text text="The policy can be found here:" class="vpnChechBoxTextMarginTop"></Text>
+						<Label text="" width="5px"></Label>
+						<Link text="KAUST Accepted Use of Electronic resources" target="_blank" href="https://www.google.com"></Link>
+						<layoutData>
+									<l:GridData span="L12" moveForward="L1"></l:GridData>
+								</layoutData>
+						</HBox>
+					</f:content>
+					</f:SimpleForm>
+					
+						
+					<IconTabBar id="idTabBar">
+						<items>
+						
+							<!-- Service Information Tab -->
+					<IconTabFilter icon="sap-icon://lightbulb" key="infoTab" tooltip="{i18n>SER_INFO}">
+						<l:Grid defaultSpan="L12">
+							<Label text="{i18n>SER_HEADER}" class="kitsMachineLblClass"
+								design="Bold">
+								<layoutData>
+									<l:GridData span="L12 M12 S12"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{i18n>PROCESS_INFO}" class="kitsProcessInfoClass">
+								<layoutData>
+									<l:GridData span="L4"></l:GridData>
+								</layoutData>
+							</Text>
+							<VBox>
+								<Label text="{i18n>QUICK_FACTS}" design="Bold"></Label>
+								<Text text="{i18n>ELIGIBILITY}" class="kitsProcessInfoClass"></Text>
+								<Text text="{i18n>RATES}" class="kitsProcessInfoClass"></Text>
+								<HBox>
+									<Text text="{i18n>TRAINING_ONE}" class="kitsProcessInfoClass"></Text>
+									<Link text="{i18n>HERE}" class="kitsLinkHereClass"></Link>
+									<Text text="{i18n>TRAINING_TWO}" class="kitsProcessInfoClass"></Text>
+								</HBox>
+								<layoutData>
+									<l:GridData span="L4" moveForward="L1"></l:GridData>
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="{i18n>SUPPORT}" design="Bold"></Label>
+								<Text text="{i18n>SUPPORT_TEXT_ONE}" class="kitsProcessInfoClass"></Text>
+								<Link text="{i18n>SELF_SERVICE_PORTAL_LINK}" class="kitsProcessInfoClass"
+									target="_blank" href="https://servicedesk.kaust.edu.sa/irj/portal"></Link>
+								<Text text="{i18n>SUPPORT_TEXT_TWO}" class="kitsProcessInfoClass"></Text>
+								<Text text="{i18n>SUPPORT_TEXT_THREE}" class="kitsProcessInfoClass"></Text>
+								<Link text="{i18n>HELPDESK}" class="kitsITHelpLinkClass"
+									press="fnHelpDeskPress"></Link>
+								<layoutData>
+									<l:GridData span="L4" moveForward="L1"></l:GridData>
+								</layoutData>
+							</VBox>
+						</l:Grid>
+					</IconTabFilter>
+							<IconTabFilter icon="sap-icon://hint" key="Tab1" tooltip="{i18n>REQ_INFO}">
+							<l:Grid defaultSpan="L12">
+							<Toolbar >
+								<Title text="{i18n>REQ_INFO}" level="H5" titleStyle="H5" />
+							</Toolbar>
+					</l:Grid>	
+								<f:SimpleForm id="userInfoTab" layout="ResponsiveGridLayout"
+									labelSpanL="4" labelSpanM="3" labelSpanS="6" columnsL="3"
+									columnsM="3" emptySpanL="0" emptySpanM="0" maxContainerCols="2">
+									<!-- <f:toolbar>
+										<Toolbar>
+											<Title text="{i18n>REQ_INFO}" level="H5" titleStyle="H5" />
+										</Toolbar>
+									</f:toolbar> -->
+									<f:content>
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>FNAME}" />
+										<Text id="fName" text="{oUserModel>/oUserData/FirstName}" />
+										<Label text="{i18n>LNAME}" />
+										<Text id="lName" text="{oUserModel>/oUserData/LastName}" />
+										<Label text="{i18n>KAUST_ID}" />
+										<Text id="kaustId" text="{oUserModel>/oUserData/KaustID}" />
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>EMAIL}" />
+										<Text id="email" text="{oUserModel>/oUserData/Email}" />
+										<Label text="{i18n>JOB_TITLE}" />
+										<Text id="pos" text="{oUserModel>/oUserData/Position}" />
+										<Label text="{i18n>DEPT}" />
+										<Text id="dept" text="{oUserModel>/oUserData/Deptname}" />
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>COST_CEN}" />
+										<Text id="costCenter" text="{oUserModel>/oUserData/Costcenter}" />
+										<Label text="{i18n>OFFTEL}" />
+										<Text id="officeId" text="{oUserModel>/oUserData/Office}" />
+										<Label text="{i18n>MOBNUM}" />
+										<Text id="mobileId" text="{oUserModel>/oUserData/Mobile}" />
+									</f:content>
+								</f:SimpleForm>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<footer>
+					<Toolbar>
+						<content>
+							<ToolbarSpacer></ToolbarSpacer>
+							<Button icon="sap-icon://accept" type="Accept" text="{i18n>SUBMIT}"
+								press="onValidate"></Button>
+							<Button icon="sap-icon://cancel" type="Reject" text="{i18n>CANCEL}"
+								press="cancelRequest"></Button>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

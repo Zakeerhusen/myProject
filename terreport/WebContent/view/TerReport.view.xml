@@ -1,0 +1,115 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" controllerName="kaust.ui.kitsterreport.controller.TerReport"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:f="sap.ui.layout.form">
+	<Page>
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Image src="images/kaust.jpg" densityAware="false"
+						height="45px"></Image>
+				</contentLeft>
+				<contentMiddle>
+					<Label text="{i18n>HEADER}" textAlign="Left" design="Bold"
+						class="header"></Label>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<f:Form editable="true">
+				<f:layout>
+					<f:ResponsiveGridLayout labelSpanXL="4"
+						labelSpanL="4" labelSpanM="4" labelSpanS="12" adjustLabelSpan="false"
+						emptySpanXL="0" emptySpanL="0" emptySpanM="0" emptySpanS="0"
+						columnsXL="2" columnsL="2" columnsM="1" singleContainerFullSize="false"></f:ResponsiveGridLayout>
+				</f:layout>
+				<f:formContainers>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement>
+								<f:label>
+									<Label text="{i18n>DATERANGE}"></Label>
+								</f:label>
+								<f:fields>
+									<DateRangeSelection id="dateRange"
+										displayFormat="dd/MM/yyyy" delimiter=" to " />
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+					<f:FormContainer>
+						<f:formElements>
+							<f:FormElement>
+								<f:fields>
+									<Button id="advserachBtn" text="{i18n>SEARCH}" type="Emphasized"
+										width="20%" icon="sap-icon://search" press="onReportSearch" />
+								</f:fields>
+							</f:FormElement>
+						</f:formElements>
+					</f:FormContainer>
+				</f:formContainers>
+			</f:Form>
+			<Toolbar class="boxToolBar">
+				<content>
+					<Text id="idRequestCount" class="boxTitle" />
+					<ToolbarSpacer></ToolbarSpacer>
+					<Button id="reportSortBtn" tooltip="Table Sort" type="Transparent"
+						icon="sap-icon://drop-down-list" press="onReportSort" />
+					<SearchField id="orderDetailsSearchField" width="200px"
+						class="searchFieldClass" liveChange="searchDetails" />
+					<Button id="retriveBtn" text="{i18n>RETRIEVE}" type="Emphasized"
+						press="onReportSearchAll" />
+					<Button type="Emphasized" tooltip="Excel" icon="sap-icon://download"
+						press="onExcelDownload"></Button>
+				</content>
+			</Toolbar>
+			<Table id="idTERReportTable" items="{/d/results}" class="ssdTable">
+				<columns>
+					<Column width="8%">
+						<Text text="{i18n>REQUESTID}" class="textBold" />
+					</Column>
+					<Column width="9%">
+						<Text text="{i18n>REQUESTER}" class="textBold" />
+					</Column>
+					<Column width="13%">
+						<Text text="{i18n>ITNC_OP}" class="textBold" />
+					</Column>
+					<Column width="12%">
+						<Text text="{i18n>LOCATION}" class="textBold" />
+					</Column>
+					<Column width="18%">
+						<Text text="{i18n>TER_ROOM}" class="textBold" />
+					</Column>
+					<Column width="8%">
+						<Text text="{i18n>PWR_INT}" class="textBold" />
+					</Column>
+					<Column width="8%">
+						<Text text="{i18n>WORK_PERMIT}" class="textBold" />
+					</Column>
+					<Column hAlign="Center" width="8%">
+						<Text text="{i18n>START_DATE}" class="textBold" />
+					</Column>
+					<Column hAlign="Center" width="8%">
+						<Text text="{i18n>CREATION_DATE}" class="textBold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Link text="{RequestId}" press="openDialog"></Link>
+							<Text
+								text="{parts:[{path:'FirstName'},{path:'MiddleName'},{path:'LastName'}],formatter: '.getFulName' }"></Text>
+							<Text text="{itncTeamApprover}"></Text>
+							<Text text="{Building}"></Text>
+							<Text text="{Room}"></Text>
+							<Text text="{PowerInterrupt}"></Text>
+							<Text text="{WorkPermit}"></Text>
+							<Text
+								text="{parts: [{path: 'StartDate'},{path: 'StartTime'}], formatter: '.getDateTime'}"></Text>
+							<Text text="{createDate}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+	</Page>
+</core:View>

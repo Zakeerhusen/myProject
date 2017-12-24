@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		
+		<title>Administrative Access Request</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8' />
+		
+		<script src="resources/sap-ui-cachebuster/sap-ui-core.js"
+				id="sap-ui-bootstrap" 
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-theme="sap_bluecrystal" 
+				data-sap-ui-appcachebuster=”./”
+				data-sap-ui-xx-bindingSyntax="complex"
+				data-sap-ui-resourceroots='{ "kaust.ui.kitsAdminAccess" : "./" }'
+				data-sap-ui-appcachebuster="./">
+		
+		</script>
+		<!-- only load the mobile lib "sap.m" and the "sap_bluecrystal" theme -->
+		
+		<script>
+			sap.ui.getCore().attachInit(function() {
+				new sap.ui.core.ComponentContainer({
+					name : "kaust.ui.kitsAdminAccess"
+				}).placeAt("content");
+			});
+		</script>
+	
+	</head>
+<body class="sapUiBody" role="application">
+	<div id="content"></div>
+</body>
+</html>

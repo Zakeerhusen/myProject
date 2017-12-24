@@ -1,0 +1,19 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover title="{i18n>serHelpHeader}"
+		class="sapUiPopupWithPadding" placement="Right">
+		<endButton>
+			<Button text="{i18n>CLOSE}" press="handleCloseButton1" />
+		</endButton>
+		<content>
+			<List>
+				<CustomListItem>
+					<Text text="Fire Alarm" />
+				</CustomListItem>
+				<CustomListItem>
+					<Text text="BMS etc" />
+				</CustomListItem>
+			</List>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

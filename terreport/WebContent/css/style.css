@@ -1,0 +1,74 @@
+
+.header {
+	font-size: 20px ! important;
+}
+
+.subHeader {
+	    margin-left: 175px ! important;
+	font-size: 17px ! important;
+}
+
+.searchTitle{
+    height: 3rem;
+    line-height: 3rem;
+
+    font-size: large ! important;
+    text-decoration: underline ! important;
+}
+
+.boxToolBar {
+	height: 4rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.boxTitle {
+	/* font-family: Open Sans; */
+	font-size: 1em;
+    font-weight: bold;
+    padding-left: 0px;
+	padding-top: 10px;
+	color: #000 !important;
+}
+
+.searchFieldClass {
+	padding-top: 5px;
+}
+
+.searchFieldClass .sapMSFF {
+	border-radius: 5px;
+	height: 2rem;
+}
+
+.searchFieldClass .sapMSFI {
+	height: 2rem;
+}
+
+.searchFieldClass .sapMSFB {
+	height: 2rem;
+	line-height: 2rem;
+}
+.ssdTable .sapMListTbl th {
+	background: #fff;
+	font-weight: bold !important;
+}
+
+.ssdTable {
+	width: 100% !important;
+	/*box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);*/
+	padding: 0 !important;
+	background: #fff;
+}
+
+/* .ssdTable .sapMListTbl .sapMText {
+	font-family: Open Sans !important;
+} */
+
+.ssdTableItem {
+	border-bottom: .1em solid #f5f5f5;
+	padding: .8em;
+}
+
+.textBold {
+	font-weight: bold !important;
+}

@@ -1,0 +1,33 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog title="User Details"  contentWidth="550px">
+		<Label text="{i18n>KAUSTID}" required="true" visible="false"></Label>
+		<SearchField placeholder="{i18n>KAUST_ID_VMS}"
+			enableSuggestions="true" maxLength="10" search="vmsLookUp" visible="true"></SearchField>
+		<content>
+			<Table items="{/results}" mode="MultiSelect">
+				<columns>
+					<!-- <Column> <Text text="{i18n>KAUST_ID}"/> </Column> -->
+					<Column>
+						<Text text="{i18n>NAME}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{FullName}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button text="{i18n>PICK}" type="Accept" press="onPickPress"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>CANCEL}" type="Reject" press="onCancelPress1"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
+

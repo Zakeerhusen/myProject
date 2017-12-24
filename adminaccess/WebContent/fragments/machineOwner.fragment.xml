@@ -1,0 +1,44 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog title="{i18n>PEOP_SEAR}">
+		<content>
+			<Label text="{i18n>KAUSTID}" required="true"></Label>
+			<SearchField placeholder="{i18n>KAUSTID}"
+				enableSuggestions="true" maxLength="6" search="onUserSearchPress"></SearchField>
+			<f:SimpleForm visible="false" layout="ResponsiveGridLayout"
+				title="{i18n>SEARCH_RES}" labelSpanXL="3" labelSpanL="3" labelSpanM="3"
+				labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4"
+				emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1"
+				singleContainerFullSize="false">
+				<f:content>
+				<Label text="{i18n>KAUSTID}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/KaustID}"></Text>
+					<Label text="{i18n>FNAME}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/FirstName}"></Text>
+					<Label text="{i18n>LNAME}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/LastName}"></Text>
+					
+					<Label text="{i18n>EMAIL}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/Email}"></Text>
+					<Label text="{i18n>JOB_TITLE}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/Position}"></Text>
+					<Label text="{i18n>DEPT}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/Deptname}"></Text>
+					<Label text="{i18n>COST_CEN}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/Costcenter}"></Text>
+					<Label text="{i18n>OFFTEL}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/Office}"></Text>
+					<Label text="{i18n>MOBNUM}"></Label>
+					<Text text="{oOnBehalfUserModel>/d/Mobile}"></Text>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button text="{i18n>PICK}" press="onPickPress" type="Accept" enabled="false"></Button>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>CANCEL}" type="Reject" press="onCancelPress"></Button>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

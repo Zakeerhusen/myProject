@@ -1,0 +1,15 @@
+@CHARSET "ISO-8859-1";
+.headerLabel
+{
+	 margin-top: 1rem;
+    font-weight: 600;
+}
+.layoutMargin
+{
+	margin-left: 5rem!important;
+}
+
+.borderCheck
+{
+	border:1px solid #b6b6b6 !important;
+}

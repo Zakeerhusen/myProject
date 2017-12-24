@@ -1,0 +1,55 @@
+@CHARSET "UTF-8";
+
+.heigher {
+    height: 25% !important;
+  }
+.redText {
+           color: red !important;
+           font-weight: bold !important;
+        }
+div#Master--pickButton-inner {
+	background-color: #D14900 !important ;
+	border-color: #D14900 !important ;
+}
+
+
+.subHeader {
+	    margin-left: 100px ! important;
+	font-size: 17px ! important;
+}
+
+
+.helpIcon {
+	width: 15% ! important;
+}
+
+.header {
+	font-size: 20px ! important;
+}
+
+.subHeader {
+	    margin-left: 175px ! important;
+	font-size: 17px ! important;
+}
+
+.subChkBox{
+	margin-left: 20px ! important;
+}
+
+.powerPadding{
+	margin-left: 90px! important;
+}
+
+.othersTbl{
+	    margin-left: 250px ! important;
+}
+@media only screen and (min-device-width: 300px) and (max-device-width: 500px){
+.disp{
+	display: hide;
+}
+}
+
+.borderCheck
+{
+	border:1px solid #b6b6b6 !important;
+}

@@ -1,0 +1,47 @@
+/* Enter your custom styles here */
+
+.helpIcon {
+	width: 15% ! important;
+}
+
+.header {
+	font-size: 20px ! important;
+}
+
+.subHeader {
+	    margin-left: 175px ! important;
+	font-size: 17px ! important;
+}
+
+.subChkBox{
+	margin-left: 20px ! important;
+}
+
+.powerPadding{
+	margin-left: 90px! important;
+}
+
+.othersTbl{
+	    margin-left: 250px ! important;
+}
+.kitsProcessInfoClass {
+	text-align: justify !important;
+	letter-spacing: 0.3px;
+    word-spacing: 1px;
+    padding-top: 2px;
+}
+.kitsITHelpLinkClass {
+	padding-top: 2px;
+}
+.kitsLinkClass {
+	padding-left: 3px;
+}
+
+.kitsLinkHereClass {
+	padding: 2px 3px 0px 3px;
+}
+@media only screen and (min-device-width: 300px) and (max-device-width: 500px){
+.disp{
+	display: hide;
+}
+}

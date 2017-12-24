@@ -1,0 +1,108 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core"
+	xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+	<Dialog title="Request Details">
+		<content>
+			<!-- <f:SimpleForm id="requestForm" layout="ResponsiveGridLayout"
+				maxContainerCols="2"> -->
+				<f:SimpleForm id="requestForm" maxContainerCols="2" labelSpanL="3" labelSpanM="3" labelSpanS="3" columnsL="3" columnsM="3" emptySpanL="0" emptySpanM="0" editable="true" layout="ResponsiveLayout">
+				<f:content>
+					<Text text=""></Text>
+					<Label text="{i18n>REQUESTID}"></Label>
+					<Text text="{oRequestDataModel>/RequestId}"></Text>
+					<Label text="{i18n>TICKETNO}"></Label>
+					<Text text="{oRequestDataModel>/RequestIdTic}"></Text>
+					<Label text="{i18n>REQUESTER}"></Label>
+					<Text text="{parts:[{path:'oRequestDataModel>/FirstName'},{path:'oRequestDataModel>/MiddleName'},{path:'oRequestDataModel>/LastName'}],formatter: '.getFulName' }"></Text>
+					<Label text="{i18n>USERNAME}"></Label>
+					<Text text="{oRequestDataModel>/userId}"></Text>
+					<Label text="{i18n>USERMOBNO}"></Label>
+					<Text text="{oRequestDataModel>/Mobile}"></Text>
+					<Label text="{i18n>ITNC_OP}"></Label>
+					<Text text="{oRequestDataModel>/itncTeamApprover}"></Text>
+					<Label text="{i18n>START_DATE}"></Label>
+					<Text text="{parts: [{path: 'oRequestDataModel>/StartDate'},{path: 'oRequestDataModel>/StartTime'}], formatter: '.getDateTime'}"></Text>
+					<!-- <Text text=" {parts:[{path:'oRequestDataModel>/StartDate'},{path:'oRequestDataModel>/StartTime'}],formatter: '.getDateTime' }"></Text> -->
+					<Label text="{i18n>END_DATE_TIME}"></Label>
+					<Text text="{parts: [{path: 'oRequestDataModel>/EndDate'},{path: 'oRequestDataModel>/EndTime'}], formatter: '.getDateTime'}"></Text>
+					<!-- <Text text=" {parts:[{path:'oRequestDataModel>/EndDate'},{path:'oRequestDataModel>/EndTime'}],formatter: '.getDateTime' }"></Text> -->
+					<!-- <Text text="{oRequestDataModel>/EndDate}"></Text>
+					<Label text="End Time"></Label>
+					<Text text="{oRequestDataModel>/EndTime}"></Text> -->
+					<Label text="{i18n>ACTUAL_END_TIME}"></Label>
+					<Text text="{oRequestDataModel>/actualEndTime}"></Text>
+					<Label text="{i18n>TIME_EFF}"></Label>
+					<Text text="{oRequestDataModel>/venActivityExten}"></Text>
+					<Label text="{i18n>NO_SHOWUP}"></Label>
+					<Text text="{oRequestDataModel>/ven_presence}"></Text>
+					<Label text="{i18n>MISSING_TOOL}"></Label>
+					<Text text="{oRequestDataModel>/toolMissingVen}"></Text>
+					<Label text="{i18n>PART_OF_TEAM}"></Label>
+					<Text text="{oRequestDataModel>/IsReqtAccReq}"></Text>
+					<Label text="{i18n>OTHER_TEAM_MEM}"></Label>
+					<Text text="{oRequestDataModel>/IsOtherTeamAccReq}"></Text>
+					<Label text="{i18n>LOCATION}"></Label>
+					<Text text="{oRequestDataModel>/Building}"></Text>
+					<Label text="{i18n>LOC_LEVEL}"></Label>
+					<Text text="{oRequestDataModel>/Level}"></Text>
+					<Label text="{i18n>TER_ROOM}"></Label>
+					<Text text="{oRequestDataModel>/Room}"></Text>
+					<Label text="{i18n>SOW_PWRACT}"></Label>
+					<Text text="{oRequestDataModel>/sowPowerActivity}"></Text>
+					<Label text="{i18n>SOW_AC_MNT}"></Label>
+					<Text text="{oRequestDataModel>/sowAcMaint}"></Text>
+					<Label text="{i18n>SOW_TERCLEAN}"></Label>
+					<Text text="{oRequestDataModel>/sowTerClean}"></Text>
+					<Label text="{i18n>SOW_CABLE}"></Label>
+					<Label text="" width="10px"></Label>
+					<Text text="{oRequestDataModel>/sowCablePullingTest}"></Text>
+					<Label text="{i18n>SOW_CABLE_SUB}"></Label>
+					<Text text="{oRequestDataModel>/iAgrSubTestRes}"></Text>
+					<Label text="{i18n>SOW_HSE}"></Label>
+					<Text text="{oRequestDataModel>/sowHseInspection}"></Text>
+					<Label text="{i18n>SOW_OTHERS}"></Label>
+					<Text text="{oRequestDataModel>/sowOthers}"></Text>
+					<Label text="{i18n>SPECIFY_OTHERS}"></Label>
+					<Text text="{oRequestDataModel>/specifyOthers}"></Text>
+					<Label text="{i18n>PWR_INT}"></Label>
+					<Text text="{oRequestDataModel>/PowerInterrupt}"></Text>
+					<Label text="{i18n>PR_CIRCUIT}"></Label>
+					<Text text="{oRequestDataModel>/eqpPrimary}"></Text>
+					<Label text="{i18n>BPR_CIRCUIT}"></Label>
+					<Text text="{oRequestDataModel>/eqpBackup}"></Text>
+					<Label text="{i18n>EPR_CIRCUIT}"></Label>
+					<Text text="{oRequestDataModel>/eqpEmergency}"></Text>
+					<Label text="{i18n>AC_INT}"></Label>
+					<Text text="{oRequestDataModel>/AcInterruption}"></Text>
+					<Label text="{i18n>AC_INT_LT}"></Label>
+					<Text text="{oRequestDataModel>/acInterLtTy}"></Text>
+					<Label text="{i18n>AC_INT_GT}"></Label>
+					<Text text="{oRequestDataModel>/acIntGtTy}"></Text>
+					
+					<Label text="{i18n>ITNC_PR}" wrapping="true"></Label>
+					<Text text="{oRequestDataModel>/primaryCircuit}"></Text>
+					<Label text="{i18n>ITNC_BPR}" wrapping="true"></Label>
+					<Text text="{oRequestDataModel>/backupCircuit}"></Text>
+					<Label text="{i18n>ITNC_EPR}" wrapping="true"></Label>
+					<Text text="{oRequestDataModel>/emergencyCircuit}"></Text>
+					<Label text="{i18n>WORK_PERMIT}"></Label>
+					<Text text="{oRequestDataModel>/WorkPermit}"></Text>
+					<Label text="{i18n>VMS}"></Label>
+					<Text text="{oRequestDataModel>/vsControlNumber}"></Text>
+					<Label text="{i18n>BACKUP_PWR}"></Label>
+					<Text text="{oRequestDataModel>/backPower}"></Text>
+					<Label text="{i18n>SOW_SURVEY}"></Label>
+					<Text text="{oRequestDataModel>/sowSurvey}"></Text>
+					
+					<Label text="{i18n>COOL_SYS}"></Label>
+					<Text text="{oRequestDataModel>/iAgrToProBckClng}"></Text>
+				
+				</f:content>
+			</f:SimpleForm>
+			</content>
+			<endButton>
+			<Button text="OK" press="onCancelPress"></Button>
+		</endButton>
+		
+	</Dialog>
+</core:FragmentDefinition>

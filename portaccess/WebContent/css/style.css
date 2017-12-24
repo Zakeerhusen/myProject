@@ -1,0 +1,21 @@
+.helpIcon {
+	width: 15% ! important;
+    margin-top: 15px ! important;
+}
+
+.header {
+	font-size: 20px ! important;
+}
+
+.subHeader {
+	    margin-left: 175px ! important;
+	font-size: 17px ! important;
+}
+
+.searchTitle{
+    height: 3rem;
+    line-height: 3rem;
+
+    font-size: large ! important;
+    text-decoration: underline ! important;
+}

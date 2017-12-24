@@ -1,0 +1,300 @@
+<mvc:View controllerName="kaust.ui.kitsportaccess.controller.RequestForm"
+	xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:core="sap.ui.core"
+	xmlns:f="sap.ui.layout.form">
+	<App>
+		<pages>
+			<Page id="portPage">
+				<customHeader>
+					<Bar>
+						<contentLeft>
+							<Image src="images/kaust.jpg" densityAware="false"
+								height="45px"></Image>
+						</contentLeft>
+						<contentMiddle>
+							<Label text="{i18n>port_header}" textAlign="Left" design="Bold"
+								class="header"></Label>
+						</contentMiddle>
+					</Bar>
+				</customHeader>
+				<content>
+					<f:Form editable="true">
+						<f:layout>
+							<f:ResponsiveGridLayout labelSpanXL="3"
+								labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false"
+								emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+								columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false"></f:ResponsiveGridLayout>
+						</f:layout>
+						<f:formContainers>
+							<f:FormContainer>
+								<f:formElements>
+									<f:FormElement label="{i18n>req_type}">
+										<f:fields>
+											<Select id="reqTypeId" items="{/oRequestType}" change="onChange">
+												<core:Item key="{reqTypekey}" text="{reqTypeValue}" />
+											</Select>
+											<Text></Text>
+										</f:fields>
+									</f:FormElement>
+									<!-- <f:FormElement > <f:fields> <Text id="subHeader" text="{i18n>internet}" 
+										class="subHeader"></Text> </f:fields> </f:FormElement> -->
+
+									<f:FormElement id="serviceId" visible="false">
+										<f:label>
+											<Label text="{i18n>ser_type}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<Input id="idServType" maxLength="30"></Input>
+											<core:Icon src="sap-icon://sys-help" press="serHelp"
+												class="helpIcon"></core:Icon>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>port_tag_no}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<Input id="idPortNo" maxLength="30"></Input>
+											<core:Icon src="sap-icon://sys-help" press="portHelp"
+												class="helpIcon"></core:Icon>
+										</f:fields>
+									</f:FormElement>
+									<f:FormElement>
+										<f:label>
+											<Label text="{i18n>loc}" required="true"></Label>
+										</f:label>
+										<f:fields>
+											<!-- <Input id="idLoc" placeholder="Building No.-Level-Room" width="325px"></Input> -->
+											<ComboBox id="buildingId" placeholder="{i18n>BUILDING_NO}" 
+												items="{oBuildingLookupModel>/oBuildingData}" selectionChange="onBuildingChange">
+												<core:Item key="" text="{oBuildingLookupModel>KBuilding}" />
+												<layoutData>
+													<l:GridData span="L2 M2"></l:GridData>
+												</layoutData>
+											</ComboBox>
+											<ComboBox id="levelSelId" placeholder="{i18n>LEVEL}" enabled="false"
+												items="{oLevelLookupModel>/oLevelData}" >
+												<core:Item key="" text="{oLevelLookupModel>KLevel}" />
+												<layoutData>
+													<l:GridData span="L1 M1"></l:GridData>
+												</layoutData>
+											</ComboBox>
+											<Input id="terRoomId" placeholder="{i18n>TER_ROOM_NO}" maxLength="30">
+												<layoutData>
+													<l:GridData span="L2 M2"></l:GridData>
+												</layoutData>
+											</Input>
+											<!-- <ComboBox id="terRoomId" placeholder="{i18n>TER_ROOM_NO}"
+												items="{oRoomLookupModel>/d/results}" selectionChange="onRoomChange">
+												<core:Item key="" text="{oRoomLookupModel>KRoom}" />
+												<layoutData>
+													<l:GridData span="L2 M2"></l:GridData>
+												</layoutData>
+											</ComboBox>  selectionChange="onLevlChange" -->
+										</f:fields>
+									</f:FormElement>
+								</f:formElements>
+							</f:FormContainer>
+						</f:formContainers>
+					</f:Form>
+
+					<IconTabBar id="idTabBar">
+						<items>
+							<!-- <IconTabFilter id="appInfo" icon="sap-icon://lightbulb"
+								key="Tab1">
+								<f:SimpleForm labelSpanL="4" labelSpanM="4"
+									labelSpanS="1" columnsL="1" columnsM="5" emptySpanL="0"
+									emptySpanM="0" maxContainerCols="1" layout="ResponsiveGridLayout">
+									
+										<Toolbar>
+											<Title text="{i18n>port_header}" level="H5" titleStyle="H5" />
+										</Toolbar>
+									
+									<f:content>
+										<Text text="{i18n>PORT_DESC}" />
+										<VBox>
+											<Label text="{i18n>QFACTS}" design="Bold" />
+											<Text text="{i18n>ELGB}" />
+											<Text text="{i18n>RATES}" />
+											<HBox>
+												<Text text="{i18n>TRAINING}" />
+												<Label text="" width="3px" />
+												<Link text="here" target="_blank" href="https://google.com"></Link>
+												<Label text="" width="3px" />
+												<Text text="{i18n>TRAINING_VID}" />
+											</HBox>
+										</VBox>
+										<VBox>
+											<Label text="{i18n>SUPPORT}" design="Bold" />
+											<Text text="{i18n>ASSISTANCE}" />
+											<Link text="{i18n>SELF_SER}" target="_blank"
+												href="https://servicedesk.kaust.edu.sa/irj/portal" />
+											<Text text="{i18n>CONTACT_IT}" />
+											<Text text="{i18n>CONTACT_IT_NUM}" />
+											<Text text="{i18n>OR_EMAIL}" />
+											<Link text="{i18n>HELP_DESK}" press="openEmail" />
+										</VBox>
+									</f:content>
+								</f:SimpleForm>
+							</IconTabFilter> -->
+							
+							<IconTabFilter id="appInfo" icon="sap-icon://lightbulb" key="Tab1" tooltip="{i18n>SER_INFO}">
+							<l:Grid defaultSpan="L12">
+							<Label text="{i18n>port_header}" class="kitsMachineLblClass"
+								design="Bold">
+								<layoutData>
+									<l:GridData span="L12 M12 S12"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{i18n>PORT_DESC}" class="kitsProcessInfoClass">
+								<layoutData>
+									<l:GridData span="L4"></l:GridData>
+								</layoutData>
+							</Text>
+							<VBox>
+								<Label text="{i18n>QFACTS}" design="Bold"></Label>
+								<Text text="{i18n>ELGB}" class="kitsProcessInfoClass"></Text>
+								<Text text="{i18n>RATES}" class="kitsProcessInfoClass"></Text>
+								<HBox>
+									<Text text="{i18n>TRAINING}" class="kitsProcessInfoClass"></Text>
+									<Label text="" width="3px" />
+									<Link text="here" target="_blank" href="https://google.com" class="kitsLinkHereClass"></Link>
+									<Label text="" width="3px" />
+									<Text text="{i18n>TRAINING_VID}" class="kitsProcessInfoClass"></Text>
+								</HBox>
+								<layoutData>
+									<l:GridData span="L4" moveForward="L1"></l:GridData>
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="{i18n>SUPPORT}" design="Bold"></Label>
+								<Text text="{i18n>ASSISTANCE}" class="kitsProcessInfoClass"></Text>
+								<Link text="{i18n>SELF_SER}" class="kitsProcessInfoClass"
+									target="_blank" href="https://servicedesk.kaust.edu.sa/irj/portal"></Link>
+								<Text text="{i18n>CONTACT_IT}" class="kitsProcessInfoClass"></Text>
+								<Text text="{i18n>CONTACT_IT_NUM}" class="kitsProcessInfoClass"></Text>
+								<Link text="{i18n>HELP_DESK}" class="kitsITHelpLinkClass"
+									press="openEmail"></Link>
+								<layoutData>
+									<l:GridData span="L4" moveForward="L1"></l:GridData>
+								</layoutData>
+							</VBox>
+						</l:Grid>
+					</IconTabFilter>
+							
+							
+							<IconTabFilter icon="sap-icon://hint" key="Tab2" tooltip="{i18n>REQ_INFO}">
+							<l:Grid defaultSpan="L12">
+							<Toolbar id="TB1">
+											<Title text="{i18n>REQ_INFO}" level="H5" titleStyle="H5" />
+											<ToolbarSpacer />
+											<CheckBox id="idOnBehalf" text="On Behalf" select="onBehalf" />
+											<Button id="selPerson" icon="sap-icon://cause" type="Emphasized"
+												text="Select Person" press="onSelectPersonPress" visible="false" />
+										</Toolbar>
+							<!-- <Label text="{i18n>REQ_INFO}" class="kitsMachineLblClass"
+								design="Bold">
+								<layoutData>
+									<l:GridData span="L12 M12 S12"></l:GridData>
+								</layoutData>
+							</Label>
+							<ToolbarSpacer />
+											<CheckBox id="idOnBehalf" text="On Behalf" select="onBehalf" />
+											<Button id="selPerson" icon="sap-icon://cause" type="Emphasized"
+												text="Select Person" press="onSelectPersonPress" visible="false" /> -->
+						</l:Grid>						
+								<f:SimpleForm id="userInfoTab" layout="ResponsiveGridLayout"
+									labelSpanL="4" labelSpanM="3" labelSpanS="6" columnsL="3"
+									columnsM="3" emptySpanL="0" emptySpanM="0" maxContainerCols="2">
+									
+										<!-- <Toolbar id="TB1">
+											<Title text="{i18n>REQ_INFO}" level="H5" titleStyle="H5" />
+											<ToolbarSpacer />
+											<CheckBox id="idOnBehalf" text="On Behalf" select="onBehalf" />
+											<Button id="selPerson" icon="sap-icon://cause" type="Emphasized"
+												text="Select Person" press="onSelectPersonPress" visible="false" />
+										</Toolbar> -->
+										
+									<f:content>
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>FNAME}" />
+										<Text id="fName" text="{/oUserData/FirstName}" />
+										<Label text="{i18n>LNAME}" />
+										<Text id="lName" text="{/oUserData/LastName}" />
+										<Label text="{i18n>KAUSTID}" />
+										<Text id="kaustId" text="{/oUserData/KaustID}" />
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>EMAIL}" />
+										<Text id="email" text="{/oUserData/Email}" />
+										<Label text="{i18n>JOB_TITLE}" />
+										<Text id="pos" text="{/oUserData/Position}" />
+										<Label text="{i18n>DEPT}" />
+										<Text id="dept" text="{/oUserData/Deptname}" />
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>COST_CEN}" />
+										<Text id="costCenter" text="{/oUserData/Costcenter}" />
+										<Label text="{i18n>OFFTEL}" />
+										<Text id="officeId" text="{/oUserData/Office}" />
+										<Label text="{i18n>MOBNUM}" />
+										<Text id="mobileId" text="{/oUserData/Mobile}" />
+									</f:content>
+								</f:SimpleForm>
+							</IconTabFilter>
+
+							<IconTabFilter key="Tab3" id="onBehalfUserTab"
+								icon="sap-icon://employee" visible="false" tooltip="{i18n>USER_INFO}">
+								<l:Grid defaultSpan="L12">
+										<Toolbar>
+											<Title text="{i18n>USER_INFO}" level="H5" titleStyle="H5" />
+										</Toolbar>
+								</l:Grid>		
+								<f:SimpleForm layout="ResponsiveGridLayout"
+									labelSpanL="4" labelSpanM="3" labelSpanS="6" columnsL="3"
+									columnsM="3" emptySpanL="0" emptySpanM="0" maxContainerCols="2">
+									<f:content>
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>FNAME}" />
+										<Text text="{oUserSerchModel>/d/FirstName}" />
+										<Label text="{i18n>KAUSTID}" />
+										<Text text="{oUserSerchModel>/d/KaustID}" />
+										<Label text="{i18n>POS}" />
+										<Text text="{oUserSerchModel>/d/Position}" />
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>MNAME}" />
+										<Text text="{oUserSerchModel>/d/MiddleName}" />
+										<Label text="{i18n>EMAIL}" />
+										<Text text="{oUserSerchModel>/d/Email}" />
+										<Label text="{i18n>DEPT}" />
+										<Text text="{oUserSerchModel>/d/Deptname}" />
+										<core:Title text="">
+										</core:Title>
+										<Label text="{i18n>LNAME}" />
+										<Text text="{oUserSerchModel>/d/LastName}" />
+										<Label text="{i18n>USERID}" />
+										<Text text="{oUserSerchModel>/d/UserId}" />
+									</f:content>
+								</f:SimpleForm>
+							</IconTabFilter>
+						</items>
+					</IconTabBar>
+				</content>
+				<footer>
+					<Toolbar>
+						<content>
+							<ToolbarSpacer></ToolbarSpacer>
+							<Button id="submitBtn" icon="sap-icon://accept" type="Accept" text="{i18n>SUBMIT}"
+								press="onValidate"></Button>
+							<Button icon="sap-icon://cancel" type="Reject" text="{i18n>CANCEL}"
+								press="cancelRequest"></Button>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

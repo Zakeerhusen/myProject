@@ -1,0 +1,16 @@
+<core:View
+	controllerName="kaust.ui.kits.myRequest.view.Detail"
+	xmlns="sap.m"
+	xmlns:suite="sap.suite.ui.commons"
+	xmlns:form="sap.ui.layout.form"
+	xmlns:core="sap.ui.core" >
+		<Page
+		id="page"
+		showNavButton="{device>/isPhone}"
+		navButtonPress="handleNavButtonPress" >
+	
+		<content>
+		</content>
+		
+	</Page>
+</core:View>

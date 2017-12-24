@@ -1,0 +1,35 @@
+.kitsAdminHeaderClass {
+	font-size: 20px;
+}
+
+.kitsMachineLblClass {
+	font-size: 1.1rem;
+}
+
+.kitsProcessInfoClass {
+	text-align: justify !important;
+	letter-spacing: 0.3px;
+    word-spacing: 1px;
+    padding-top: 2px;
+}
+
+.kitsLinkClass {
+	padding-left: 3px;
+}
+
+.kitsLinkHereClass {
+	padding: 2px 3px 0px 3px;
+}
+
+.kitsITHelpLinkClass {
+	padding-top: 2px;
+}
+
+@media ( max-width : 500px) {
+	.kitsAdminHeaderClass {
+		font-size: 15px;
+	}
+	.kitsAdminImage {
+		height: 30px !important;
+	}
+}

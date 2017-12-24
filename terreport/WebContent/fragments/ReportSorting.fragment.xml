@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ViewSettingsDialog
+		confirm="reportSort">
+		<sortItems>
+			<ViewSettingsItem text="{i18n>REQUESTID}" key="RequestId" selected="true" />
+			<ViewSettingsItem text="{i18n>REQUESTER}" key="FirstName"/>
+			<ViewSettingsItem text="{i18n>ITNC_OP}" key="itncTeamApprover"/> 
+			<ViewSettingsItem text="{i18n>LOCATION}" key="Building"/>
+			<ViewSettingsItem text="{i18n>TER_ROOM}" key="Room"/>
+			<ViewSettingsItem text="{i18n>PWR_INT}" key="PowerInterrupt"/>
+			<ViewSettingsItem text="{i18n>WORK_PERMIT}" key="WorkPermit"/>
+			<ViewSettingsItem text="{i18n>START_DATE}" key="StartDate"/>
+			<ViewSettingsItem text="{i18n>CREATION_DATE}" key="createDate"/>
+		</sortItems>
+	</ViewSettingsDialog>
+</core:FragmentDefinition>

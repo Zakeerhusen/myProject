@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover title="Port Label will be in top of the port"
+		class="sapUiPopupWithPadding" placement="Right">
+		<endButton>
+			<Button text="{i18n>CLOSE}" press="handleCloseButton" />
+		</endButton>
+		<content>
+			<Image src="images/Port_Activation_image.jpg"
+				width="17em" />
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

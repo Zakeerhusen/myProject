@@ -1,0 +1,247 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" xmlns="sap.m"
+	controllerName="kaust.ui.kitsAdminAccess.controller.main" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="idAdminAccessPage">
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Image src="images/kaust.jpg" densityAware="false"
+						height="40px" class="kitsAdminImage"></Image>
+				</contentLeft>
+				<contentMiddle>
+					<Label text="{i18n>PROCESS_HEADING}" textAlign="Left" design="Bold"
+						class="kitsAdminHeaderClass"></Label>
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<content>
+			<f:SimpleForm id="SimpleFormChange354" editable="true"
+				layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3"
+				labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4"
+				emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1"
+				columnsM="1" singleContainerFullSize="false">
+				<f:content>
+					<Label text="{i18n>TYPEOFUSER}" class="kitsLabelClass"></Label>
+					<RadioButtonGroup columns="2" select="onUserTypeSelect"
+						enabled="{oVisibilityModel>/bEnableFields}" selectedIndex="{oVisibilityModel>/iCustodianRB}"
+						id="idCustodianRB">
+						<buttons>
+							<RadioButton text="{i18n>YES}"></RadioButton>
+							<RadioButton text="{i18n>NO}"></RadioButton>
+						</buttons>
+						<layoutData>
+							<l:GridData span="L2 M3 S6"></l:GridData>
+						</layoutData>
+					</RadioButtonGroup>
+					<HBox>
+					<Button type="Emphasized" text="{i18n>SEL_CUSTODIAN}"
+						visible="{oVisibilityModel>/bSelectPersonBtn}" press="onSelectPersonPress"
+						id="idCustodianSelBtn">
+					</Button>
+					<Text id="custodianName" visible="{oVisibilityModel>/bSelectPersonBtn}" class="sapUiMediumMarginBegin"></Text>
+					<layoutData>
+							<l:GridData span="L4 M4 S6"></l:GridData>
+						</layoutData>
+					</HBox>
+					<Label text="{i18n>JUSTIFICATION}"></Label>
+					<TextArea id="idJustification" enabled="{oVisibilityModel>/bEnableFields}" maxLength="200"></TextArea>
+					<Label text="{i18n>TAG}" required="true"></Label>
+					<Select items="{oTagModel>/tagData}" visible="{oVisibilityModel>/bTagSelect}"
+						id="idTagSelect">
+						<core:Item key="{oTagModel>equipmentNumber}" text="{oTagModel>equipmentNumber}" />
+					</Select>
+					<Input placeholder="{i18n>TAG}" visible="{oVisibilityModel>/bTagInput}"
+						id="idTagInput" change="fnTagInputChange" enabled="{oVisibilityModel>/bTagInpEnable}"></Input>
+					<Label text="{i18n>OPER_SYS}" required="true"></Label>
+					<CheckBox text="{i18n>WIN}" enabled="{oVisibilityModel>/bWinEnable}"
+						select="fnWinMacCB" id="idWinCB" selected="{oVisibilityModel>/bWinSel}">
+						<layoutData>
+							<l:GridData span="L1 M3 S12"></l:GridData>
+						</layoutData>
+					</CheckBox>
+					<CheckBox text="{i18n>MAC}" enabled="{oVisibilityModel>/bMacEnable}"
+						select="fnWinMacCB" id="idMacCB" selected="{oVisibilityModel>/bMacSel}">
+						<layoutData>
+							<l:GridData span="L1 M3 S12"></l:GridData>
+						</layoutData>
+					</CheckBox>
+					<CheckBox text="{i18n>LIN}" enabled="{oVisibilityModel>/bLinuxEnable}"
+						select="fnLinuxCB" id="idLinuxCB" selected="{oVisibilityModel>/bLinuxSel}">
+						<layoutData>
+							<l:GridData span="L1 M3 S12"></l:GridData>
+						</layoutData>
+					</CheckBox>
+					<Label text="{i18n>EXP_DATE}" required="true"></Label>
+					<DatePicker change="getEpiryDateChange" id="idExpiryDate"
+						enabled="{oVisibilityModel>/bEnableFields}">
+						<layoutData>
+							<l:GridData span="L2"></l:GridData>
+						</layoutData>
+					</DatePicker>
+					<HBox>
+						<CheckBox text="{i18n>T_C}" id="idTNCCheckBox"
+							enabled="{oVisibilityModel>/bEnableFields}" selected="{oVisibilityModel>/bDisSel}"></CheckBox>
+						<Link text="{i18n>TNC_TEXT}" class="kitsLinkClass"></Link>
+						<layoutData>
+							<l:GridData span="L4" linebreakL="true" moveForward="L3 M3"></l:GridData>
+						</layoutData>
+					</HBox>
+				</f:content>
+			</f:SimpleForm>
+			<IconTabBar id="idIconTabBar">
+				<items>
+
+					<!-- Service Information Tab -->
+					<IconTabFilter icon="sap-icon://lightbulb" key="infoTab">
+						<l:Grid defaultSpan="L12">
+							<Label text="{i18n>MCH_ADM_RIGHT}" class="kitsMachineLblClass"
+								design="Bold">
+								<layoutData>
+									<l:GridData span="L12 M12 S12"></l:GridData>
+								</layoutData>
+							</Label>
+							<Text text="{i18n>PROCESS_INFO}" class="kitsProcessInfoClass">
+								<layoutData>
+									<l:GridData span="L4"></l:GridData>
+								</layoutData>
+							</Text>
+							<VBox>
+								<Label text="{i18n>QUICK_FACTS}" design="Bold"></Label>
+								<Text text="{i18n>ELIGIBILITY}" class="kitsProcessInfoClass"></Text>
+								<Text text="{i18n>RATES}" class="kitsProcessInfoClass"></Text>
+								<HBox>
+									<Text text="{i18n>TRAINING_ONE}" class="kitsProcessInfoClass"></Text>
+									<Link text="{i18n>HERE}" class="kitsLinkHereClass"></Link>
+									<Text text="{i18n>TRAINING_TWO}" class="kitsProcessInfoClass"></Text>
+								</HBox>
+								<layoutData>
+									<l:GridData span="L4" moveForward="L1"></l:GridData>
+								</layoutData>
+							</VBox>
+							<VBox>
+								<Label text="{i18n>SUPPORT}" design="Bold"></Label>
+								<Text text="{i18n>SUPPORT_TEXT_ONE}" class="kitsProcessInfoClass"></Text>
+								<Link text="{i18n>SELF_SERVICE_PORTAL_LINK}" class="kitsProcessInfoClass"
+									target="_blank" href="https://servicedesk.kaust.edu.sa/irj/portal"></Link>
+								<Text text="{i18n>SUPPORT_TEXT_TWO}" class="kitsProcessInfoClass"></Text>
+								<Text text="{i18n>SUPPORT_TEXT_THREE}" class="kitsProcessInfoClass"></Text>
+								<Link text="{i18n>HELPDESK}" class="kitsITHelpLinkClass"
+									press="fnHelpDeskPress"></Link>
+								<layoutData>
+									<l:GridData span="L4" moveForward="L1"></l:GridData>
+								</layoutData>
+							</VBox>
+						</l:Grid>
+					</IconTabFilter>
+
+
+					<!-- Logged In User Information -->
+					
+					<IconTabFilter icon="sap-icon://hint" key="userInfoTab">
+					<l:Grid defaultSpan="L12">
+							<Toolbar id="TB1">
+										<Title text="{i18n>REQ_INFO}" class="kitsMachineLblClass" level="H5" titleStyle="H5"/>
+										<ToolbarSpacer />
+										<CheckBox id="idOnBehalfCB" text="{i18n>ON_BEHALF}"
+										 selected="{oVisibilityModel>/bOnBehalfSel}" select="fnOnBehalfSelect" 
+										 enabled="{oVisibilityModel>/bEnableFields}"></CheckBox>
+										<Button  icon="sap-icon://cause" type="Emphasized" text="{i18n>SEL_PER}" visible="{oVisibilityModel>/bSelectPersonTabBtn}" press="onSelectPersonPress"
+										id="idSelectPersonTabBtn" enabled="{oVisibilityModel>/bEnableFields}"></Button>
+									</Toolbar>
+							</l:Grid>	
+						<f:SimpleForm layout="ResponsiveGridLayout"
+							labelSpanL="4" labelSpanM="4" labelSpanS="6" columnsL="3"
+							columnsM="1" emptySpanL="0" emptySpanM="0" maxContainerCols="1">
+						
+<!-- 							<f:toolbar>
+								<Toolbar>
+									<Label text="{i18n>REQ_INFO}" class="kitsMachineLblClass"
+										design="Bold"></Label>
+									<ToolbarSpacer />
+									<CheckBox id="idOnBehalfCB" text="{i18n>ON_BEHALF}" selected="{oVisibilityModel>/bOnBehalfSel}"
+						 				select="fnOnBehalfSelect" enabled="{oVisibilityModel>/bEnableFields}"></CheckBox>
+									<Button type="Emphasized" text="{i18n>SEL_PER}"
+										visible="{oVisibilityModel>/bSelectPersonTabBtn}" press="onSelectPersonPress"
+										id="idSelectPersonTabBtn" enabled="{oVisibilityModel>/bEnableFields}"></Button>
+								</Toolbar>
+							</f:toolbar>
+ -->							<f:content>
+								<core:Title text=""></core:Title>
+								<Label text="{i18n>NAME}"></Label>
+								<Text text="{oUserModel>/oUserData/FirstName} {oUserModel>/oUserData/MiddleName} {oUserModel>/oUserData/LastName}"></Text>
+								<Label text="{i18n>KAUSTID}"></Label>
+								<Text text="{oUserModel>/oUserData/KaustID}"></Text>
+								<Label text="{i18n>EMAIL}"></Label>
+								<Text text="{oUserModel>/oUserData/Email}"></Text>
+								<core:Title text=""></core:Title>
+								<Label text="{i18n>JOB_TITLE}"></Label>
+								<Text text="{oUserModel>/oUserData/Position}"></Text>
+								<Label text="{i18n>DEPARTMENT}"></Label>
+								<Text text="{oUserModel>/oUserData/Deptname}"></Text>
+								<Label text="{i18n>COST_CEN}"></Label>
+								<Text text="{oUserModel>/oUserData/Costcenter}"></Text>
+								<core:Title text=""></core:Title>
+								<Label text="{i18n>OFFTEL}"></Label>
+								<Text text="{oUserModel>/oUserData/Office}"></Text>
+								<Label text="{i18n>MOBNUM}"></Label>
+								<Text text="{oUserModel>/oUserData/Mobile}"></Text>
+							</f:content>
+						</f:SimpleForm>
+					</IconTabFilter>
+
+					<!-- On Behalf User Information -->
+					<IconTabFilter icon="sap-icon://employee"
+						visible="{oVisibilityModel>/bOnBehalfTabBar}" key="onBehalfInfoTab"
+						id="idOnBehalfTab">
+						<content>
+						<l:Grid defaultSpan="L12">
+										<Toolbar>
+											<Title text="{i18n>ON_BEHALF_INFO}"  class="kitsMachineLblClass" level="H5" titleStyle="H5" />
+										</Toolbar>
+								</l:Grid>
+							<f:SimpleForm layout="ResponsiveGridLayout" 
+								labelSpanXL="2" labelSpanL="4" labelSpanM="4" labelSpanS="12"
+								adjustLabelSpan="false" emptySpanXL="0" emptySpanL="0"
+								emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="3"
+								columnsM="1" singleContainerFullSize="false">
+								
+								<f:content>
+									<core:Title text=""></core:Title>
+									<Label text="{i18n>NAME}"></Label>
+									<Text text="{oOnBehalfUserModel>/d/FirstName} {oOnBehalfUserModel>/d/MiddleName} {oOnBehalfUserModel>/d/LastName}"></Text>
+									<Label text="{i18n>KAUSTID}"></Label>
+									<Text text="{oOnBehalfUserModel>/d/KaustID}"></Text>
+									<Label text="{i18n>EMAIL}"></Label>
+									<Text text="{oOnBehalfUserModel>/d/Email}"></Text>
+									<core:Title text=""></core:Title>
+									<Label text="{i18n>JOB_TITLE}"></Label>
+									<Text text="{oOnBehalfUserModel>/d/Position}"></Text>
+									<Label text="{i18n>DEPARTMENT}"></Label>
+									<Text text="{oOnBehalfUserModel>/d/Deptname}"></Text>
+									<!-- <Label text="{i18n>COST_CEN}"></Label>
+									<Text text="{oOnBehalfUserModel>/d/Costcenter}"></Text> -->
+									<core:Title text=""></core:Title>
+									<Label text="{i18n>OFFTEL}"></Label>
+									<Text text="{oOnBehalfUserModel>/d/Office}"></Text>
+									<Label text="{i18n>MOBNUM}"></Label>
+									<Text text="{oOnBehalfUserModel>/d/Mobile}"></Text>
+								</f:content>
+							</f:SimpleForm>
+						</content>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+		<footer>
+			<Toolbar>
+				<content>
+					<ToolbarSpacer></ToolbarSpacer>
+					<Button type="Accept" text="{i18n>SUBMIT}" press="fnSubmitAdminReq"
+						icon="sap-icon://accept"></Button>
+					<Button type="Reject" text="{i18n>CANCEL}" press="fnCancelAdminReq"
+						icon="sap-icon://cancel"></Button>
+				</content>
+			</Toolbar>
+		</footer>
+	</Page>
+</mvc:View>
