@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns="sap.m"
+xmlns:core="sap.ui.core">
+<Dialog title="Nominate Task" class="detailHdng">
+
+<HBox>
+<Text text="Select a user to Nominate the task" width="25em" class="gridLblClass"></Text>
+</HBox>
+<HBox><Label text="" width="10px"/></HBox>
+
+<!--<VBox>-->
+<!--<HBox >-->
+<!--<Input value="" class="sHeading1"/>-->
+<!--<Text text="User ID: 45623" class="sHeading gridLblClass userIdLblClass" />-->
+<!--</HBox>-->
+<!--</VBox>-->
+
+<Input placeholder="Enter atleast 4 characters" value="" maxLength="50"
+			showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+			suggestionItemSelected="itemSelected" class="bottomMargin" filterSuggests="false">
+			<suggestionItems>
+				<core:ListItem text="{userSearchModel>displayNm}"
+					additionalText="{userSearchModel>userId}" />
+			</suggestionItems>
+</Input>
+
+<HBox><Label text="" width="10px"/></HBox>
+<HBox alignItems="End" justifyContent="End" >
+<Button text="Cancel" width="100px" press="Btn_cancel"  type="Reject"/>
+<Label text="" width="8px"/>
+<Button text="Nominate" width="100px" press="Btn_nominate"  type="Accept"/>
+</HBox>
+
+</Dialog>
+</core:FragmentDefinition>

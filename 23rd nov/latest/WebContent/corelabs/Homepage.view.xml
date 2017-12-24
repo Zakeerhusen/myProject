@@ -1,0 +1,25 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  xmlns:l="sap.ui.layout"
+		controllerName="corelabs.Homepage" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page backgroundDesign= "Transparent" showFooter="true" class="pageBackground" showHeader="false">
+		<content>
+			
+				<HBox  alignItems = "End" justifyContent = "End">
+					<!--<Label text="Date:" design="Bold"/>
+					--><Text text="{path:'dateModel>/dateValue', type:'sap.ui.model.type.Date'}" class="dateHome"/>
+				</HBox>
+				<HBox  alignItems = "End" justifyContent = "End">
+					<Text text="Welcome" class="welcome"/>
+				</HBox>
+				<HBox>
+				<FlexBox justifyContent="Center">
+							<Image src='images/cl-info-03.jpg' class="logo" ></Image>
+							
+				</FlexBox> 
+			</HBox>
+			<FlexBox justifyContent="Center">
+							<Text text="Core Labs - Request For Service" class="corelabs"/>
+				</FlexBox> 
+			
+		</content>
+	</Page>
+</core:View>

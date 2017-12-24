@@ -1,0 +1,105 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+		controllerName="corelabs.Registered_User_List" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground">
+	
+				<HBox >
+					<Text text="Registered Users" class="mainTitle" />
+				</HBox>
+				
+				<layout:Grid defaultSpan="L4 M4 S12"  position="Left" class="noPadding" >
+						<layout:content>
+								<HBox alignItems="Center">
+									<Label text="User Name" class="labelclass3" width="6rem" />
+									<Input id="piname" placeholder="Enter atleast 4 characters" width="182px"
+											showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+											suggestionItemSelected="itemSelected" class="leftMargin">
+											<suggestionItems>
+												<core:ListItem text="{userSearchModel>displayNm}"
+													additionalText="{userSearchModel>userId}" />
+											</suggestionItems>
+									</Input>
+								</HBox>
+								<HBox alignItems="Center">
+									<Label text="Org Name" class="labelclass3" width="6rem" />
+									<Input id="orgType" value="" class="leftMargin" width="142px"/>
+								</HBox>
+								<HBox alignItems="Center">
+									<Label text="Country" class="labelclass3" width="6rem">
+									</Label>
+									<ComboBox id='country' items="{oCountryJsonModel>/d/results}" class="leftMargin" width="142px">
+										<core:Item  text="{oCountryJsonModel>CountryNameShort}" />
+									</ComboBox>
+								</HBox>
+								<HBox alignItems="Center">
+									<Label text="Date Range"  class="labelclass3"/>
+									<DateRangeSelection id="dateRange" displayFormat="dd/MM/yyyy" class="leftMargin1" delimiter=" to "/>
+								</HBox>
+							</layout:content>
+						</layout:Grid>
+				
+		<Toolbar height="7rem">
+			<ToolbarSpacer></ToolbarSpacer>
+				<Button text="Search" icon="sap-icon://search" width="100px" type="Emphasized" press="onPress"  />
+				<Label width="10px"/>
+				<Button text="Clear" width="100px" type="Emphasized" press="onClear"  />
+		</Toolbar>
+			
+			<Panel>
+					<Table id="userTable" noDataText="No Data" class="TaskManagementTable ssdTable" items="{oRegisteredUserListJsonModel>/userDto}" >
+						<columns>
+							<Column width="60%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Label text="User ID" design="Bold"/>
+							</Column>
+							<Column width="60%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Label text="User Name" design="Bold"/>
+							</Column>
+							<Column width="60%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Label text="Organization Type" design="Bold"/>
+							</Column>
+							<Column width="60%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Label text="Country" design="Bold"/>
+							</Column>
+						</columns>
+
+						<items >
+								<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+									<Text text="{oRegisteredUserListJsonModel>userId}" ></Text>
+									<Text text="{oRegisteredUserListJsonModel>firstNm}"></Text>
+									<Text text="{oRegisteredUserListJsonModel>orgNm}" ></Text>
+									<Text text="{oRegisteredUserListJsonModel>countryNm}"></Text>
+								</cells>
+							</ColumnListItem>
+
+							<!--	<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+									<Text text="gzakeer@kaust.com" ></Text>
+									<Text text="Zakeer"></Text>
+									<Text text="Government" ></Text>
+									<Text text="Saudi Arabia"></Text>
+								</cells>
+							</ColumnListItem>
+							
+							<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+								<Text text="rsaurabh@kaust.com" ></Text>
+								<Text text="Saurabh"></Text>
+								<Text text="Industry" ></Text>
+								<Text text="Saudi Arabia"></Text>
+								</cells>
+							</ColumnListItem>
+							
+							<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+								<Text text="sbhaskar@kaust.com" ></Text>
+								<Text text="Bhaskar"></Text>
+								<Text text="Industry" ></Text>
+								<Text text="India"></Text>
+								</cells>
+							</ColumnListItem>-->
+
+						</items>
+					</Table>
+
+			</Panel>	</Page>
+</core:View>

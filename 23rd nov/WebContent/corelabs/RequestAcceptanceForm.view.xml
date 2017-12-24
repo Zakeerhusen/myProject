@@ -1,0 +1,192 @@
+	<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+		controllerName="corelabs.RequestAcceptanceForm" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Panel width="auto" class="sapUiResponsiveMargin">
+		<!--<headerToolbar>
+			<Toolbar height="3rem"  class="paneltitle">
+				<Title text="REQUESTER ACCEPTANCE" class="title"/>
+			</Toolbar>
+		</headerToolbar>
+		--><HBox alignItems="Start" justifyContent="Start">
+					<Text text="Requester Acceptance" width="20em" class="mainTitle" />
+		</HBox>
+		<content>
+		
+		
+				<HBox>
+				<Text class="justify1" text="The Services will be performed in accordance with the Terms and Conditions of Services set out herewith. To accept the Services and associated charges the Requestor and authorized person must select “Accept” button."/>					
+				</HBox>
+				
+				<HBox>
+				<Text text="Payment Instructions" class="subtitle">
+				</Text>				
+				</HBox>
+									
+				<HBox>
+				<VBox><Text text="Account Name: " class="subtitle"/></VBox>
+				<VBox><Text text="King Abdullah University of Science and Technology" class="subtitle_1"/></VBox>
+				</HBox>
+				
+				<HBox>
+				<VBox><Text text="Swift Code : " class="subtitle"/></VBox>
+				<VBox><Text text=" SABBSARI" class="subtitle_1"/></VBox>
+				</HBox>
+				
+				<HBox>
+				<VBox><Text text="Account No:" class="subtitle"/></VBox>
+				<VBox><Text text="500-639539-002" class="subtitle_1"/></VBox>
+				</HBox>
+				
+				<HBox>
+				<VBox><Text text="IBAN Number:" class="subtitle"/></VBox>
+				<VBox><Text text="SA47 4500 0000 5006 3953 9002" class="subtitle_1"/></VBox>
+				</HBox>
+					
+				<HBox>
+				<VBox><Text text="Bank Name :" class="subtitle"/></VBox>
+				<VBox><Text text="The Saudi British Bank" class="subtitle_1"/></VBox>
+				</HBox>
+				
+				<HBox>
+				<VBox><Text text="Address : " class="subtitle"/></VBox>
+				<VBox><Text text=" King Abdulaziz Street, Al Khobar, KSA." class="subtitle_1"/></VBox>
+				</HBox>
+		</content>
+		</Panel>
+		
+			<Panel width="auto" class="sapUiResponsiveMargin">
+		<!--<headerToolbar>
+			<Toolbar height="3rem" class="paneltitle">
+				<Title text="Terms and Conditions of Services" class="title"/>
+			</Toolbar>
+		</headerToolbar>
+		--><content>		
+				<HBox>
+				 <Text  text="Terms and Conditions of Services" class="detailHdng"/>
+				</HBox>
+		
+				<HBox>
+				<Label text="1. The Agreement." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text="The Services will be performed in accordance with the RFS form, attachments to the RFS forms, these Terms and Conditions of Services and the standard practices and procedures of the Core Labs and of the facility performing the Services, which, collectively, are referred to as the “Agreement”.">
+				</Text>
+				</HBox>	
+				
+				<HBox>
+				<Label text="2. Approvals." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" Before any Services may begin, the Core Labs must approve each request for services. The Core Labs may deny access to its resources if the Request and/or Requestor fails to meet any requirements set out by the Core Lab performing the service.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="3. Start of Services. " design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text="Performance of the Services will begin after (i) receipt by Core Labs of the Samples and/or Data, in good condition and having the specifications described in the Request for Services, and (ii) receipt by Core Labs of any payment required to be made by Requestor prior to commencement of the work.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="4. Schedule." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" Core Labs will assign a priority to the Services and will schedule performance of the Services so as to complete them and provide the Results to Requestor by the estimated completion date. If, however, the Samples and/or Data received are damaged or otherwise not in good condition or do not meet the specifications, or if there is a delay in Core Lab’s receipt of any payment due from Requestor, Core Labs will delay commencement of the Analysis until remedial action is taken by the Requestor. Core Labs will then have the right to revise the schedule and the estimated completion date accordingly." >
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="5. Priorities. " design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text="Requests for services to be performed by the Core Labs are normally performed in the following order of priority: (i) requests submitted by KAUST faculty, students or researchers; (ii) requests submitted by entities with a presence in the KAUST Research Park; (iii) requests submitted by universities other than KAUST and other research institutions; (iv) requests submitted by companies without a presence in the KAUST Research Park; requests by government agencies; requests by companies in connection with research samples not generated by research conducted by the companies’ employees at the KAUST Research Park. If a request having a higher priority than that given to the Services is received, Core Labs will have the right to reschedule performance of the Services and to revise the estimated completion date accordingly.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="6. Force Majeure. " design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text="Core Labs will have the right to reschedule performance of the Services and revise the estimated completion date if Core Labs becomes unable to perform the Services, in whole or in part, because of events or circumstances beyond its reasonable control.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="7. Responsibility for Delay. " design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify"  text="Core Labs will notify Requestor promptly of any rescheduling or delay of performance of the Services and any revision to the estimated completion date. Core Labs and KAUST will not be liable for any loss or damage suffered by Requestor as a result of any delay or rescheduling of or failure to perform the Services by Core Labs or any revision to the estimated completion date. In such cases, Requestor’s sole remedy is termination of the Agreement.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="8. Payment." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" For ad-hoc Requestors, payment to be made by the Requestor for the Services is specified in the Quotation. For Requestors with a service agreement with the Core Labs, cost estimate is only an indication of the cost may incur for the Services. Actual charges are sent monthly. Payment will be made by Requestor promptly after its receipt of a Quotation or an invoice from Core Labs for the amount due. Payment is to be made by wire transfer in accordance with the instructions contained in the Quotation or invoice.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="9. Results." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" The Core Labs shall deliver to Requestor the data produced and the results obtained from the performance of the Services (the “Results”) by the estimated completion date, as revised if revisions are made. The Results delivered to Requestor, and the Services performed to obtain the Results, shall be delivered and performed by Core Labs without warranty of any kind, either express or implied, including but not limited to any warranty of fitness for a particular purpose or non-infringement. The entire risk of Requestor’s use of the Results shall be solely with the Requestor. Unless otherwise advised by the Requestor, Core Labs will retain a copy of the Results for up to 3 years from the execution of this Agreement.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="10. Samples or Data. " design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text="Requestor represents and warrants that it has the full right to provide Samples or Data to Core Labs for the purpose of Services, and that it has obtained any necessary informed consent, or authorization, required in order to collect the Samples or Data and provide them to Core Labs for the purpose of the Services. Core Labs shall use the Samples or Data solely for the purpose of the Services and shall not further distribute the Samples or Data to any third party. All right, title and interest in and to the Samples or Data shall remain vested solely with Requestor and no right, title or interest therein is transferred or granted to Core Labs or KAUST under this Agreement. Unless otherwise advised by the Requestor, Samples or Data will be destroyed or disposed in accordance to relevant KAUST policy.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="11. Samples or Data delivery." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" Requestor shall bear the cost of the delivery and return of the Samples or Data to and from Core Labs. Requestor shall abide by all applicable regulations when transporting Samples or Data to Core Labs. Core Labs has the right to refuse receipt and/or testing of any Samples or Data if, in Core Labs’ sole discretion, they are hazardous, unsafe, in violation of applicable law or regulation or have been transported improperly. Requestor shall be responsible for, and pay to Core Labs, all costs incurred by Core Labs in connection with such Samples or Data including, but not limited to, identification of Sample content, damage incurred by Core Labs as a result of improper packaging or labelling, omission of documents, and return or disposal of materials.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="12. Cancellation." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" Either party may terminate this Agreement by giving the other party written notice of cancellation. (i) In the case of termination by Requestor, it is allowed free of charge prior to the commencement of the Service. Otherwise, Requestor shall pay all amounts due for the Services requested. Requestor shall also reimburse Core Labs for the cost of returning unanalyzed Samples or Data to Requestor. (ii) In the case of a cancellation by Core Labs, Requestor shall pay all amounts then due for Services performed prior to cancellation or, if payment by Requestor is to be made upon completion of Services, a pro rata amount of the agreed payment equivalent to the proportion of Services performed prior to cancellation. If Requestor has made an advance payment, Core Labs shall pay to Requestor a pro rata amount of the advance payment equivalent to the proportion of Services that will not be performed as a result of the cancellation. Core Labs shall provide any results produced prior to cancellation and also return unanalyzed Samples or Data to Requestor at Core Labs’ expense.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="13. Intellectual Property." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" Core Labs shall have no rights in any new inventions, developments, or discoveries made by Requestor as a result of Requestor's use of the Results. In circumstances where new knowledge, including new methods, is developed by KAUST while performing a service for the Client, KAUST has the right to use such new knowledge for educational and research purposes as well as for delivering services to other clients. The Client hereby consents to the use of the new knowledge by KAUST in the manner and for the purposes described above.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="14. Confidential Information." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" The confidential information of a party, including but not limited to Data, research procedures, data collection techniques and chemical compositions of samples, shall be and remain the property of that party. Neither party shall use for its own purposes or disclose to any third party the confidential information of the other party without the prior written consent of the other party, unless such information becomes publicly known other than as a result of the acts of the party seeking to use or disclose such information.">
+				</Text>
+				</HBox>
+											
+				<HBox>
+				<Label text="15. Indemnification." design="Bold"/></HBox>
+				<HBox>
+				 <Text  class="justify" text=" Requestor shall indemnify and hold Core Labs and KAUST and the employees, faculty, students and researchers of Core Labs and KAUST harmless from and against any and all liability, damages, losses and expenses (collectively, “Losses”) arising out of or in connection with performance of any Services for Requestor except for Losses that are attributable to the gross negligence or intentional misconduct of Core Labs and except for damages described in Paragraph 16.">
+				</Text>
+				</HBox>
+				
+				<HBox>
+				<Label text="16. Consequential Damages." design="Bold"/></HBox>
+				<HBox>
+				 <Text class="justify" text=" Neither party will be liable for any incidental, consequential, special, exemplary or other indirect damages of any kind or nature incurred by the other party and arising out of or in connection with the Services, whether based upon breach of contract or tort, including negligence, even if advised of the possibility of such damages.">
+				</Text>
+				</HBox>
+		</content>		
+			<HBox id="rtSscAcceptance" alignItems="End" justifyContent="End" class="marginHboxActionBtns">
+				    <Button  text="Request Change" width="200px" type="Emphasized" press="sscAccReqCh"/>
+				    <Label text=""     width= "10px"/>
+				    <Button  text="Reject" type="Reject" press="sscAccRej"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Accept" width="100px" type="Accept" press="sscAccAppr" />
+				</HBox>
+			
+		
+	</Panel>
+</mvc:View>
+	
+	
+		

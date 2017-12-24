@@ -1,0 +1,50 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+xmlns:u="sap.ui.unified" xmlns:l="sap.ui.layout"
+		controllerName="corelabs.DocumentReview" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground" >
+		<Panel class="BoxClassMargin">
+			<HBox >
+				<Text text="Document Review" class="mainTitle" />
+			</HBox>
+				<Text  text="Search User" width="6rem" class="sapUiTinyMarginTop sapUiSmallMarginBegin" />
+				<l:Grid defaultSpan="L4 M4 S12" class="sapUiTinyMargin ">
+					<Input id="suggetItems" class="piReqTblCell" placeholder="Enter atleast 4 characters" maxLength="50" change="onNameChange"
+										showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+										suggestionItemSelected="itemSelected" filterSuggests="false">
+										<suggestionItems>
+											<core:ListItem text="{userSearchModel>displayNm}" additionalText="{userSearchModel>userId}"/>
+										</suggestionItems>
+					</Input>
+					<Button id="findDocBtn" icon="sap-icon://sys-find" text="Find Document" press="findReviewDoc" type="Emphasized"/>
+				</l:Grid>
+				
+				<Table id="reviewDocTable" class="sapUiTinyMargin" items="{reviewDocModel>/documentManagerDtoList}">
+					<columns>
+						<Column width="15%" >
+							<Text text="SL No." class="font_size_table"/>
+						</Column>
+						<Column width="55%" >
+							<Text text="Document Name" class="font_size_table"/>
+						</Column>
+						<Column width="15%" >
+							<Text text="Created By" class="font_size_table"/>
+						</Column>
+						<Column width="15%" >
+							<Text text="Created On" class="font_size_table"/>
+						</Column>
+					</columns>
+					<items >
+						<ColumnListItem type="Inactive" class="textalignNew">
+							<cells >
+								<Text text="{reviewDocModel>slno}" ></Text>
+								<Link text="{reviewDocModel>fileName}" tooltip="{reviewDocModel>fileName}" href="{reviewDocModel>filePath}"></Link>
+								<Text text="{reviewDocModel>createdBy}" ></Text>
+								<Text text="{reviewDocModel>createdDateValue}"></Text>
+								<!--<Text text="{reviewDocModel>operationName}"></Text>-->
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+		</Panel>
+	</Page>
+</core:View>

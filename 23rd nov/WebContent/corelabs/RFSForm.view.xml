@@ -1,0 +1,542 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:z="sap.ui.commons" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+	xmlns:u="sap.ui.unified" controllerName="corelabs.RFSForm" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground" height="auto">
+		<!--
+			<Panel class="processFlowPanel"> <mvc:XMLView
+			viewName="corelabs.RFSForm1" /> selectedKey="RFS" <content>
+		-->
+		<IconTabBar expanded="{device>/isNoPhone}" class="processFlowBar"
+			selectedKey="RFS" select="" expandable="false">
+			<items>
+				<IconTabFilter id="compIconId" icon="sap-icon://begin"
+					iconColor="Positive" design="Horizontal" count="RFS Submission"
+					key="RFS">
+					<content>
+						<HBox justifyContent="SpaceBetween">
+							<HBox>
+								<Text text="REQUEST FOR SERVICE Core Labs and Major Facilities:"
+									width="28em" class="mainTitle" />
+								<Text id="labName" width="20em" class="mainTitle" />
+							</HBox>
+							<HBox width="100%">
+								<VBox width="50%" class="newrfs_date">
+									<Text text="Date:" />
+								</VBox>
+								<VBox width="50%">
+									<Text text="{path:'dateModel>/dateValue'}"/>
+								</VBox>
+							</HBox>
+						</HBox>
+						
+						<!--
+							<HBox> <HBox ><Text text="Date: " class="detailHdng2" /> <Text
+							text="{path:'dateModel>/dateValue',
+							type:'sap.ui.model.type.Date'}" class="detailHdng3"/> </HBox>
+							</HBox>
+						-->
+						<IconTabBar id="idIcon" expanded="{device>/isNoPhone}"
+							class="iconTabHeader" expandable="false" select="handleTabSelect">
+							<items>
+								<IconTabFilter key="Tab1" text="Requester Information">
+									<VBox id="kaustuser">
+										<HBox class="detailHdngHBox">
+											<Text text="Requester Info Section" class="detailHdng" />
+										</HBox>
+										<layout:Grid defaultSpan="L6 M6 S12" vSpacing="0"
+											class="gridClass">
+											<layout:content>
+												<HBox>
+													<Label text="First Name" class="gridLblClass" required="true"/>
+													<Input id="fnameipt" type="Text"
+														value="{requestInfoModel>/requestData/0/firstNm}" class="gridFldClass "
+														maxLength="10" enabled="false" />
+												</HBox>
+												<HBox>
+													<Label text="Last Name" class="gridLblClass" required="true"/>
+													<Input id="lnameipt" type="Text"
+														value="{requestInfoModel>/requestData/0/lastNm}" class="gridFldClass "
+														maxLength="10" enabled="false" />
+												</HBox>
+												<HBox>
+													<Label text="KAUST ID" class="gridLblClass" required="true"/>
+													<Input id="kidipt" type="Text"
+														value="{requestInfoModel>/requestData/1/KaustID}" class="gridFldClass "
+														maxLength="10" enabled="false" />
+												</HBox>
+												<HBox>
+													<Label text="Email" class="gridLblClass" required="true"/>
+													<Input id="emailipt" tooltip="{requestInfoModel>/requestData/0/emailId}"
+														type="Text" value="{requestInfoModel>/requestData/0/emailId}"
+														class="gridFldClass tooltip" maxLength="70" editable="false" />
+												</HBox>
+												<HBox>
+													<Text text="Department" class="gridLblClass newRFSLblClass" />
+													<Input id="deptipt" type="Text"
+														value="{requestInfoModel>/requestData/1/Deptname}" class="gridFldClass "
+														maxLength="20" enabled="false" />
+												</HBox>
+												<HBox>
+													<Text text="Telephone" class="gridLblClass newRFSLblClass" />
+													<Input id="phoneipt" type="Text"
+														value="{requestInfoModel>/requestData/1/Office}" class="gridFldClass "
+														maxLength="15" enabled="false" />
+												</HBox>
+												<HBox>
+													<Text text="Mobile" class="gridLblClass newRFSLblClass" />
+													<Input id="mobileipt" type="Text"
+														value="{requestInfoModel>/requestData/1/Mobile}" class="gridFldClass "
+														maxLength="20" enabled="false" />
+												</HBox>
+												<HBox>
+													<Label text="Pocket ID" class="gridLblClass" required="true"/>
+													<ComboBox id="pidcb" width="11.8em" class="pktId"
+														items="{rfsPocketIdModel>/piApprovalDto}" selectionChange="selectPI" change="setValueState">
+														<items>
+															<core:Item text="{rfsPocketIdModel>pocketId}"
+																key="{rfsPocketIdModel>piId}" />
+														</items>
+													</ComboBox>
+												</HBox>
+												<HBox>
+												<Text text="Position" class="gridLblClass newRFSLblClass" />
+												<Input id="posipt" type="Text" tooltip="{requestInfoModel>/requestData/1/Position}"
+												value="{requestInfoModel>/requestData/1/Position}" class="gridFldClass tooltip"
+												maxLength="20" editable="false" />
+												</HBox>
+											</layout:content>
+										</layout:Grid>
+										<HBox height="14px">
+											<Label text="" width="1rem" />
+										</HBox>
+										<HBox class="detailHdngHBox">
+											<Text text="Principal Investigator Section" class="detailHdng" />
+										</HBox>
+										<layout:Grid defaultSpan="L6 M6 S12" vSpacing="0"
+											class="gridClass">
+											<layout:content>
+												<HBox>
+													<Label text="PI Name" class="gridLblClass" required="true"/>
+													<Input id="pinameipt" type="Text" class="gridFldClass"
+														value="{gwPIModel>/firstNm}" maxLength="10" enabled="false" change="setValueState"/>
+												</HBox>
+												<HBox>
+													<Label text="KAUST ID" class="gridLblClass" required="true"/>
+													<Input id="pikidipt" type="Text" class="gridFldClass"
+														value="{gwPIModel>/kaustId}" maxLength="10" enabled="false"
+														change="setValueState" />
+												</HBox>
+												<HBox>
+													<Label text="Email" class="gridLblClass" required="true"/>
+													<Input id="piemailipt" tooltip="{gwPIModel>/emailId}"
+														type="Text" class="gridFldClass tooltip" value="{gwPIModel>/emailId}"
+														maxLength="70" editable="false" change="setValueState"/>
+												</HBox>
+												<HBox>
+													<Text text="Position" class="gridLblClass newRFSLblClass" />
+													<Input id="piposipt" tooltip="{gwPIModel>/position}"
+														type="Text" class="gridFldClass tooltip" value="{gwPIModel>/position}"
+														maxLength="70" editable="false" />
+												</HBox>
+												<HBox>
+													<Text text="Telephone" class="gridLblClass newRFSLblClass" />
+													<Input id="piteleipt" type="Text" class="gridFldClass"
+														value="{gwPIModel>/telephone}" maxLength="15" enabled="false" />
+												</HBox>
+
+											</layout:content>
+										</layout:Grid>
+									</VBox>
+
+									<!--Non Kaust user -->
+
+									<VBox id="nonkaustuser" visible="true">
+										<layout:Grid defaultSpan="L6 M6 S12" vSpacing="0"
+											class="gridClass">
+											<layout:content>
+												<HBox>
+													<Label text="First Name" width="16em" class="gridLblClass" required="true"/>
+													<Input id="nkfnameipt" type="Text" class="gridFldClass"
+														value='{userData>/firstNm}' maxLength="20" enabled="false" />
+												</HBox>
+												<HBox>
+													<Label text="Last Name" width="16em" class="gridLblClass" required="true"/>
+													<Input id="nklnameipt" type="Text" class="gridFldClass"
+														maxLength="20" enabled="false" value='{userData>/lastNm}' />
+												</HBox>
+												<HBox>
+													<Label text="Type of Organization" width="16em"
+														class="gridLblClass" required="true"/>
+													<Input id="too" type="Text" class="gridFldClass"
+														maxLength="20" enabled="false" value='{userData>/orgTypeNm}' />
+													<!--
+														<ComboBox id="too" width="12.6em"
+														items="{orgTypeModel>/organizationDto}"
+														placeholder="Select Organization" > <items> <core:Item
+														key="{orgTypeModel>orgId}" text="{orgTypeModel>orgName}"
+														/> </items> </ComboBox>
+													-->
+												</HBox>
+												<HBox>
+													<Text text="Position" width="16em" class="gridLblClass" />
+													<Input id="nkposipt" type="Text" class="gridFldClass tooltip"
+														maxLength="20" value='{userData>/position}' tooltip='{userData>/position}' editable="false" />
+												</HBox>
+												<HBox>
+													<Label text="Organization Name" width="16em" class="gridLblClass" required="true"/>
+													<Input id="nkorgipt" type="Text" class="gridFldClass "
+														maxLength="20" enabled="false" value='{userData>/orgNm}' />
+												</HBox>
+												<HBox>
+													<Text text="KAUST Research Park Tenants" width="16em"
+														class="gridLblClass" />
+													<CheckBox id="iskrpt" enabled="false"/>
+												</HBox>
+												<HBox>
+													<Text text="Department" width="16em" class="gridLblClass" />
+													<Input id="nkdeptipt" type="Text" class="gridFldClass "
+														maxLength="20" value='{userData>/deptNm}' enabled="false" />
+												</HBox>
+												<HBox>
+													<Label text="Telephone" width="16em" class="gridLblClass" required="true" />
+													<Input id="nkteleipt" type="Text" class="gridFldClass "
+														maxLength="20" enabled="false" value='{userData>/telephone}' />
+												</HBox>
+												<HBox>
+													<Label text="Email" width="16em" class="gridLblClass" required="true"/>
+													<Input id="nkemailipt" type="Text" class="gridFldClass tooltip" tooltip='{userData>/emailId}' 
+														maxLength="70" editable="false" value='{userData>/emailId}' />
+												</HBox>
+												<HBox>
+													<Text text="Authorised Person Name" width="16em"
+														class="gridLblClass" />
+													<Input id="nkAPname" type="Text" class="gridFldClass "
+														maxLength="20" value='{userData>/authPersonNm}' enabled="false" />
+												</HBox>
+												<HBox>
+													<Text text="KAUST Customer Account No." width="16em"
+														class="gridLblClass" />
+													<!--
+														<Input id="nkAccno" type="Text" class="gridFldClass "
+														maxLength="15" enabled="true" />
+													-->
+													<Input id="nkAccno" width="12em" valueHelpOnly="true"
+														showValueHelp="true" valueHelpRequest="openDialog" change="setValueState" enabled="false"></Input>
+												</HBox>
+												<HBox id="rptPktId" visible="false">
+													<Label text="Pocket ID" width="16em" class="gridLblClass" required="true"/>
+													<ComboBox id="pidrpt" width="11.8em" class="pktId"
+														items="{rfsPocketIdModel>/piApprovalDto}" selectionChange="selectPI" change="setValueState">
+														<items>
+															<core:Item text="{rfsPocketIdModel>pocketId}"
+																key="{rfsPocketIdModel>piId}" />
+														</items>
+													</ComboBox>
+												</HBox>
+											</layout:content>
+										</layout:Grid>
+									</VBox>
+								</IconTabFilter>
+
+								<IconTabFilter key="Tab2" text="Service Area Section"
+									class="tabElement">
+									<VBox>
+										<VBox id="exCws" class="upload_margin_top">
+											<HBox>
+												<Label text="Service Area" class="gridLblClass servieAreaLblClass" required="true"/>
+												<ComboBox id="servarcb" class="pktId" items="{/serviceAreaDto}"
+													width="21em" selectionChange="setValueState" change="setValueState">
+													<items>
+														<core:Item key="{serviceAreaId}" text="{serviceAreaName}" />
+													</items>
+												</ComboBox>
+												<Label text="Requested Completion Date" width="19em"
+													class="gridLblClass dateSAS" required="true"/>
+												<DatePicker id="reqcompdate" placeholder="Enter Date"
+													displayFormat="dd/MM/yyyy" change="setValueState"/>
+											</HBox>
+										</VBox>
+
+										<VBox id="cwsServ" class="upload_margin_top">
+											<HBox>
+												<Label text="Workshop" class="gridLblClass" width="9.5em" required="true"/>
+												<ComboBox width="15em" id="cws_combobox"
+													selectionChange="cwsSA" change="setValueState">
+													<items>
+														<core:Item key="k51" text="Electronics" />
+														<core:Item key="k52" text="Mechanical" />
+														<core:Item key="k53" text="Metrology" />
+													</items>
+												</ComboBox>
+
+												<Label text="Requested Completion Date" width="20em"
+													class="gridLblClass dateSAS" required="true"/>
+												<DatePicker id="reqDateCws" placeholder="Enter Date"
+													width="15em" change="setValueState"/>
+											</HBox>
+											<HBox width="100%">
+												<Label text="Service Area" width="10em" class="gridLblClass servieAreaLblClass" required="true"/>
+												<ComboBox id="cwsSA" width="15em" placeholder="Service Area"
+													items="{/workShopDto}" enabled="false" change="setValueState">
+													<items>
+														<core:Item key="{ServiceAreaId}" text="{ServiceAreaName}" />
+													</items>
+												</ComboBox>
+											</HBox>
+										</VBox>
+										<HBox class="upload_margin_top">
+											<Label text="Brief Description of Service Requested"
+												width="20em" class="gridLblClass servieAreaLblClass" required="true"/>
+										</HBox>
+										
+										<HBox width="100%" class="textAreaMrgn" id="exCwsBd">
+											<VBox width="100%">
+												<Label text="Aim of Study" width="12rem" class="gridLblClass" required="true"/>
+												<TextArea id="studyaimtext" rows="3" width="95%"
+													placeholder="Please enter text" change="setValueState"></TextArea>
+											</VBox>
+											<VBox width="100%">
+												<Label text="Expected Data/Deliverables" width="12rem"
+													class="gridLblClass" required="true"/>
+												<TextArea id="expdatatext" rows="3" width="95%"
+													placeholder="Please enter text" change="setValueState"></TextArea>
+											</VBox>
+											<VBox width="100%">
+												<Label text="Method" width="12rem" class="gridLblClass" required="true"/>
+												<TextArea id="methodtext" rows="3" width="95%"
+													placeholder="Please enter text" change="setValueState"></TextArea>
+											</VBox>
+										</HBox>
+										<VBox id="cwsBd">
+										<HBox>
+											<CheckBox id="desatt" />
+											<Text text="Design attached" class="checkboxtext" />
+											<CheckBox id="desappbypi" />
+											<Text text="Design approved by PI" class="checkboxtext" />
+										</HBox>
+										
+										<HBox width="100%">
+										<Text text="Design, Fabrication, Test and Measurement, Calibration" width="18.5rem" class="gridLblClass" />
+												<TextArea id="desFabTestMeasCalib" rows="3" cols="83" width="95%"
+													placeholder="Please enter text" change="setValueState"></TextArea>
+										</HBox>
+										</VBox>
+										<HBox class="upload_margin_top">
+											<Text text="Upload your file" class="uploadSAS gridLblClass" />
+											<u:FileUploader id="fileUploader" name="myFileUpload"
+												uploadUrl="/files/upload" width="400px"
+												tooltip="Upload your file"
+												uploadComplete="handleUploadComplete" enabled="true">
+											</u:FileUploader>
+											<Label text="" width="4px"></Label>
+											<z:Button text="Upload" width="70px" press="handleUploadPress"
+												style="Default" enabled="true" class="upload_button" height="1.4rem" />
+										</HBox>
+										<HBox id="sasUpload">
+											<Table id="idMyAttchmentTbl" class="margnLeft"
+												items="{serviceDocModel>/documentManagerDtoList}" inset="true"
+												width="100%">
+												<columns>
+													<Column>
+														<Label text="SL No." design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Document Name" design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Created By" design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Created On" design="Bold" />
+													</Column>
+												</columns>
+
+												<items>
+
+													<ColumnListItem type="Inactive" class="textalign"
+														selected="{serviceDocModel>delFlag}">
+														<cells>
+															<Text text="{serviceDocModel>slno}"></Text>
+															<Link text="{serviceDocModel>fileName}" tooltip="{serviceDocModel>fileName}" href="{serviceDocModel>filePath}"></Link>
+															<Text text="{serviceDocModel>createdBy}"></Text>
+															<Text text="{serviceDocModel>createdDateValue}"></Text>
+															<!--<Text text="{serviceDocModel>operationName}"></Text>
+														--></cells>
+													</ColumnListItem>
+
+												</items>
+											</Table>
+										</HBox>
+									</VBox>
+
+
+								</IconTabFilter>
+								<IconTabFilter key="Tab3" text="Sample Section">
+									<VBox class="upload_margin_top">
+											<HBox>
+												<Text text="No. of Samples" class="gridLblClass11" />
+												<Input id="samNo" type="Number" class="gridFldClass inputSS"
+													maxLength="3" change="numberValidate" />
+											</HBox>
+											<HBox id="bsbeSample">
+												<HBox>
+													<Text text="Sample Origin" class="gridLblClass11" />
+													<Input id="samOrg" type="Text" class="gridFldClass inputSS" />
+												</HBox>
+												<Label text="" width="10px"/>
+												<HBox>
+													<Text text="Sample Name" class="gridLblClass11" />
+													<Input id="samNm" type="Text" class="gridFldClass inputSS" />
+												</HBox>
+											</HBox>
+
+										<!--<HBox id="sthbox" items="{/sampleTypeDto}" class="upload_margin_top">
+											<items>
+												<CheckBox selected="{sampleStatus}" text="{sampleType}"></CheckBox>
+											</items>
+										</HBox>
+										
+										--><layout:Grid id="sthbox" defaultSpan="L3 M3 S6" vSpacing="0" content="{/sampleTypeDto}" class="gridClass">
+											<layout:content>
+											<CheckBox selected="{sampleStatus}" text="{sampleType}"></CheckBox>
+											</layout:content>
+											</layout:Grid>
+										<HBox class="textAreaMrgn" width="100%">
+											<VBox width="50%">
+												<Text text="Samples/Data Specifications" width="15em"
+													class="gridLblClass" />
+
+												<TextArea id="samData" rows="3" width="95%"
+													placeholder="Please clearly specify…"></TextArea>
+											</VBox>
+											<VBox width="50%">
+												<Text text="Specific Instructions" width="15em" class="gridLblClass" />
+												<TextArea id="samInst" rows="3" width="95%"
+													placeholder="Please enter text"></TextArea>
+											</VBox>
+										</HBox>
+										<HBox class="upload_margin_top">
+											<Text text="Upload your file" class="uploadSAS gridLblClass" />
+											<u:FileUploader id="sampleFileUploader" name="myFileUpload"
+												uploadUrl="/files/upload" width="400px"
+												tooltip="Upload your file"
+												uploadComplete="handleUploadComplete" enabled="true">
+											</u:FileUploader>
+											<Label text="" width="4px"></Label>
+											<z:Button text="Upload" width="70px" press="handleUploadPress"
+												style="Default" enabled="true" class="upload_button" height="1.4rem" />
+										</HBox>
+
+										<HBox>
+											<Table id="sampleFileTable" class="margnLeft"
+												items="{sampleDocModel>/documentManagerDtoList}" inset="true"
+												width="100%">
+
+												<columns>
+													<Column>
+														<Label text="SL No." design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Document Name" design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Created By" design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Created On" design="Bold" />
+													</Column>
+												</columns>
+
+												<items>
+
+													<ColumnListItem type="Inactive" class="textalign"
+														selected="{sampleDocModel>delFlag}">
+														<cells>
+															<Text text="{sampleDocModel>slno}"></Text>
+															<Link text="{sampleDocModel>fileName}" tooltip="{sampleDocModel>fileName}" href="{sampleDocModel>filePath}"></Link>
+															<Text text="{sampleDocModel>createdBy}"></Text>
+															<Text text="{sampleDocModel>createdDateValue}"></Text>
+														</cells>
+													</ColumnListItem>
+
+												</items>
+											</Table>
+										</HBox>
+									</VBox>
+								</IconTabFilter>
+
+								<IconTabFilter key="Tab4" text="Sample Delivery Section">
+									<VBox class="upload_margin_top">
+
+										<HBox>
+											<Text text="Return Samples" width="11.5em" class="gridLblClass" />
+											<CheckBox id="retSam" />
+
+										</HBox>
+										<HBox>
+											<Text text="Sample Delivery Mode" width="11em" class="gridLblClass" />
+											<ComboBox id="samDelMode" items="{delModeModel>/sampleDeliveryModeDto}"
+												placeholder="Delivery Mode" class="comboSD" selectionChange="samDelModeSel">
+												<items>
+													<core:Item text="{delModeModel>deliveryMode}" />
+												</items>
+											</ComboBox>
+											<Label text="" width="10px"/>
+											<Input id="otherMthd" type="Text"  maxLength="20" placeholder="Specify other methods" visible="false"/>
+											
+										</HBox>
+										<HBox>
+											<Text text="Report" width="11em" class="gridLblClass" />
+											<ComboBox id="repType" items="{repTypeModel>/reportAreaDto}"
+												placeholder="Report Type" class="comboSD">
+												<items>
+													<core:Item text="{repTypeModel>reportArea}" />
+													
+												
+														<!--<core:Item  text="Raw Data only" />
+														<core:Item  text="Raw Data + Report" />
+														<core:Item  text="Report only" />
+												--></items>
+											</ComboBox>
+
+										</HBox>
+									</VBox>
+								</IconTabFilter>
+							</items>
+						</IconTabBar>
+						<HBox alignItems="End" justifyContent="End" class="marginHboxActionBtns">
+							<Button id="saverfs" text="Save" width="100px" type="Emphasized"
+								press="save" />
+							<Label text="" width="10px" />
+							<Button id="btnPrev" text="Prev" width="100px" type="Accept"
+								press="navToPrevTab" enabled="false" />
+							<Label text="" width="10px" />
+							<Button id="submitrfs" text="Next" width="100px" type="Accept"
+								press="submit" />
+
+							<!--
+								<Button id="submitrfs" text="Submit" width="100px" type="Accept"
+								press="submit"/>
+							-->
+						</HBox>
+					</content>
+				</IconTabFilter>
+				<IconTabSeparator icon="sap-icon://feeder-arrow" />
+				<IconTabFilter icon="sap-icon://monitor-payments"
+					iconColor="Neutral" design="Horizontal" count="Scope and Charges"
+					key="SSC" enabled="false" />
+				<IconTabSeparator icon="sap-icon://feeder-arrow" />
+
+				<!--<IconTabFilter icon="sap-icon://hr-approval"
+					iconColor="Neutral" design="Horizontal" count="Accept Charges" key="Ok"
+					enabled="false" />
+				<IconTabSeparator icon="sap-icon://feeder-arrow" />
+				--><IconTabFilter icon="sap-icon://course-program"
+					design="Horizontal" count="RFS Report" key="Ok" enabled="false" />
+				<!--<IconTabSeparator icon="sap-icon://feeder-arrow" />
+				<IconTabFilter id="secHoriDivider" icon="sap-icon://company-view"
+					design="Horizontal" count="Feedback" key="Ok" enabled="false" />
+			--></items>
+		</IconTabBar>
+	</Page>
+</core:View>

@@ -1,0 +1,146 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+xmlns:u="sap.ui.unified"
+		controllerName="corelabs.MyDocuments" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground" >
+<Panel class="BoxClassMargin">
+<HBox >
+					<Text text="My Documents" class="mainTitle" />
+				</HBox>
+		
+		
+<Toolbar height="3rem">
+			<u:FileUploader
+			id="fileUploader"
+			name="myFileUpload"
+			uploadUrl="/files/upload"
+			width="400px"
+			text="BROWSE"
+			tooltip="Upload your file"
+			uploadComplete="handleUploadComplete" class="myDocFUClass"/>
+			<Button id="uploadBtn" icon="sap-icon://upload" text="Upload" width="100px" press="handleUploadPress" type="Emphasized"/>
+			<Button id="removeBtn" icon="sap-icon://delete" text="Remove" width="100px" press="removeFromTable" type="Reject" />
+			<ToolbarSpacer />
+			<SearchField placeholder="Search" width="15rem" liveChange="filterGlobally"  ></SearchField>
+</Toolbar>
+			
+			<Panel>
+			
+					<Table id="docTable" class="TaskManagementTable ssdTable" mode="MultiSelect" items="{myDocModel>/documentManagerDtoList}">
+
+						<columns>
+							<Column >
+								<Label text="SL No." design="Bold"/>
+							</Column>
+							<Column >
+								<Label text="Document Name" design="Bold"/>
+							</Column>
+							<Column >
+								<Label text="Created By" design="Bold"/>
+							</Column>
+							<Column >
+								<Label text="Created On" design="Bold"/>
+							</Column>
+							<Column >
+								<Label text="RFS No." design="Bold"/>
+							</Column>
+							
+						</columns>
+
+						<items >
+							<!-- "textalign" class Changed by Sharique  -->
+							<ColumnListItem type="Inactive" class="textalignNew" selected="{myDocModel>delFlag}">
+								<cells >
+									<Text text="{myDocModel>slno}" ></Text>
+									<Link text="{myDocModel>fileName}" tooltip="{myDocModel>fileName}" href="{myDocModel>filePath}"></Link>
+									<Text text="{myDocModel>createdBy}" ></Text>
+									<Text text="{myDocModel>createdDateValue}"></Text>
+									<Text text="{myDocModel>operationName}"></Text>
+								</cells>
+							</ColumnListItem>
+							
+						</items>
+					</Table>
+
+			</Panel>
+	</Panel>
+	</Page>
+	
+	
+	
+	<!--<Page showHeader="false" class="pageBackground" >
+<Panel class="BoxClassMargin">
+<HBox >
+	<Text text="My Documents" class="mainTitle" />
+</HBox>
+		
+<Toolbar height="7rem">
+		
+			<u:FileUploader
+			id="fileUploader"
+			name="myFileUpload"
+			uploadUrl="/files/upload"
+			width="400px"
+			text="BROWSE"
+			tooltip="Upload your file"
+			change="changeFile"
+			uploadOnChange = "false"
+			uploadComplete="uploadCompleted"/>
+		<Button text="Upload" width="100px" press="uploadFileToECM" type="Emphasized"/>
+			<Button text="Remove" width="100px" press="onPress" type="Reject" />
+</Toolbar>
+			
+			<Panel>
+			
+					<Table class="TaskManagementTable ssdTable" mode="MultiSelect">
+
+						<columns>
+						<Column >
+								<Text text="" />
+							</Column>
+							<Column >
+								<Label text="S.No." design="Bold"/>
+							</Column>
+							<Column >
+								<Label text="RFS#" design="Bold"/>
+							</Column>
+							<Column >
+								<Label text="Document Name" design="Bold"/>
+							</Column>
+							<Column >
+								<Label text="Created by" design="Bold"/>
+							</Column>
+							<Column >
+								<Label text="Last updated" design="Bold"/>
+							</Column>
+							
+						</columns>
+
+						<items >
+
+							<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+									<Text text="1" ></Text>
+									<Text text="40123" ></Text>
+									<Text text="Sample.txt"></Text>
+									<Text text="Rahul" ></Text>
+									<Text text="01-05-2016"></Text>
+								</cells>
+							</ColumnListItem>
+							
+							<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+									<Text text="2" ></Text>
+									<Text text="40124" ></Text>
+									<Text text="Details.pdf"></Text>
+									<Text text="Zakeer" ></Text>
+									<Text text="05-05-2016"></Text>
+								</cells>
+							</ColumnListItem>
+							
+						</items>
+					</Table>
+
+			</Panel>
+	</Panel>
+	</Page>-->
+</core:View>

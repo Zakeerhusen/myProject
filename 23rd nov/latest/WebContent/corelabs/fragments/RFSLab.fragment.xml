@@ -1,0 +1,21 @@
+<core:FragmentDefinition xmlns="sap.m"
+xmlns:core="sap.ui.core">
+<Dialog id="lab" title="Select Lab" class="detailHdng">
+
+<HBox>
+									
+									<ComboBox value="" class="comboSD">
+										<core:Item  text="Analytical Core Lab" />
+										<core:Item  text="BCL" />
+										<core:Item  text="ICl" />
+									</ComboBox>
+								</HBox>
+
+<endButton>
+
+<Button id = "Btn_cancel" text="OK" press="Btn_cancel"  type="Accept"/>
+</endButton>
+
+
+</Dialog>
+</core:FragmentDefinition>

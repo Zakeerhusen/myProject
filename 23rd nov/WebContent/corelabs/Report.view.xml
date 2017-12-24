@@ -1,0 +1,206 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" controllerName="corelabs.Report"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page id="RfsStatusReportPage" class="pageBackground" showHeader="false" >
+		<content>
+		
+		<Panel class="BoxClassMargin">
+		
+		<Text text="RFS Detailed Report" class="mainTitle" />
+			<layout:Grid defaultSpan="L4 M4 S12"  position="Left" class="noPadding">
+				<layout:content>
+					<HBox alignItems="Start">
+						<Text text="RFS #"  class="gridLblClass dashboardLblClass upload_button" width="8em"/>
+						<Input id="aRFSNo" type="Number" enabled="true" width="142px" class="status" 
+						maxLength="20"/>
+					</HBox>
+					<HBox alignItems="Start">
+						<Text text="Date Range"  class="gridLblClass upload_button" width="8em"/>
+						<DateRangeSelection id="dateRange" displayFormat="dd/MM/yyyy" delimiter=" to "/>
+					</HBox>
+				</layout:content>
+			</layout:Grid>
+		
+			<Panel id="advSrchPanel" expandable="true" expanded="false"
+					headerText="Advanced Search" class="pnlC panelHdng panelContent dashboardLblClass" width="auto">
+				<content>
+					<layout:Grid defaultSpan="L4 M4 S12"  position="Center" >
+						<layout:content>
+								<HBox alignItems="Center">
+									<Text text="Lab"  class="gridLblClass"/>
+									<ComboBox id="aLab" width="142px" class="status" items="{labListModel>/labDto}" selectionChange="loadServiceArea">
+										<items>
+											<core:Item  key="{labListModel>labId}" text="{labListModel>labName}" />
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox alignItems="Center">
+									<Text text="User Type"  class="gridLblClass"/>
+									<ComboBox id="aUserType" selectionChange="onSelectUserType"
+										width="142px" >
+										<items>
+											<core:Item key="k2" text="" />
+											<core:Item key="k1" text="INTERNAL" />
+											<core:Item key="k2" text="EXTERNAL" />
+											<core:Item key="k2" text="RPT" />
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox alignItems="Center">
+									<Text text="Department" class="gridLblClass"/>
+									<Input id="aDepartment" type="Text" width="142px" enabled="true" maxLength="20" change="onDepartmentChange"/>
+								</HBox>
+								<HBox alignItems="Center">
+									<Text text="Service Area"  class="gridLblClass"/>
+									<ComboBox id="aServiceArea" width="142px" class="status" enabled="false" items="{oServiceAreaModel>/serviceAreaDto}">
+										<items>
+											<core:Item  key="{oServiceAreaModel>serviceAreaId}" text="{oServiceAreaModel>serviceAreaName}" />
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox alignItems="Center">
+									<Text text="Organization Type"  class="gridLblClass"/>
+									<ComboBox id="aOrgType" width="142px" class="status" enabled="false" items="{orgTypeModel>/organizationDto}">
+										<core:Item  key="{orgTypeModel>orgId}" text="{orgTypeModel>orgName}" />
+									</ComboBox>
+								</HBox>
+								<HBox alignItems="Center">
+									<Text text="PI Name"  class="gridLblClass"/>
+									<Input id="aPIName" placeholder="" width="142px"
+									showSuggestion="true" suggest="handleSuggest" suggestionItems="{oSearchUserModel>/userDtos}"
+									suggestionItemSelected="itemSelected" 
+									liveChange="itemDel">
+										<suggestionItems>
+											<core:ListItem text="{oSearchUserModel>displayNm}" additionalText="{oSearchUserModel>userId}"/>
+										</suggestionItems>
+									</Input>
+								</HBox>
+								<HBox alignItems="Center">
+									<Text text="Status"  class="gridLblClass"/>
+									<ComboBox id="aStatus" width="142px" class="status" items="{rfsStatusModel>/rfsStatusMap/entry}">
+										<items>
+											<core:Item key="{rfsStatusModel>key}" text="{rfsStatusModel>key}" />
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox alignItems="Center">
+									<Text text="Country"  class="gridLblClass"/>
+									<ComboBox  id="aCountry" width="142px" class="status" enabled="false" items="{oCountryJsonModel>/d/results}" >
+										<items>
+											<core:Item  key="{oCountryJsonModel>CountryKey}" text="{oCountryJsonModel>CountryNameShort}" />
+										</items>
+									</ComboBox>
+								</HBox>
+							</layout:content>
+						</layout:Grid>
+					</content>
+				</Panel>
+				<HBox alignItems="End" justifyContent="End">
+						<Button text="Clear"  width="100px"  class="" type="Emphasized" press="clearData"/>
+						<Label text="" width="10px"/>
+							<Button text="Search" icon="sap-icon://search" width="100px" class="" type="Emphasized"
+								press="onSearch" />
+				</HBox>
+			</Panel>
+			<layout:Grid id="userGrid" defaultSpan="L3 M4 S12"
+				content='{oModel>/tileCollectionList}'>
+				<layout:content>
+					<VBox class="tileMargin">
+						<VBox>
+							<customData>
+								<core:CustomData key="class" value="{oModel>cssTile}"
+									writeToDom="true" />
+							</customData>
+							<HBox class="cssInnerHBox">
+								<HBox width="100%">
+									<VBox>
+										<Text text='{oModel>count}' class="countClass"></Text>
+										<Text text='{oModel>subNode}' class="tileTextClass"></Text>
+									</VBox>
+								</HBox>
+
+							</HBox>
+
+						</VBox>
+
+						<!-- <HBox> -->
+						<!-- <Text text='{count}' ></Text> <Text text='{subNode}' ></Text> -->
+						<!-- </HBox> -->
+						<!-- <Text text='{count}'/> -->
+					</VBox>
+				</layout:content>
+			</layout:Grid>
+
+			<HBox  alignItems="End" justifyContent="End">
+			<core:HTML id="htmlDownloadReportAsExcel" content='&lt;a id="linkDownloadReportAsExcel"&gt;&lt;/a&gt;'></core:HTML>
+			</HBox>
+
+			<ScrollContainer id="scrollCont1" height="19rem"
+				width="100%" vertical="true">
+				
+				<Table id="idRFSTable" inset="false" class="ssdTable grayTable"
+					items="{oModel>/searchDtoList}" noDataText="No Data"><headerToolbar>
+										<Toolbar>
+										<ToolbarSpacer/>
+											<Button tooltip="Download as Excel" icon="sap-icon://download" press="onExcelDownload" ></Button>
+										</Toolbar>
+									</headerToolbar>
+					<columns>
+						<Column hAlign="Left" width="90px" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="RFS #" class="gridLblClass"/>
+						</Column>
+						<Column hAlign="Left" width="80px" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="User Type" class="gridLblClass" />
+						</Column>
+						<Column  hAlign="Left" width="80px" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Org Type" class="gridLblClass" />
+						</Column>
+						<Column hAlign="Left" width="80px" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Country" class="gridLblClass" />
+						</Column>
+						<Column hAlign="Right" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Samples Received" class="gridLblClass"/>
+						</Column>
+						<Column hAlign="Left" width="90px" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="RFS Status" class="gridLblClass" />
+						</Column>
+						<Column hAlign="Left" width="90px" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Current Status" class="gridLblClass" />
+						</Column>
+						<Column hAlign="Right" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Service Charge ($)" class="gridLblClass"/>
+						</Column>
+						<Column hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+							<Text text="Service Rating" class="gridLblClass"/>
+						</Column>
+
+					</columns>
+					<items>
+						<ColumnListItem>
+							<cells>
+								<Link text="{oModel>reqNo}" press="openRFS"/>
+								<Text text="{oModel>userType}" />
+								<Text text="{oModel>orgTypeNm}" />
+								<Text text="{oModel>countryNm}" />
+								<Text text="{oModel>numberOfSamples}" />
+								<Text text="{oModel>statusDesc}" />
+								<Text text="{oModel>subStatus}" />
+								<Text text="{oModel>serviceCharge}" />
+								<Text text="{oModel>serviceRating}" />
+
+							</cells>
+						</ColumnListItem>
+					</items>
+				</Table>
+			</ScrollContainer>
+			
+			<HBox justifyContent="Center">
+				<Button id="Previous" type="Transparent" press="prev" icon="sap-icon://navigation-left-arrow"/>
+				<Text id="paginationText" class="PaginationClass"/>
+				<Button id="Next" type="Transparent" press="next" icon="sap-icon://navigation-right-arrow"/>
+			</HBox>
+			
+			<!--<HBox alignItems="Start" justifyContent="Start"><Button text="Download as Excel" icon="sap-icon://download" ></Button></HBox>
+		--></content>
+	</Page>
+</core:View>

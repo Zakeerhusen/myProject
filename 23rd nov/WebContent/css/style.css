@@ -1,0 +1,495 @@
+.masterTreeStyle {
+	margin-top: 0.5rem;
+}
+
+.parentNode {
+	font-size: 20px;
+	color: #525050;
+	font-weight: bold;
+	font-family: Open Sans !important;
+	height : 35px;
+}
+
+.subNode {
+	font-family: Open Sans !important;
+	color: #525050;
+	font-size: 18px;
+}
+
+.commonHeader {
+	height: 3rem;
+	background: #30acab;
+	border-bottom: 0px !important;
+}
+
+.splitAppClass .sapMSplitContainerMaster{
+	width: 14rem;
+}
+
+.splitAppClass .sapMSplitContainerMaster::before {
+	border-right: 0px !important;
+}
+
+.sapMSplitContainer{
+	margin-bottom: -3rem !important;
+	background: #fff !important;
+	height: 93%;
+}
+
+.sapMPageHeader::before {
+	border-top: 0px !important;	
+}
+
+.logoClass{
+	width: 100px;
+    margin: 23px;
+    padding-top: 5px;
+}
+
+
+
+.userBtnClass .sapMBtnContent {
+	color: #fff !important;
+}
+
+.userBtnClass .sapMBtnIcon{
+	color: #fff !important;
+}
+
+div[data-class='cssColorGrid1'] {
+    background-color: rgba(39, 143, 193, 0.88) !important;
+    border-radius: .5rem;
+    width: 100%;
+    border: 1px solid #ccc;
+}
+div[data-class='cssColorGrid2'] {
+    background-color: rgba(243, 107, 10, 0.81) !important;
+    border-radius: .4rem;
+    width: 100%;
+	border: 1px solid #ccc;
+	}
+
+div[data-class='cssColorGrid3'] {
+   background-color: rgba(19, 179, 16, 0.88) !important;
+    border-radius: .4rem;
+    width: 100%;
+	border: 1px solid #ccc;
+	}
+	
+	div[data-class='cssColorGrid4'] {
+    background-color: rgb(243, 10, 10) !important;
+    border-radius: .4rem;
+    width: 100%;
+	border: 1px solid #ccc;
+	}
+
+
+
+
+.cssInnerHBox{
+	padding: 0.5rem;
+	height: 4rem;
+}
+
+.countClass{
+	color: #fff;
+	font-size: 30px;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold !important;
+    
+}
+
+.tileTextClass{
+	color: #fff;
+	font-size: 14px;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.tileImgClass{
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    width: 90px;
+}
+
+.cssButton {
+	margin-top: -8px;	
+}
+
+.cssButton .sapMBtnTransparent {
+    background-image: none;
+    background-color: transparent;
+    border-color: transparent;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: none;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.cssButton .sapMBtnIcon{
+	color: #fff !important;
+	font-size: 0.8rem;
+	line-height: 2.5rem;
+	width: 2.5rem;
+	max-height: 2.5rem;
+}
+
+.cssButton .sapMBtnHoverable {
+	background: transparent !important;
+}
+
+.btnBoxClass {
+	height: 2.5rem !important;
+	top: 10px;
+}
+
+/** Added by Sharique **/
+.textalignNew{
+	padding-top: 3px;
+}
+/** Added By Sharique Till Here**/
+
+.BoxClassMargin{
+	background: #fff;
+	margin-bottom: 20px;
+	margin-right: 10px;
+	margin-left: 2px;
+	margin-top: 2px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);
+}
+
+
+.boxTitleBar {
+	height: 3rem !important;
+	border-bottom: 0px !important;
+	padding-left: 0rem !important;
+}
+
+.sapMITBFilter .sapMITBText{
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 14px !important;
+}
+
+.sapMBtnContent{
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.25rem;
+}
+
+.textBold{
+	font-weight: bold !important;
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.sapUiTreeNodeContent{
+	    height:25px;
+}
+
+.gridInput.sapMInputBase {
+background-color: transparent;
+border: none;
+position: relative;
+display: inline-block;
+padding: 0.25rem 0;
+height: 2.5rem;
+vertical-align: top;
+}
+
+.gridLblClass {
+width: 8em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+font-weight: bold;
+color: #565454;
+}
+
+.gridLbl1{
+	width: 5em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+font-weight: bold;
+color: #565454;
+	}
+
+.gridLbl2{
+	width: 6em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+font-weight: bold;
+color: #565454;
+	}
+	
+.gridLbl3{
+	width: 4em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+font-weight: bold;
+color: #565454;
+	}
+	
+.status{
+	margin-right: 50px;
+}
+	
+.gridLblClass1 {
+width: 3.5em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: #565454;
+margin-left: 13px;
+}
+
+.gridLblClass2 {
+width: 3.5em;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: brown;
+    margin-right: 0px;
+   margin-left: 8px;
+}
+
+.gridFldClass {
+/*margin-left: 10px;*/
+border-radius: 3px;
+width: 85% !important;
+padding-left: 10px;
+}
+.gridComboBox {
+/*margin-left: 10px;*/
+border-radius: 3px;
+padding-left: 15px;
+}
+
+
+.ssdTable .sapMListTbl th {
+background: #fff !important;
+font-weight: bold !important;
+}
+
+.ssdTable {
+width: 100% !important;
+/*box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);*/
+padding: 15px !important;
+background: #fff;
+}
+
+.ssdTable .sapMListTbl .sapMText {
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	font-weight: 400;
+font-size: 0.75rem;
+}
+
+.ssdTableItem {
+border-bottom: .1em solid #f5f5f5;
+padding: .8em;
+}
+
+.comboClass {
+border-radius: 2px;
+padding-top: 12px;
+}
+
+.comboClass .sapMInputBaseInner {
+background-color: #ECE8E7;
+
+height: 1.5rem;
+border-radius: 3px;
+border: 1px solid #5c7ef8;
+}
+
+.comboClass .sapMInputValHelpInner {
+
+padding-top: 4px;
+}
+
+.comboClass .sapMComboBoxBaseArrow {
+
+margin-top: 1px;
+
+}
+
+.comboClass .sapMComboBoxBaseArrow:not(.sapMComboBoxBasePressed):hover {
+   
+   height: 25px;
+   margin-top: 7px;
+}
+
+.panelHdng{
+
+font-size: 12px;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: bold;
+text-shadow: 0 0.0625rem 0 #ffffff;
+color: brown;
+background-color: F0F0F0;
+margin-left : 2.5rem;
+}
+
+.sapMPanelHdr {
+    font-weight: normal;
+    font-size: 14px;
+    background-color: F0F0F0;
+}
+.sapMPanelWrappingDiv.sapMPanelWrappingDivExpanded {
+    border-bottom-width: 0;
+    background-color: #F0F0F0;
+}
+.sapMPanelExpandableIcon {
+    color: #666666;
+    background-color: #F0F0F0;
+}
+.sapMPanelHdrExpandable.sapMPanelHdr, .sapMPanelWrappingDivTb>.sapMTB {
+    margin-left: 3rem;
+    background-color: #F0F0F0;
+}
+.panelContent {
+    border-bottom: 1px solid #ffffff;
+    padding: 0rem;
+    background-color: #DEEFF2;
+}
+
+.sapMPanelBG {
+    background-color: transparent;
+       
+}
+
+.iconTabHeader div.sapMITBHead {
+display: block;
+font-size: 0.75rem;
+margin: 0rem 0rem 0 0rem;
+overflow: hidden;
+padding: 1px 1px 0 0px;
+position: relative;
+white-space: nowrap;
+border-radius: 0.3rem;
+/*background-color: rgba(156, 156, 156, 0.21);*/
+background-color:#F0F0F0;
+font-weight: bold;
+}
+
+.detailHdng1 {
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: 400;
+line-height: normal;
+
+font-size: 20px;
+color: brown;
+margin-top: 1%;
+width: 14rem;
+margin-left: 2%;
+font-weight: bold;
+}
+
+.grid{
+margin-left: -20px;	
+	}
+
+.detailHdng.sapMText {
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: 400;
+line-height: normal;
+
+font-size: 14px;
+color: brown;
+margin-top: 0%;
+width: 9rem;
+margin-left: 5%;
+font-weight: bold;
+}
+
+.detailFromTo.sapMText {
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: 200;
+line-height: normal;
+padding-bottom: 8%;
+font-size: 14px;
+color: brown;
+margin-top: 5%;
+width: 3rem;
+margin-left: 10%;
+font-weight: bold;
+}
+
+.blueButton div.sapMBtnInner {
+height: 1.5rem;
+min-width: 2.500rem;
+margin: 0;
+padding: 0;
+vertical-align: top;
+border: 1px solid #3AA6A5;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	font-weight: 400;
+font-size: 0.875rem;
+background-color: #3AA6A5;
+color: white;
+border-radius: 0.5rem;
+width: 6rem;
+opacity: 0.9;
+padding-left:5%;
+}
+
+.clearBtn div.sapMBtnInner {
+height: 1.5rem;
+min-width: 2.500rem;
+margin: 0;
+padding: 0;
+vertical-align: top;
+border: 1px solid #3AA6A5;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	font-weight: 400;
+font-size: 0.875rem;
+background-color: #3AA6A5;
+color: white;
+border-radius: 0.5rem;
+width: 6rem;
+opacity: 0.9;
+padding-left:5%;
+padding-left:5%;
+	margin-left:40px;
+}
+
+.searchBtn{
+	margin-left:50px;
+	}
+	
+.clearReportBtn{
+	    margin-right: 15px;
+}	
+.sapUiRespGrid.sapUiRespGridVSpace1>div {
+     margin-bottom: 0rem !important; 
+}
+.sapMPanelContent {
+    padding: 0rem;
+    box-sizing: border-box;
+    overflow: auto;
+}
+.sapMShellBrandingBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 1;
+    background-color: transparent;
+}
+.sapMGlobalBackgroundImage {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    opacity: 1;
+    background-image: none;
+    background-repeat: repeat;
+    background-position: left top;
+    background-size: auto;
+    background-color: #F0F0F0;
+}
+
+.pnlC .sapMPanelContent {
+    padding: 0rem;
+    box-sizing: border-box;
+    overflow: auto;
+    background-color: #F0F0F0;
+}

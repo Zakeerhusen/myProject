@@ -1,0 +1,27 @@
+<core:FragmentDefinition xmlns="sap.m"
+xmlns:core="sap.ui.core">
+<Dialog id="nominate" title="Nominate Tasks" class="detailHdng">
+
+<HBox>
+<Text text="Select the User you want to Nominate the Task to"     width="25em" class="gridLblClass"></Text>
+</HBox>
+<HBox><Label text="" width="10px"/></HBox>
+<VBox>
+
+<HBox >
+<Input value="" class="sHeading1"/>
+
+<Text text="User ID: 45623" class="sHeading gridLblClass userIdLblClass" />
+</HBox>
+</VBox>
+
+<HBox><Label text="" width="10px"/></HBox>
+<HBox alignItems="End" justifyContent="End" >
+<Button id = "Btn_nominate" text="Nominate" width="100px" press="Btn_nominate"  type="Accept"/>
+<Label text="" width="3px"/>
+<Button id = "Btn_cancel" text="Cancel" width="100px" press="Btn_cancel"  type="Reject"/>
+</HBox>
+
+</Dialog>
+</core:FragmentDefinition>
+

@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv='Content-Type' content='text/html;charset=UTF-8'/>
+		
+		<!-- in src="/sapui5/resources/sap-ui-cachebuster/sap-ui-core.js" added sapui5_28/ -->
+		<script src="/sapui5/sapui5_28/resources/sap-ui-cachebuster/sap-ui-core.js"
+				id="sap-ui-bootstrap"
+				data-sap-ui-libs="sap.m"
+				data-sap-ui-theme="sap_bluecrystal">
+		</script>
+		<script type="text/javascript" src="commonJS/common.js"></script>
+<link rel="stylesheet" type="text/css" href="css/style1.css">
+		<script>
+				sap.ui.localResources("corelabs");
+				var app = new sap.m.App({initialPage:"idRFS"});
+				var page = sap.ui.view({id:"idRFS", viewName:"corelabs.RFSFormTask", type:sap.ui.core.mvc.ViewType.XML});
+				app.addPage(page);
+				app.placeAt("content");
+		</script>
+		<script>
+		function clickIE4() {
+		if (event.button == 2) {
+		return false;
+		}
+		}
+		function clickNS4(e) {
+		if (document.layers || document.getElementById && !document.all) {
+		if (e.which == 2 || e.which == 3) {
+		return false;
+		}
+		}
+		}
+		if (document.layers) {
+		document.captureEvents(Event.MOUSEDOWN);
+		document.onmousedown = clickNS4;
+		} else if (document.all && !document.getElementById) {
+		document.onmousedown = clickIE4;
+		}
+		document.oncontextmenu = new Function("return false");
+</script>
+<script> 
+//Disable function keys-->
+$(document).keydown(function(e){
+   	if(e.which === 116 ){
+       	return false;
+  }
+});
+</script>
+	</head>
+	<body class="sapUiBody" role="application">
+		<div id="content"></div>
+	</body>
+</html>

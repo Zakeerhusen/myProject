@@ -1,0 +1,84 @@
+{ 
+	"data":[
+	
+	{ "Lab":"ACL", "Status" : "Open","Count" : "60", "UserType":"KAUST"},
+	{ "Lab":"ACL", "Status" : "Cancelled","Count" : "160","UserType":"KAUST"},
+	{ "Lab":"ACL", "Status" : "Completed","Count" : "30","UserType":"KAUST"},
+	{ "Lab":"ACL", "Status" : "WIP","Count" : "45","UserType":"KAUST"},
+	
+	{ "Lab":"ACL", "Status" : "Open","Count" : "30","UserType":"Non-KAUST"},
+	{ "Lab":"ACL", "Status" : "Cancelled","Count" : "80","UserType":"Non-KAUST"},
+	{ "Lab":"ACL", "Status" : "Completed","Count" : "70","UserType":"Non-KAUST"},
+	{ "Lab":"ACL", "Status" : "WIP","Count" : "85","UserType":"Non-KAUST"},
+	
+	{ "Lab":"ACL", "Status" : "Open","Count" : "90","UserType":"All"},
+	{ "Lab":"ACL", "Status" : "Cancelled","Count" : "240","UserType":"All"},
+	{ "Lab":"ACL", "Status" : "Completed","Count" : "100","UserType":"All"},
+	{ "Lab":"ACL", "Status" : "WIP","Count" : "130","UserType":"All"},
+	
+	
+	{ "Lab":"BCL", "Status" : "Cancelled","Count" : "25","UserType":"KAUST"},
+	{ "Lab":"BCL", "Status" : "Open","Count" : "120","UserType":"KAUST"},
+	{ "Lab":"BCL", "Status" : "Completed","Count" : "50","UserType":"KAUST"},
+	{ "Lab":"BCL", "Status" : "WIP","Count" : "60","UserType":"KAUST"},
+	
+	{ "Lab":"BCL", "Status" : "Cancelled","Count" : "125","UserType":"Non-KAUST"},
+	{ "Lab":"BCL", "Status" : "Open","Count" : "20","UserType":"Non-KAUST"},
+	{ "Lab":"BCL", "Status" : "Completed","Count" : "150","UserType":"Non-KAUST"},
+	{ "Lab":"BCL", "Status" : "WIP","Count" : "70","UserType":"Non-KAUST"},
+	
+	{ "Lab":"BCL", "Status" : "Cancelled","Count" : "150","UserType":"All"},
+	{ "Lab":"BCL", "Status" : "Open","Count" : "140","UserType":"All"},
+	{ "Lab":"BCL", "Status" : "Completed","Count" : "200","UserType":"All"},
+	{ "Lab":"BCL", "Status" : "WIP","Count" : "130","UserType":"All"},
+	
+	
+	{ "Lab":"IAC", "Status" : "Cancelled","Count" : "75","UserType":"KAUST"},
+	{ "Lab":"IAC", "Status" : "Completed","Count" : "80","UserType":"KAUST"},
+	{ "Lab":"IAC", "Status" : "WIP","Count" : "30","UserType":"KAUST"},
+	{ "Lab":"IAC", "Status" : "Open","Count" : "10","UserType":"KAUST"},
+	
+	{ "Lab":"IAC", "Status" : "Cancelled","Count" : "35","UserType":"Non-KAUST"},
+	{ "Lab":"IAC", "Status" : "Completed","Count" : "50","UserType":"Non-KAUST"},
+	{ "Lab":"IAC", "Status" : "WIP","Count" : "90","UserType":"Non-KAUST"},
+	{ "Lab":"IAC", "Status" : "Open","Count" : "60","UserType":"Non-KAUST"},
+	
+	{ "Lab":"IAC", "Status" : "Cancelled","Count" : "110","UserType":"All"},
+	{ "Lab":"IAC", "Status" : "Completed","Count" : "130","UserType":"All"},
+	{ "Lab":"IAC", "Status" : "WIP","Count" : "120","UserType":"All"},
+	{ "Lab":"IAC", "Status" : "Open","Count" : "70","UserType":"All"},
+	
+	
+	{ "Lab":"NANOFAB", "Status" : "Open","Count" : "40","UserType":"KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "Completed","Count" : "80","UserType":"KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "WIP","Count" : "60","UserType":"KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "Cancelled","Count" : "50","UserType":"KAUST"},
+	
+	{ "Lab":"NANOFAB", "Status" : "Open","Count" : "140","UserType":"Non-KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "Completed","Count" : "60","UserType":"Non-KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "WIP","Count" : "20","UserType":"Non-KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "Cancelled","Count" : "25","UserType":"Non-KAUST"},
+	
+	{ "Lab":"NANOFAB", "Status" : "Open","Count" : "180","UserType":"All"},
+	{ "Lab":"NANOFAB", "Status" : "Completed","Count" : "140","UserType":"All"},
+	{ "Lab":"NANOFAB", "Status" : "WIP","Count" : "80","UserType":"All"},
+	{ "Lab":"NANOFAB", "Status" : "Cancelled","Count" : "75","UserType":"All"},
+	
+	
+	{ "Lab":"CW", "Status" : "Completed","Count" : "90","UserType":"KAUST"},
+	{ "Lab":"CW", "Status" : "WIP","Count" : "200","UserType":"KAUST"},
+	{ "Lab":"CW", "Status" : "Open","Count" : "20","UserType":"KAUST"},
+	{ "Lab":"CW", "Status" : "Cancelled","Count" : "40","UserType":"KAUST"},
+	
+	{ "Lab":"CW", "Status" : "Completed","Count" : "60","UserType":"Non-KAUST"},
+	{ "Lab":"CW", "Status" : "WIP","Count" : "20","UserType":"Non-KAUST"},
+	{ "Lab":"CW", "Status" : "Open","Count" : "30","UserType":"Non-KAUST"},
+	{ "Lab":"CW", "Status" : "Cancelled","Count" : "90","UserType":"Non-KAUST"},
+	
+	{ "Lab":"CW", "Status" : "Completed","Count" : "150","UserType":"All"},
+	{ "Lab":"CW", "Status" : "WIP","Count" : "220","UserType":"All"},
+	{ "Lab":"CW", "Status" : "Open","Count" : "50","UserType":"All"},
+	{ "Lab":"CW", "Status" : "Cancelled","Count" : "130","UserType":"All"}
+		
+		]
+}

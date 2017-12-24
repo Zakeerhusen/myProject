@@ -1,0 +1,60 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+		controllerName="corelabs.labSelection" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page backgroundDesign= "Transparent" showFooter="true" class="pageBackground" showHeader="false">
+		<content>
+		<FlexBox alignItems = "Center" justifyContent = "Center" class="alignLabSelect">
+		<Panel class="BoxClassMargin rolePanel" >
+	<!--<VBox id="showLab" visible="false">
+		<HBox>
+		<Text text="Lab Selection"     width="7em" class="mainTitle"/>
+		<Select id="idLab" width="16rem" items="{labListModel>/labDto}" placeholder="Select" class="labSelectionCombo">   
+			<items> 
+				<core:Item  key="{labListModel>labId}" text="{labListModel>labName}" />
+				</items>
+		</Select>
+		</HBox>
+			<HBox><Label text="" width="10px"/></HBox>
+			<HBox alignItems = "End" justifyContent = "End"><Button  text="Request For Service" press="toRFSFrom" class="margnSelectLabBtn" type="Emphasized"/></HBox>
+	</VBox>
+		-->
+		<f:Form id="showLab" visible="false" class="labMainTitle">
+			<f:layout>
+				<f:ResponsiveGridLayout  labelSpanL="4" labelSpanM="4" emptySpanL="1" emptySpanM="1"
+					columnsL="1" columnsM="1" breakpointL="900" breakpointM="300" breakpointXL="1024"/>
+			</f:layout>
+			<f:formContainers>
+				<f:FormContainer>
+					<f:formElements>
+						<f:FormElement label="Lab Selection" >
+							<f:fields>
+								<Select id="idLab" items="{labListModel>/labDto}" placeholder="Select" change="labSelected">   
+									<items> 
+										<core:Item  key="{labListModel>labId}" text="{labListModel>labName}" tooltip="{labListModel>labName}"/>
+										</items>
+								</Select>
+							</f:fields>
+						</f:FormElement>
+						<f:FormElement label="">
+							<f:fields>
+								<Button  text="Request For Service" press="toRFSFrom" type="Emphasized"/>
+							</f:fields>
+						</f:FormElement>
+					</f:formElements>
+				</f:FormContainer>
+			</f:formContainers>
+		</f:Form>
+					<!--<core:HTML content='&lt;a href="http://www.google.com" target="_blank" &gt;Visit Google !&lt;/a&gt;'></core:HTML>
+		--><l:Grid defaultSpan="L12 M12 S12" id="noBadger" visible="false">
+			<Text text="Please have a badger account to proceed for RFS" class="mainTitle_ash"/>
+		</l:Grid>
+		<l:Grid defaultSpan="L12 M12 S12" id="noPIApproved" visible="false">
+			<Text text="Please request for PI approval then proceed for RFS" class="mainTitle_ash"/>
+		</l:Grid>
+		<l:Grid defaultSpan="L12 M12 S12" id="notAuthPerReqd" visible="false">
+			<Text text="You are not authorised to raise an RFS as your Authorized Person is not registered." class="mainTitle_ash"/>
+		</l:Grid>
+			</Panel>						
+		</FlexBox>
+		</content>
+	</Page>
+</core:View>

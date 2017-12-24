@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	id="WebApp_ID" version="2.5">
+	<display-name>KAUST CORELABS</display-name>
+	<security-constraint>
+		<display-name>KAUST CORELABS</display-name>
+		<web-resource-collection>
+			<web-resource-name></web-resource-name>
+			<url-pattern>/index.html</url-pattern>
+			<url-pattern>/pitask.html</url-pattern>
+			<url-pattern>/rfs.html</url-pattern>
+		</web-resource-collection>
+		<auth-constraint>
+			<role-name>BPM_SERVICE_ROLE</role-name>
+		</auth-constraint>
+	</security-constraint>
+	<security-role>
+		<role-name>BPM_SERVICE_ROLE</role-name>
+	</security-role>
+		<!-- ============================================================== -->
+	<!-- UI5 resource servlet used to handle application resources      -->
+	<!-- ============================================================== -->
+
+	<servlet>
+		<display-name>ResourceServlet</display-name>
+		<servlet-name>ResourceServlet</servlet-name>
+		<servlet-class>com.sap.ui5.resource.ResourceServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/resources/*</url-pattern>
+	</servlet-mapping>
+	<!-- BEGIN: test-resources -->
+	<!-- test-resources mapping has to be switched off for productive use on a Java server! -->
+	<servlet-mapping>
+		<servlet-name>ResourceServlet</servlet-name>
+		<url-pattern>/test-resources/*</url-pattern>
+	</servlet-mapping>
+	<!-- END: test-resources -->
+	<!-- BEGIN: DEV MODE -->
+	<!-- DEV MODE switched off by default and can be switched on during development -->
+	<!-- but has to be switched off for productive use on a Java server! -->
+	<context-param>
+		<param-name>com.sap.ui5.resource.DEV_MODE</param-name>
+		<param-value>false</param-value>
+	</context-param>
+	<!-- END: DEV MODE -->
+
+
+	<!-- ============================================================== -->
+	<!-- Cache Control Filter to prevent caching of any resource        -->
+	<!-- ============================================================== -->
+
+	<filter>
+		<display-name>CacheControlFilter</display-name>
+		<filter-name>CacheControlFilter</filter-name>
+		<filter-class>com.sap.ui5.resource.CacheControlFilter</filter-class>
+	</filter>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>*.js</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>*.xml</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>*.json</url-pattern>
+	</filter-mapping>
+	<filter-mapping>
+		<filter-name>CacheControlFilter</filter-name>
+		<url-pattern>*.css</url-pattern>
+	</filter-mapping>
+</web-app>

@@ -1,0 +1,178 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified"
+		controllerName="corelabs.FullServiceRawDataReport" xmlns:html="http://www.w3.org/1999/xhtml">
+		<Panel class="pageBackground">
+			<content>
+				<VBox>
+					<HBox class="detailHdngHBox">
+						<Text text="Core Laboratory Full Service Raw Data Report" class="mainTitle" />
+					</HBox>
+					<layout:Grid defaultSpan="L4 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+							<HBox>
+								<Text text="Date" class="gridLblClass" />
+								<DatePicker id="DP1" placeholder="Enter Date"
+									change="handleChange" width="85%" />
+							</HBox>
+							<HBox>
+								<Text text="Report Number" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput" enabled="false"
+									maxLength="10" />
+							</HBox>
+							<HBox>
+								<Text text="RFS Number" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput" enabled="false"
+									maxLength="10" />
+							</HBox></layout:content></layout:Grid>
+							
+					<HBox class="detailHdngHBox">
+						<Text text="Requester Details" class="detailHdng" />
+					</HBox>
+					<layout:Grid defaultSpan="L4 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+							<HBox>
+								<Text text="First Name" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput" enabled="true"
+									maxLength="10" />
+							</HBox>
+							<HBox>
+								<Text text="Last Name" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput" enabled="true"
+									maxLength="10" />
+							</HBox>
+							<HBox>
+								<Text text="Organization Name" class="gridLblClass" />
+								<ComboBox maxWidth="80%">
+
+								</ComboBox>
+							</HBox>
+							<HBox>
+								<Text text="Kaust Id" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="20" />
+							</HBox>
+							<HBox>
+								<Text text="Department" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="20" />
+							</HBox>
+							<HBox>
+								<Text text="Telephone" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="15" />
+							</HBox>
+							<HBox>
+								<Text text="Address" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="250" />
+							</HBox>
+							<HBox>
+								<Text text="Country" class="gridLblClass" />
+								<Input type="Text"  class="gridFldClass gridInput"/>
+									
+							</HBox>
+							<HBox>
+								<Text text="PostCode" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="10" />
+							</HBox>
+							<HBox>
+								<Text text="Email" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="20" />
+							</HBox>
+							<HBox>
+								<Text text="KAUST Customer Account Number" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="20" />
+							</HBox>
+							<HBox>
+								<Text text="Prepared by" class="gridLblClass" />
+								<TextArea rows="2" cols="22" class="gridFldClass gridInput"
+									maxLength="20" />
+							</HBox>
+							<HBox>
+								<Text text="Service Summary" class="gridLblClass" />
+								<TextArea rows="4" cols="22" class="gridFldClass gridInput"/>
+							</HBox>
+							<HBox>
+								<Text text="Number of samples" class="gridLblClass" />
+								<Input type="Text"  class="gridFldClass gridInput"/>
+							</HBox>
+							<HBox>
+								<Text text="Samples/data specifications" class="gridLblClass" />
+								<TextArea rows="4" cols="22" class="gridFldClass gridInput"/>
+							</HBox>
+							<HBox>
+								<Text text="Service scope" class="gridLblClass" />
+								<TextArea rows="4" cols="22" class="gridFldClass gridInput"/>
+							</HBox>
+									
+							<HBox>
+								<Text text="Brief on instrument and method applied" class="gridLblClass" />
+								<TextArea rows="4" cols="22" class="gridFldClass gridInput"/>
+							</HBox>
+							
+							</layout:content>
+					</layout:Grid>
+					
+					<layout:Grid defaultSpan="L6 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+							<HBox>
+									<Text text="Upload any necessary documents" class="gridLblClass"/>
+									<u:FileUploader name="myFileUpload" uploadUrl="upload/"
+										tooltip="Upload your file to the local server"
+										uploadComplete="handleUploadComplete" class="gridFldClass gridInput">
+									</u:FileUploader>
+									<Button text="Upload" />
+								</HBox>
+								<HBox>
+								<Text text="Approved by Core Lab Director" class="gridLblClass" />
+								<Input type="Text"  class="gridFldClass gridInput"/>
+							</HBox>
+						</layout:content>
+					</layout:Grid>
+					
+					
+							<HBox justifyContent="End">
+
+								<Button text="Save" class="blueButton2" type="Emphasized"
+									press=""></Button>
+								<Label text="" width="10px"/>
+								<Button text="Submit"  class="blueButton2" type="Accept"
+									press=""></Button>
+
+							</HBox>
+							
+							<HBox class="detailHdngHBox" width="100%">
+						<Text text="Result Acceptance by Requester" class="detailHdng" />
+					</HBox>
+							
+					<layout:Grid defaultSpan="L6 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+						    <HBox>
+								<Text text="Comments" class="gridLblClass" />
+								<TextArea rows="4" width="27em"/>
+							</HBox>
+						    </layout:content>
+						    </layout:Grid>		
+						<HBox>
+						    <Text text="Disclaimer: This report requires the Requestor's acceptance. If the Requestor does not respond within 7 days following the receipt of this report, the report is deemed satisfactory and, hence, final."></Text>
+						</HBox>
+						
+						<HBox justifyContent="End">
+
+								<Button text="Accept" class="blueButton2" type="Accept"
+									press=""></Button>
+								<Label text="" width="10px"/>
+								<Button text="Reject"  class="blueButton2" type="Reject"
+									press=""></Button>
+
+							</HBox>
+				</VBox>
+			</content>
+		</Panel>
+</mvc:View>

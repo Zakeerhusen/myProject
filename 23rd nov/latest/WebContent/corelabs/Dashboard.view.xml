@@ -1,0 +1,184 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:viz="sap.viz.ui5.controls"
+	xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds" xmlns:viz.data="sap.viz.ui5.data"
+	controllerName="corelabs.Dashboard" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground">
+		<content>
+			<IconTabBar id="idIcon" select="handleIconTabBarSelect"
+				expandable="false" upperCase="true" expanded="{device>/isNoPhone}"
+				class="iconTabHeader">
+				<items>
+					<IconTabFilter key="Tab1" text="By RFS">
+						<Panel id="byRFS" class="BoxClassMargin">
+							<content>
+								<Text text="RFS Search Criteria" class="detailHdng_sahu dashboardLblClass" />
+								<layout:Grid defaultSpan="L2 M2 S12">
+									<Text text="From" class="dashboardGrid paddingBottom" />
+									<ComboBox id="fromYear" width="100%" items="{yearModel>/}">
+										<items>
+											<core:Item key="{yearModel>key}" text="{yearModel>year}" />
+										</items>
+									</ComboBox>
+
+									<ComboBox id="fromMon" value="JAN" width="100%">
+										<items>
+											<core:Item key="1" text="JAN" />
+											<core:Item key="2" text="FEB" />
+											<core:Item key="3" text="MAR" />
+											<core:Item key="4" text="APR" />
+											<core:Item key="5" text="MAY" />
+											<core:Item key="6" text="JUN" />
+											<core:Item key="7" text="JUL" />
+											<core:Item key="8" text="AUG" />
+											<core:Item key="9" text="SEP" />
+											<core:Item key="10" text="OCT" />
+											<core:Item key="11" text="NOV" />
+											<core:Item key="12" text="DEC" />
+										</items>
+									</ComboBox>
+								</layout:Grid>
+
+								<layout:Grid defaultSpan="L2 M2 S12">
+									<Text text="To" class="dashboardGrid paddingBottom " />
+									<ComboBox id="toYear" width="100%" items="{yearModel>/}">
+										<items>
+											<core:Item key="{yearModel>key}" text="{yearModel>year}" />
+										</items>
+									</ComboBox>
+
+									<ComboBox id="toMon" width="100%">
+										<items>
+											<core:Item key="1" text="JAN" />
+											<core:Item key="2" text="FEB" />
+											<core:Item key="3" text="MAR" />
+											<core:Item key="4" text="APR" />
+											<core:Item key="5" text="MAY" />
+											<core:Item key="6" text="JUN" />
+											<core:Item key="7" text="JUL" />
+											<core:Item key="8" text="AUG" />
+											<core:Item key="9" text="SEP" />
+											<core:Item key="10" text="OCT" />
+											<core:Item key="11" text="NOV" />
+											<core:Item key="12" text="DEC" />
+										</items>
+									</ComboBox>
+								</layout:Grid>
+								
+								<layout:Grid defaultSpan="L2 M2 S12">
+									<Text text="User" class="dashboardGrid paddingBottom" />
+									<ComboBox id="userType" value="All" width="100%">
+										<items>
+											<core:Item key="k1" text="Internal" />
+											<core:Item key="k2" text="External" />
+											<core:Item key="k2" text="RPT" />
+											<core:Item key="k3" text="All" />
+										</items>
+									</ComboBox>
+								</layout:Grid>
+								<layout:Grid defaultSpan="L12 M12 S12">
+									<Text text="Graph Stack Type" />
+									<RadioButtonGroup id="radioBtn" columns="5">
+										<buttons>
+											<RadioButton text="RFS Status" />
+											<RadioButton text="Service Type" />
+										</buttons>
+									</RadioButtonGroup>
+								</layout:Grid>
+								
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button text="Search" icon="sap-icon://search" width="100px"
+										type="Emphasized" press="onSearch" />
+									<Button text="Reset" width="100px" type="Emphasized"
+										press="clear" />
+									<ToolbarSpacer />
+								</Toolbar>
+							</content>
+						</Panel>
+
+						<viz:VizFrame id="idVizFrame" height='18rem' width="100%"
+							uiConfig="{applicationSet:'fiori'}" vizType='stacked_column'
+							selectData='clickGraph'>
+						</viz:VizFrame>
+
+					</IconTabFilter>
+					<IconTabFilter key="Tab2" text="By Revenue" id="iconTab2">
+						<Panel id="byRevenue" class="BoxClassMargin">
+							<content>
+								<Text text="RFS Search Criteria" class="detailHdng_sahu dashboardLblClass" />
+								<layout:Grid defaultSpan="L2 M2 S12">
+									<Text text="From" class="dashboardGrid paddingBottom" />
+									<ComboBox id="fromYear1" width="100%" items="{yearModel>/}">
+										<items>
+											<core:Item key="{yearModel>key}" text="{yearModel>year}" />
+										</items>
+									</ComboBox>
+
+									<ComboBox id="fromMon1" width="100%" value="Q1">
+										<items>
+											<core:Item key="k1" text="Q1" />
+											<core:Item key="k2" text="Q2" />
+											<core:Item key="k3" text="Q3" />
+											<core:Item key="k4" text="Q4" />
+										</items>
+									</ComboBox>
+								</layout:Grid>
+
+								<layout:Grid defaultSpan="L2 M2 S12">
+									<Text text="To" class="dashboardGrid paddingBottom" />
+									<ComboBox id="toYear1" width="100%" items="{yearModel>/}">
+										<items>
+											<core:Item key="{yearModel>key}" text="{yearModel>year}" />
+										</items>
+									</ComboBox>
+									
+									<ComboBox id="toMon1" width="100%" value="Q4">
+										<items>
+											<core:Item key="k1" text="Q1" />
+											<core:Item key="k2" text="Q2" />
+											<core:Item key="k3" text="Q3" />
+											<core:Item key="k4" text="Q4" />
+										</items>
+									</ComboBox>
+								</layout:Grid>
+
+								<layout:Grid defaultSpan="L2 M2 S12">
+									<Text text="User" class="dashboardGrid paddingBottom" />
+									<ComboBox id="userType1" value="All" width="100%">
+										<items>
+											<core:Item key="k1" text="Internal" />
+											<core:Item key="k2" text="External" />
+											<core:Item key="k2" text="RPT" />
+											<core:Item key="k3" text="All" />
+										</items>
+									</ComboBox>
+								</layout:Grid>
+								<layout:Grid defaultSpan="L12 M12 S12">
+									<Text text="Graph Stack Type" />
+									<RadioButtonGroup id="radioBtn1" columns="5">
+										<buttons>
+											<RadioButton text="Organization Name" />
+											<RadioButton text="Lab" />
+										</buttons>
+									</RadioButtonGroup>
+								</layout:Grid>
+								<Toolbar>
+									<ToolbarSpacer />
+									<Button text="Search" icon="sap-icon://search" width="100px"
+										type="Emphasized" press="onSearch" />
+									<Button text="Reset" width="100px" type="Emphasized"
+										press="clear" />
+									<ToolbarSpacer />
+								</Toolbar>
+							</content>
+						</Panel>
+
+						<viz:VizFrame id="idVizFrame1" uiConfig="{applicationSet:'fiori'}"
+							height='18rem' width="100%" vizType='stacked_column' selectData='clickGraph'>
+						</viz:VizFrame>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</core:View>

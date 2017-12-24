@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns="sap.m"
+xmlns:core="sap.ui.core">
+<Dialog id="custacc" title="Select Account Number" class="detailHdng">
+<content>
+	<Table items="{oReadCustomerModel>/d/results}">
+		<headerToolbar>
+			<Toolbar>
+				<HBox>
+					<items>
+						<Input placeholder="Enter account number" type="Number" maxLength="20"></Input>
+						<Input placeholder="Enter Name1" maxLength="20" change="nameValidate"></Input>
+						<Input placeholder="Enter Name2" maxLength="20" change="nameValidate"></Input>
+						<Button text="search" type="Emphasized" press="search"></Button>
+					</items>
+				</HBox>
+			</Toolbar>
+		</headerToolbar>
+	<columns>
+			     <Column width='25%' hAlign="Center">
+					<Label text="Account Number" design="Bold" />
+				</Column>
+				  <Column width='25%' hAlign="Center">
+					<Label text="Name1" design="Bold" />
+				</Column>
+				<Column width='25%' hAlign="Center">
+					<Label text="Name2" design="Bold" />
+				</Column>
+		</columns>
+		<items>
+				<ColumnListItem type="Active" press="selectCustAccount">
+					<cells>
+						<Text text="{oReadCustomerModel>CustomerAccountNo}"></Text>
+						<Text text="{oReadCustomerModel>Name1}"></Text>
+						<Text text="{oReadCustomerModel>Name2}"></Text>
+					</cells>
+				</ColumnListItem>
+		</items>
+		
+	</Table>
+</content>
+		<buttons>
+			<Button text="Close" press="closeCustDialog"></Button>
+		</buttons>
+</Dialog>
+</core:FragmentDefinition>

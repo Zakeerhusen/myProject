@@ -1,0 +1,64 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+		controllerName="corelabs.Registered_User_List" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground">
+	<Panel class="BoxClassMargin">
+	<VBox>
+	<HBox >
+		<Text text="Registered Users" class="mainTitle" />
+	</HBox>
+		<layout:Grid class="sapUiTinyMarginTop" defaultSpan="L3 M3 S6">
+			<Label text="Organization Name" tooltip="Organization Name" class="gridLblClass_ash sapUiTinyMarginTop"/>
+			<!-- Edited by Darshna on 07/07/2017 : Added the change event onOrgNameChange for organization  -->
+			<Input id="orgType" value="" maxLength="20" change="onOrgNameChange"/>
+			<Label text="Country" class="gridLblClass_ash sapUiTinyMarginTop"/>
+			<ComboBox id='country' items="{oCountryJsonModel>/d/results}"  width="100%">
+				<core:Item  text="{oCountryJsonModel>LANDX}" tooltip="{oCountryJsonModel>LANDX}"/>
+			</ComboBox>
+		
+			<Label text="User Name" class="gridLblClass_ash sapUiTinyMarginTop"/>
+			<Input id="piname" placeholder="Enter atleast 4 characters"  maxLength="50" change="onNameChange"
+					filterSuggests="false" showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+					suggestionItemSelected="itemSelected" >
+					<suggestionItems>
+						<core:ListItem text="{userSearchModel>displayNm}"
+							additionalText="{userSearchModel>userId}" tooltip="{userSearchModel>userId}" />
+					</suggestionItems>
+			</Input>
+			<Label text="Date Range" class="gridLblClass_ash sapUiTinyMarginTop"/>
+			<DateRangeSelection id="dateRange" displayFormat="dd/MM/yyyy" delimiter=" to "/>
+		</layout:Grid>
+		
+		<HBox justifyContent="End" width="100%">
+				<Button text="Search" icon="sap-icon://search" width="100px" type="Emphasized" press="onPress"  />
+				<Button text="Clear" width="100px" type="Emphasized" press="onClear"  class="leftMargin"/>
+		</HBox>
+			<Table id="userTable" noDataText="No Data"  items="{oRegisteredUserListJsonModel>/userDto}" >
+				<columns>
+					<Column width="30%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet" >
+						<Text text="User Id" class="font_size_table"/>
+					</Column>
+					<Column width="20%"  hAlign="Left" demandPopin="true" minScreenWidth="Tablet" >
+						<Text text="User Name" class="font_size_table"/>
+					</Column>
+					<Column width="25%"  hAlign="Left" demandPopin="true" minScreenWidth="Tablet" >
+						<Text text="Organization Name" class="font_size_table"/>
+					</Column>
+					<Column width="25%"  hAlign="Left" demandPopin="true" minScreenWidth="Tablet" >
+						<Text text="Country" class="font_size_table"/>
+					</Column>
+				</columns>
+				<items >
+						<ColumnListItem type="Inactive" class="textalign">
+						<cells >
+							<Text text="{oRegisteredUserListJsonModel>userId}" ></Text>
+							<Text text="{oRegisteredUserListJsonModel>firstNm}"></Text>
+							<Text text="{oRegisteredUserListJsonModel>orgNm}" ></Text>
+							<Text text="{oRegisteredUserListJsonModel>countryNm}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</VBox>
+	</Panel>
+</Page>
+</core:View>

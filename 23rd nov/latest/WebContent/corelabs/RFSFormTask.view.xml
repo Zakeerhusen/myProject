@@ -1,0 +1,788 @@
+﻿<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:z="sap.ui.commons" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified"
+	controllerName="corelabs.RFSFormTask" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground" height="auto">
+		<Toolbar id="backBtn" visible="false" class="bottomMargin">
+				<Button icon="sap-icon://nav-back" tooltip="Back to Report" press="backToReport" type="Transparent" />
+				<ToolbarSpacer />
+				<Button icon="sap-icon://download" tooltip="Download as PDF" press="downloadPDF" type="Transparent"/>
+		</Toolbar>
+				<!--<HBox>
+				<HBox >
+					<Text id="rfsNoMac" text="RFS#: " class="detailHdng2" />
+					<Text id="rfsNo" text=""  class="detailHdng3" />
+				</HBox>
+				<HBox justifyContent="End" class="labSelected">
+				  <Text  text="Date:" class="detailHdng2"  />
+				  <Text id="rfsDate" text="" class="detailHdng3"  /></HBox>
+				</HBox>
+				<HBox>
+				<HBox >
+					<Text id="statusMac" text="Status: " class="detailHdng2" />
+					<Text id="rfsStatus" text=""  class="detailHdng3" width="20rem"/>
+				</HBox>
+				</HBox>
+				-->
+				<layout:Grid defaultSpan="L6 M6 S12" vSpacing="0"
+					class="gridClass">
+				<layout:content>
+						<HBox>
+							<Text id="rfsNoMac" width="3rem" text="RFS#: " class="detailHdng2_ash" />
+							<Text id="rfsNo" text="" class="detailHdng3_ash" />
+						</HBox>
+						<HBox>
+							<Text text="Date:" width="3rem" class="detailHdng2_ash" />
+							<Text id="rfsDate" text="" class="detailHdng3_ash" />
+						</HBox>
+						<HBox>
+							<Text id="statusMac" width="3rem" text="Status: " class="detailHdng2_ash" />
+							<Text id="rfsStatus" text="" class="detailHdng3_ash" />
+						</HBox>
+					</layout:content>
+				</layout:Grid>
+				
+	    		<IconTabBar expanded="{device>/isNoPhone}" id="headerTab"
+					class="processFlowBar" selectedKey="RFS" select="" expandable="false">
+					<items>
+					<IconTabFilter id="rfs" icon="sap-icon://begin" iconColor="Positive"
+							design="Horizontal" count="RFS Submission"   key="RFS" >
+							<content>
+							<Text   id="labName"  class="rfsTitle sapUiSmallMarginBegin sapUiSmallMarginTop" />
+					
+				<IconTabBar id="idIcon" expanded="{device>/isNoPhone}"
+					class="iconTabHeader" expandable="false" select="handleTabSelect">
+					<items>
+						<IconTabFilter key="Tab1" text="Requester Information" >
+							<VBox id="kaustuser">
+								<HBox class="detailHdngHBox">
+									<Text text="Requester Info Section" class="detailHdng_1" />
+									</HBox>
+								
+								<layout:Grid defaultSpan="L3 M3 S12" vSpacing="0" class="gridClass">
+									<layout:content>
+											<Label text="First Name" class="gridLblClass_ash sapUiTinyMarginTop" required="true"/>
+											<Input id="fnameipt" type="Text" class="gridFldClass tooltip"
+												 maxLength="50" value="{requesterModel>/firstNm}" tooltip="{requesterModel>/firstNm}" editable="false" /> 
+										<Label text="Last Name" class="gridLblClass_ash sapUiTinyMarginTop" required="true"/>
+											<Input id="lnameipt" type="Text"  class="gridFldClass tooltip" value="{requesterModel>/lastNm}" tooltip="{requesterModel>/lastNm}"
+												maxLength="50" editable="false"/>
+										<Label text="KAUST ID" class="gridLblClass_ash sapUiTinyMarginTop" required="true"/>
+											<Input id="kidipt" type="Text"  class="gridFldClass" value="{requesterModel>/kaustId}"
+												 maxLength="10" enabled="false"/>
+											<Label text="Email" class="gridLblClass_ash sapUiTinyMarginTop" required="true"/>
+											<Input id="emailipt" type="Text"  class="gridFldClass tooltip" value="{requesterModel>/emailId}"
+												tooltip="{requesterModel>/emailId}" maxLength="70" editable="false" />
+											<Text text="Department" class="gridLblClass_ash sapUiTinyMarginTop" />
+											<Input type="Text"  class="gridFldClass tooltip" value="{requesterModel>/deptNm}"
+												tooltip="{requesterModel>/deptNm}" maxLength="50" editable="false"/>
+											<Text text="Telephone" class="gridLblClass_ash sapUiTinyMarginTop" />
+											<Input type="Text"  class="gridFldClass tooltip" value="{requesterModel>/telephone}" tooltip="{requesterModel>/telephone}"
+												maxLength="20" editable="false"/>
+											<Text text="Mobile" class="gridLblClass_ash sapUiTinyMarginTop" />
+											<Input type="Text"  class="gridFldClass tooltip" value="{requesterModel>/mobile}" tooltip="{requesterModel>/mobile}"
+												maxLength="20" editable="false"/>
+											<Label text="Pocket ID" class="gridLblClass_ash sapUiTinyMarginTop" required="true"/>
+										<ComboBox id="pidcb" width="100%" class="pktId" change="setValueState"  selectionChange="selectPI" items="{rfsPocketIdModel>/piApprovalDto}" value="{oDBModel>/requestHeaderDto/requesterPocketId}" enabled="false">
+												<core:Item  text="{rfsPocketIdModel>pocketId}" key="{rfsPocketIdModel>piId}"/>
+										</ComboBox>
+											<Text text="Position" class="gridLblClass_ash sapUiTinyMarginTop" />
+											<Input type="Text"  class="gridFldClass tooltip" value="{requesterModel>/position}"
+											tooltip="{requesterModel>/position}" maxLength="50" editable="false"/>
+									</layout:content>
+								</layout:Grid>
+								 <HBox class="detailHdngHBox" >
+									<Text text="Principal Investigator Section" class="detailHdng_1" />
+								</HBox>
+								<layout:Grid defaultSpan="L3 M3 S12" 
+									vSpacing="0" class="gridClass">
+									<layout:content>
+											<Label text="PI Name" class="gridLblClass_ash sapUiTinyMarginTop" required="true"/>
+											<Input id="pinameipt" type="Text" class="gridFldClass tooltip" value="{gwPIModel>/firstNm}" tooltip="{gwPIModel>/firstNm}" maxLength="50" editable="false" change="getTrimUiInputVal"/>
+											<Label text="KAUST ID" class="gridLblClass_ash sapUiTinyMarginTop" required="true"/>
+											<Input id="pikidipt" type="Text" class="gridFldClass" value="{gwPIModel>/kaustId}" maxLength="10" enabled="false" change="getTrimUiInputVal"/>
+											<Label text="Email" class="gridLblClass_ash sapUiTinyMarginTop" required="true"/>
+											<Input id="piemailipt" type="Text" class="gridFldClass tooltip" tooltip="{gwPIModel>/emailId}" value="{gwPIModel>/emailId}" maxLength="70" editable="false" change="getTrimUiInputVal"/>
+											<Text text="Position" class="gridLblClass_ash sapUiTinyMarginTop" />
+											<Input type="Text"  class="gridFldClass tooltip" tooltip="{gwPIModel>/position}" value="{gwPIModel>/position}" maxLength="50" editable="false" change="getTrimUiInputVal"/>
+											<Text text="Telephone" class="gridLblClass_ash sapUiTinyMarginTop" />
+											<Input type="Text" class="gridFldClass tooltip" value="{gwPIModel>/telephone}" tooltip="{gwPIModel>/telephone}" maxLength="20" editable="false" change="getTrimUiInputVal"/>
+									</layout:content>
+								</layout:Grid> 
+							</VBox>
+							
+						<!--Non Kaust user -->
+						<VBox id="nonkaustuser" visible="true">
+						<layout:Grid defaultSpan="L3 M3 S12" vSpacing="0" class="gridClass">
+							<layout:content>
+									<Label text="First Name" class="gridLblClass_ash sapUiTinyMarginTop" required="true" />
+									<Input id="nkfnameipt" type="Text" class="gridFldClass tooltip"  maxLength="50"	value="{requesterModel>/firstNm}" tooltip="{requesterModel>/firstNm}" editable="false" change="getTrimUiInputVal"/>
+									<Label text="Last Name" class="gridLblClass_ash sapUiTinyMarginTop" required="true" />
+									<Input id="nklnameipt"  type="Text" class="gridFldClass tooltip" maxLength="50" value="{requesterModel>/lastNm}" tooltip="{requesterModel>/lastNm}" editable="false" change="getTrimUiInputVal" />
+									<Label text="Type of Organization" class="gridLblClass_ash sapUiTinyMarginTop" required="true" />
+									<Input id="too" type="Text" class="gridFldClass tooltip" maxLength="50" editable="false" value='{requesterModel>/orgTypeNm}' tooltip='{requesterModel>/orgTypeNm}' change="getTrimUiInputVal"/>
+									<!--<ComboBox id="too" width="100%" items="{orgTypeModel>/organizationDto}" placeholder="Select Organization">
+										<items> 
+										<core:Item  key="{orgTypeModel>orgId}" text="{orgTypeModel>orgName}" />
+										</items>
+									</ComboBox>
+								-->
+									<Text text="Position" class="gridLblClass_ash sapUiTinyMarginTop" />
+									<Input id="nkposipt" type="Text" class="gridFldClass tooltip" maxLength="50" value='{requesterModel>/position}' tooltip='{requesterModel>/position}'
+										editable="false" change="getTrimUiInputVal"/>
+									<Label text="Organization Name" class="gridLblClass_ash sapUiTinyMarginTop" required="true" />
+									<Input id="nkorgipt" type="Text" class="gridFldClass tooltip" maxLength="50" value='{requesterModel>/orgNm}' tooltip='{requesterModel>/orgNm}'
+										editable="false" change="getTrimUiInputVal"/>
+									<Text text="Department" class="gridLblClass_ash sapUiTinyMarginTop" />
+									<Input id="nkdeptipt" type="Text" class="gridFldClass tooltip" maxLength="50" value='{requesterModel>/deptNm}' tooltip='{requesterModel>/deptNm}'
+										editable="false" change="getTrimUiInputVal"/>
+									<Label text="Telephone" class="gridLblClass_ash sapUiTinyMarginTop" required="true" />
+									<Input id="nkteleipt" type="Text" class="gridFldClass tooltip" maxLength="20"
+										editable="false" value='{requesterModel>/telephone}' tooltip='{requesterModel>/telephone}' change="getTrimUiInputVal"/>
+									<Label text="Email" class="gridLblClass_ash sapUiTinyMarginTop" required="true" />
+									<Input id="nkemailipt" type="Text" class="gridFldClass tooltip" maxLength="70"
+										editable="false" value='{requesterModel>/emailId}' tooltip='{requesterModel>/emailId}' change="getTrimUiInputVal"/>
+									<Text text="Authorized Person Name" class="gridLblClass_ash sapUiTinyMarginTop" />
+									<Input id="nkAPname" type="Text" class="gridFldClass tooltip" maxLength="70"
+										editable="false" value='{requesterModel>/authPersonNm}' tooltip='{requesterModel>/authPersonNm}' change="getTrimUiInputVal"/>
+									<Text text="Authorized Person Email" class="gridLblClass_ash sapUiTinyMarginTop" />
+									<Input id="nkAPemail" type="Text" class="gridFldClass tooltip" maxLength="70"
+									editable="false" value='{requesterModel>/authPersonEmailId}' tooltip='{requesterModel>/authPersonEmailId}' change="getTrimUiInputVal"/>
+									<Text text="KAUST Customer Account No." class="gridLblClass_ash sapUiTinyMarginTop" />
+									<Input id="nkAccno" valueHelpOnly="true" showValueHelp="true" valueHelpRequest="openDialog" maxLength="20" change="setValueState" enabled="false" value="{oDBModel>/requestHeaderDto/custAcNo}"></Input>
+									<Label text="Pocket ID" class="gridLblClass_ash sapUiTinyMarginTop" id="rptPktId" visible="false" required="true" />
+									<ComboBox id="pidrpt" width="100%" class="pktId" change="setValueState" selectionChange="selectPI" items="{rfsPocketIdModel>/piApprovalDto}" value="{oDBModel>/requestHeaderDto/requesterPocketId}" enabled="false" visible="false" >
+												<core:Item  text="{rfsPocketIdModel>pocketId}" key="{rfsPocketIdModel>piId}"/>
+										</ComboBox>
+									<Text id="krptsec" visible="false" text="KAUST Research Park Tenant" class="gridLblClass_ash sapUiTinyMarginTop"/>
+									<CheckBox id="iskrpt" enabled="false" visible="false"/>
+								</layout:content>
+							</layout:Grid>
+						</VBox>	
+						</IconTabFilter>    
+						
+						<IconTabFilter key="Tab2" text="Service Area Section" class="tabElement">
+						<VBox>
+							<!--<VBox id="exCws" class="sapUiTinyMarginTop">
+								<HBox>
+								<Label text="Service Area" class="gridLblClass_ash" required="true"/>
+									
+									<ComboBox id="servarcb" class="pktId" items="{/workShopDto}" selectionChange="setValueState" change="setValueState" value="{oDBModel>/serviceAreaDto/serviceAreaDesc}" width="21em" enabled="false">
+										<core:Item key="{ServiceAreaId}" text="{ServiceAreaName}" />
+										</ComboBox>
+								<Label text="Requested Completion Date" width="19em" class="gridLblClass dateSAS" required="true"/>
+									<DatePicker id="reqcompdate" placeholder="Enter Date"  displayFormat="dd/MM/yyyy" change="setValueState"/>
+								</HBox>
+							</VBox>
+						-->
+						<layout:Grid id="exCws1" class="sapUiSmallMarginTop"
+							width="100%" defaultSpan="L4 M4 S12" minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Service Area" class="gridLblClass_ash sapMLabelRequired sapUiTinyMarginTop " required="true" />
+							<ComboBox id="servarcb" class="pktId" items="{/workShopDto}"
+								width="100%" selectionChange="setValueState" change="setValueState"
+								value="{oDBModel>/serviceAreaDto/serviceAreaDesc}" enabled="false">
+								<items>
+									<core:Item key="{ServiceAreaId}" text="{ServiceAreaName}"
+										tooltip="{ServiceAreaName}" />
+								</items>
+							</ComboBox>
+						</layout:Grid>
+						
+						<layout:Grid id="exCws2" width="100%" defaultSpan="L4 M4 S12"
+							minScreenWidth="Tablet" demandPopin="true">
+							<Text text="Requested Completion Date "
+								class="gridLblClass_ash sapMLabelRequired  sapUiTinyMarginTop"
+								required="true" />
+							<DatePicker id="reqcompdate" placeholder="Enter Date"
+								displayFormat="dd/MM/yyyy" change="setValueState" />
+						</layout:Grid>
+							
+						<!--<VBox id="cwsServ" class="upload_margin_top">
+							<HBox>
+											<Label text="Service Area"  class="gridLblClass" width="10em" required="true" />
+											<ComboBox width="15em" id="cws_combobox" change="setValueState" selectionChange="cwsSA" items="{/workShopDto}" value="{oDBModel>/serviceAreaDto/serviceAreaDesc}" enabled="false">
+													<core:Item key="k51" text="Electronics" />
+													<core:Item key="k52" text="Mechanical" />
+													<core:Item key="k53" text="Metrology" />
+											
+											<core:Item key="{ServiceAreaId}" text="{ServiceAreaName}" />
+											</ComboBox>
+											<Label text="Requested Completion Date" width="20em"
+												class="gridLblClass dateSAS" required="true"/>
+											<DatePicker id="reqDateCws" placeholder="Enter Date" width="15em" displayFormat="dd/MM/yyyy" change="setValueState"/>
+										</HBox>
+										
+										<HBox width="100%" >
+										<Label text="Job Type" width="10em" class="gridLblClass" required="true"/>
+											<ComboBox  id="cwsSA" width="15em" placeholder="Job Type" selectionChange="setValueState" change="setValueState" items="{/workShopDto}" enabled="true" value="{oDBModel>/serviceAreaDto/workshopDesc}">
+												<core:Item key="{workshopId}" text="{workShopName}" />
+											</ComboBox>
+										</HBox>
+						</VBox>	-->
+							<layout:Grid id="cwsServ1" class="sapUiSmallMarginTop"
+								width="100%" defaultSpan="L4 M4 S12" minScreenWidth="Tablet"
+								demandPopin="true">
+								<Text text="Service Area "
+									class="gridLblClass_ash sapMLabelRequired sapUiTinyMarginTop" required="true" />
+								<ComboBox width="100%" id="cws_combobox" items="{/workShopDto}"
+									selectionChange="cwsSA" change="setValueState" value="{oDBModel>/serviceAreaDto/serviceAreaDesc}" enabled="false">
+									<items>
+										<core:Item key="{ServiceAreaId}" text="{ServiceAreaName}" tooltip="{ServiceAreaName}" />
+									</items>
+								</ComboBox>
+							</layout:Grid>
+							
+							<layout:Grid id="cwsServ2" width="100%" defaultSpan="L4 M4 S12"
+								minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Job Type" class="gridLblClass_ash sapMLabelRequired sapUiTinyMarginTop" required="true" />
+								<ComboBox id="cwsSA" width="100%" placeholder="Job Type"
+									items="{/workShopDto}" selectionChange="setValueState" change="setValueState"
+									enabled="true" value="{oDBModel>/serviceAreaDto/workshopDesc}">
+									<items>
+										<core:Item key="{workshopId}" text="{workShopName}" tooltip="{workShopName}" />
+									</items>
+								</ComboBox>
+							</layout:Grid>
+							
+							<layout:Grid id="cwsServ3" width="100%" defaultSpan="L4 M4 S12"
+								minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Requested Completion Date "
+									class="gridLblClass_ash sapMLabelRequired  sapUiTinyMarginTop "
+									required="true" />
+								<DatePicker id="reqDateCws" placeholder="Enter Date"
+									displayFormat="dd/MM/yyyy" change="setValueState" />
+							</layout:Grid>
+
+							<layout:Grid defaultSpan="L12 M12 S12">
+								<Text text="Brief Description of Service Requested"
+									class="gridLblClass_ash sapMLabelRequired sapUiTinyMarginTop"
+									required="true" />
+							</layout:Grid>
+								<!--<HBox>
+								<Label text="Brief Description of Service Requested" width="20em" class="gridLblClass" required="true"/>
+								</HBox>
+								-->
+								<!--<HBox width="100%"  id="exCwsBd">
+											<VBox width="33%">
+												<Label text="Aim of Study" width="12rem" class="gridLblClass" required="true"/>
+												<TextArea id="studyaimtext" rows="3" width="90%" maxLength="499" placeholder="Free Text" class="tooltip" value="{oDBModel>/serviceAreaDto/aimOfStudy}" tooltip="{oDBModel>/serviceAreaDto/aimOfStudy}"></TextArea>
+											</VBox>
+											<VBox width="33%">
+												<Label text="Expected Data/Deliverables" width="12rem"
+													class="gridLblClass" required="true"/>
+												<TextArea id="expdatatext" rows="3" width="90%" maxLength="499" placeholder="Free Text" class="tooltip" value="{oDBModel>/serviceAreaDto/expectedData}" tooltip="{oDBModel>/serviceAreaDto/expectedData}"></TextArea>
+											</VBox>
+											<VBox width="33%">
+												<Label text="Method" width="12rem" class="gridLblClass" required="true"/>
+												<TextArea id="methodtext" rows="3" width="90%" maxLength="499" placeholder="Free Text" class="tooltip" value="{oDBModel>/serviceAreaDto/method}" tooltip="{oDBModel>/serviceAreaDto/method}"></TextArea>
+											</VBox>
+										</HBox>
+										value="{oDBModel>/serviceAreaDto/aimOfStudy}" tooltip="{oDBModel>/serviceAreaDto/aimOfStudy}"
+										value="{oDBModel>/serviceAreaDto/expectedData}" tooltip="{oDBModel>/serviceAreaDto/expectedData}"
+										value="{oDBModel>/serviceAreaDto/method}" tooltip="{oDBModel>/serviceAreaDto/method}"
+							-->
+							
+							<!-- Added the change event getTrimUiInputVal for all the TextArea control to trim the user input value - Edited by Darshna on 10/07/2017 -->
+							<layout:Grid id="exCwsBd" width="100%" defaultSpan="L4 M4 S12"
+								minScreenWidth="Tablet" demandPopin="true">
+								<VBox>
+									<Text text="Aim of Study" class="gridLblClass_ash sapMLabelRequired" required="true" />
+									<TextArea id="studyaimtext" rows="3" width="95%" maxLength="499"
+										placeholder="Please enter text" class="tooltip" change="getTrimUiInputVal"></TextArea>
+								</VBox>
+								<VBox>
+									<Text text="Expected Data/Deliverables" class="gridLblClass_ash sapMLabelRequired" required="true" />
+									<TextArea id="expdatatext" rows="3" width="95%" maxLength="499"
+										placeholder="Please enter text" class="tooltip" change="getTrimUiInputVal"></TextArea>
+								</VBox>
+								<VBox>
+									<Text text="Method" class="gridLblClass_ash sapMLabelRequired" required="true" />
+									<TextArea id="methodtext" rows="3" width="95%" maxLength="499"
+										placeholder="Please enter text" class="tooltip" change="getTrimUiInputVal"></TextArea>
+								</VBox>
+							</layout:Grid>		
+										
+								<!--<VBox id="cwsBd">
+										<HBox> 
+											<CheckBox id="desatt" selected="{oDBModel>/serviceAreaDto/isDesignAttached}"/>
+											<Text text="Design attached" class="checkboxtext" />
+											<CheckBox id="desappbypi" selected="{oDBModel>/serviceAreaDto/isDesignApprovedByPI}"/>
+											<Text text="Design approved by PI" class="checkboxtext" />
+										</HBox>
+										<HBox width="100%">
+										<Text text="Design, Fabrication, Test and Measurement, Calibration" width="18.5rem" class="gridLblClass" />
+												<TextArea id="desFabTestMeasCalib" rows="3" cols="83" width="95%" maxLength="499" class="tooltip"
+													placeholder="Please enter text" change="setValueState" value="{oDBModel>/serviceAreaDto/desc}" tooltip="{oDBModel>/serviceAreaDto/desc}"></TextArea>
+										</HBox>   value="{oDBModel>/serviceAreaDto/desc}" tooltip="{oDBModel>/serviceAreaDto/desc}"
+										</VBox>							-->
+							
+							<VBox id="cwsBd">
+							<layout:Grid width="100%" defaultSpan="L6 M6 S12"
+								minScreenWidth="Tablet" demandPopin="true">
+								<HBox>
+									<CheckBox id="desatt" selected="{oDBModel>/serviceAreaDto/isDesignAttached}" />
+									<Text text="Design attached" class="checkboxtext" />
+								</HBox>
+								<HBox>
+									<CheckBox id="desappbypi"
+										selected="{oDBModel>/serviceAreaDto/isDesignApprovedByPI}" />
+									<Text text="Design approved by PI" class="checkboxtext" />
+								</HBox>
+							</layout:Grid>
+						
+							<layout:Grid width="100%" defaultSpan="L12 M12 S12" minScreenWidth="Tablet" demandPopin="true">
+								<VBox>
+									<TextArea id="desFabTestMeasCalib" rows="3" cols="83" width="95%"
+										maxLength="499" class="tooltip" placeholder="Please enter text"
+										change="setValueState"></TextArea>
+								</VBox>
+							</layout:Grid>
+						</VBox>
+						<!--
+								    <HBox class="upload_margin_top">
+								    <Text text="Upload your file" class="uploadSAS gridLblClass"/>
+									<u:FileUploader id="fileUploaderTask" name="myFileUpload"
+												uploadUrl="/files/upload" width="400px"
+												tooltip="Upload your file"
+												uploadComplete="handleUploadComplete" enabled="true" buttonText="Browse">
+											</u:FileUploader>
+											<Label text="" width="4px"></Label>
+											<z:Button id="saFupBtn" text="Upload" width="70px" press="handleUploadPress"
+												style="Default" enabled="true" class="upload_button" height="1.4rem" />
+								    </HBox>
+								    -->
+								    <layout:Grid>
+										<Text text="Upload your file" class="gridLblClass_ash" />
+									</layout:Grid>
+									
+									<layout:Grid defaultSpan="L6 M6 S12" class="gridSpace" width="100%" minScreenWidth="Tablet" demandPopin="true">
+										<u:FileUploader id="fileUploaderTask" name="myFileUpload"
+											uploadUrl="/files/upload" width="100%" tooltip="Upload your file"
+											uploadComplete="handleUploadComplete" enabled="true" buttonText="Browse">
+										</u:FileUploader>
+										<z:Button id="saFupBtn" text="Upload" width="70px" press="handleUploadPress"
+											style="Default" enabled="true" class="upload_button" height="1.4rem" />
+									</layout:Grid>
+								<!--<HBox id="sasUpload" class="hboxClass">
+											<Table id="idMyAttchmentTbl" class="TaskManagementTable ssdTable grayTable"
+												items="{rfsFormTaskModel>/documentManagerDtoList}" inset="true"
+												width="100%">
+												<columns>
+													<Column width="10%">
+														<Label text="SL No." design="Bold" />
+													</Column>
+													<Column width="60%">
+														<Label text="Document Name" design="Bold" />
+													</Column>
+													<Column width="15%">
+														<Label text="Created By" design="Bold" />
+													</Column>
+													<Column width="15%">
+														<Label text="Created On" design="Bold" />
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem type="Inactive" class="textalignNew"
+														selected="{rfsFormTaskModel>delFlag}">
+														<cells>
+															<Text text="{rfsFormTaskModel>slno}"></Text>
+															<Link text="{rfsFormTaskModel>fileName}" tooltip="{rfsFormTaskModel>fileName}" href="{rfsFormTaskModel>filePath}" class="docPadding"></Link>
+															<Text text="{rfsFormTaskModel>createdBy}"></Text>
+															<Text text="{rfsFormTaskModel>createdDateValue}"></Text>
+															<Text text="{rfsFormTaskModel>operationName}"></Text>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table></HBox>
+								-->
+								
+								<Table id="idMyAttchmentTbl" class="TaskManagementTable ssdTable grayTable"
+									items="{rfsFormTaskModel>/documentManagerDtoList}" inset="true" width="100%">
+									<columns>
+										<Column width="20%" hAlign="Left" demandPopin="true"
+											minScreenWidth="Tablet">
+											<Label text="SL No." design="Bold" />
+										</Column>
+										<Column width="50%" hAlign="Left" demandPopin="true"
+											minScreenWidth="Tablet">
+											<Label text="Document Name" design="Bold" />
+										</Column>
+										<Column width="15%" hAlign="Left" demandPopin="true"
+											minScreenWidth="Tablet">
+											<Label text="Created By" design="Bold" />
+										</Column>
+										<Column width="15%" hAlign="Left" demandPopin="true"
+											minScreenWidth="Tablet">
+											<Label text="Created On" design="Bold" />
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem type="Inactive" class="textalignNew"
+											selected="{rfsFormTaskModel>delFlag}">
+											<cells>
+												<Text text="{rfsFormTaskModel>slno}"></Text>
+												<Link text="{rfsFormTaskModel>fileName}" tooltip="{rfsFormTaskModel>fileName}"
+													href="{rfsFormTaskModel>filePath}" class="docPadding"></Link>
+												<Text text="{rfsFormTaskModel>createdBy}"></Text>
+												<Text text="{rfsFormTaskModel>createdDateValue}"></Text>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+						</VBox>
+						</IconTabFilter>
+						
+						<IconTabFilter key="Tab3" text="Sample Section">
+						<VBox class="sapUiTinyMargin"><!--
+								<HBox>
+									<Text text="No. of Samples" class="gridLblClass11"/>
+									<Input id="samNo" type="Text" class="gridFldClass inputSS" value="{oDBModel>/sampleDto/numberOfSamples}" maxLength="3" change="numberValidate"/>
+								</HBox>
+								-->
+								<layout:Grid defaultSpan="L3 M3 S12" class="sapUiSmallMarginTop">
+									<Text text="No. of Samples" class="gridLblClass_ash sapUiTinyMarginTop" />
+									<Input id="samNo" type="Text" class="gridFldClass " maxLength="3"
+										change="numberValidate" value="{oDBModel>/sampleDto/numberOfSamples}" />
+								</layout:Grid>
+						<!--<HBox id="bsbeSample">
+								<HBox>
+									<Text text="Sample Origin" class="gridLblClass11"/>
+									<Input id="samOrg" type="Text" maxLength="69" class="gridFldClass inputSS tooltip" value="{oDBModel>/sampleDto/sampleOrigin}" tooltip="{oDBModel>/sampleDto/sampleOrigin}"/>
+								</HBox>
+								<Label text="" width="10px"/>
+								<HBox>
+									<Text text="Sample Name" class="gridLblClass11"/>
+									<Input id="samNm" type="Text" maxLength="254" class="gridFldClass inputSS tooltip" value="{oDBModel>/sampleDto/sampleNm}" tooltip="{oDBModel>/sampleDto/sampleNm}"/>
+								</HBox>
+						</HBox>	
+					-->
+						<layout:Grid defaultSpan="L3 M3 S12" id="bsbeSample1"
+							visible="false">
+							<Text text="Sample Origin" class="gridLblClass_ash sapUiTinyMarginTop" />
+							<Input id="samOrg" type="Text" maxLength="69" class="gridFldClass tooltip"
+								value="{oDBModel>/sampleDto/sampleOrigin}" tooltip="{oDBModel>/sampleDto/sampleOrigin}" change="getTrimUiInputVal"/>
+						</layout:Grid>
+						
+						<layout:Grid defaultSpan="L3 M3 S12" id="bsbeSample2"
+							visible="false">
+							<Text text="Sample Name" class="gridLblClass_ash sapUiTinyMarginTop" />
+							<Input id="samNm" type="Text" maxLength="254" class="gridFldClass tooltip"
+								value="{oDBModel>/sampleDto/sampleNm}" tooltip="{oDBModel>/sampleDto/sampleNm}" change="getTrimUiInputVal"/>
+						</layout:Grid>
+							
+								<!--<HBox id="sthbox" items="{oDBModel>/sampleDto/sampleTypeDtos}" >
+										<items><CheckBox selected="{oDBModel>sampleStatus}" text="{oDBModel>sampleType}" ></CheckBox></items>
+									</HBox>
+										-->
+										<!--<layout:Grid id="sthbox" defaultSpan="L3 M3 S6" vSpacing="0" content="{oDBModel>/sampleDto/sampleTypeDtos}" class="gridClass">
+											<layout:content>
+											<CheckBox selected="{oDBModel>sampleStatus}" text="{oDBModel>sampleType}"></CheckBox>
+											</layout:content>
+											</layout:Grid>
+										-->
+						<layout:Grid id="sthbox" defaultSpan="L4 M4 S12"
+							vSpacing="0" content="{oDBModel>/sampleDto/sampleTypeDtos}"
+							class="gridClass_ash">
+							<layout:content>
+							<CheckBox selected="{oDBModel>sampleStatus}" text="{oDBModel>sampleType}"></CheckBox>
+							</layout:content>
+						</layout:Grid>	
+										<!--<HBox class="textAreaMrgn">
+										<VBox width="40%">
+												<Text text="Samples/Data Specifications" width="15em" class="gridLblClass" />
+												<TextArea id="samData" rows="3" width="90%" maxLength="499" placeholder="Please clearly specify…" class="tooltip"
+												value="{oDBModel>/sampleDto/sampleDataSpecifications}" tooltip="{oDBModel>/sampleDto/sampleDataSpecifications}"/>
+											</VBox>
+											<VBox width="40%">
+												<Text text="Specific Instructions" width="15em" class="gridLblClass" />
+												<TextArea id="samInst" rows="3" width="90%" maxLength="499" placeholder="Free Text" class="tooltip" value="{oDBModel>/sampleDto/specificInstruction}" tooltip="{oDBModel>/sampleDto/specificInstruction}"/>
+											</VBox>
+										</HBox> value="{oDBModel>/sampleDto/sampleDataSpecifications}" tooltip="{oDBModel>/sampleDto/sampleDataSpecifications}"
+									value="{oDBModel>/sampleDto/specificInstruction}" tooltip="{oDBModel>/sampleDto/specificInstruction}"
+									-->
+									
+						<layout:Grid width="100%" defaultSpan="L6 M6 S12"
+							minScreenWidth="Tablet" demandPopin="true">
+							<VBox>
+								<Text text="Samples/Data Specifications" class="gridLblClass_ash" />
+								<TextArea id="samData" rows="3" maxLength="499" width="95%"
+									placeholder="Please clearly specify" class="tooltip" change="getTrimUiInputVal"></TextArea>
+							</VBox>
+							<VBox>
+								<Text text="Specific Instructions" class="gridLblClass_ash" />
+								<TextArea id="samInst" rows="3" maxLength="499" width="95%" class="tooltip"
+									placeholder="Please enter text" change="getTrimUiInputVal"></TextArea>
+							</VBox>
+						</layout:Grid>
+										
+								 <!--<HBox class="upload_margin_top">
+											<Text text="Upload your file" class="uploadSAS gridLblClass" />
+											<u:FileUploader id="sampleFileUploaderTask" name="myFileUpload"
+												uploadUrl="/files/upload" width="400px"
+												tooltip="Upload your file"
+												uploadComplete="handleUploadComplete" enabled="true" buttonText="Browse">
+											</u:FileUploader>
+											<Label text="" width="4px"></Label>
+											<z:Button id="ssFupBtn" text="Upload" width="70px" press="handleUploadPress"
+												style="Default" enabled="true" class="upload_button" height="1.4rem" />
+										</HBox>
+									-->
+									
+						<layout:Grid>
+							<Text text="Upload your file" class="gridLblClass_ash" />
+						</layout:Grid>
+						
+						<layout:Grid defaultSpan="L6 M6 S12" class="gridSpace"
+							width="100%" minScreenWidth="Tablet" demandPopin="true">
+							<u:FileUploader id="sampleFileUploaderTask" name="myFileUpload"
+								uploadUrl="/files/upload" width="100%" tooltip="Upload your file"
+								uploadComplete="handleUploadComplete" enabled="true" buttonText="Browse">
+							</u:FileUploader>
+							<z:Button id="ssFupBtn" text="Upload" width="70px" press="handleUploadPress"
+								style="Default" enabled="true" class="upload_button" height="1.4rem" />
+						</layout:Grid>
+										<!--<HBox class="hboxClass">
+											<Table id="sampleFileTable" class="TaskManagementTable ssdTable grayTable"
+												items="{dSampleDocModel>/documentManagerDtoList}" inset="true"
+												width="100%">
+
+												<columns>
+													<Column width="10%">
+														<Label text="SL No." design="Bold" />
+													</Column>
+													<Column width="60%">
+														<Label text="Document Name" design="Bold" />
+													</Column>
+													<Column width="15%">
+														<Label text="Created By" design="Bold" />
+													</Column>
+													<Column width="15%">
+														<Label text="Created On" design="Bold" />
+													</Column>
+												</columns>
+												<items>
+													<ColumnListItem type="Inactive" class="textalignNew"
+														selected="{dSampleDocModel>delFlag}">
+														<cells>
+															<Text text="{dSampleDocModel>slno}"></Text>
+															<Link text="{dSampleDocModel>fileName}" tooltip="{dSampleDocModel>fileName}" href="{dSampleDocModel>filePath}" press="openLink" class="docPadding"></Link>
+															<Text text="{dSampleDocModel>createdBy}"></Text>
+															<Text text="{dSampleDocModel>createdDateValue}"></Text>
+														</cells>
+													</ColumnListItem>
+												</items>
+											</Table>
+										</HBox>
+							-->
+					<Table id="sampleFileTable" class="TaskManagementTable ssdTable grayTable"
+						items="{dSampleDocModel>/documentManagerDtoList}" inset="true" width="100%">
+						<columns>
+							<Column width="20%" hAlign="Left" demandPopin="true"
+								minScreenWidth="Tablet">
+								<Label text="SL No." design="Bold" />
+							</Column>
+							<Column width="50%" hAlign="Left" demandPopin="true"
+								minScreenWidth="Tablet">
+								<Label text="Document Name" design="Bold" />
+							</Column>
+							<Column width="15%" hAlign="Left" demandPopin="true"
+								minScreenWidth="Tablet">
+								<Label text="Created By" design="Bold" />
+							</Column>
+							<Column width="15%" hAlign="Left" demandPopin="true"
+								minScreenWidth="Tablet">
+								<Label text="Created On" design="Bold" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Inactive" class="textalignNew"
+								selected="{dSampleDocModel>delFlag}">
+								<cells>
+									<Text text="{dSampleDocModel>slno}"></Text>
+									<Link text="{dSampleDocModel>fileName}" tooltip="{dSampleDocModel>fileName}"
+										href="{dSampleDocModel>filePath}" press="openLink" class="docPadding"></Link>
+									<Text text="{dSampleDocModel>createdBy}"></Text>
+									<Text text="{dSampleDocModel>createdDateValue}"></Text>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+					</VBox> 
+					</IconTabFilter>
+						
+					<IconTabFilter key="Tab4" text="Sample Delivery Section">
+							<VBox>
+								<!--<HBox>
+									<Text text="Return Samples" width="11.5em" class="gridLblClass"/>
+									<CheckBox id="retSam" selected="{oDBModel>/sampleDto/isReturnSamples}"/>
+									
+								</HBox>
+								--><!--<HBox>
+									<Text text="Sample Delivery Mode"     width="11em" class="gridLblClass"/>
+									<ComboBox id="samDelMode" value="{oDBModel>/sampleDto/deliveryModeDesc}" class="comboSD" items="{delModeModel>/sampleDeliveryModeDto}" placeholder="Delivery Mode" selectionChange="samDelModeSel" change="setValueState">
+										<core:Item   text="{delModeModel>deliveryMode}" />
+									</ComboBox>
+									<Label text="" width="10px"></Label>
+									<Input id="otherMthd" type="Text" maxLength="20" class="gridFldClass inputSS sapUiTinyMarginTop noMarging" placeholder="Specify other methods" visible="false"/>
+								</HBox>
+								-->
+								<layout:Grid defaultSpan="L4 M4 S6">
+									<Text text="Return Samples" class="gridLblClass_ash checkboxtext" />
+									<CheckBox id="retSam" selected="{oDBModel>/sampleDto/isReturnSamples}" select="retSamDelMode"/>
+							
+								</layout:Grid>
+								
+								<layout:Grid defaultSpan="L4 M4 S12">
+									<Text text="Sample Delivery Mode" class="gridLblClass_ash" />
+									<ComboBox width="100%" id="samDelMode"
+										value="{oDBModel>/sampleDto/deliveryModeDesc}" items="{delModeModel>/sampleDeliveryModeDto}"
+										placeholder="Delivery Mode" selectionChange="samDelModeSel" change="setValueState" enabled="false">
+										<items>
+											<core:Item text="{delModeModel>deliveryMode}" />
+										</items>
+									</ComboBox>
+									<Input id="otherMthd" type="Text" maxLength="20" placeholder="Specify other methods" visible="false" change="getTrimUiInputVal"/>
+								</layout:Grid>
+								
+								<!--<HBox>
+									<Text text="Report" width="11em" class="gridLblClass"/>
+									<ComboBox id="repType" items="{repTypeModel>/reportAreaDto}" value="{oDBModel>/sampleDto/reportDesc}" class="comboSD"  placeholder="Report Type">
+										<items> 
+										<core:Item  text="{repTypeModel>reportArea}" /> 
+										</items>
+									<ComboBox id="repType" items="{repTypeModel>/reportAreaDto}" value="{oDBModel>/sampleDto/reportDesc}" class="comboSD"  placeholder="Report Type">
+										<core:Item text="{repTypeModel>reportArea}" />
+										<core:Item  text="Raw Data only" />
+														<core:Item  text="Raw Data + Report" />
+														<core:Item  text="Report only" />
+									</ComboBox>
+								</HBox>
+					-->
+					<layout:Grid defaultSpan="L4 M4 S12">
+						<Text text="Report" class="gridLblClass_ash" />
+						<ComboBox width="100%" id="repType" items="{repTypeModel>/reportAreaDto}" value="{oDBModel>/sampleDto/reportDesc}" placeholder="Report Type">
+							<items>
+								<core:Item text="{repTypeModel>reportArea}" />
+							</items>
+						</ComboBox>
+					</layout:Grid>
+							</VBox>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+				
+				<HBox id="requsterDraft" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Save" width="100px" type="Emphasized" press="save"/>
+				    <Label text=""     width= "10px"/>
+				    <Button id="btnPrev" text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="false" />
+					<Label text="" width="10px" />
+				    <Button id="submitrfs" text="Next" width="100px" type="Accept" press="submit"/>
+				</HBox>  
+				
+				<HBox id="maAccVerify" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button id="maAccVerifyPrevBtn" text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="false"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Next" width="120px" type="Accept" press="navToNextTab" />
+				</HBox>
+				
+				<HBox id="maAccVerify1" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="true" />
+					<Label text=""     width= "10px"/>
+				    <Button text="Document Required" width="170px" type="Emphasized" press="maDocReqd"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Verify" width="120px" type="Accept" press="maVerify" />
+				</HBox>
+				
+				<HBox id="rtUpConf" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button id="rtUpConfPrevBtn" text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="false"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Next" width="120px" type="Accept" press="navToNextTab" />
+				</HBox>
+				
+				<HBox id="rtUpConf1" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+					<Button text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="true" />
+					<Label text=""     width= "10px"/>
+				    <Button text="Document Upload Confirm" width="200px" type="Emphasized" press="uploadConfirm"/>
+				</HBox>
+				
+				<HBox id="ltRfsRev" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button id="ltRfsRevPrevBtn" text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="false"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Next" width="120px" type="Accept" press="navToNextTab" />
+				</HBox>
+				
+				<HBox id="ltRfsRev1" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+					<Button text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="true" />
+					<Label text=""     width= "10px"/>
+				    <Button id="teamLeadPend" text="Inquiry" width="100px" type="Emphasized" press="ltPendSam" />
+				    <Label text=""     width= "10px"/>
+				    <Button id="teamLeadRej" width="100px" text="Reject" type="Reject" press="ltReject"/>
+				    <Label text=""     width= "10px"/>
+				    <Button id="teamLeadAppr" text="Approve" width="100px" type="Accept" press="ltApprove" />
+				</HBox>
+				
+				<HBox id="rtSamUpConf" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button id="rtSamUpConfPrevBtn" text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="false"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Next" width="120px" type="Accept" press="navToNextTab" />
+				</HBox>
+				
+				<HBox id="rtSamUpConf1" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+					<Button id="samUpPrev" text="Prev" width="100px" type="Accept" press="navToPrevTab" enabled="true" />
+					<Label text=""     width= "10px"/>
+				    <Button id="samUpNext" text="Sample/Design Upload Confirm" width="250px" type="Accept" press="samDesUploadConf"/>
+				</HBox>
+				</content>
+			</IconTabFilter>
+			
+			<IconTabSeparator icon="sap-icon://feeder-arrow" />
+			<IconTabFilter id="ssc" icon="sap-icon://monitor-payments"  iconColor="Neutral"
+					  design="Horizontal" count="Scope and Charges"  key="SSC" enabled="false">
+					 <mvc:XMLView viewName="corelabs.ServiceScopeCharges" /></IconTabFilter>
+			<IconTabSeparator icon="sap-icon://feeder-arrow" />
+			<!--<IconTabFilter id="ca" icon="sap-icon://hr-approval" iconColor="Neutral"
+					 design="Horizontal" count="Accept Charges"   key="CA" enabled="false" width="10em"> 
+					<mvc:XMLView viewName="corelabs.RequestAcceptanceForm" /></IconTabFilter>
+				<IconTabSeparator icon="sap-icon://feeder-arrow" />	
+			--><IconTabFilter id="rep" icon="sap-icon://course-program" 
+					 design="Horizontal" count="RFS Report"  key="REP" enabled="false">
+					<mvc:XMLView viewName="corelabs.FullServiceAnalysisReport" /></IconTabFilter>
+				<!--<IconTabSeparator icon="sap-icon://feeder-arrow" />
+			<IconTabFilter id="feedbc" icon="sap-icon://company-view" 
+					 design="Horizontal" count="Feedback"  key="FEED" enabled="false">
+				<mvc:XMLView viewName="corelabs.FeedbackForm" /></IconTabFilter>
+			--></items>
+		</IconTabBar>
+		
+		<Text id="commHisLbl" text="Comments History" class="tableHeaderSSC sapUiSmallMargin" />
+		<Table id="commTable" class=" ssdTable" items="{oDBModel>/commentList}" inset="true">
+				<columns>
+					<Column width="10%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="SL No." design="Bold" />
+					</Column>
+					<Column width="60%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Comments" design="Bold" />
+					</Column>
+					<Column width="15%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Created By" design="Bold" />
+					</Column>
+					<Column width="15%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+						<Text text="Created On" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem type="Inactive" class="textalignNew">
+						<cells>
+							<Text text="{oDBModel>serialNo}"></Text>
+							<Text text="{oDBModel>desc}" tooltip="{oDBModel>desc}" />
+							<Text text="{oDBModel>commentedByUserNm}"></Text>
+							<Text text="{oDBModel>createdDate}"></Text>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+			
+			<HBox id ="supportSec" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+			<Button id="complTask" text="Complete Task" width="130px" type="Accept" press="completeSuppTask"/>
+			</HBox>
+	</Page>
+</core:View>

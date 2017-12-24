@@ -1,0 +1,133 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" controllerName="corelabs.FeedbackForm"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+		<Panel class="pageBackground">
+			<content>
+				<VBox>
+					<HBox class="detailHdngHBox" width="70%">
+						<Text text="Feedback Form" class="mainTitle" />
+					</HBox>
+					<layout:Grid defaultSpan="L4 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+							<HBox>
+								<Text text="Date" class="gridLblClass" />
+								<DatePicker id="DP1" placeholder="Enter Date"
+									change="handleChange" width="85%" displayFormat="dd/MM/yyyy"/>
+							</HBox>
+							<HBox>
+								<Text text="Report Number" class="gridLblClass" />
+								<Input id="feedRepNo" type="Text" class="gridFldClass gridInput" enabled="false"
+									maxLength="10" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="RFS Number" class="gridLblClass" />
+								<Input id="feedRfsNo" type="Text" class="gridFldClass gridInput" enabled="false"
+									maxLength="10" change="getTrimUiInputVal"/>
+							</HBox></layout:content></layout:Grid>
+							
+					<HBox class="detailHdngHBox" width="70%">
+						<Text text="Requester Details" class="detailHdng" />
+					</HBox>
+					<layout:Grid defaultSpan="L4 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+							<HBox>
+								<Text text="First Name" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput" enabled="false"
+									value="{feedbackRequesterModel>/firstNm}" maxLength="20" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Last Name" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput" enabled="false"
+									value="{feedbackRequesterModel>/lastNm}" maxLength="20" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Organization Name" class="gridLblClass" />
+								<ComboBox maxWidth="80%" value="{feedbackRequesterModel>/orgNm}" enabled="false">
+
+								</ComboBox>
+							</HBox>
+							<HBox>
+								<Text text="Kaust Id" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="10" value="{feedbackRequesterModel>/kaustId}" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Department" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="20" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Telephone" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="15" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Address" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="250" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Country" class="gridLblClass" />
+								<Input type="Text"  class="gridFldClass gridInput" enabled="false" change="getTrimUiInputVal"/>
+									
+							</HBox>
+							<HBox>
+								<Text text="PostCode" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="20" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Email" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="20" value="{feedbackRequesterModel>/emailId}" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="KAUST Customer Account Number" class="gridLblClass" />
+								<Input type="Text" class="gridFldClass gridInput"
+									maxLength="20" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Prepared by" class="gridLblClass" />
+								<TextArea rows="2" cols="22" class="gridFldClass gridInput"
+									maxLength="20" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+							<HBox>
+								<Text text="Service Summary" class="gridLblClass" />
+								<TextArea rows="4" cols="22" class="gridFldClass gridInput" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+						</layout:content>
+					</layout:Grid>
+					
+					<HBox class="detailHdngHBox">
+						<Text text="Requester feedback" class="detailHdng" />
+					</HBox>
+					
+					<layout:Grid defaultSpan="L6 M6 S12" width="70%"
+						vSpacing="0" class="gridClass">
+						<layout:content>
+							<HBox>
+								<Text text="Service Quality Rating" class="gridLblClass" />
+								<RadioButtonGroup id="feedRadioBtn">
+												<buttons>
+													<RadioButton id="exc" text="Excellent" enabled="false"/>
+													<RadioButton id="good" text="Good" enabled="false"/>
+													<RadioButton id="avg" text="Average" enabled="false"/>
+													<RadioButton id="poor" text="Poor" enabled="false"/>
+												</buttons>
+											</RadioButtonGroup>
+							</HBox>
+							<HBox>
+								<Text text="Comments" class="gridLblClass" />
+								<TextArea id="feedComm" rows="4" cols="28" width ="10em" enabled="false" change="getTrimUiInputVal"/>
+							</HBox>
+						</layout:content>
+					</layout:Grid>
+				<HBox id="rqFeedsubmit" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Submit" width="100px" type="Accept" press="rqFeedSub" />
+				</HBox>
+				</VBox>
+			</content>
+		</Panel>
+</mvc:View>

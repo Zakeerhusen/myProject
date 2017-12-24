@@ -1,0 +1,57 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+xmlns:u="sap.ui.unified"
+		controllerName="corelabs.DocumentReview" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground" >
+		<Panel class="BoxClassMargin">
+			<HBox >
+				<Text text="Document Review" class="mainTitle" />
+			</HBox>
+		
+			<Toolbar height="3rem">
+						<Label text="Search User: " />
+						<Input id="suggetItems" width="50%" class="piReqTblCell" placeholder="Enter atleast 4 characters"
+										showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+										suggestionItemSelected="itemSelected">
+										<suggestionItems>
+											<core:ListItem text="{userSearchModel>displayNm}" additionalText="{userSearchModel>userId}"/>
+										</suggestionItems>
+						</Input>
+						<Button id="findDocBtn" icon="sap-icon://sys-find" text="Find Document" press="findReviewDoc" type="Emphasized"/>
+			</Toolbar>
+			
+			<Panel>
+				<Table id="reviewDocTable" class="TaskManagementTable ssdTable" items="{reviewDocModel>/documentManagerDtoList}">
+					<columns>
+						<Column >
+							<Label text="SL No." design="Bold"/>
+						</Column>
+						<Column >
+							<Label text="Document Name" design="Bold"/>
+						</Column>
+						<Column >
+							<Label text="Created By" design="Bold"/>
+						</Column>
+						<Column >
+							<Label text="Created On" design="Bold"/>
+						</Column>
+						<Column >
+							<Label text="RFS No." design="Bold"/>
+						</Column>
+					</columns>
+					<items >
+						<ColumnListItem type="Inactive" class="textalignNew">
+							<cells >
+								<Text text="{reviewDocModel>slno}" ></Text>
+								<Link text="{reviewDocModel>fileName}" tooltip="{reviewDocModel>fileName}" href="{reviewDocModel>filePath}"></Link>
+								<Text text="{reviewDocModel>createdBy}" ></Text>
+								<Text text="{reviewDocModel>createdDateValue}"></Text>
+								<Text text="{reviewDocModel>operationName}"></Text>
+							</cells>
+						</ColumnListItem>
+						
+					</items>
+				</Table>
+			</Panel>
+		</Panel>
+	</Page>
+</core:View>

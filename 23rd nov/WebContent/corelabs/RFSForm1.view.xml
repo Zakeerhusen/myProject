@@ -1,0 +1,565 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified"
+	controllerName="corelabs.RFSForm1" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground" height="auto">
+	    <IconTabBar expanded="{device>/isNoPhone}"
+					class="processFlowBar" selectedKey="RFS" select="" expandable="false">
+					<items>
+					<IconTabFilter id="compIconId" icon="sap-icon://begin" iconColor="Neutral"
+							design="Horizontal" count="RFS Submission"   key="RFS" >
+							<content>
+			   			 <HBox >
+					<Text text="REQUEST FOR SERVICE Core Labs and Major Facilities: " width="28em" class="mainTitle" />
+					<Text id="labName" width="20em" class="mainTitle"/>
+				</HBox>
+					<HBox>
+				  <HBox ><Text text="Date: Jun 23, 2016" class="detailHdng2"  /></HBox>
+				<HBox justifyContent="End" class="labSelected">
+					<Text text="RFS#: " class="detailHdng2" />
+					<Label text=" " width="10px" enabled="false" />
+				</HBox>
+				</HBox>
+				
+				<IconTabBar id="idIcon" expanded="{device>/isNoPhone}"
+					class="iconTabHeader" expandable="false">
+					<items>
+						<IconTabFilter key="Tab1" text="Requester Information" >
+							<VBox id="kaustuser">
+								<HBox class="detailHdngHBox">
+									<Text text="Requester Info Section" class="detailHdng" />
+								</HBox>
+								<layout:Grid defaultSpan="L4 M6 S12" vSpacing="0" class="gridClass">
+									<layout:content>
+										<HBox>
+											<Text text="*First Name" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												 maxLength="10" enabled="false" />
+										</HBox>
+										<HBox>
+										<Text text="*Last Name" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												maxLength="10" enabled="false"/>
+										</HBox>
+										<HBox>
+										<Text text="*KAUST ID" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												 maxLength="10" enabled="false"/>
+										</HBox>
+										<HBox>
+											<Text text="*Email" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												maxLength="20" enabled="false" />
+										</HBox>
+										<HBox>
+											<Text text="Department" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												maxLength="20" enabled="false"/>
+										</HBox>
+										<HBox>
+											<Text text="Telephone" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												maxLength="15" enabled="false"/>
+										</HBox>
+										<HBox>
+											<Text text="Mobile" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												maxLength="20" enabled="false"/>
+										</HBox>
+										<HBox>
+											<Text text="*Pocket ID" class="gridLblClass" />
+										<ComboBox class="pktId"></ComboBox>
+										</HBox>
+									</layout:content>
+								</layout:Grid>
+								<HBox height="14px">
+								<Label text="" width="1rem"/>
+								</HBox>
+								 <HBox class="detailHdngHBox" >
+									<Text text="Principal Investigator Section" class="detailHdng" />
+								</HBox>
+								<layout:Grid defaultSpan="L4 M6 S12" 
+									vSpacing="0" class="gridClass">
+									<layout:content>
+										<HBox>
+											<Text text="*PI Name" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												 maxLength="10" enabled="false"/>
+										</HBox>
+										<HBox>
+											<Text text="*KAUST ID" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+											 maxLength="10" enabled="false"/>
+										</HBox>
+										<HBox>
+											<Text text="*Email" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												maxLength="20" enabled="false"/>
+										</HBox>
+										<HBox>
+											<Text text="Position" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												maxLength="20" enabled="false"/>
+										</HBox>
+										<HBox>
+											<Text text="Telephone" class="gridLblClass" />
+											<Input type="Text" class="gridFldClass "
+												maxLength="15" enabled="false"/>
+										</HBox>
+										
+									</layout:content>
+								</layout:Grid> 
+							</VBox>
+							
+							<!--Non Kaust user -->
+						
+						<VBox id="nonkaustuser" visible="true">
+						<layout:Grid defaultSpan="L4 M6 S12" vSpacing="0" class="gridClass">
+							<layout:content>
+								<HBox>
+									<Text text="*First Name" class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="10"	enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="*Last Name" class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="10" enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="Type of Organization" class="gridLblClass" />
+									<ComboBox id="too" width="100%">
+										<items>
+											<core:Item key="k1" text="Government" />
+											<core:Item key="k2" text="Industry" />
+											<core:Item key="k3" text="University/Research Institute" />
+										</items>
+									</ComboBox>
+								</HBox>
+								<HBox>
+									<Text text="Position" class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="10"
+										enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="Organization Name" class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="10"
+										enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="KAUST Research Park Tenants" width="16em" class="gridLblClass" />
+									<CheckBox id="iskrpt" select="" />
+								</HBox>
+								<HBox>
+									<Text text="Department" class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="10"
+										enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="Telephone" class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="10"
+										enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="Email" class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="20"
+										enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="Autorized Person Name" class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="20"
+										enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="KAUST Customer Account No." class="gridLblClass" />
+									<Input type="Text" class="gridFldClass " maxLength="15"
+										enabled="false" />
+								</HBox>
+								<HBox>
+									<Text text="*Pocket ID" class="gridLblClass" />
+									
+									<ComboBox class="pktId"></ComboBox>
+								</HBox>
+								</layout:content>
+							</layout:Grid>
+						</VBox>	
+						</IconTabFilter>
+						
+						
+						
+						<IconTabFilter key="Tab2" text="Service Area Section" class="tabElement">
+							<VBox id="exCws" >
+								<HBox>
+								<Text text="*Service Area" class="gridLblClass"/>
+									<ComboBox class="pktId">
+										<items>
+											<core:Item key="k1" text="Inorganics" />
+											<core:Item key="k2" text="Organics" />
+											<core:Item key="k3" text="Solid Phase" />
+										</items>
+									</ComboBox>
+								<Text text="*Requested Completion Date" width="19em" class="gridLblClass dateSAS" />
+									<DatePicker placeholder="Enter Date"   />
+								</HBox>
+								<HBox>
+								<Text text="*Brief Description of Service Requested" width="20em" class="gridLblClass"/>
+								</HBox>
+								<HBox class="textAreaMrgn">
+								<layout:Grid defaultSpan="L4 M6 S12" minScreenWidth="Tablet"
+									demandPopin="true">
+									<VBox>
+										<Text text="Aim of Study" width="12rem" class="gridLblClass"/>
+										<TextArea rows="3" width="18rem" placeholder="Free Text"></TextArea>
+									</VBox>
+									<VBox>
+										<Text text="Expected Data/Deliverables" width="12rem" class="gridLblClass"/>
+										<TextArea rows="3" width="18rem" placeholder="Free Text"></TextArea>
+									</VBox>
+									<VBox>
+										<Text text="Method" width="10rem" class="gridLblClass"/>
+										<TextArea rows="3" width="18rem" placeholder="Free Text"></TextArea>
+									</VBox>
+								</layout:Grid>
+								</HBox>
+								    <HBox>
+								    <Text text="Upload your file" class="uploadSAS gridLblClass"/>
+									<u:FileUploader name="myFileUpload" uploadUrl="upload/"
+										width="400px" tooltip="Upload your file"
+										uploadComplete="handleUploadComplete">
+									</u:FileUploader>
+									<Label text="" width="10px"></Label>
+									<Button text="Upload" width="100px" press="" type="Emphasized" class="uploadBtn"/>
+								    </HBox>
+								<HBox id="sasUpload">
+								    <Table id="idMyAttchmentTbl"  class="margnLeft" items="" inset="true"     width="65%">
+				       <columns>
+				       <Column width='4%' hAlign="Center">
+						<Label text="S.No." design="Bold" />
+					</Column>
+					  <Column width='4%' hAlign="Center">
+						<Label text="Attachment" design="Bold" />
+					</Column>
+					<Column width='4%' hAlign="Center">
+						<Label text="Created By" design="Bold" />
+					</Column>
+					<Column width='4%' hAlign="Center">
+						<Label text="Created On" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="1"></Text>
+							<Text text="Sample.txt"></Text>
+							<Text text="Rahul"></Text>
+							<Text text="05-06-2016"></Text>
+							
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</HBox>
+							</VBox>
+							
+				<VBox id="cwsServ">
+							<Text text="*Workshop" width="5em" class="gridClass" />
+							<MultiComboBox id="MultiComboBox1" placeholder=""
+							width="30em" selectionChange="handleSelectionChange"
+							selectionFinish="handleSelectionFinish">
+								<items>
+									<core:Item key="k51" text="Electronics" />
+									<core:Item key="k52" text="Mechanical" />
+									<core:Item key="k53" text="Metrology" />
+								</items>
+							</MultiComboBox>
+						<layout:Grid defaultSpan="L6 M6 S12" minScreenWidth="Tablet"
+							demandPopin="true">
+							
+						<MultiComboBox width="30em" id="MultiComboBox" placeholder="Electronics"
+							 selectionChange="handleSelectionChange"
+							selectionFinish="handleSelectionFinish">
+							<items>
+								<core:Item key="k1" text="Design  and Fabrication" />
+								<core:Item key="k2" text="PCB Prototyping" />
+								<core:Item key="k3" text="Experiment Setup" />
+								<core:Item key="k4" text="Labview Data Acquisition" />
+							</items>
+						</MultiComboBox>
+						<MultiComboBox placeholder="Mechanical"  width="30em"
+							selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish">
+							<items>
+								<core:Item key="k1" text="CAD Design" />
+								<core:Item key="k2" text="Glass Blowing" />
+								<core:Item key="k3" text=" Machine" />
+								<core:Item key="k4" text=" Welding" />
+								<core:Item key="k5" text=" Woodworking" />
+							</items>
+						</MultiComboBox>
+						<MultiComboBox placeholder="Metrology" width="30em"
+							selectionChange="handleSelectionChange" selectionFinish="handleSelectionFinish">
+							<items>
+								<core:Item key="k1" text="Calibration" />
+								<core:Item key="k2" text="Test and Measurement" />
+							</items>
+						</MultiComboBox>
+			</layout:Grid>	
+			<HBox>
+							<Text text="*Requested Completion Date" width="15em" class="gridClass" />
+							<DatePicker placeholder="Enter Date" width="15em"/>
+						</HBox>
+						<HBox>
+							<Text text="*Brief Description of Service Requested" width="20em" class="gridLblClass" />
+						</HBox>
+						<VBox>
+									<Text text="Aim of Study" width="12rem" class="gridLblClass" />
+									<TextArea rows="3" width="30rem" placeholder="Free Text"></TextArea>
+						</VBox>
+						<VBox>
+									<Text text="Expected Data/Deliverables" width="12rem" class="gridLblClass" />
+									<TextArea rows="3" width="30rem" placeholder="Free Text"></TextArea>
+						</VBox>
+						<VBox>
+									<Text text="Method" width="12rem" class="gridLblClass" />
+									<TextArea rows="3" width="30rem" placeholder="Free Text"></TextArea>
+						</VBox>
+						<HBox>
+							<Text text="Upload your file" class="uploadSAS gridLblClass" />
+							<u:FileUploader name="myFileUpload" uploadUrl="upload/"
+								width="295px" tooltip="Upload your file"
+								uploadComplete="handleUploadComplete">
+							</u:FileUploader>
+							<Button text="Upload" width="80px" press="" type="Emphasized"	class="uploadBtn" />
+						</HBox>
+				<HBox>
+					<Table width="480px">
+						<columns>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="S.No" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Attachment" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Created By" />
+							</Column>
+							<Column minScreenWidth="Tablet" demandPopin="true">
+								<Text text="Created On" />
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem type="Inactive">
+								<cells>
+									<Text text="1" />
+									<Text text="sample1" />
+									<Text text="steve" />
+									<Text text="24jun2016" />
+								</cells>
+							</ColumnListItem>
+							<ColumnListItem type="Inactive">
+								<cells>
+									<Text text="2" />
+									<Text text="sample2" />
+									<Text text="joy" />
+									<Text text="25jun2016" />
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</HBox>
+				
+				<HBox>
+						<Text text="*Service Area" width="15em" class="gridClass" />
+							<ComboBox >
+								<items>
+									<core:Item key="k1" text="Inorganics" />
+									<core:Item key="k2" text="Organics" />
+									<core:Item key="k3" text="Solid Phase" />
+								</items>
+							</ComboBox>
+							<ComboBox >
+								<items>
+									<core:Item key="k1" text="Deposition and Characterization" />
+									<core:Item key="k2" text="Patterning" />
+									<core:Item key="k3" text="Thin Film" />
+								</items>
+							</ComboBox>
+							<ComboBox >
+								<items>
+									<core:Item key="k1" text="Electron Microscope" />
+									<core:Item key="k2" text="NMR" />
+									<core:Item key="k3" text="Optical Microscope" />
+									<core:Item key="k4" text="Physical Characterization" />
+									<core:Item key="k5" text="Surface Science" />
+								</items>
+							</ComboBox>
+							<ComboBox >
+								<items>
+									<core:Item key="k1" text="Proteomics and Protein Analysis" />
+									<core:Item key="k2" text="Flow Cytometry" />
+									<core:Item key="k3" text="Genomics" />
+									<core:Item key="k3" text="Bioinformatics" />
+								</items>
+							</ComboBox>
+			</HBox>	
+				</VBox>			
+						</IconTabFilter>
+						<IconTabFilter key="Tab3" text="Sample Section">
+						<VBox>
+								<HBox>
+									<Text text="No. of Samples" class="gridLblClass"/>
+									<Input type="Text" class="gridFldClass inputSS"/>
+								</HBox>
+								<HBox id="bsbeSample">
+								<HBox>
+									<Text text="Sample Origin" class="gridLblClass"/>
+									<Input type="Text" class="gridFldClass inputSS"/>
+								</HBox>
+								<HBox>
+									<Text text="Sample name" class="gridLblClass"/>
+									<Input type="Text" class="gridFldClass inputSS"/>
+								</HBox>
+								</HBox>
+								<HBox>
+									<CheckBox />
+									<Text text="Toxic"  width="5em" class="gridLblClass"/>
+									<CheckBox />
+									<Text text="Solid/Bulk" width="6em" class="gridLblClass"/>
+									<CheckBox />
+									<Text text="Powder" width="5em" class="gridLblClass"/>
+									<CheckBox />
+									<Text text="Film" width="5em" class="gridLblClass"/>
+									<CheckBox />
+									<Text text="Organic" width="6em" class="gridLblClass"/>
+									<CheckBox />
+									<Text text="Inorganic" width="6em" class="gridLblClass"/>
+									<CheckBox />
+									<Text text="Fluid" width="5em" class="gridLblClass"/>
+								</HBox>
+										<HBox class="textAreaMrgn">
+										<layout:Grid defaultSpan="L12 M6 S12" minScreenWidth="Tablet"
+											demandPopin="true">
+											<VBox>
+												<Text text="Samples/Data Specifications" width="15rem" class="gridLblClass"/>
+												<Text text="Please clearly specify your samples, including toxicity if relevant, to ensure necessary approvals" class="noteSize"/>
+												<TextArea rows="2" width="49rem" placeholder="Free Text"></TextArea>
+											</VBox></layout:Grid>
+											</HBox>
+											<HBox class="textAreaMrgn">
+										<layout:Grid defaultSpan="L12 M6 S12" minScreenWidth="Tablet"
+											demandPopin="true">	<VBox>
+												<Text text="Specific Instructions" width="12rem" class="gridLblClass"/>
+												<TextArea rows="2" width="49rem" placeholder="Free Text"></TextArea>
+											</VBox>
+										</layout:Grid>
+										</HBox>
+								 <HBox>
+								    <Text text="Upload your file" class="uploadSAS gridLblClass"/>
+									<u:FileUploader name="myFileUpload" uploadUrl="upload/"
+										width="400px" tooltip="Upload your file"
+										uploadComplete="handleUploadComplete">
+									</u:FileUploader>
+									<Label text="" width="20px"></Label>
+									<Button text="Upload" width="100px" press="" type="Emphasized" class="uploadBtn"/>
+								    </HBox>
+								<HBox >
+								    <Table  class="margnLeft"
+				        items="" inset="true"     width="65%">
+				       
+				       <columns>
+				       <Column width='4%' hAlign="Center">
+						<Label text="S.No." design="Bold" />
+					</Column>
+					  <Column width='4%' hAlign="Center">
+						<Label text="Attachment" design="Bold" />
+					</Column>
+					<Column width='4%' hAlign="Center">
+						<Label text="Created By" design="Bold" />
+					</Column>
+					<Column width='4%' hAlign="Center">
+						<Label text="Created On" design="Bold" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="1"></Text>
+							<Text text="Sample.txt"></Text>
+							<Text text="Rahul"></Text>
+							<Text text="04-06-2016"></Text>
+							
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</HBox>
+							</VBox> 
+						</IconTabFilter>
+						
+						<IconTabFilter key="Tab4" text="Sample Delivery Section">
+							<VBox>
+								<HBox>
+									<Text text="Sample Delivery Mode"     width="11em" class="gridLblClass"/>
+									<ComboBox value="" class="comboSD">
+										<core:Item  text="Courier" />
+										<core:Item  text="In Person" />
+										<core:Item  text="Other methods, specify" />
+									</ComboBox>
+								</HBox>
+								<HBox>
+									<Text text="Return Samples" width="11.5em" class="gridLblClass"/>
+									<CheckBox />
+									
+								</HBox>
+								<HBox>
+									<Text text="Report" width="11em" class="gridLblClass"/>
+									<ComboBox value="" class="comboSD">
+										<core:Item  text="Raw Data only" />
+										<core:Item  text="Raw Data + Report" />
+										<core:Item  text="Report only" />
+									</ComboBox>
+								</HBox>
+							</VBox>
+						</IconTabFilter>
+						
+						
+					</items>
+				</IconTabBar>
+				<HBox id="requsterBtn" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Save" width="100px" type="Emphasized" press="save"/>
+				    <Label text=""     width= "10px"/>
+				    <!--<Button text="Reject (For CL User use only)" type="Reject"/>
+				    <Label text=""     width= "10px"/>-->
+				    <Button text="Submit" width="100px" type="Accept" press="submit"/>
+				</HBox>  
+				
+				<HBox id="masterAdmBtn" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Document Required" width="170px" type="Emphasized" press=""/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Verified" width="120px" type="Accept" press=""/>
+				</HBox>
+				
+				<HBox id="labTeamBtn" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Pending Sample/Design" width="170px" type="Emphasized" press=""/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Reject" type="Reject"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Approve" width="100px" type="Accept" press=""/>
+				</HBox>
+				
+				</content>
+							</IconTabFilter>
+						<IconTabSeparator icon="sap-icon://feeder-arrow" />
+					<IconTabFilter icon="sap-icon://monitor-payments"  iconColor="Positive"
+							design="Horizontal" count="Scope and Charges"  key="SSC" >
+							 <mvc:XMLView viewName="corelabs.ServiceScopeCharges" /></IconTabFilter>
+						<IconTabSeparator icon="sap-icon://feeder-arrow" />
+						
+					<IconTabFilter icon="sap-icon://hr-approval" iconColor="Neutral"
+							design="Horizontal" count="Charges Acceptance"   key="Ok" />
+						<IconTabSeparator icon="sap-icon://feeder-arrow" />	
+					<IconTabFilter icon="sap-icon://course-program" 
+							design="Horizontal" count="RFS Report"  key="Ok" enabled="false"/>
+						<IconTabSeparator icon="sap-icon://feeder-arrow" />
+					<IconTabFilter id="secHoriDivider" icon="sap-icon://company-view" 
+							design="Horizontal" count="RFS Feedback"  key="Ok" enabled="false"/>
+					
+					</items>
+				</IconTabBar></Page>
+</core:View>

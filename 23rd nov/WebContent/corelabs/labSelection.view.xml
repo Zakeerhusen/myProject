@@ -1,0 +1,39 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"  xmlns:l="sap.ui.layout"
+		controllerName="corelabs.labSelection" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page backgroundDesign= "Transparent" showFooter="true" class="pageBackground" showHeader="false">
+		<content>
+		
+		<FlexBox alignItems = "Center" justifyContent = "Center" class="alignLabSelect">
+		<Panel class="BoxClassMargin" >
+		<VBox id="showLab" visible="false">
+		<HBox>
+		<Text text="Lab Selection"     width="7em" class="mainTitle"/>
+		<Select id="idLab" width="16rem" items="{labListModel>/labDto}" placeholder="Select" class="labSelectionCombo">   
+			<items> 
+				<core:Item  key="{labListModel>labId}" text="{labListModel>labName}" />
+				</items>
+		</Select>
+			</HBox>
+			<HBox><Label text="" width="10px"/></HBox>
+			<HBox alignItems = "End" justifyContent = "End"><Button  text="Request For Service" press="toRFSFrom" class="margnSelectLabBtn" type="Emphasized"/></HBox>
+		</VBox>
+		<VBox id="noBadger" visible="false">
+		<HBox>
+			<Text text="Please have a Badger Account to proceed for RFS"     width="30em" class="mainTitle"/>
+		</HBox>
+		</VBox>
+		<VBox id="noPIApproved" visible="false">
+		<HBox>
+			<Text text="Please Request for PI Approval then proceed for RFS"     width="30em" class="mainTitle"/>
+		</HBox>
+		</VBox>	
+		<VBox id="notAuthPerReqd" visible="false">
+		<HBox>
+			<Text text="You are not authorised to raise an RFS as your Authorized Person is not Registered." width="40em" class="mainTitle"/>
+		</HBox>
+		</VBox>	
+			</Panel>						
+		</FlexBox>
+		</content>
+	</Page>
+</core:View>

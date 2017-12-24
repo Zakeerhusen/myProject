@@ -1,0 +1,15 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+	controllerName="corelabs.Otp" xmlns:html="http://www.w3.org/1999/xhtml">
+<Page backgroundDesign= "Transparent" showFooter="true" class="pageBackground" showHeader="false">
+	<content>
+		<FlexBox id="otpflexbox" alignItems = "Center" justifyContent = "Center" class="alignLabSelect">
+		<Panel class="BoxClassMargin" >
+		<VBox >
+		<Text id="resendTxt" text="Resend OTP to activate the account" class="mainTitle" visible="false"/>   
+		<Button id="resendbtn" text="Resend OTP" press="resendOtp" visible="false"></Button>
+		</VBox>	
+		</Panel>	
+		</FlexBox>	
+	</content>
+</Page>
+</core:View>

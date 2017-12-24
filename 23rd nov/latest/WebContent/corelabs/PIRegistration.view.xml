@@ -1,0 +1,90 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:commons="sap.ui.commons" class="sapUiSizeCompact"
+	xmlns="sap.m" controllerName="corelabs.PIRegistration" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false"  class="pageBackground">
+		<content>
+			<VBox class="BoxClassMargin BoxClassPadding">
+				<HBox>
+					<Text text="PI Registration Form" class="mainTitle" />
+				</HBox>
+				<HBox>
+					<Table id="piTable" class="ssdTable" selectionChange="selectionChange" mode="MultiSelect">
+					<headerToolbar>
+						<Toolbar>
+							<Button text="Add" width="100px" icon="sap-icon://add" type='Emphasized'
+								press='onAdd' />
+							<Button text="Remove" width="106px" icon="sap-icon://delete" type='Reject'
+								press='deleteRule' />
+						</Toolbar>
+					</headerToolbar>
+						<!--<columns>
+							<Column width="15%">
+								<Label text="User KAUST ID" design="Bold" wrapping="true"/>
+							</Column>
+							<Column width="30%">
+								<Label text="User Name" design="Bold" wrapping="true"/>
+							</Column>
+							<Column width="30%">
+								<Label text="User Email Address" design="Bold"  wrapping="true"/>
+							</Column>
+							<Column width="25%">
+								<Label text="Assigned Pocket ID" design="Bold" wrapping="true"/>
+							</Column>
+						</columns>
+						--><columns>
+							<Column width="15%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="KAUST ID"  class="font_size_table"/>
+							</Column>
+							<Column width="30%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="User Name"  class="font_size_table"/>
+							</Column>
+							<Column width="30%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="User Email Address"   class="font_size_table"/>
+							</Column>
+							<Column width="25%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Assigned Pocket ID"  class="font_size_table"/>
+							</Column>
+						</columns>
+						<items>
+							<ColumnListItem id="colList">
+								<cells>
+									<Input value='' enabled='false'></Input>
+									<Input  id="suggItems"										
+										placeholder="Enter atleast 4 characters" maxLength="50" change="onNameChange"
+										showSuggestion="true" suggest="handleSuggest" suggestionItems="{oSearchUserModel>/userDtos}"
+										suggestionItemSelected="itemSelected" liveChange="itemDel" filterSuggests="false">
+										<suggestionItems>
+											<core:ListItem text="{oSearchUserModel>displayNm}" additionalText="{oSearchUserModel>userId}"/>
+										</suggestionItems>
+										</Input>
+									<Input value='' enabled='false'></Input>
+									<commons:ComboBox class="pktClass" items='{oPktIdJsonModel>/d/results}' width="100%" maxPopupItems="12" placeholder="Select Pocket ID">
+										<core:ListItem key="{oPktIdJsonModel>UserId}" text="{oPktIdJsonModel>PocketIdNo}" />
+									</commons:ComboBox>
+								</cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+				</HBox>
+				<HBox>
+				    <Text class="mHeading" text="By Submitting this I am indicating the following"/>  
+				</HBox>
+				<HBox>
+				    <Text class="sHeading" text="* The users listed above are pre-approved to use services of Core Laboratories and Major Facilities."/>  
+				</HBox>
+				<HBox>
+				    <Text class="sHeading" text="* I confirm that I have sufficient funds to cover the cost incurred by the pre-approved users listed above."/>  
+				</HBox>
+				<HBox>
+				    <Text  class="sHeading" text="* I authorise the changes for the usage of Core Laboratories and Major Facilities to be allocated to the relevant Pocket ID's and to the respective pre-approved users listed above."/>  
+				</HBox>
+				<HBox>
+				    <Text  class="sHeading" text="* Any changes to this form will be communicated to all relevant parties."/>  
+				</HBox>
+				<HBox justifyContent="End">
+					<Button id="piRegisterBtn" text="Register" width="100px" type="Emphasized" press="validateRegister"/>
+					
+				</HBox>
+			</VBox>
+		</content>
+	</Page>
+</core:View>

@@ -1,0 +1,75 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:commons="sap.ui.commons"
+	controllerName="corelabs.Registration" xmlns:html="http://www.w3.org/1999/xhtml">
+		<Page showHeader="false" class="pageClass" >
+		 <Panel headerText="Update Profile"  expandable="false"
+				class="panelH panelCSS1"><!--
+		      <Label text="REGISTRATION FORM" class="Heading" />
+		   	 --><l:Grid defaultSpan="L3 M3 S12">
+		    			 
+		    	<Label text="First Name" class="gridLblClass" required="true" />
+		    	<Input type="Text" value='{userData>/firstNm}' enabled="false" maxLength="20" />
+		    	
+		    	<Label text="Last Name" class="gridLblClass" required="true" />
+		    	<Input type="Text" value='{userData>/lastNm}' enabled="false" maxLength="20" />
+		    	
+		    	<Label text="Type of Organization" width="12em" class="gridLblClass" required="true" />
+		    	<!--<Input type="Text" value='{userData>/orgTypeId}' enabled="true" maxLength="20" />-->
+		    	<ComboBox id="too" width="100%" value='{userData>/orgTypeNm}' items="{orgTypeModel>/organizationDto}" placeholder="Select Organization" selectionChange="enableUpdateBtn" enabled="false">
+					<items> 
+						<core:Item  key="{orgTypeModel>orgId}" text="{orgTypeModel>orgName}" />
+						</items>
+				</ComboBox>
+		    	<Label text="Position" class="gridLblClass" />
+		    	<Input type="Text" value='{userData>/position}' enabled="true" maxLength="20" change="nameValidate"/>
+		    	
+		    	<Label text="Organization Name" width="12em" class="gridLblClass" required="true"/>
+		    	<Input type="Text" value='{userData>/orgNm}' enabled="true" maxLength="20" change="nameValidate"/>
+		    	
+		    	<Label text="KAUST Research Park Tenants" width="16em" class="gridLblClass" />
+		    	<CheckBox id="iskrpt"  select="enableUpdateBtn" enabled="false"/>
+						    	
+		    	<Label text="Department" class="gridLblClass" />
+		    	<Input type="Text" value='{userData>/deptNm}' enabled="true" maxLength="20" change="nameValidate"/>
+		    	
+		    	<Label text="Telephone" class="gridLblClass" required="true" />
+		    	<Input type="Text" value='{userData>/telephone}' enabled="true" maxLength="20" change="numberValidate"/>
+		    	
+		    	<Label text="Address" class="gridLblClass" required="true" />
+		    	<TextArea rows="2" value='{userData>/address}' width="95%" maxLength="80" change="nameValidate"/>
+		    	
+		    	<Label text="Country" class="gridLblClass" required="true" />
+		    	<!--<Input type="Text" value='{userData>/countryNm}' enabled="true" maxLength="20"/>
+		    	-->
+		    	<ComboBox id='country' value='{userData>/countryNm}' items="{oCountryJsonModel>/d/results}" selectionChange="enableUpdateBtn" width="20.2em">
+										<core:Item  key="{oCountryJsonModel>CountryKey}" text="{oCountryJsonModel>CountryNameShort}" />
+				</ComboBox>
+				</l:Grid>
+				<l:Grid defaultSpan="L3 M3 S12">					
+		    	<Label text="Post Code" width="16em" class="gridLblClass" />
+		    	<Input type="Text" value='{userData>/postCode}' enabled="true" maxLength="20" change="numberValidate"/>
+		    	
+		    	<Label text="Email" class="gridLblClass" required="true" />
+		    	<Input type="Text" value='{userData>/emailId}' enabled="false"  maxLength="70"/>
+		    	
+		    	<Label text="Authorized Person Required?" width="16em" class="gridLblClass" />
+		    	<CheckBox id="isapinfo"  selected="{userData>/isAuthPersonReqd}" select="isAuthPer" enabled="false"/>
+		    	
+		    	<Label text="Authorized Person Name" width="16em" class="gridLblClass" />
+		    	<Input id="apname" type="Text" value='{userData>/authPersonNm}' enabled="false"  maxLength="20" change="numberValidate"/>
+				
+				<Label text="Authorized Person Email" width="16em" class="gridLblClass" />
+		    	<Input id="apemail" type="Text" value='{userData>/authPersonEmailId}' enabled="false" maxLength="70" change="validateAuthPerEmail" />
+		    	
+		    	<!--<Label text="Password" class="gridLblClass" />
+		    	<Input type="Text" enabled="true" maxLength="20"/>
+		    	
+		    	<Label text="Confirm Password" width="12em" class="gridLblClass" />
+		    	<Input type="Text" enabled="true" maxLength="20" />
+		    		
+		    --></l:Grid>
+			    <HBox justifyContent="End" >
+				<Button id="updateBtn" text="Update Profile" type="Emphasized"  press="validateAll" enabled="flase"></Button>
+				</HBox>	
+		   </Panel>
+		</Page>
+</core:View>

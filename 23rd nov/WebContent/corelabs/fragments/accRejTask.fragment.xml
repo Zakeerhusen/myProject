@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+xmlns:core="sap.ui.core">
+<Dialog  title="Are you sure to Reject?" >
+<Panel class="BoxClassMargin" >
+<Label text="Comments" class="gridLblClass gridClass" required="true"/>
+<TextArea id="accTaskRejectionComm" width="18rem" maxLength="499"/>
+<VBox class="gridClass">
+<HBox alignItems = "End" justifyContent = "End">
+<Button  text="Cancel" width="100px" press="close" type="Emphasized"/>
+<Label text="" width="10px"/>
+<Button   text="Reject" width="100px" press="toReject" type="Reject"/>
+</HBox>
+</VBox>
+</Panel>
+</Dialog>
+</core:FragmentDefinition>
+

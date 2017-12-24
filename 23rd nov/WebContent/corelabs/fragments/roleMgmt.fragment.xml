@@ -1,0 +1,23 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="roleSearch" title="Assign Role" class="detailHdng">
+		<Text text="Select the User you want to Assign the Role" class="gridLblClass bottomMargin" width="22em"></Text>
+		<Input id="userList" placeholder="Enter atleast 4 characters"
+			showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+			suggestionItemSelected="itemSelected" class="bottomMargin">
+			<suggestionItems>
+				<core:ListItem text="{userSearchModel>displayNm}"
+					additionalText="{userSearchModel>userId}" />
+			</suggestionItems>
+		</Input>
+
+		<HBox alignItems="End" justifyContent="End">
+			<Button id="Btn_assign" text="Assign Role" width="100px"
+				press="assignRole" type="Accept" />
+			<Label text="" width="3px" />
+			<Button  text="Cancel" width="100px" press="cancelRole"
+				type="Reject" />
+		</HBox>
+
+	</Dialog>
+</core:FragmentDefinition>

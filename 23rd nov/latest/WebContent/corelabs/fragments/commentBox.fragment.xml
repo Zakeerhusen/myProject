@@ -1,0 +1,17 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog title="Add Comments.">
+		<Panel class="BoxClassMargin">
+			<Label text="Comments" class="gridLblClass gridClass" required="true" />
+			<!-- Added the change event change="getTrimUiInputVal" for the TextArea control to trim the user input - Edited by Darshna on 10/07/2017 -->
+			<TextArea id="comm" width="18rem" maxLength="499" change="getTrimUiInputVal"/>
+			<VBox class="gridClass">
+				<HBox alignItems="End" justifyContent="End">
+					<Button text="Cancel" width="100px" press="closeCommDialog" type="Emphasized" />
+					<Label text="" width="10px" />
+					<Button text="Submit" width="100px" press="commentTask" type="Accept" />
+				</HBox>
+			</VBox>
+		</Panel>
+	</Dialog>
+</core:FragmentDefinition>

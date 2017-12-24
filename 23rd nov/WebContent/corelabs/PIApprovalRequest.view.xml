@@ -1,0 +1,84 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:layout="sap.ui.layout"
+	controllerName="corelabs.PIApprovalRequest" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground">
+		<content>
+			<VBox class="BoxClassMargin BoxClassPadding">
+			    
+				<HBox >
+					<Text text="Request For PI Approval" class="mainTitle" />
+				</HBox>
+
+				<!--<HBox >
+					<Text text="Status : Pending Approval" class="detailHdng"/>
+				</HBox>
+				
+				-->
+				<HBox>
+					
+					<Table id='idPITable' class="ssdTable" selectionChange="selectionChange">
+									<headerToolbar>
+										<Toolbar>
+											<Button text="Add" width="100px" icon="sap-icon://add" type='Emphasized'
+												press='add' />
+											<Button text="Remove" width="106px" icon="sap-icon://delete" type='Reject'
+												press='deleteRule' />
+										</Toolbar>
+									</headerToolbar>
+
+									<columns>
+									    <Column visible="false">
+											<Text text="NO" />
+										</Column>
+										<Column width="10%">
+											<Label text="PI ID" design="Bold"/>
+										</Column>
+										<Column width="25%">
+											<Label text="PI Name" design="Bold"/>
+										</Column>
+										<Column width="25%">
+											<Label text="Email Address" design="Bold"/>
+										</Column>
+										<Column width="15%">
+											<Label text="Division" design="Bold"/>
+										</Column>
+										<Column width="20%">
+											<Label text="Center" design="Bold"/>
+										</Column>
+										<Column  width="15%">
+											<Label text="Date" design="Bold"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem type="Inactive">
+											<cells >
+											    <Input value='' visible="false"></Input>
+												<Input enabled='false' class="piReqTblCell"></Input>
+												 <Input id="suggetItems" class="piReqTblCell" placeholder="Enter atleast 4 characters"
+										showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+										suggestionItemSelected="itemSelected" liveChange="itemDel">
+										<suggestionItems>
+											<core:ListItem text="{userSearchModel>displayNm}" additionalText="{userSearchModel>userId}"/>
+										</suggestionItems>
+										</Input>
+												<Input enabled='false'  class="piReqTblCell" ></Input>
+												<Input editable='false'  class="piReqTblCell tooltip" ></Input>
+												<Input editable='false' class="piReqTblCell tooltip"></Input>
+												<DatePicker id="DP" dateValue="{path:'dateModel>/dateValue'}" displayFormat="dd/MM/yyyy"  change="handleChange" class="piReqTblCell" enabled="false"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+				</HBox>
+				<HBox justifyContent="End">
+					<Button id="piSubmitBtn" text="Submit" width="100px" type="Emphasized" press="validatePIRequest" class="piReqSubmitBtn"/>
+					<!--<Button text="Claim" press="claim" />
+					<Button text="Get Data" press="readTaskData" />
+					<Button text="Complete Task" press="completeTask" />
+					
+				--></HBox>
+			</VBox>
+			
+		</content>
+	</Page>
+</core:View>

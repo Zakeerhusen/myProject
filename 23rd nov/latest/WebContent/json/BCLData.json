@@ -1,0 +1,20 @@
+{ 
+	"data":[{ 
+			   "Status" : "Open",
+	           "Value" : "60"            
+		},
+		{ 
+			
+			"Status" : "WIP",
+	           "Value" : "22"
+		},
+		{ 
+			"Status" : "Completed",
+	           "Value" : "105"
+		},
+		{ 
+			"Status" : "Cancelled",
+	           "Value" : "24"
+		}]
+		
+}

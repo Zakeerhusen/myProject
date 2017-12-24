@@ -1,0 +1,317 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"  xmlns:layout="sap.ui.layout"  xmlns:viz="sap.viz.ui5.controls" xmlns:viz.feeds="sap.viz.ui5.controls.common.feeds"
+	xmlns:viz.data="sap.viz.ui5.data"
+	controllerName="corelabs.Dashboard" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="BoxClassMargin">
+		<content>
+				<!--<Label text="Dashboard" class="mainTitle"></Label>	
+			
+			--><IconTabBar id="idIcon" select="handleIconTabBarSelect"                                    
+				expandable="false" upperCase="true" expanded="{device>/isNoPhone}"
+				class="iconTabHeader">
+				<items>
+					<IconTabFilter key="Tab1" text="By RFS" >
+							<Panel id="byRFS" class="BoxClassMargin">
+								<content>
+									<VBox >
+									<HBox>
+											<Text text="RFS Search Criteria" class="detailHdng dashboardLblClass" />
+										</HBox>
+										<layout:Grid defaultSpan="L4 M4 S6" width= "545px" class="grid">
+											<HBox alignItems="Center">
+												<Text text="From" class="dashboardGrid paddingBottom" />
+												<ComboBox id="fromYear" width="100px"  items="{yearModel>/}">
+													<items>
+														<core:Item key="{yearModel>key}" text="{yearModel>year}" />
+													</items>
+												</ComboBox></HBox>
+											<HBox alignItems="Center">
+												<ComboBox id="fromMon" value="JAN" width="100px" >
+													<items>
+														<!--<core:Item key="k1" text="" />-->
+														<core:Item key="k1" text="JAN" />
+														<core:Item key="k2" text="FEB" />
+														<core:Item key="k2" text="MAR" />
+														<core:Item key="k2" text="APR" />
+														<core:Item key="k2" text="JUN" />
+														<core:Item key="k2" text="JUL" />
+														<core:Item key="k2" text="AUG" />
+														<core:Item key="k2" text="SEP" />
+														<core:Item key="k2" text="OCT" />
+														<core:Item key="k2" text="NOV" />
+														<core:Item key="k2" text="DEC" />
+
+													</items>
+												</ComboBox>
+
+											</HBox>
+											</layout:Grid>
+											
+											<layout:Grid defaultSpan="L4 M4 S6"  width= "545px" class="grid">
+											<HBox alignItems="Center">
+												<Text text="To" class="dashboardGrid paddingBottom "  />
+												<ComboBox id="toYear" width="100px"  items="{yearModel>/}">
+													<items>
+														<core:Item key="{yearModel>key}" text="{yearModel>year}" />
+													</items>
+												</ComboBox></HBox>
+											<HBox alignItems="Center">
+												<ComboBox id="toMon" width="100px" >
+													<items>
+														<!--<core:Item key="k1" text="" />-->
+														<core:Item key="1" text="JAN" />
+														<core:Item key="2" text="FEB" />
+														<core:Item key="3" text="MAR" />
+														<core:Item key="4" text="APR" />
+														<core:Item key="5" text="JUN" />
+														<core:Item key="6" text="JUL" />
+														<core:Item key="7" text="AUG" />
+														<core:Item key="8" text="SEP" />
+														<core:Item key="9" text="OCT" />
+														<core:Item key="10" text="NOV" />
+														<core:Item key="11" text="DEC" />
+
+													</items>
+												</ComboBox>
+											</HBox>
+									</layout:Grid>
+									<HBox alignItems="Center">
+												<Text text="User" class="dashboardGrid paddingBottom" />
+												<ComboBox id="userType" value="All" width="150px">
+													<items>
+														<core:Item key="k1" text="Internal" />
+														<core:Item key="k2" text="External" />
+														<core:Item key="k2" text="RPT" />
+														<core:Item key="k3" text="All" />
+													</items>
+												</ComboBox>
+											</HBox>
+											<HBox>
+										<HBox alignItems="Center">
+											<Text text="Graph Stack Type" width="9em" class="dashboardGrid" /> 
+											<RadioButtonGroup id="radioBtn" columns="5">
+												<buttons>
+													<RadioButton text="RFS Status" />
+													<RadioButton text="Service Type" />
+												</buttons>
+											</RadioButtonGroup>
+										</HBox>
+										
+										
+										<HBox alignItems="Center" justifyContent="Center" >
+												<Button text="Search" icon="sap-icon://search" width="100px" type="Emphasized"
+													press="onSearch" />
+												<Label text="" width="10px"></Label>
+												<Button text="Reset"  width="100px" type="Emphasized" press="clear"/>
+											</HBox>
+										</HBox>
+									</VBox>
+								</content>
+							</Panel>
+						
+
+						<VBox alignItems="Center" justifyContent="Center">
+							<!--<viz:ui5.StackedColumn id="packsChart"
+								width="40rem" height="18rem">
+								<viz:legend>
+									<viz:ui5.types.legend.Common
+										visible="true"></viz:ui5.types.legend.Common>
+								</viz:legend>
+								<viz:dataset>
+									<viz:ui5.data.FlattenedDataset
+										id="stBar" data="{/data}">
+										<viz:dimensions>
+											<viz:ui5.data.DimensionDefinition
+												axis="1" name="LAB" value="{Lab}">
+											</viz:ui5.data.DimensionDefinition>
+											<viz:ui5.data.DimensionDefinition
+												axis="2" name="STATUS" value="{Status}">
+											</viz:ui5.data.DimensionDefinition>
+										</viz:dimensions>
+										<viz:measures>
+											<viz:ui5.data.MeasureDefinition
+												name='No. of tasks' value='{Count}'>
+											</viz:ui5.data.MeasureDefinition>
+										</viz:measures>
+
+									</viz:ui5.data.FlattenedDataset>
+								</viz:dataset>
+							</viz:ui5.StackedColumn>
+						
+						
+						-->
+						<viz:VizFrame id="idVizFrame" uiConfig="{applicationSet:'fiori'}"
+						height='18rem' width="50rem" vizType='stacked_column' selectData='clickGraph'>
+						<!--<viz:dataset>
+							<viz.data:FlattenedDataset id="stBar" data="{/dashboardSearchDataList/dashboardStatusSearchTypeList/}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition name="Lab"
+										value="{labName}" />
+									<viz.data:DimensionDefinition name="Status"
+										value="{statusName}" />
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="No. of RFS"
+										value="{parts:['statusValue','serviceValue'],formatter:'sap.ui.demo.formatter.formatVizStatusValue' }"/>
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+					
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="No. of RFS" />
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+								values="Lab" />
+							<viz.feeds:FeedItem uid="color" type="Dimension"
+								values="Status" />
+						</viz:feeds>
+					--></viz:VizFrame>
+				</VBox>
+
+					</IconTabFilter>
+					<IconTabFilter key="Tab2" text="By Revenue" id="iconTab2">
+						<Panel id="byRevenue" class="BoxClassMargin">
+								<content>
+									<VBox >
+									<HBox>
+											<Text text="RFS Search Criteria" class="detailHdng dashboardLblClass" />
+										</HBox>
+										<layout:Grid defaultSpan="L4 M4 S6"     width= "545px" class="grid">
+											<HBox alignItems="Center">
+												<Text text="From" class="dashboardGrid paddingBottom" />
+												<ComboBox id="fromYear1" width="100px" items="{yearModel>/}">
+													<items>
+														<core:Item key="{yearModel>key}" text="{yearModel>year}" />
+													</items>
+												</ComboBox></HBox>
+											<HBox alignItems="Center">
+												<ComboBox id="fromMon1" width="110px"  value="Q1">
+													<items>
+														<core:Item key="k1" text="Q1" />
+														<core:Item key="k2" text="Q2" />
+														<core:Item key="k2" text="Q3" />
+														<core:Item key="k2" text="Q4" />
+													</items>
+												</ComboBox>
+
+											</HBox>
+											</layout:Grid>
+											
+											<layout:Grid defaultSpan="L4 M4 S6"     width= "545px" class="grid">
+											<HBox alignItems="Center">
+												<Text text="To" class="dashboardGrid paddingBottom"  />
+												<ComboBox id="toYear1" width="100px" items="{yearModel>/}">
+													<items>
+														<core:Item key="{yearModel>key}" text="{yearModel>year}" />
+													</items>
+												</ComboBox></HBox>
+											<HBox alignItems="Center">
+												<ComboBox id="toMon1" width="110px" value="Q4">
+													<items>
+														<core:Item key="k1" text="Q1" />
+														<core:Item key="k2" text="Q2" />
+														<core:Item key="k2" text="Q3" />
+														<core:Item key="k2" text="Q4" />
+													</items>
+												</ComboBox>
+											</HBox>
+									</layout:Grid>
+									<HBox alignItems="Center">
+												<Text text="User" class="dashboardGrid paddingBottom" />
+												<ComboBox id="userType1" value="All" width="150px" >
+													<items>
+														<core:Item key="k1" text="Internal" />
+														<core:Item key="k2" text="External" />
+														<core:Item key="k2" text="RPT" />
+														<core:Item key="k3" text="All" />
+													</items>
+												</ComboBox>
+											</HBox>
+										<HBox>	
+										<HBox alignItems="Center">
+											<Text text="Graph Stack Type" width="9em" class="dashboardGrid" /> 
+											<RadioButtonGroup id="radioBtn1" columns="5">
+												<buttons>
+													<RadioButton text="Organization Name" />
+													<RadioButton text="Lab" />
+												</buttons>
+											</RadioButtonGroup>
+										</HBox>
+										
+										
+										<HBox alignItems="Center" justifyContent="Center" >
+												<Button text="Search" icon="sap-icon://search" width="100px" class="" type="Emphasized"
+													press="onSearch" />
+												<Label text="" width="10px"></Label>
+												<Button text="Reset"  width="100px" class="" type="Emphasized" press="clear"/>
+											</HBox>
+										</HBox>
+									</VBox>
+
+
+
+								</content>
+							</Panel>
+						
+							<VBox alignItems="Center" justifyContent="Center">
+							<!--<viz:ui5.StackedColumn id="packsChart1"
+								width="40rem" height="18rem">
+								<viz:legend>
+									<viz:ui5.types.legend.Common
+										visible="true"></viz:ui5.types.legend.Common>
+								</viz:legend>
+								<viz:dataset>
+									<viz:ui5.data.FlattenedDataset
+										id="stBar1" data="{/data}">
+										<viz:dimensions>
+											<viz:ui5.data.DimensionDefinition
+												axis="1" name="Quarter" value="{Quarter}">
+											</viz:ui5.data.DimensionDefinition>
+											<viz:ui5.data.DimensionDefinition
+												axis="2" name="Type" value="{type}">
+											</viz:ui5.data.DimensionDefinition>
+										</viz:dimensions>
+
+										<viz:measures>
+											<viz:ui5.data.MeasureDefinition
+												name='No. of tasks' value='{Count}'>
+											</viz:ui5.data.MeasureDefinition>
+										</viz:measures>
+
+									</viz:ui5.data.FlattenedDataset>
+								</viz:dataset>
+							</viz:ui5.StackedColumn>
+						-->
+						<viz:VizFrame id="idVizFrame1" uiConfig="{applicationSet:'fiori'}"
+						height='18rem' width="50rem" vizType='stacked_column' selectData='clickGraph'>
+						<!--<viz:dataset>
+							<viz.data:FlattenedDataset id="stBar1" data="{/dashboardSearchDataList/dashboardStatusSearchTypeList/}">
+								<viz.data:dimensions>
+									<viz.data:DimensionDefinition name="Quarter"
+										value="{quarterName}" />
+									<viz.data:DimensionDefinition name="Type"
+										value="{labName}" />
+								</viz.data:dimensions>
+								<viz.data:measures>
+									<viz.data:MeasureDefinition name="Revenue (USD)"
+										value="{labValue}" />
+								</viz.data:measures>
+							</viz.data:FlattenedDataset>
+						</viz:dataset>
+					
+						<viz:feeds>
+							<viz.feeds:FeedItem uid="valueAxis" type="Measure"
+								values="Revenue (USD)" />
+							<viz.feeds:FeedItem uid="categoryAxis" type="Dimension"
+								values="Quarter" />
+							<viz.feeds:FeedItem uid="color" type="Dimension"
+								values="Type" />
+						</viz:feeds>
+						--></viz:VizFrame>
+						</VBox>
+					</IconTabFilter>
+				</items>
+			</IconTabBar>
+		</content>
+	</Page>
+</core:View>

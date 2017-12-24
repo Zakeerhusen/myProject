@@ -1,0 +1,65 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:u="sap.ui.unified"
+	controllerName="corelabs.TaskManagement"
+	 xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground" >
+<Panel class="BoxClassMargin">
+<HBox >
+					<Text text="Task Management" class="mainTitle" />
+				</HBox>
+<Toolbar height="7rem">
+				<HBox   >
+				<Text text="*RFS #:" width="5em" class="detailHdng1 taskMgmtHdrLblClass"/>
+				<Input value="1001500001" />
+				</HBox>
+			
+				<VBox>
+				<Button text="Search" icon="sap-icon://search" width="100px" class="taskMgmtSerach" press="onPress" type='Emphasized' />
+				</VBox>
+			<ToolbarSpacer>
+			</ToolbarSpacer>
+			<!--<VBox><Label text="" width="3px"/></VBox>
+				--><VBox>
+				<Button text="Clear" width="100px" press="onPress1" type='Emphasized'/>
+				</VBox>
+			
+			<ToolbarSpacer/><ToolbarSpacer/><ToolbarSpacer/><ToolbarSpacer/><ToolbarSpacer/><ToolbarSpacer/>
+			<ToolbarSpacer/><ToolbarSpacer/>		
+</Toolbar>
+			
+			
+					<Table class="TaskManagementTable ssdTable" >
+
+						<columns>
+							<Column width="15%">
+								<Label text="RFS#" design="Bold"/>
+							</Column>
+							<Column width="20%">
+								<Label text="Task Name" design="Bold"/>
+							</Column>
+							<Column width="15%">
+								<Label text="Assigned User" design="Bold"/>
+							</Column>
+							<Column width="15%">
+								<Label text="Action" design="Bold"/>
+							</Column>
+						</columns>
+
+						<items >
+
+							<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+									<Text text="1001500001" ></Text>
+									<Text text=" Scope and Charges Form Review"></Text>
+									<Text text=" P1123-Rahul"></Text>
+									<Button text="Nominate" width="100px" press="nominate" type='Emphasized' />
+								</cells>
+							</ColumnListItem>
+
+
+						</items>
+					</Table>
+
+			</Panel>
+</Page>
+</core:View>

@@ -1,0 +1,63 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:l="sap.ui.layout" xmlns:commons="sap.ui.commons"
+	controllerName="corelabs.Registration" xmlns:html="http://www.w3.org/1999/xhtml">
+		<Page showHeader="false" class="pageClass" >
+		 <Panel headerText="Update Profile"  expandable="false" class="panelH panelCSS1">
+				
+				<l:Grid defaultSpan="L3 M3 S12">
+		    	<Label text="First Name" class="gridLblClass_ash" required="true" />
+		    	<Input type="Text" class="tooltip" value='{userData>/firstNm}' tooltip='{userData>/firstNm}' editable="false" maxLength="50" />
+		    	
+		    	<Label text="Last Name" class="gridLblClass_ash" required="true" />
+		    	<Input type="Text" class="tooltip" value='{userData>/lastNm}' tooltip='{userData>/lastNm}' editable="false" maxLength="50" />
+		    	
+		    	<Label text="Type of Organization" class="gridLblClass_ash" required="true" />
+		    	<commons:ComboBox id="too" width="100%" value='{userData>/orgTypeNm}' items="{orgTypeModel>/organizationDto}" placeholder="Select Organization" selectionChange="enableUpdateBtn" enabled="false">
+						<core:ListItem key="{orgTypeModel>orgId}" text="{orgTypeModel>orgName}" />
+				</commons:ComboBox>
+		    	<Label text="Position" class="gridLblClass_ash" />
+		    	<Input type="Text" value='{userData>/position}'  maxLength="40" change="nameValidate"/>
+		    	
+		    	<Label text="Organization Name"  class="gridLblClass_ash" required="true"/>
+		    	<Input type="Text" class="tooltip" value='{userData>/orgNm}' tooltip='{userData>/orgNm}' editable="false" maxLength="50" change="nameValidate"/>
+		    	
+		    	<Label text="KAUST Research Park Tenant"  class="gridLblClass_ash" />
+		    	<CheckBox id="iskrpt"  select="enableUpdateBtn" enabled="false"/>
+						    	
+		    	<Label text="Department" class="gridLblClass_ash" />
+		    	<Input type="Text" value='{userData>/deptNm}' maxLength="50" change="nameValidate"/>
+		    	
+		    	<Label text="Telephone" class="gridLblClass_ash" required="true" />
+		    	<Input type="Text" value='{userData>/telephone}' maxLength="20" change="teleValidate"/>
+		    	
+		    	<Label text="Address" class="gridLblClass_ash" required="true" />
+		    	<TextArea id="reqAddr" rows="2" width="95%" maxLength="255" change="addressValidate"/>
+		    	
+		    	<Label text="Country" class="gridLblClass_ash" required="true" />
+		    	<commons:ComboBox id='country' value='{userData>/countryNm}' width="100%" items="{oCountryJsonModel>/d/results}" maxPopupItems="12" liveChange="enableUpdateBtn">
+					<core:ListItem  key="{oCountryJsonModel>LAND1}" text="{oCountryJsonModel>LANDX}"/>
+				</commons:ComboBox>
+				</l:Grid>
+				
+				<l:Grid defaultSpan="L3 M3 S12">					
+		    	<Label text="Post Code"  class="gridLblClass_ash" />
+		    	<Input type="Text" value='{userData>/postCode}' maxLength="10" change="numberValidate"/>
+		    	
+		    	<Label text="Email" class="gridLblClass_ash" required="true" />
+		    	<Input type="Text" class="tooltip" value='{userData>/emailId}' tooltip='{userData>/emailId}' editable="false"  maxLength="70"/>
+		    	
+		    	<Label text="Authorized Person Required?" class="gridLblClass_ash" />
+		    	<CheckBox id="isapinfo"  selected="{userData>/isAuthPersonReqd}" select="isAuthPer" enabled="false"/>
+		    	
+		    	<Label text="Authorized Person Name"  class="gridLblClass_ash" />
+		    	<Input id="apname" class="tooltip" type="Text" value='{userData>/authPersonNm}' tooltip='{userData>/authPersonNm}' editable="false"  maxLength="70"/>
+				
+				<Label text="Authorized Person Email"  class="gridLblClass_ash" />
+		    	<Input id="apemail" class="tooltip" type="Text" value='{userData>/authPersonEmailId}' tooltip='{userData>/authPersonEmailId}' editable="false" maxLength="70" change="validateAuthPerEmail" />
+		    	</l:Grid>
+		    	
+			    <HBox justifyContent="End" >
+					<Button id="updateBtn" text="Update Profile" type="Emphasized"  press="validateAll" enabled="false"></Button>
+				</HBox>	
+		   </Panel>
+		</Page>
+</core:View>

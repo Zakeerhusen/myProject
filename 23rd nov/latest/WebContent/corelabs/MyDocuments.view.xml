@@ -1,0 +1,64 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns:z="sap.ui.commons" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+xmlns:u="sap.ui.unified" 
+		controllerName="corelabs.MyDocuments" xmlns:html="http://www.w3.org/1999/xhtml">
+<Page showHeader="false" class="pageBackground" >
+	<Panel class="BoxClassMargin">
+	<HBox >
+		<Text text="My Documents" class="mainTitle" />
+	</HBox>
+		<layout:Grid defaultSpan="L4 M4 S12" class="sapUiTinyMargin">
+					<u:FileUploader id="fileUploaderMyDoc" 
+									name="myFileUpload"
+									uploadUrl="/files/upload" 
+									tooltip="Upload your file" 
+									width="100%"
+									uploadComplete="handleUploadComplete" 
+									buttonText="Browse" />
+					<HBox>	
+					<z:Button id="uploadBtn" text="Upload" width="70px" press="handleUploadPress"
+							style="Default" class="upload_button" height="1.4rem" />
+					<Button id="removeBtn" 
+							icon="sap-icon://delete" 
+							text="Remove" 
+							press="removeFromTable" 
+							type="Reject" 
+							visible="false"/>
+					</HBox>
+				<SearchField placeholder="Search" width="100%" liveChange="filterGlobally" maxLength ="50">
+				</SearchField>
+			</layout:Grid>
+			
+					<Table id="docTable"  items="{myDocModel>/documentManagerDtoList}">
+						<columns>
+							<Column width="15%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="SL No."  class="font_size_table"/>
+							</Column>
+							<Column width="55%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Document Name"  class="font_size_table"/>
+							</Column>
+							<Column width="15%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Created By"  class="font_size_table"/>
+							</Column>
+							<Column width="15%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+								<Text text="Created On"  class="font_size_table" />
+							</Column>
+							<!--<Column >
+								<Label text="RFS No." />
+							</Column>
+						--></columns>
+
+						<items >
+							<ColumnListItem type="Inactive" class="textalignNew" selected="{myDocModel>delFlag}">
+								<cells >
+									<Text text="{myDocModel>slno}" ></Text>
+									<Link text="{myDocModel>fileName}" tooltip="{myDocModel>fileName}" href="{myDocModel>filePath}"></Link>
+									<Text text="{myDocModel>createdBy}" ></Text>
+									<Text text="{myDocModel>createdDateValue}"></Text>
+									<!--<Text text="{myDocModel>operationName}"></Text>
+								--></cells>
+							</ColumnListItem>
+						</items>
+					</Table>
+		</Panel>
+	</Page>
+</core:View>

@@ -1,0 +1,70 @@
+{
+		
+		
+		"data":[{ "Lab":"ACL", "Status" : "Full Service","Count" : "60", "UserType":"KAUST"},
+	{ "Lab":"ACL", "Status" : "Training","Count" : "160","UserType":"KAUST"},
+	{ "Lab":"ACL", "Status" : "Independent","Count" : "30","UserType":"KAUST"},
+	
+	{ "Lab":"ACL", "Status" : "Full Service","Count" : "30","UserType":"Non-KAUST"},
+	{ "Lab":"ACL", "Status" : "Training","Count" : "80","UserType":"Non-KAUST"},
+	{ "Lab":"ACL", "Status" : "Independent","Count" : "70","UserType":"Non-KAUST"},
+	
+	{ "Lab":"ACL", "Status" : "Full Service","Count" : "90","UserType":"All"},
+	{ "Lab":"ACL", "Status" : "Training","Count" : "240","UserType":"All"},
+	{ "Lab":"ACL", "Status" : "Independent","Count" : "100","UserType":"All"},
+	
+	
+	{ "Lab":"BCL", "Status" : "Full Service","Count" : "25","UserType":"KAUST"},
+	{ "Lab":"BCL", "Status" : "Training","Count" : "120","UserType":"KAUST"},
+	{ "Lab":"BCL", "Status" : "Independent","Count" : "50","UserType":"KAUST"},
+	
+	{ "Lab":"BCL", "Status" : "Full Service","Count" : "125","UserType":"Non-KAUST"},
+	{ "Lab":"BCL", "Status" : "Training","Count" : "20","UserType":"Non-KAUST"},
+	{ "Lab":"BCL", "Status" : "Independent","Count" : "150","UserType":"Non-KAUST"},
+	
+	{ "Lab":"BCL", "Status" : "Full Service","Count" : "150","UserType":"All"},
+	{ "Lab":"BCL", "Status" : "Training","Count" : "140","UserType":"All"},
+	{ "Lab":"BCL", "Status" : "Independent","Count" : "200","UserType":"All"},
+	
+	
+	{ "Lab":"IAC", "Status" : "Full Service","Count" : "75","UserType":"KAUST"},
+	{ "Lab":"IAC", "Status" : "Training","Count" : "80","UserType":"KAUST"},
+	{ "Lab":"IAC", "Status" : "Independent","Count" : "30","UserType":"KAUST"},
+	
+	{ "Lab":"IAC", "Status" : "Full Service","Count" : "35","UserType":"Non-KAUST"},
+	{ "Lab":"IAC", "Status" : "Training","Count" : "50","UserType":"Non-KAUST"},
+	{ "Lab":"IAC", "Status" : "Independent","Count" : "90","UserType":"Non-KAUST"},
+	
+	{ "Lab":"IAC", "Status" : "Full Service","Count" : "110","UserType":"All"},
+	{ "Lab":"IAC", "Status" : "Training","Count" : "130","UserType":"All"},
+	{ "Lab":"IAC", "Status" : "Independent","Count" : "120","UserType":"All"},
+	
+	
+	{ "Lab":"NANOFAB", "Status" : "Full Service","Count" : "40","UserType":"KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "Training","Count" : "80","UserType":"KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "Independent","Count" : "60","UserType":"KAUST"},
+	
+	{ "Lab":"NANOFAB", "Status" : "Full Service","Count" : "140","UserType":"Non-KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "Training","Count" : "60","UserType":"Non-KAUST"},
+	{ "Lab":"NANOFAB", "Status" : "Independent","Count" : "20","UserType":"Non-KAUST"},
+	
+	{ "Lab":"NANOFAB", "Status" : "Full Service","Count" : "180","UserType":"All"},
+	{ "Lab":"NANOFAB", "Status" : "Training","Count" : "140","UserType":"All"},
+	{ "Lab":"NANOFAB", "Status" : "Independent","Count" : "80","UserType":"All"},
+	
+	
+	{ "Lab":"CW", "Status" : "Full Service","Count" : "90","UserType":"KAUST"},
+	{ "Lab":"CW", "Status" : "Training","Count" : "200","UserType":"KAUST"},
+	{ "Lab":"CW", "Status" : "Independent","Count" : "20","UserType":"KAUST"},
+	
+	{ "Lab":"CW", "Status" : "Full Service","Count" : "60","UserType":"Non-KAUST"},
+	{ "Lab":"CW", "Status" : "Training","Count" : "20","UserType":"Non-KAUST"},
+	{ "Lab":"CW", "Status" : "Independent","Count" : "30","UserType":"Non-KAUST"},
+	
+	{ "Lab":"CW", "Status" : "Full Service","Count" : "150","UserType":"All"},
+	{ "Lab":"CW", "Status" : "Training","Count" : "220","UserType":"All"},
+	{ "Lab":"CW", "Status" : "Independent","Count" : "50","UserType":"All"}
+		
+		]
+}
+		

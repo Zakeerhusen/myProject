@@ -1,0 +1,74 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+		controllerName="corelabs.PI_Approver_List" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground">
+
+				<HBox >
+					<Text text="PI Approved Users" class="mainTitle" />
+				</HBox>
+
+			<layout:Grid defaultSpan="L4 M4 S12"  position="Left" class="noPadding">
+				<layout:content>
+						<HBox alignItems="Center" >
+							<Label text="PI Name"  class="gridLblClass"/>
+							<Input id="piname" placeholder="Enter atleast 4 characters"
+								showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+								suggestionItemSelected="itemSelected" class="leftMargin" >
+								<suggestionItems>
+									<core:ListItem text="{userSearchModel>displayNm}"
+										additionalText="{userSearchModel>userId}" />
+								</suggestionItems>
+							</Input>
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="Date Range"  class="gridLblClass"/>
+							<DateRangeSelection id="dateRange" displayFormat="dd/MM/yyyy" class="leftMargin"/>
+						</HBox>
+				</layout:content>
+			</layout:Grid>
+
+			<HBox justifyContent="End" width="85%">
+				<Button text="Search" icon="sap-icon://search" width="100px" class="taskMgmtSerach" press="onPress" type="Emphasized" />
+				<Label text="" width="10px"/>
+				<Button text="Clear" width="100px" press="onClear" type="Emphasized" class="marginLeftPIList"/>
+			</HBox>
+			
+			<Panel>
+					<Table inset="false" noDataText="No Data" class="ssdTable grayTable" items="{oPIApprovalListJsonModel>/piApprovalDto}">
+
+						<columns>
+							<Column width="20%" demandPopin="true" minScreenWidth="Tablet">
+								<Label text="User ID" design="Bold"/>
+							</Column>
+							<Column width="60%" demandPopin="true" minScreenWidth="Tablet">
+								<Label text="User Name" design="Bold"/>
+							</Column>
+						</columns>
+
+						<items >
+							<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+									<Text text="{oPIApprovalListJsonModel>userId}" ></Text>
+									<Text text="{oPIApprovalListJsonModel>userName}"></Text>
+								</cells>
+							</ColumnListItem>
+							<!--<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+									<Text text="brahul@kaust.com" ></Text>
+									<Text text="Rahul"></Text>
+								</cells>
+							</ColumnListItem>
+							
+							<ColumnListItem type="Inactive" class="textalign">
+								<cells >
+								<Text text="gzakeer@kaust.com" ></Text>
+								<Text text="Zakeer"></Text>
+								</cells>
+							</ColumnListItem>-->
+							
+						</items>
+					</Table>
+
+			</Panel>
+			
+	</Page>
+</core:View>

@@ -1,0 +1,70 @@
+<core:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m" xmlns:table="sap.ui.table" xmlns:layout="sap.ui.layout" class="sapUiSizeCompact"
+	controllerName="corelabs.PIApprovalRequest" xmlns:html="http://www.w3.org/1999/xhtml">
+	<Page showHeader="false" class="pageBackground">
+		<content>
+			<VBox class="BoxClassMargin BoxClassPadding">
+				<HBox >
+					<Text text="Request For PI Approval" class="mainTitle" />
+				</HBox>
+				<HBox>
+					<Table id='idPITable' class="ssdTable" selectionChange="selectionChange" mode="MultiSelect">
+									<headerToolbar>
+										<Toolbar>
+											<Button text="Add" width="100px" icon="sap-icon://add" type='Emphasized'
+												press='add' />
+											<Button text="Remove" width="106px" icon="sap-icon://delete" type='Reject'
+												press='deleteRule' />
+										</Toolbar>
+									</headerToolbar>
+									<columns>
+									    <Column visible="false" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+											<Text text="NO" />
+										</Column>
+										<Column width="10%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+											<Text text="PI ID" class="font_size_table"/>
+										</Column>
+										<Column width="22%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+											<Text text="PI Name" class="font_size_table"/>
+										</Column>
+										<Column width="20%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+											<Text text="Email Address" class="font_size_table"/>
+										</Column>
+										<Column width="17%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+											<Text text="Division" class="font_size_table"/>
+										</Column>
+										<Column width="15%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+											<Text text="Center" class="font_size_table"/>
+										</Column>
+										<Column  width="16%" hAlign="Left" demandPopin="true" minScreenWidth="Tablet">
+											<Text text="Date" class="font_size_table"/>
+										</Column>
+									</columns>
+									<items>
+										<ColumnListItem type="Inactive">
+											<cells >
+											    <Input value='' visible="false"></Input>
+												<Input enabled='false' class="piReqTblCell"></Input>
+												 <Input id="suggetItems" class="piReqTblCell" placeholder="Enter atleast 4 characters" maxLength="50" change="onNameChange"
+										showSuggestion="true" suggest="handleSuggest" suggestionItems="{userSearchModel>/userDtos}"
+										suggestionItemSelected="itemSelected" liveChange="itemDel" filterSuggests="false">
+										<suggestionItems>
+											<core:ListItem text="{userSearchModel>displayNm}" additionalText="{userSearchModel>userId}"/>
+										</suggestionItems>
+										</Input>
+												<Input editable='false'  class="piReqTblCell tooltip tooltipFontColor" ></Input>
+												<Input editable='false'  class="piReqTblCell tooltip tooltipFontColor" ></Input>
+												<Input editable='false' class="piReqTblCell tooltip tooltipFontColor"></Input>
+												<DatePicker id="DP" dateValue="{path:'dateModel>/dateValue'}" displayFormat="dd/MM/yyyy"  change="handleChange" class="piReqTblCell" enabled="false"/>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+				</HBox>
+				<HBox justifyContent="End">
+					<Button id="piSubmitBtn" text="Submit" width="100px" type="Emphasized" press="validatePIRequest" class="piReqSubmitBtn"/>
+				</HBox>
+			</VBox>
+		</content>
+	</Page>
+</core:View>

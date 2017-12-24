@@ -1,0 +1,276 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:layout="sap.ui.layout" xmlns:u="sap.ui.unified" xmlns:z="sap.ui.commons"
+		controllerName="corelabs.FullServiceAnalysisReport" xmlns:html="http://www.w3.org/1999/xhtml">
+		<Panel class="pageBackground">
+			<content>
+					<HBox class="detailHdngHBox" width="100%">
+						<Text text="Core Laboratory Full Service Report" class="mainTitle" />
+					</HBox>
+					<layout:Grid defaultSpan="L4 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+						<!--<HBox>
+								<Text text="Date" class="gridReportLbl" />
+							<Text id="repDp" text="{path:'dateModel>/dateValue', type:'sap.ui.model.type.Date'}"  width="85%" />
+							<Text id="repDp" text="{path:'dateModel>/dateValue',type:'sap.ui.model.type.Date', displayFormat:'dd/MM/yyyy'}" />
+							
+							</HBox>
+							-->
+							<HBox>
+								<Text text="Report Number" class="gridReportLbl" />
+								<Input id="repNo" type="Text" class="gridFldClass gridInput" enabled="false"
+									maxLength="10" />
+							</HBox>
+							<HBox>
+								<Text text="RFS Number" class="gridReportLbl" />
+								<Input id="repRfsNo" type="Text" class="gridFldClass gridInput" enabled="false"
+									maxLength="10" />
+							</HBox></layout:content></layout:Grid>
+							
+					<HBox class="detailHdngHBox" width="100%">
+						<Text text="Requester Details" class="detailHdng" />
+					</HBox>
+					<layout:Grid defaultSpan="L4 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+							<HBox>
+								<Text text="First Name" class="gridReportLbl" />
+								<Input id="repfname" type="Text" class="gridFldClass gridInput" enabled="false"
+									value="{reportRequesterModel>/firstNm}" maxLength="20" />
+							</HBox>
+							<HBox>
+								<Text text="Last Name" class="gridReportLbl" />
+								<Input id="replname" type="Text" class="gridFldClass gridInput" enabled="false"
+									value="{reportRequesterModel>/lastNm}" maxLength="20" />
+							</HBox>
+							<HBox>
+								<Text text="Kaust Id" class="gridReportLbl" />
+								<Input id="repKaustId" type="Text" class="gridFldClass gridInput"
+									value="{reportRequesterModel>/kaustId}" maxLength="10" enabled="false"/>
+							</HBox>
+							<HBox>
+								<Text text="Department" class="gridReportLbl" />
+								<Input id="repdept" type="Text" class="gridFldClass gridInput"
+									maxLength="20" value="{reportRequesterModel>/deptNm}" enabled="false"/>
+							</HBox>
+							<HBox>
+								<Text text="Telephone" class="gridReportLbl" />
+								<Input id="repTel" type="Text" class="gridFldClass gridInput"
+									maxLength="15" value="{reportRequesterModel>/telephone}" enabled="false"/>
+							</HBox>
+							<HBox>
+								<Text text="Email" class="gridReportLbl" />
+								<Input id="repEmail" type="Text" class="gridFldClass gridInput tooltip"
+									value="{reportRequesterModel>/emailId}" tooltip="{reportRequesterModel>/emailId}" maxLength="20" editable="false"/>
+							</HBox>
+							
+							<HBox>
+								<Text text="Prepared by" class="gridReportLbl" />
+								<Input id="repPreparedBy" rows="2" cols="21" class="gridFldClass gridInput"
+									maxLength="20" enabled="false"/>
+							</HBox>
+							</layout:content></layout:Grid>
+							
+<!--							<VBox id="nonInternal">-->
+							<layout:Grid id="nonInternal" defaultSpan="L4 M6 S12" vSpacing="0"
+							class="gridClass">
+							<layout:content>
+							<HBox>
+								<Text text="Organization Name" class="gridReportLbl" />
+								<ComboBox id="repOrgNm" maxWidth="80%" value="{reportRequesterModel>/orgNm}" enabled="false">
+								</ComboBox>
+							</HBox>
+							<HBox>
+								<Text text="Country" class="gridReportLbl" />
+								<Input id="repCountry" value="{reportRequesterModel>/countryNm}" type="Text"  class="gridFldClass gridInput" enabled="false"/>
+							</HBox>
+							<HBox>
+								<Text text="Address" class="gridReportLbl" />
+								<Input id="repAddr" value="{reportRequesterModel>/address}" tooltip="{reportRequesterModel>/address}" type="Text" class="gridFldClass gridInput tooltip"
+									maxLength="250" editable="false"/>
+							</HBox>
+							<HBox>
+								<Text text="PostCode" class="gridReportLbl" />
+								<Input id="repPostcode" value="{reportRequesterModel>/postCode}" type="Text" class="gridFldClass gridInput"
+									maxLength="10" enabled="false"/>
+							</HBox>
+							<HBox>
+								<Text text="KAUST Customer Account Number" class="gridReportLbl" />
+								<Input id="repKaustAccNo" type="Text" class="gridFldClass gridInput"
+									maxLength="20" value="{oDBModel>/requestHeaderDto/custAcNo}" enabled="false"/>
+							</HBox>
+							</layout:content>
+							</layout:Grid>
+<!--							</VBox>-->
+							
+					<VBox id="reportSec">	
+					<HBox class="detailHdngHBox" width="100%">
+						<Text text="Service Summary" class="detailHdng" />
+					</HBox>
+					<HBox>
+						<Text text="Number of samples" class="gridReportLbl userTypeDB" width="10em"/>
+						<Input id="repNoOfSam" type="Text"  class="gridFldClass gridInput" enabled="false"/>
+					</HBox>
+					<layout:Grid defaultSpan="L12 M12 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+							
+							<VBox>
+								<Text text="Samples/data specifications" class="gridReportLbl" width="20em"/>
+								<TextArea id="repSamDataSpec" rows="2" width="95%" class="gridFldClass gridInput"/>
+								<Text text="Service scope" class="gridReportLbl" width="20em"/>
+								<TextArea id="repSerScope" rows="2" width="95%" class="gridFldClass gridInput"/>
+							
+							<VBox id="analysisRep">
+								<Text text="Samples" class="gridReportLbl" width="20em"/>
+								<TextArea id="repSam" rows="2" width="95%" class="gridFldClass gridInput" placeholder="Specify samples received: including date, packaging, specifications and state if sample preparation is required"/>
+								<Text text="Summary of Analytical Method" class="gridReportLbl" width="20em" />
+								<TextArea id="repSummOfAnalMthd" rows="2" width="95%" class="gridFldClass gridInput" placeholder="Enter text"/>
+								<Text text="Results" class="gridReportLbl" width="20em"/>
+								<TextArea id="repResults" rows="2"  width="95%" class="gridFldClass gridInput" placeholder="Enter text"/>
+							
+							</VBox>
+							</VBox>
+							<VBox id="rawRep" visible= "false">
+								<Text text="Brief on instrument and method applied" class="gridReportLbl" width="25em"/>
+								<TextArea id="repInstMthdAppld" rows="4" width="95%"  class="gridFldClass gridInput"/>
+							</VBox>
+							</layout:content>
+					</layout:Grid>
+						
+						<HBox class="upload_margin_top">
+											<Text text="Upload any necessary documents" class="uploadSAS gridReportLbl" width="18em"/>
+											<u:FileUploader id="fileUploader" name="myFileUpload"
+												uploadUrl="/files/upload" width="400px"
+												tooltip="Upload your file"
+												uploadComplete="handleUploadComplete" enabled="false">
+											</u:FileUploader>
+											<Label text="" width="4px"></Label>
+											<z:Button id="repFileUpBtn" text="Upload" width="70px" press="handleUploadPress"
+												style="Default" class="upload_button" height="1.4rem" enabled="false"/>
+							</HBox>
+							<HBox id="sasUpload">
+											<Table id="idMyAttchmentTbl" class="margnLeft"
+												items="{reportDocModel>/documentManagerDtoList}" inset="true"
+												width="100%">
+												<columns>
+													<Column>
+														<Label text="SL No." design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Document Name" design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Created By" design="Bold" />
+													</Column>
+													<Column>
+														<Label text="Created On" design="Bold" />
+													</Column>
+												</columns>
+
+												<items>
+
+													<ColumnListItem type="Inactive" class="textalign"
+														selected="{reportDocModel>delFlag}">
+														<cells>
+															<Text text="{reportDocModel>slno}"></Text>
+															<Link text="{reportDocModel>fileName}" tooltip="{reportDocModel>fileName}" href="{reportDocModel>filePath}"></Link>
+															<Text text="{reportDocModel>createdBy}"></Text>
+															<Text text="{reportDocModel>createdDateValue}"></Text>
+															<!--<Text text="{serviceDocModel>operationName}"></Text>
+														--></cells>
+													</ColumnListItem>
+											</items>
+								</Table>
+							</HBox>
+							<!--<HBox>
+								<Text text="Approved by Core Lab Director" class="gridReportLbl" />
+								<Input id="repApprByDir" type="Text"  class="gridFldClass gridInput" enabled="false"/>
+							</HBox>
+							-->
+							
+							<HBox id="repDirSec">
+								<Label text="Approved by Core Lab Director" class="alignLabSelect"/>
+								<TextArea id="repApprByDir" enabled="false"  width="15em" class="sHeading"/>
+							</HBox>
+							
+					</VBox>
+					<VBox id="reqAcceptanceSec" visible="false">		
+					<HBox class="detailHdngHBox" width="100%">
+						<Text text="Result Acceptance by Requester" class="detailHdng" />
+					</HBox>
+							
+					<!--<layout:Grid defaultSpan="L6 M6 S12" vSpacing="0"
+						class="gridClass">
+						<layout:content>
+						    --><HBox>
+								<Text text="Comments" class="gridReportLbl" />
+								<TextArea id="reqRepComments" width="41rem" rows="2" cols="28" maxLength="499" enabled="false"/>
+							</HBox><!--
+						    </layout:content>
+						    </layout:Grid>		
+						--><HBox>
+						    <Text text="Disclaimer: This report requires the Requestor's acceptance. If the Requestor does not respond within 7 days following the receipt of this report, the report is deemed satisfactory and, hence, final."></Text>
+						</HBox>
+					</VBox>
+					
+					<VBox id="reqFeedSec" visible="false">	
+					<HBox class="detailHdngHBox">
+						<Text text="Requester feedback" class="detailHdng" />
+					</HBox>
+					
+					<!--<layout:Grid defaultSpan="L6 M6 S12" width="70%"
+						vSpacing="0" class="gridClass">
+						<layout:content>
+							--><HBox>
+								<Text text="Service Quality Rating" class="gridReportLbl" />
+								<RadioButtonGroup id="feedRadioBtn" enabled="false" columns="5">
+												<buttons>
+													<RadioButton text="Excellent" />
+													<RadioButton text="Good" />
+													<RadioButton text="Average" />
+													<RadioButton text="Poor" />
+												</buttons>
+											</RadioButtonGroup>
+							</HBox>
+							<HBox>
+								<Text text="Comments" class="gridReportLbl" />
+								<TextArea id="feedComm" rows="2" cols="28" width ="41rem" maxLength="499" enabled="false"/>
+							</HBox>
+						<!--</layout:content>
+					</layout:Grid>	
+					--></VBox>	
+					
+				<HBox id="rqFeedsubmit" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Submit" width="100px" type="Accept" press="rqFeedSub" />
+				</HBox>
+				
+				<HBox id="lmFrfs" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Required Sample/Design" width="250px" type="Emphasized" press="lmFulfilRfsSamReqd"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Submit" width="100px" type="Accept" press="lmFulfilWip" />
+				</HBox>
+				
+				<HBox id="lmFrfsSub" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Submit" width="100px" type="Accept" press="lmFulfilWip" />
+				</HBox>
+						
+				<HBox id="rtRepAcceptance" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button  text="Query" type="Reject" press="rqRepRej"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Accept" width="100px" type="Accept" press="rqRepAcceptance" />
+				</HBox>
+				<HBox id="lmRfsClosure" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button id="retSamBtn" text="Return Sample" type="Emphasized" press="lmRfsCloseSamReqToRet" visible="false"/>
+				    <Label text=""     width= "10px"/>
+				    <Button text="Close RFS" width="100px" type="Accept" press="lmRfsCloseSub" />
+				</HBox>
+				
+				<HBox id="lmSamReturn" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Submit" width="100px" type="Accept" press="lmSamRetSub" />
+				</HBox>
+				<HBox id="clcInvoice" alignItems="End" justifyContent="End" class="marginHboxActionBtns" visible="false">
+				    <Button text="Submit" width="100px" type="Accept" press="clcInvoiceSub" />
+				</HBox>
+			</content>
+		</Panel>
+</mvc:View>

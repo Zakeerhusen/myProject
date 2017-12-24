@@ -1,0 +1,38 @@
+{
+"items2":[
+{
+"Item2":"Request review",
+"Hours2" :"", 
+"unitprice2" :"",
+"subtotal2" : ""
+},
+{
+"Item2":"Sample preparation",
+"Hours2" : "",
+"unitprice2" :"",
+"subtotal2" : ""
+},
+
+{
+"Item2":"Equipment set up",
+"Hours2" : "",
+"unitprice2" :"",
+"subtotal2" : ""
+},
+
+{
+"Item2":"Measurement",
+"Hours2" : "",
+"unitprice2" :"",
+"subtotal2" : ""
+},
+
+{
+"Item2":"Analysis and reporting",
+"Hours2" : "",
+"unitprice2" :"",
+"subtotal2" : ""
+}
+
+]
+} 

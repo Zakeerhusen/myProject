@@ -1,0 +1,1096 @@
+.pageBackground {
+	/*background-color: #F0F0F0; */
+	 background-color: white; 
+	
+}
+
+.rfsTitle{
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+font-size: 15px !important;
+color: #1875D1 !important;
+   font-weight: bold !important;
+  
+}
+
+.mainTitle {
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	width: 25rem;
+	padding-left: 1%;
+   /* margin-bottom: 2%; */
+    color: #1875D1;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.mainTitle_ash {
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 17px;
+	
+	/* padding-left: 1%;
+    margin-bottom: 2%; */
+    color: #1875D1;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.detailHdngHBox {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.detailHdng.sapMText {
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: normal;
+	padding-bottom: 3%;
+	font-size: 15px;
+	color: #1875D1;
+	margin-top: 5%;
+	width: 15rem;
+	margin-left: -6%;
+	font-weight: bold;
+}
+.detailHdng_sahu.sapMText {
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: normal;
+	
+	font-size: 15px;
+	color: #1875D1;
+	
+	width: 15rem;
+	
+	font-weight: bold;
+}
+
+.detailHdng_1.sapMText {
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: normal;
+	padding-bottom: 3%;
+	font-size: 15px;
+	color: #1875D1;
+	margin-top: 5%;
+	width: 15rem;
+	/*margin-left: -6%;*/
+	font-weight: bold;
+}
+.detailHdng1.sapMText {
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: normal;
+	padding-bottom: 3%;
+	font-size: 15px;
+	color: brown;
+	margin-top: 20%;
+	width: 15rem;
+	margin-left: -6%;
+	font-weight: bold;
+}
+.detailHdng2.sapMText {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: normal;
+    padding-bottom: 3%;
+    font-size: 15px;
+    color: black;
+   /* margin-top: 9%; */
+    width: 3rem;
+    margin-left: 12%;
+    font-weight: normal;
+}
+
+.detailHdng3.sapMText {
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: normal;
+    padding-bottom: 3%;
+    font-size: 15px;
+    color: black;
+   /* margin-top: 5%; */
+    width: 12rem;
+    margin-left: 3%;
+    font-weight: normal;
+}
+
+.detailHdng2_ash.sapMText {
+   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   line-height: normal;
+   padding-bottom: 3%;
+   font-size: 15px;
+   color: black;
+  /* margin-top: 9%; 
+   width: 3rem;
+   margin-left: 12%;*/
+   font-weight: normal;
+}
+
+.detailHdng3_ash.sapMText {
+   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   line-height: normal;
+ /*  padding-bottom: 3%; */
+   font-size: 15px;
+   color: black;
+  /* margin-top: 5%; 
+   width: 12rem;
+   margin-left: 3%;*/
+   font-weight: normal;
+}
+
+.labMainTitle > .sapUiFormResGrid > .sapUiFormResGridCont  > .sapUiFormResGridLbl  > label{
+			font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+			font-size: 13px !important;
+		    color: #1875D1 !important;
+		    font-weight: bold !important;
+		     margin-top: 10px;
+		}
+		
+.gridLblClass {
+	width: 8em;
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #565454;
+	/*margin-top: 18px; */
+	/*    margin-left: 2px;*/
+	padding-top:0.45rem;
+}
+/* for ipad 21st Nov */
+.gridLblClass_ash {
+	/*width: 8em;*/
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #565454;
+	/*margin-top: 18px; */
+	/*    margin-left: 2px;
+	padding-top:0.45rem;*/
+}
+
+.font_size_table{
+font-weight:bold !important;
+font-size: 14px !important;
+}
+
+/* ----------------*/
+
+.ssdTable .sapMListTbl th {
+	background: #fff !important;
+	font-weight: bold !important;
+}
+
+.ssdTable {
+	width: 100% !important;
+	/*box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24); */
+	padding: 15px !important;
+	background: #fff;
+}
+
+/** Added By Sharique **/
+.servieAreaLblClass{
+	margin-left: -6px !important;	
+}
+
+.newRFSLblClass{
+	margin-left: 5px !important;
+   /* width: 7.6em !important; */
+}
+
+.dashboardLblClass{
+	margin-left: 0px !important;
+}
+
+.userIdLblClass{
+	margin-top: 2px !important;
+}
+
+.taskMgmtHdrLblClass{
+	margin-top: 7px !important;
+}
+
+.sapMBtnIcon{
+	margin-left: 8px !important;
+}
+
+.myDocFUClass .sapUiBtnS{
+	height: 1.625rem !important;
+    min-width: 2.0rem;
+    padding: 0 0.4375rem;
+}
+
+.myDocFUClass .sapUiTf{
+	height: 1.625rem !important;
+    min-width: 2.0rem;
+    padding: 0 0.4375rem;
+}
+
+.BoxClassPadding{
+	/*padding: 1rem !important;*/
+}
+/** Added By Sharique Till Here**/
+
+.BoxClassMargin{
+	/*background: #fff;
+	margin-bottom: 2px;
+	margin-right: 10px;
+	margin-left: 2px;
+	margin-top: 2px;
+	box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);*/
+}
+.ssdTable .sapMListTbl .sapMText {
+	/*font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	font-weight: 400;
+	font-size: 0.75rem;*/
+}
+.ssdTable .sapMListTblCell{
+	padding: 1px;
+}
+.whiteBar.sapMBar {
+	width: 96% !important;
+    height: 3rem;
+    line-height: 3rem;
+    color: #666666;
+    background-color: white;
+    text-shadow: 0 0.0625rem 0 rgba(255,255,255,0.5);
+    -webkit-box-shadow: inset 0 -0.0625rem #dddddd;
+    box-shadow: inset 0 -0.0625rem #dddddd;
+}
+.grayTable tbody tr:nth-child(odd) {
+	background-color: rgba(226, 226, 226, 0.29) !important;
+	/*font-family: Open Sans !important;*/
+}
+
+.iconTabHeader div.sapMITBHead {
+	display: block;
+	font-size: 0.75rem;
+	margin: 0rem 0rem 0 0rem;
+	overflow: hidden;
+	padding: 1px 1px 0 0px;
+	position: relative;
+	white-space: nowrap;
+	border-radius: 0rem;
+	/*background-color: rgba(156, 156, 156, 0.21);*/
+	font-weight: bold;
+}
+
+.processFlowBar div.sapMITBHead {
+    display: block;
+    font-size: 0.75rem;
+  /*  margin: 0.5rem 0rem 0px 1rem; */
+    overflow: hidden;
+    padding: 1px 1px 0 0px;
+    position: relative;
+    white-space: nowrap;
+    border-radius: 0rem;
+    /* background-color: rgba(156, 156, 156, 0.21); */
+    font-weight: bold;
+    /* color: #8F3939; */
+}
+.sapMSplitContainerHideMode>.sapMSplitContainerDetail .sapMITB.sapUiResponsiveContentPadding>.sapMITBContainerContent>.sapMITBContent, .sapMITB.sapUiResponsiveContentPadding>.sapMITBContainerContent>.sapMITBContent {
+    padding: 0rem 2rem;
+    box-sizing: border-box;
+}
+
+.gridClass {
+	margin-top: 10px;
+}
+
+
+.noteSize{
+	font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 11px;
+	}
+
+.gridFldClass {
+	/*margin-left: 10px; 
+	width: 94% !important;
+	 width: 13em ;
+	padding-left: 10px; */
+	border-radius: 3px;
+}
+
+.datePicker{
+	    margin-left: 20px !important;
+}
+
+.sapMShellBrandingBar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 4px;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+
+.marginHboxActionBtns{
+margin-bottom: -3px;
+}
+/*
+.sapMTB-Transparent-CTX.sapMTB {
+    padding-left: 51.5rem;
+}
+
+.sapMTB-Transparent-CTX.sapMTB .ssctoolbar{
+    padding-left: 39.5rem;
+}
+*/
+.sapMITBTextOnly .sapMITBFilterDefault.sapMITBSelected>.sapMITBText {
+    color: #8F3939;
+}
+
+.sapMITBContent {
+    background-color: #ffffff;
+    padding: 0 1rem 0rem;
+    position: relative;
+}
+
+.sapMITBSelected>.sapMITBContentArrow {
+    border-bottom-color: #8F3939;
+}
+
+.processFlowPanel .sapMPanelContent {
+    padding: 0rem;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.piReqSubmitBtn{
+    margin-right: 10px;
+}
+
+.dateSAS{
+	    margin-right: -52px;
+    margin-left: 45px;
+}
+
+.textAreaSAS{
+ margin-left: 16px;
+    width: 164px;
+}
+
+.uploadSAS{
+    margin-left: 0px;
+}
+
+.inputSS{
+    margin-top: 6px;
+    
+}
+
+.txtAreaSS{
+    margin-left: 25px;
+}
+
+.comboSD{
+    margin-left: 14px;
+    width: 220px;
+}
+.methodTxtSAS{
+    margin-left: -14px !important;
+}
+
+/* Report Dashboard */
+
+div[data-class='cssColorGrid1'] {
+    background-color: rgba(39, 143, 193, 0.88) !important;
+    border-radius: .5rem;
+    width: 99%;
+    border: 1px solid #ccc;
+}
+div[data-class='cssColorGrid2'] {
+    background-color: rgba(243, 107, 10, 0.81) !important;
+    border-radius: .4rem;
+    width: 99%;
+	border: 1px solid #ccc;
+	}
+
+div[data-class='cssColorGrid3'] {
+   background-color: rgba(19, 179, 16, 0.88) !important;
+    border-radius: .4rem;
+    width: 99%;
+	border: 1px solid #ccc;
+	}
+	
+	div[data-class='cssColorGrid4'] {
+    background-color: rgb(243, 10, 10) !important;
+    border-radius: .4rem;
+    width: 99%;
+	border: 1px solid #ccc;
+	}
+
+.cssInnerHBox{
+	padding: 0.5rem;
+	height: 4rem;
+}
+
+.countClass{
+	color: #fff;
+	font-size: 30px;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold !important;
+    
+}
+
+.tileTextClass{
+	color: #fff;
+	font-size: 14px;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.gridLbl1{
+	width: 11em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+/*font-weight: bold; */
+color: #565454;
+	}
+
+.gridLbl2{
+	width: 11em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+/*font-weight: bold;*/
+color: #565454;
+	}
+	
+.gridLbl3{
+	width: 11em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 14px;
+/*font-weight: bold;*/
+color: #565454;
+	}
+	
+.status{
+	margin-right: 50px;
+}
+	
+.gridLblClass1 {
+width: 3.5em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: #565454;
+margin-left: 13px;
+}
+
+.gridLblClass2 {
+width: 3.5em;
+    font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    color: #1875D1;
+    margin-right: 0px;
+   margin-left: 8px;
+}	
+
+.pnlC .sapMPanelContent {
+    padding: 0rem;
+    box-sizing: border-box;
+    overflow: auto;
+    background-color: white;
+}
+.panelHdng{
+font-size: 12px;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+/*font-weight: bold;
+color: brown;
+text-shadow: 0 0.0625rem 0 #ffffff; 
+background-color: F0F0F0;*/
+margin-left : 2.5rem;
+}
+.panelContent {
+    border-bottom: 1px solid #ffffff;
+    padding: 0rem;
+    background-color: white;
+}
+/*
+.comboClass {
+border-radius: 2px;
+padding-top: 12px;
+}
+
+.comboClass .sapMInputBaseInner {
+background-color: #ECE8E7;
+
+height: 1.5rem;
+border-radius: 3px;
+border: 1px solid #5c7ef8;
+}
+
+.comboClass .sapMInputValHelpInner {
+
+padding-top: 4px;
+}
+
+.comboClass .sapMComboBoxBaseArrow {
+
+margin-top: 1px;
+
+}
+
+.comboClass .sapMComboBoxBaseArrow:not(.sapMComboBoxBasePressed):hover {
+   
+   height: 25px;
+   margin-top: 7px;
+}
+*/
+.detailFromTo.sapMText {
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-weight: 200;
+line-height: normal;
+padding-bottom: 8%;
+font-size: 14px;
+color: brown;
+margin-top: 5%;
+width: 3rem;
+margin-left: 10%;
+font-weight: bold;
+}
+
+.blueButton div.sapMBtnInner {
+height: 1.5rem;
+min-width: 2.500rem;
+margin: 0;
+padding: 0;
+vertical-align: top;
+border: 1px solid #3AA6A5;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	font-weight: 400;
+font-size: 0.875rem;
+background-color: #3AA6A5;
+color: white;
+border-radius: 0.5rem;
+width: 6rem;
+opacity: 0.9;
+padding-left:5%;
+}
+
+.clearBtn div.sapMBtnInner {
+height: 1.5rem;
+min-width: 2.500rem;
+margin: 0;
+padding: 0;
+vertical-align: top;
+border: 1px solid #3AA6A5;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+ 	font-weight: 400;
+font-size: 0.875rem;
+background-color: #3AA6A5;
+color: white;
+border-radius: 0.5rem;
+width: 6rem;
+opacity: 0.9;
+padding-left:5%;
+padding-left:5%;
+	margin-left:40px;
+}
+
+.searchBtn{
+	margin-left:50px;
+	}
+	
+.clearReportBtn{
+	    margin-right: 16px;
+}	
+
+.sapUiRespGrid.sapUiRespGridVSpace1>div {
+     margin-bottom: 0rem !important; 
+}
+
+.userTypeDB{
+    margin-left: 19px;
+}
+.tileMargin{
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.sapMITBHorizontal.sapMITBFilter>.sapMITBHorizontalWrapper>.sapMITBCount {
+    max-width: 7.5rem;
+    display: block;
+    position: relative;
+    text-align: left;
+    padding-left: 0.25rem;
+    top: 1rem;
+}
+
+.mHeading
+{
+	margin-left:25px;
+	margin-top:15px;
+	font-weight:bold;
+	font-size:14px;
+	color: #1875D1;
+}
+.sHeading
+{
+	margin-left:25px;
+	margin-top:10px;
+}
+.sHeading1
+{
+	margin-left:30px;
+	margin-right:20px;
+}
+/* TASK  MANAGEMENT */
+
+/* sapMText sapMTextMaxWidth sapUiSelectable textalign */
+.textalign .sapMText {
+	padding-top:14px;
+}
+
+.TaskManagementTable .sapMListModeNone {
+	padding-left:1rem;
+	padding-right:1rem; 
+	
+}
+.CommentTable .sapMListModeNone {
+	padding-left: 5rem;
+    padding-right: 5rem;
+   /* padding-top: 1rem; */
+}  
+    
+.taskMgmtSerach{
+	margin-left: 10%;
+    /*margin-right: -62px;*/
+}
+.labelclass3{
+	padding-top:0rem !important;
+	font-size: 14px;
+	font-weight:bold;
+	font-color:#565454;
+}
+.textAreaMrgn{
+margin-left: 0px;
+}
+.margnLeft{
+margin-left: 0px;
+margin-top: 10px;
+padding:0px;
+}
+.uploadBtn{
+	    margin-top: 2px;
+}
+.alignLabSelect{
+	margin-top:15%;
+}
+.margnSelectLabBtn{
+margin-right: 12px;
+}
+.piReqTblCell{
+	    margin-top: 0px;
+}
+.mandatory{
+	margin-top: 15px;
+color: red;
+}
+
+.labSelected{
+    margin-left: 55%;
+}
+
+.pktId{   
+	/* margin-left: 20px;
+    width: 84%; */
+}
+/*--------Service Scope and Charges---------*/
+
+
+.labelclass2{
+	padding-left:25rem !important;
+}
+.labelclass4{
+	padding-top:1rem !important;
+	font-size: 15px;
+	font-weight:bold;
+	font-color:#565454;
+}
+.checkboxtext{
+	/*margin-top: 17px;*/
+	width:16rem;
+	padding-top: 0.5rem;	
+}
+
+.grid1{
+margin-top:1.6rem !important;	
+}
+fdTable .sapMListTbl {
+    width: 97.65% !important;
+        }
+        
+fdTable.sapMListTblCell.sapMListTblCellNoData, .sapMListTblRow>:nth-last-child(2) {
+    padding-right: 0rem;
+}
+fdTable .sapMListTblCell {
+	padding: .25rem .25rem !important;
+	 padding-right: 0rem !important;
+	
+	text-align: left !important;
+	
+}
+.sapMTextArea>.sapMTextAreaInner {
+    height: 100%;
+    width: 104%;
+}
+.fdtable1 .sapMInputBaseInner{
+	margin-left:215% !important;padding-right: 0rem !important;
+	width:160%;
+}
+.comboboxleftmargin{
+	margin-left:10px !important; 
+}
+.gridLblClass11 {
+width: 8em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: #565454;
+margin-top: 12px;
+}
+.newrfs_date{
+    flex-direction: row-reverse !important;
+
+}
+.upload_button{
+
+    margin-top: 2px !important;
+}
+.upload_margin_top{
+	 margin-top: 10px !important;
+}
+.tooltip .sapMInputBaseInner.sapMInputBaseReadonlyInner{
+    border-color: #ddd !important;
+    color: #b3b3b3 !important;
+}
+
+/* Report Module */
+.PaginationClass{
+padding-top: 7px !important;
+}
+
+.gridLbl4{	
+width: 5em;
+   font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+   font-size: 14px;
+   font-weight: bold;
+   color: #565454;
+   margin-left: 5em;
+}
+.grayTable tbody tr:nth-child(even) {
+/*font-family: Open Sans !important;*/
+}
+
+/* landing page */
+.logo{
+	margin-left: 150%;
+    margin-top: 30%;
+}
+
+.corelabs {
+    font-family: 'rotisserifbold_65';
+    font-size: 45px;
+    width: 60rem;
+    padding-left: 12%;
+    /* margin-bottom: 2%; */
+    color: #1875D1;
+    font-weight: bold;
+    margin-top: 43px;
+}
+
+.welcome {
+    font-family: 'rotisserifbold_65';
+    font-size: 38px;
+    width: 18rem;
+    padding-left: 40%;
+    /* margin-bottom: 2%; */
+    color: #1875D1;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.dateHome{
+	font-family: 'rotisserifbold_65';
+	line-height: normal;
+	margin-left: -38%;
+	font-size: 20px;
+	color: brown;
+	margin-top: 10%;
+	font-weight: bold;
+}
+
+.labSelectionCombo {
+margin-top: 7px !important;
+}
+
+.nonExtRepLine{
+	margin-top: 1.6rem !important;
+    margin-bottom: 1rem !important;
+}
+.leftMargin{
+	margin-left: 10px !important;
+}
+.leftMargin3{
+	margin-left: 71px !important;
+}
+.bottomMargin{
+	margin-bottom: 1em !important;
+}
+.noMarging{
+	    margin-top: 0px !important;
+}
+.gridReportLbl {
+width: 10em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: #565454;
+/*margin-top: 18px; */
+/*    margin-left: 2px;*/
+padding-top:0.45rem;
+}
+
+.gridReportLbl_zak {
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: #565454;
+/*margin-top: 18px; */
+/*    margin-left: 2px;*/
+padding-top:0.45rem;
+}
+
+.cwsSerScopeMargintop{
+	margin-top: 1rem !important;
+}
+
+.marginLeftPIList{
+	margin-left: 70% !important;
+}
+.marginLeftPIListff{
+	margin-left: 37% !important;
+}
+
+.dwnBtnColor {
+background:grey !important;
+}
+
+/* Dashboard css */
+
+.leftMargin1{
+	margin-left: 2em !important;
+}
+.dashboardGrid{
+width: 3.5em;
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 13px;
+font-weight: bold;
+color: #565454;
+margin-left: 0px;
+}
+.grid{
+margin-left: -1em !important;
+}
+.noPadding{
+padding: 0rem !important;
+}
+.popupFont{
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 12px;
+font-weight: bold;
+color: #565454;
+margin-left: 0px;
+}
+.popupLabel{
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+font-size: 12px;
+color: #565454;
+margin-left: 0px;
+}
+.datePadding{
+ /*padding-top: 1em;*/
+}
+/*.sapMRbG .sapMRbBLabel {
+    padding-left: 1.875rem;
+    display: inline-block;
+}*/
+.marginL{
+	margin-left: 1rem !important;
+}
+.marginL2{
+	margin-left: 2rem !important;
+}
+.hboxHeight{
+	height: 4em !important;
+}
+.userTypeReportMac{
+	width: 95% !important;
+}
+.aprDirTf{
+margin-top: 1.5rem !important;
+    margin-left: 2.5rem !important;
+}
+
+.rfs_paddingleft{
+padding-left:2% !important;
+}
+
+.hboxClass {
+   /*background: #fff;
+   margin-bottom: 20px;
+   margin-right: 2px;
+   margin-left: 2px;
+   box-shadow: 0 0 2px rgba(0, 0, 0, .12), 0 2px 4px rgba(0, 0, 0, .24);*/
+}
+
+.docPadding{
+padding-top: 2%
+}
+
+.fontStyle{
+font-weight:bold !important;
+}
+
+.tooltipFontColor{
+color: #b3b3b3 !important;
+}
+
+.paddingLeftSSC{
+padding-left:0% !important;
+}
+.tableHeaderSSC{
+	font-size: 15px !important;
+    font-weight: bold !important;
+}
+.rolePanel .sapMPanelContent{
+	border-bottom: none;
+}
+.leftMTaskMClearBtn {
+	margin-left: 10px !important;
+}
+.piApproverClass{
+	margin-top: 6px;
+    margin-left: 10px;
+	
+}
+.divClass{
+	
+}
+.divClass>div:nth-child(odd){
+	width:15%;
+	margin-left:10px;
+}
+.divClass>div:nth-child(even){
+	width:25%;
+	margin-left:10px;
+}
+.divClass>div>label{
+	margin-top:6px;
+}
+@media screen
+	and (device-width: 601px)
+	and (device-height:906px)
+	and (-webkit-min-device-pixel-ratio:1.331)
+	and (-webkit-max-device-pixel-ratio:1.332)
+	and (orientation: portrait){
+	
+		 .flexDisable{
+		display: block !important;
+		}
+		.roleDropdownClass{
+			width:17em !important;
+		}
+		.mainTitle{
+			font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			font-size: 13px;
+			width: 25rem;
+		    color: #1875D1;
+		    font-weight: bold;
+		    margin-top: 10px;
+		}
+		
+	}
+	
+html[data-sap-ui-browser=ff45].roleDropdownClass{
+			width:25em !important;
+		}
+html[data-sap-ui-browser=cr*].roleDropdownClass{
+	width:25em !important;
+}
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+  /* For portrait layouts only */
+  .flexDisable{
+		display: block !important;
+	}
+  .labSelected{
+    margin-left: 40% !important;
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:landscape) {
+  /* For landscape layouts only */
+	
+	.mainTitle{
+		font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 13px;
+		width: 25rem;
+	    color: #1875D1;
+	    font-weight: bold;
+	    margin-top: 10px;
+	}
+/*	.pktId{
+		width:13.1em;
+	}*/
+	
+}
+/* start css for IPad */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
+	.flexDisable{
+		display: block !important;
+	}
+	.mainTitle{
+		font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+		font-size: 13px;
+		width: 25rem;
+	    color: #1875D1;
+	    font-weight: bold;
+	    margin-top: 10px;	
+	}
+	.processFlowBar div.sapMITBHead{
+		margin:0px;
+	}
+	.iconTabHeader > div > div{
+		margin-top: -10px !important;
+	}
+ /*	.pktId{
+		width:13.1em;
+	} */
+	.labSelected{
+    margin-left: 40% !important;
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
+	.flexDisable{
+		display: none;
+	}
+	.mainTitle{
+		
+	}
+	/*.pktId{
+		width:13.1em;
+	} */
+	
+}
+	
+.margin_grid{
+margin:0em !important;
+}
+.gridSpace{
+   margin: 0 0rem !important ;
+   
+}
+.rfsTitle{
+font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+font-size: 15px !important;
+color: #1875D1 !important;
+   font-weight: bold !important;
+  
+}
+.border_bottom.sapMPanelContent {
+   border-bottom: 0px solid white !important;
+   }
+	
+	
+/* end css for Ipad*/
